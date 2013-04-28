@@ -12,7 +12,8 @@
 		<center>
 			<div id="test_wrapper">		
 				<div id="errorMsg">
-					<h2>웹페이지에 접속할 수 없습니다!</h2>
+					<h2>오류가 발생했습니다.</h2>
+					<h4>문제가 지속될 경우 관리자에게 문의해주세요!</h4>
 					${error}
 				</div>
 			</div>

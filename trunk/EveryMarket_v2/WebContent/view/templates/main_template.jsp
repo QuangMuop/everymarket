@@ -6,6 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title> :: EveryMart v2 by gBom :: </title>
 <link href="<%=request.getContextPath()%>/styles/main_template.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/styles/css_youngjun/basic.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/styles/css_youngjun/content.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/styles/css_youngjun/style.css" rel="stylesheet" type="text/css"/>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.form.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.bpopup.js" type="text/javascript"></script>

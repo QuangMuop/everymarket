@@ -5,7 +5,7 @@
 <body>
 <center>
 	<!-- <div> 마켓 메인이미지 </div> -->
-	<h1>${member.m_name }님의 가게</h1>
+	<h1>${owner.m_name }님의 가게</h1>
 	<div>
 		<div class="button">가게 꾸미기</div>
 		<div class="button">상품 등록</div>
