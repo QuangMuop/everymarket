@@ -16,7 +16,7 @@ public class sessionCheck {
 	@After("execution(public * everymarket..*_sc(..))")
 	public void sessionChecker(JoinPoint joinPoint){
 		Object[] arguments = joinPoint.getArgs();
-				
+		
 		HttpServletRequest request = (HttpServletRequest)arguments[0];
 		ModelAndView mav = (ModelAndView)arguments[1];
 		
@@ -24,9 +24,11 @@ public class sessionCheck {
 		Object member = session.getAttribute("member");
 		
 		if(member != null){
+			System.out.println("技记 眉农");
 			mav.addObject("member", (Member)member);
 		}else{
-			mav.setViewName("main");
+			System.out.println("技记 固眉农");
+			mav.setViewName("main_template");
 		}
 	}
 }
