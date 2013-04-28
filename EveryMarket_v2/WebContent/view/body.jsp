@@ -22,7 +22,7 @@
 	${error }
 	
 	</c:if>
-	<img src="image_product/soldout.png">
+
 	<br>
 	<br>
 

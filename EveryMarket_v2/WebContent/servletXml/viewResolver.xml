@@ -31,7 +31,6 @@
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
 		<property name="order" value="1"/>
 	</bean>
-	
 	 
 	<!-- InternalResouece View : 3순위 -->
 	<bean id="internalViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
