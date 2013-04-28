@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
@@ -18,9 +19,17 @@
 	<!-- Header -->
 	<div>
 		평중:
-		<button id="header_login">로그인</button>
-		<button id="header_register">회원가입</button>
-		<button id="header_chargeCash">캐시충전</button>
+		<c:choose>
+			<c:when test="${member == null }">
+				<button id="header_login">로그인</button>
+				<button id="header_register">회원가입</button>
+			</c:when>
+			<c:otherwise>
+				${member.m_name }님 안녕하세요.
+				<button id="header_chargeCash">캐시충전</button>
+				<button id="header_logout">로그아웃</button>	
+			</c:otherwise>
+		</c:choose>
 	</div>
 	
 	<!-- List, JJimbasket -->
@@ -35,6 +44,7 @@
 	
 	<br><br>
 	
+	<!-- Header 팝업창들 -->
 	<div id="login" class="popUp hidden">
 		<form action="login.do" method="post">
 			<input name="m_id" type="text" placeholder="아이디를 입력하세요" size="20"><br><br>
@@ -44,7 +54,7 @@
 	</div>
 	
 	<div id="register" class="popUp hidden">
-		<form action="member_reg.do" method="Post">
+		<form action="registerMember.do" method="Post">
 			<div>
 				<h2 id="sign-up-title">EVERYMARKET 회원가입</h2>
 			</div>
@@ -73,7 +83,7 @@
 	</div>
 	
 	<div id="chargeCash" class="popUp hidden">
-		<form id="form1" action="cashOk.do" method="post">
+		<form id="form1" action="chargeCash.do" method="post">
 			<div>
 				<h3 id="cash-title">EVERYMARKET 캐쉬충전</h3>
 			</div>
@@ -113,11 +123,8 @@
 				</select>
 			</div>
 			<div class="box-footer">
-				<input class="box-btn" type="submit" value="충전하기" /> 
-				<input class="box-btn" type="reset" value="취소하기" />
-				<div class="cash-close-button">
-					<a id="close-btn"></a>
-				</div>
+				<input class="box-btn" type="submit" value="충전하기"/> 
+				<input class="box-btn" type="reset" value="취소하기"/>
 			</div>
 		</form>
 	</div>
