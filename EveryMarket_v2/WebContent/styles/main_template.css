@@ -24,16 +24,13 @@
 }
 
 /* ÆË¾÷Ã¢ css */
-#registerProduct{
+.popUp{
 	background: white;
 	border-radius: 10px;
 	padding: 20px;
 }
 
 #productInfo{
-	background: white;
-	border-radius: 10px;
-	padding: 20px;
 	width: 760px;
 	height: 600px;
 }
