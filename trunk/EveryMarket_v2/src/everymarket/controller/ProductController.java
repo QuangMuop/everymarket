@@ -26,7 +26,6 @@ import everymarket.model.Product;
 public class ProductController {
 	private BlogDao daoB;
 	private ProductDao daoP;
-	private String uploadDir = "F:/kosta-47/source/BOM/EveryMarket_v2/WebContent/image_product/";
 	
 	public void setDaoB(BlogDao daoB) {
 		this.daoB = daoB;
@@ -38,14 +37,16 @@ public class ProductController {
 	@RequestMapping("/registerProduct.do")
 	public ModelAndView registerProduct_sc(HttpServletRequest request, ModelAndView mav, Product product, 
 			@RequestParam(value="uploadFile", required=false)MultipartFile uploadFile){
-		HttpSession session = request.getSession(); 		
+		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("member");
+		String uploadDir = request.getServletContext().getRealPath("image_product");
+		System.out.println(uploadDir);
 		
 		try{
-				/*Spring 파일업로드 구현*/
-				String fileName = uploadFile.getOriginalFilename();
-				uploadFile.transferTo(new File(uploadDir, fileName));
-				product.setP_img(fileName);
+			/*Spring 파일업로드 구현*/
+			String fileName = uploadFile.getOriginalFilename();
+			uploadFile.transferTo(new File(uploadDir, fileName));
+			product.setP_img(fileName);
 		
 			product.setP_id(daoP.getMaxP_id() + 1);
 			product.setP_date(new Timestamp(System.currentTimeMillis()));
