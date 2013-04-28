@@ -9,9 +9,10 @@
 	<!-- main_template View -->
 		
 	<definition name="main_template" template="/view/templates/main_template.jsp">
-	 <put-attribute name="header" value="/view/header.jsp"></put-attribute>
-	 <put-attribute name="body" value="/view/body.jsp"></put-attribute>
-	 <put-attribute name="footer" value="/view/footer.jsp"></put-attribute>
+		<put-attribute name="header" value="/view/header.jsp"/>
+		<put-attribute name="body" value="/view/body.jsp"/>
+		<put-attribute name="commonPopup" value="/view/productInfo.jsp"/>		
+		<put-attribute name="footer" value="/view/footer.jsp"/>
 	</definition>
 	
 	<definition name="indivMarket" extends="main_template">
