@@ -89,7 +89,7 @@ $(document).ready(function(){
 						"<option value='" + category.ct_id + "'>" + 
 						category.ct_large + " : " + category.ct_small + "</option>");
 				});
-			}			
+			}		
 		);
 		
 		$("#registerProduct").bPopup();
