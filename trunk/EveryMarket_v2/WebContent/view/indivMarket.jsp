@@ -20,7 +20,7 @@
 	<div class="button">메인가기</div>
 	
 	<!-- 팝업창 : 상품등록창 -->
-	<div id="registerProduct" class="hidden">
+	<div id="registerProduct" class="popUp hidden">
 		<form action="registerProduct.do" method="post" enctype="multipart/form-data">
 			품명:		<input type="text" name="p_name" size="10">				<br>
 			가격:		<input type="text" name="p_price" size="10">			<br>
@@ -32,7 +32,7 @@
 	</div>
 	
 	<!-- 팝업창 : 상품정보창 -->
-	<div id="productInfo" class="hidden">
+	<div id="productInfo" class="popUp hidden">
 		<div id="homeInfo">
 			<div id="blogB_map"></div>
 			<div id="blogB_content"></div>
