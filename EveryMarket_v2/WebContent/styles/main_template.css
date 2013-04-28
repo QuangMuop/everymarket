@@ -1,0 +1,43 @@
+@CHARSET "EUC-KR";
+
+.button{
+	display: inline-block;
+	background: #b0c4de;
+	border: 1px solid black;
+	border-radius: 6px;
+	padding: 6px; 	
+	cursor: pointer;
+}
+
+.button_detail{
+	display: inline-block;
+	background: #ffffe0;
+	border: 1px solid black;
+	border-radius: 3px;
+	padding: 3px; 	
+	cursor: pointer;
+}
+
+.product{
+	display: inline-block;
+	padding: 5px;
+}
+
+/* ÆË¾÷Ã¢ css */
+#registerProduct{
+	background: white;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+#productInfo{
+	background: white;
+	border-radius: 10px;
+	padding: 20px;
+	width: 760px;
+	height: 600px;
+}
+
+.hidden{
+	display: none;
+}

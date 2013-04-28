@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  tiles-definitions PUBLIC
+	"-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd"
+>
+
+<tiles-definitions>
+	
+	<!-- main_template View -->
+		
+	<definition name="main_template" template="/view/templates/main_template.jsp">
+	 <put-attribute name="header" value="/view/header.jsp"></put-attribute>
+	 <put-attribute name="body" value="/view/body.jsp"></put-attribute>
+	 <put-attribute name="footer" value="/view/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="indivMarket" extends="main_template">
+		<put-attribute name="body" value="/view/indivMarket.jsp"/>
+	</definition>
+	
+	<definition name="list" extends="main_template">
+		<put-attribute name="body" value="/view/list.jsp"/>  
+	</definition>
+	
+	<definition  name="JJimbasket" extends="main_template">
+		<put-attribute name="body" value="/view/JJimbasket.jsp"/>	
+	</definition>
+		
+	<!-- errorPage View -->
+	<definition name="errorPage" template="/view/templates/errorPage.jsp"/>
+
+</tiles-definitions>
