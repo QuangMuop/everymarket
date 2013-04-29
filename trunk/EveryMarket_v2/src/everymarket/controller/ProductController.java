@@ -50,9 +50,7 @@ public class ProductController {
 			@RequestParam(value = "uploadFile", required = false) MultipartFile uploadFile) {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
-		String uploadDir = request.getServletContext().getRealPath(
-				"image_product");
-		System.out.println(uploadDir);
+		String uploadDir = request.getServletContext().getRealPath("image_product");
 
 		try {
 			/* Spring 파일업로드 구현 */
@@ -131,8 +129,6 @@ public class ProductController {
 		ModelAndView mav = new ModelAndView();
 
 		listProduct = daoP.ListProduct(category, 5, searchtext);
-		System.out.println(listProduct.get(0).getP_id() + "1d");
-		System.out.println(listProduct.get(2).getP_id() + "2d");
 
 		mav.setViewName("main_list");
 		
