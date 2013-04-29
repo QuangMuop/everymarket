@@ -2,8 +2,6 @@ package everymarket.model;
 
 import java.sql.Timestamp;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class Product {
 	private int p_id;
 	private String p_name;
@@ -14,7 +12,14 @@ public class Product {
 	private String m_id;
 	private int ct_id;
 	private String p_status;
+	private int p_report;
 	
+	public int getP_report() {
+		return p_report;
+	}
+	public void setP_report(int p_report) {
+		this.p_report = p_report;
+	}
 	public int getP_id() {
 		return p_id;
 	}

@@ -8,7 +8,21 @@ public class Member {
 	private String m_pno;
 	private String m_phone;
 	private int m_cash;
+	private int m_report;
+	private String m_status;
 	
+	public int getM_report() {
+		return m_report;
+	}
+	public void setM_report(int m_report) {
+		this.m_report = m_report;
+	}
+	public String getM_status() {
+		return m_status;
+	}
+	public void setM_status(String m_status) {
+		this.m_status = m_status;
+	}
 	public String getM_id() {
 		return m_id;
 	}

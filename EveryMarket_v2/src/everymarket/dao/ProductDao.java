@@ -19,6 +19,11 @@ public class ProductDao {
 	public int getMaxP_id() {
 		return (Integer) ibatisTemplate.queryForObject("getMaxP_id");
 	}
+	
+	/*Output: Product*/
+	public List<Product> getReportedProduct(){
+		return ibatisTemplate.queryForList("getReportedProduct");
+	}
 
 	/* Input: Product */
 	public void registerProduct(Product product) {
@@ -54,12 +59,7 @@ public class ProductDao {
 		map.put("searchtext", searchtext);
 		
 		if(category.equals("All")){			
-			System.out.println("요기기??");
 			ArrayList<Product> list = (ArrayList) ibatisTemplate.queryForList("listProduct_main", map);
-		    System.out.println(list.get(0).getP_id() + "가보자");
-		    System.out.println(list.get(1).getP_id() + "가보자1");
-		    System.out.println(list.get(2).getP_id() + "가보자2");
-			
 			return ibatisTemplate.queryForList("listProduct_main", map);
 		}else if (searchtext.equals("basic")) {
 			System.out.println("난가?");
@@ -68,19 +68,5 @@ public class ProductDao {
 			System.out.println("나야?");
 			return ibatisTemplate.queryForList("listProductSearch", map);
 		}
-
 	}
-
-	/*// main에서 List뿌려주기
-	public List<Product> List_MainProduct(int pageNum) {
-
-		HashMap<String, Object> map = new HashMap<String, Object>();
-
-		map.put("startPage", pageNum - 4);
-		map.put("endPage", pageNum);
-
-		return ibatisTemplate.queryForList("listProduct_main", map);
-
-	}*/
-
 }
