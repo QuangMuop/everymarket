@@ -79,5 +79,14 @@
 	<bean id="tradeDao" class="everymarket.dao.TradeDao">
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
+	
+	<!-- 거래 관련 컨트롤러!! -->
+	
+	<bean id="tradeController" class="everymarket.controller.TradeController">
+       	<property name="daoP" ref="productDao"></property>
+	</bean>
+	
+	
+
 
 </beans>
