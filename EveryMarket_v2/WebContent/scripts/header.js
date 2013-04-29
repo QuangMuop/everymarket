@@ -76,5 +76,10 @@ $(document).ready(function(){
 		m_phone += $("#m_phone_3").val();
 		$("#m_phone").attr("value", m_phone);
 	});
-
+//	개인알리미
+	$("#alarm").hover(function(){
+		$("#alarm_in").fadeIn();
+	},function(){
+		$("#alarm_in").fadeOut();
+	});
 });

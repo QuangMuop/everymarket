@@ -38,3 +38,70 @@
 .hidden{
 	display: none;
 }
+
+/* Çì´õ css */
+#h_out_header{
+	background-color: #fbfbfc;
+}
+#h_inner_header{
+	width: 960px;
+	height: 15px;
+	background-color: #fbfbfc;
+	padding: 8px;
+}
+.h_tag{
+	cursor: pointer;
+	color: #555555;
+	font-size: 12px;
+	float: right;
+	margin-right: 8px;
+	text-decoration: none;
+}
+#alarm_in{
+	display: none;
+	width: 150px;
+	height: 300px;
+	position: fixed;
+	margin-top:24px;
+	margin-left: 600px;
+	background-color: white;
+}
+#h_bar{
+	color: #dedede;
+	float: right;
+	margin-right: 8px;
+	font-size: 11px;
+}
+#h_mid{
+	width: 960px;
+	height: 150px;
+}
+#h_logo{
+	background-image: url(../images/header/logo_everymarket.gif);
+	background-repeat: no-repeat;
+	float: left;
+	width: 350px;
+	height: 150px;
+	cursor: pointer;
+}
+#h_searchbar{
+	float: right;
+	height: 30px;
+	border: 2px solid #e73535;
+	margin-top: 100px;
+}
+#h_searchline{
+	float: left;
+}
+#h_search{
+	width: 210px;
+	height: 25px;
+	background-color: #ffffff;
+}
+#h_sbutton{
+	width: 40px;
+	height: 31px;
+	background-image: url(../images/header/sbutton.png);
+	background-repeat: no-repeat;
+	float: right;
+}

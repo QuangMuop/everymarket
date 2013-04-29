@@ -3,44 +3,50 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
-	
-	<br>
-	
-	----- header -----
-	
-	<br><br>
-	
-	<!-- IndivMarket -->
-	<div>
-		준규: 
-		<a href="enter.do">개인마켓페이지</a>
-	</div>
-	
-	<!-- Admin, QnaBoard -->
-	<div>
-		승혁:
-		<c:if test="${member.id == 'Admin' }">
-			<button id="goAdminister">관리자모드</button>
-		</c:if>
-		<button id="goQnaBoard">QnA게시판</button>
-	</div>
-	
 	<!-- Header -->
-	<div>
-		평중:
+	<div id="h_out_header">
+	<div id="h_inner_header">
 		<c:choose>
 			<c:when test="${member == null }">
-				<button id="header_login">로그인</button>
-				<button id="header_register">회원가입</button>
+				<a class="h_tag" id="header_register">회원가입</a>
+				<a id="h_bar" >|</a>
+				<a class="h_tag" id="header_login">로그인</a>
 			</c:when>
 			<c:otherwise>
-				${member.m_name }님 안녕하세요.
-				<button id="header_chargeCash">캐시충전</button>
-				<button id="header_logout">로그아웃</button>	
+				<a class="h_tag" id="header_logout">로그아웃</a>
+				<a id="h_bar" >|</a>
+				<a class="h_tag" id="header_chargeCash">캐시충전</a>
+				<a id="h_bar" >|</a>
+				<a class="h_tag" href="JJimbasket.do">찜바구니</a>
+				<a id="h_bar" >|</a>
+				<!-- IndivMarket --> 
+				<a class="h_tag" href="enter.do">개인마켓페이지</a>
+				<a id="h_bar" >|</a>
+				<a class="h_tag" id="alarm">알리미</a>
+				<div id="alarm_in">
+					<div>
+					알림1
+					</div>
+				</div>
+				<a id="h_bar" >|</a>
+				<a class="h_tag">${member.m_name }님 안녕하세요.</a>
 			</c:otherwise>
 		</c:choose>
 	</div>
-	
+	</div>
+	<!--logo-image,search -->
+	<div id="h_mid">
+		<div id="h_logo">
+			<a>logo</a>
+		</div>
+		<div id="h_searchbar">
+			<form action="main.do" id="h_searchline" method="get">
+						<input id="h_search" class="search-input" name="search_content" 
+								type="text" placeholder="물품이나 가게이름을 검색해보세요" />
+						<button id="h_sbutton" type="submit"></button>
+			</form>
+		</div>
+	</div>
 	<!-- List, JJimbasket -->
 	<div>
 		영준: 
