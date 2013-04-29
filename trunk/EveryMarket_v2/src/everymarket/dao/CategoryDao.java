@@ -16,4 +16,8 @@ public class CategoryDao {
 	public List<Category> getCategoryList(){
 		return ibatisTemplate.queryForList("getCategoryList");
 	}
+	
+	public List CateList(String category) {
+		return ibatisTemplate.queryForList("listCategory", category);
+	}
 }

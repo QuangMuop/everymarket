@@ -26,6 +26,10 @@
 	<definition  name="JJimbasket" extends="main_template">
 		<put-attribute name="body" value="/view/JJimbasket.jsp"/>	
 	</definition>
+	
+	<definition name="main_list" extends="main_template">
+	   <put-attribute name="body" value="/view/main_menu.jsp"></put-attribute>
+	</definition>
 		
 	<!-- errorPage View -->
 	<definition name="errorPage" template="/view/templates/errorPage.jsp"/>
