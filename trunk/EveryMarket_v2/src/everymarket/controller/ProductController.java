@@ -118,24 +118,4 @@ public class ProductController {
 
 		return mav;
 	}
-
-	// 메인에서 리스트를 뿌려줄때 사용합니다.
-	@RequestMapping(value = "/main_list.do")
-	public ModelAndView list2(
-			@RequestParam(value = "category", defaultValue = "All") String category,
-			@RequestParam(value = "searchtext", defaultValue = "basic") String searchtext) {
-		List<Product> listProduct = null;
-
-		ModelAndView mav = new ModelAndView();
-
-		listProduct = daoP.ListProduct(category, 5, searchtext);
-
-		mav.setViewName("main_list");
-		
-		mav.addObject("category", "All");
-		mav.addObject("searchtext", "All");
-		mav.addObject("listProduct", listProduct);
-
-		return mav;
-	}
 }

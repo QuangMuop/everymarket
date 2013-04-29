@@ -29,8 +29,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/enter.do")
-	public ModelAndView tempGo(){
-		return new ModelAndView("main_template");
+	public ModelAndView enter(){
+		ModelAndView mav = new ModelAndView();
+		
+		String category = "All";
+		String searchtext = "basic";
+		
+		List<Product> listProduct = daoP.ListProduct(category, 5, searchtext);
+		
+		mav.addObject("category", "All");
+		mav.addObject("searchtext", "All");
+		mav.addObject("listProduct", listProduct);
+		mav.setViewName("main");
+		return mav;
 	}
 	
 	@RequestMapping("/login.do")

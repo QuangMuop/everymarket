@@ -8,10 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
+	<form action="goMarket.do" method="post">
+		<input type="text" name="m_id" size="10">
+		<input type="submit" value="마켓이동">
+	</form>
+	
+	<c:if test="${error != null }">	${error } </c:if>
+
 	<div id="container_grid">
 		<div class='all_content'>
 			<section id="wrapper">
-			<div id="item_container" category= ${category} searchtext = ${searchtext} ">
+			<div id="item_container" category="${category}" searchtext="${searchtext}">
 				<c:forEach var="product" items="${listProduct}">
 					<div class="grid" p_id="${product.p_id}">
 						<div class="imgholder">

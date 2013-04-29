@@ -10,10 +10,12 @@
 		
 	<definition name="main_template" template="/view/templates/main_template.jsp">
 		<put-attribute name="header" value="/view/header.jsp"/>
-		<put-attribute name="body" value="/view/body.jsp"/>
+		<put-attribute name="body" value="/view/main.jsp"/>
 		<put-attribute name="commonPopup" value="/view/productInfo.jsp"/>		
 		<put-attribute name="footer" value="/view/footer.jsp"/>
 	</definition>
+	
+	<definition name="main" extends="main_template"/>
 	
 	<definition name="indivMarket" extends="main_template">
 		<put-attribute name="body" value="/view/indivMarket.jsp"/>
@@ -25,10 +27,6 @@
 	
 	<definition  name="JJimbasket" extends="main_template">
 		<put-attribute name="body" value="/view/JJimbasket.jsp"/>	
-	</definition>
-	
-	<definition name="main_list" extends="main_template">
-	   <put-attribute name="body" value="/view/main_menu.jsp"></put-attribute>
 	</definition>
 		
 	<!-- errorPage View -->
