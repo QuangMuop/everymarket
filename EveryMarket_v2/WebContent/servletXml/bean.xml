@@ -13,79 +13,66 @@
 
 	<!-- 블로그 관련 업무 수행 컨트롤러 -->
 	<bean id="blogController" class="everymarket.controller.BlogController">
-		<property name="daoB" ref="blogDao"/>
+		<property name="daoB" ref="blogDao" />
 	</bean>
-	
+
 	<bean id="blogDao" class="everymarket.dao.BlogDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
 
 	<!-- 카테고리 관련 업무 수행 컨트롤러 -->
 	<bean id="categoryController" class="everymarket.controller.CategoryController">
-		<property name="daoCt" ref="categoryDao"/>
+		<property name="daoCt" ref="categoryDao" />
 	</bean>
-	
+
 	<bean id="categoryDao" class="everymarket.dao.CategoryDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
-	
+
 	<!-- 상품댓글 관련 업무 수행 컨트롤러 -->
-	<bean id="commentsController" class="everymarket.controller.CommentsController"> 
-		<property name="daoB" ref="blogDao"/>
-		<property name="daoC" ref="commentsDao"/>
+	<bean id="commentsController" class="everymarket.controller.CommentsController">
+		<property name="daoB" ref="blogDao" />
+		<property name="daoC" ref="commentsDao" />
 	</bean>
-	
+
 	<bean id="commentsDao" class="everymarket.dao.CommentsDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
-	
+
 	<!-- 찜 관련 업무 수행 컨트롤러 -->
 	<bean id="jjimController" class="everymarket.controller.JjimController">
-		<property name="daoB" ref="blogDao"/>
-		<property name="daoJ" ref="jjimDao"/>
+		<property name="daoB" ref="blogDao" />
+		<property name="daoJ" ref="jjimDao" />
+		<property name="daoT" ref="tradeDao" />
 	</bean>
-	
+
 	<bean id="jjimDao" class="everymarket.dao.JjimDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
 
 	<!-- 계정 관련 업무 수행 컨트롤러 -->
 	<bean id="memberController" class="everymarket.controller.MemberController">
-		<property name="daoM" ref="memberDao"/>
-		<property name="daoP" ref="productDao"/>
+		<property name="daoM" ref="memberDao" />
+		<property name="daoP" ref="productDao" />
 	</bean>
-	
+
 	<bean id="memberDao" class="everymarket.dao.MemberDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
-	
+
 	<!-- 제품 관련 업무 수행 컨트롤러 -->
 	<bean id="productController" class="everymarket.controller.ProductController">
-		<property name="daoB" ref="blogDao"/>
-		<property name="daoP" ref="productDao"/>
+		<property name="daoB" ref="blogDao" />
+		<property name="daoP" ref="productDao" />
+		<property name="daoC" ref="categoryDao"></property>
 	</bean>
-	
+
 	<bean id="productDao" class="everymarket.dao.ProductDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
-	
-	
-	
-	
-	<bean id="jjimBasketController" class="everymarket.controller.JJimbasketController">
-		<property name="daoJ" ref="jjimBasketDao"/>
-	</bean>
-	
-	<bean id="jjimBasketDao" class="everymarket.dao.JjimbasketDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
-	</bean>
-	
-	<bean id="ListController" class="everymarket.controller.ListController">
-		<property name="daoL" ref="listDao"/>
-	</bean>
-	
-	<bean id="listDao" class="everymarket.dao.ListDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+
+	<bean id="tradeDao" class="everymarket.dao.TradeDao">
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
 
 </beans>

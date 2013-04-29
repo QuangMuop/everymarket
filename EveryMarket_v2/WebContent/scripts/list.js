@@ -5,10 +5,17 @@ $(document).ready(function() {
 		offsetX : 8,
 		offsetY : 8
 	});	
-		
+	
 		 var category1 = $("#item_container").attr('category');
 		 var searchtext = $("#item_container").attr('searchtext');
-		 alert(searchtext + "µùµù");
+		 
+	
+		 if(category1 == null){			 
+			category1 = "All";
+			
+		 }else{
+			
+		 }
 		
          var pageNum = 10;
          
@@ -24,7 +31,7 @@ $(document).ready(function() {
 								.height()
 								- $(window).height()) {
 
-							ListDwr.getList(category1, pageNum, searchtext,showList);
+							productDwr.getList(category1, pageNum, searchtext,showList);
 							pageNum += 5;
 							
 							
@@ -40,9 +47,9 @@ $(document).ready(function() {
 		
         
 		function showList(data) {
-			            
+			      
 			$.each(data, function(index, product) {
-                
+         
                var html = "<div class='grid' p_id = '" + product.p_id + "'>" ;
                html += "<div class = 'imgholder'>";
                html += "<img src='image_product/" + product.p_img + "'/>";
