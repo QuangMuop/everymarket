@@ -20,7 +20,7 @@ public class ProductDao {
 		return (Integer) ibatisTemplate.queryForObject("getMaxP_id");
 	}
 	
-	/*Output: Product*/
+	/*Output: Product(p_report > 3)*/
 	public List<Product> getReportedProduct(){
 		return ibatisTemplate.queryForList("getReportedProduct");
 	}
@@ -48,9 +48,7 @@ public class ProductDao {
 	}
 
 	// 검색했을시 List뿌려주기
-	public List<Product> ListProduct(String category, int pageNum,
-			String searchtext) {
-
+	public List<Product> ListProduct(String category, int pageNum, String searchtext) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
 		map.put("category", category);
