@@ -16,6 +16,15 @@
 		<a href="enter.do">개인마켓페이지</a>
 	</div>
 	
+	<!-- Admin, QnaBoard -->
+	<div>
+		승혁:
+		<c:if test="${member.id == 'Admin' }">
+			<button id="goAdminister">관리자모드</button>
+		</c:if>
+		<button id="goQnaBoard">QnA게시판</button>
+	</div>
+	
 	<!-- Header -->
 	<div>
 		평중:

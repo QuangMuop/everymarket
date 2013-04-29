@@ -7,7 +7,6 @@
 <tiles-definitions>
 	
 	<!-- main_template View -->
-		
 	<definition name="main_template" template="/view/templates/main_template.jsp">
 		<put-attribute name="header" value="/view/header.jsp"/>
 		<put-attribute name="body" value="/view/main.jsp"/>
@@ -15,18 +14,32 @@
 		<put-attribute name="footer" value="/view/footer.jsp"/>
 	</definition>
 	
+	<!-- 웹사이트 입장시 메인화면 - 상품 전체리스트 -->
 	<definition name="main" extends="main_template"/>
 	
+	<!-- 개인마켓페이지 -->
 	<definition name="indivMarket" extends="main_template">
 		<put-attribute name="body" value="/view/indivMarket.jsp"/>
 	</definition>
 	
+	<!-- 카테고리 및 검색어에 의한 상품 리스트 -->
 	<definition name="list" extends="main_template">
 		<put-attribute name="body" value="/view/list.jsp"/>  
 	</definition>
 	
+	<!-- 거래내역 및 찜바구니 페이지 -->
 	<definition  name="JJimbasket" extends="main_template">
 		<put-attribute name="body" value="/view/JJimbasket.jsp"/>	
+	</definition>
+	
+	<!-- 관리자 전용 페이지 -->
+	<definition name="administer" extends="main_template">
+		<put-attribute name="body" value="/view/.jsp"/>
+	</definition>
+		
+	<!-- 질문답변 게시판 -->
+	<definition name="qnaBoard" extends="main_template">
+		<put-attribute name="body" value="/view/.jsp"/>
 	</definition>
 		
 	<!-- errorPage View -->
