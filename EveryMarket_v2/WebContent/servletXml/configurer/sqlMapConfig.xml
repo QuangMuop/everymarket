@@ -6,19 +6,22 @@
 
 <sqlMapConfig>
 
-  <transactionManager type="JDBC" commitRequired="false">
-    <dataSource type="JNDI">
-      	<property name="DataSource" value="java:comp/env/jdbc/oracle"/>
-    </dataSource>
-  </transactionManager>
- 
-	<sqlMap resource="everymarket/ibatis/Blog.xml"/>
-	<sqlMap resource="everymarket/ibatis/Category.xml"/>
-	<sqlMap resource="everymarket/ibatis/Comments.xml"/>
-	<sqlMap resource="everymarket/ibatis/Jjim.xml"/>
-	<sqlMap resource="everymarket/ibatis/Member.xml"/>
-	<sqlMap resource="everymarket/ibatis/Product.xml"/>
-	
-	<sqlMap resource="everymarket/ibatis/List.xml"/>
+	<transactionManager type="JDBC" commitRequired="false">
+		<dataSource type="JNDI">
+			<property name="DataSource" value="java:comp/env/jdbc/oracle" />
+		</dataSource>
+	</transactionManager>
+
+	<sqlMap resource="everymarket/ibatis/Blog.xml" />
+	<sqlMap resource="everymarket/ibatis/Category.xml" />
+	<sqlMap resource="everymarket/ibatis/Comments.xml" />
+	<sqlMap resource="everymarket/ibatis/Jjim.xml" />
+	<sqlMap resource="everymarket/ibatis/Member.xml" />
+	<sqlMap resource="everymarket/ibatis/Product.xml" />
+
+	<sqlMap resource="everymarket/ibatis/List.xml" />
+
 
 </sqlMapConfig>
+
+
