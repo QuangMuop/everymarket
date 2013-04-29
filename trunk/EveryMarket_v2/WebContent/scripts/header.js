@@ -1,14 +1,8 @@
 $(document).ready(function(){
-	$("#goAdminister").click(goAdminister);
-	$("#goQnaBoard").click(goQnaBoard);	
 	$("#header_login").click(popUp_login);
 	$("#header_register").click(popUp_register);
 	$("#header_chargeCash").click(popUp_chargeCash);
 	$("#header_logout").click(tryLogout);
-	
-	/*관리자모드 / QnA게시판 이동 펑션*/
-	function goAdminister(){ location.href="administer.go"; }
-	function goQnaBoard(){ location.href="qnaBoard.go"; }
 	
 	/*헤더 팝업 펑션*/
 	function popUp_login(){ $("#login").bPopup(); }

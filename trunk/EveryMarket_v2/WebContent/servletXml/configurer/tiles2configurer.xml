@@ -34,12 +34,12 @@
 	
 	<!-- 관리자 전용 페이지 -->
 	<definition name="administer" extends="main_template">
-		<put-attribute name="body" value="/view/.jsp"/>
+		<put-attribute name="body" value="/view/administer.jsp"/>
 	</definition>
 		
 	<!-- 질문답변 게시판 -->
 	<definition name="qnaBoard" extends="main_template">
-		<put-attribute name="body" value="/view/.jsp"/>
+		<put-attribute name="body" value="/view/qnaBoard.jsp"/>
 	</definition>
 		
 	<!-- errorPage View -->

@@ -31,7 +31,8 @@ public class MemberController {
 	@RequestMapping("/login.do")
 	public ModelAndView login_sc(HttpServletRequest request, ModelAndView mav,
 			@RequestParam("m_id")String m_id, 
-			@RequestParam("m_pwd") String m_pwd){
+			@RequestParam("m_pwd")String m_pwd){
+		System.out.println("しししししし");
 		HttpSession session = request.getSession();
 		HashMap<String, String> member_map = new HashMap<String, String>();
 		member_map.put("m_id", m_id);
