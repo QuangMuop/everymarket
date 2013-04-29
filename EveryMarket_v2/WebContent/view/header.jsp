@@ -35,7 +35,6 @@
 	<!-- List, JJimbasket -->
 	<div>
 		영준: 
-		<a href="main_list.do">전체목록보기</a>
 		<a href="list.do?category=의류">의류</a>
 		<a href="list.do?category=여성의류">여성의류</a> 
 		<a href="JJimbasket.do">찜</a>
