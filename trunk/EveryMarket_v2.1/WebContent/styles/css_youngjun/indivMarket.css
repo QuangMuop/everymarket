@@ -1,0 +1,458 @@
+@CHARSET "EUC-KR";
+
+	/* body default좌측마진: 183px */
+	/* 팝업컨텐츠 left값 공식: (960 - width) / 2 */
+
+	/* jsp문서 개별 스타일 */
+	div#image_main {
+		height: 200px;
+	}
+	div.bar {
+		width: auto;
+		height: auto;
+	}
+	div#buttonBar1 {
+		float: left;
+		width: 690px;
+		height: 38px;
+	}
+	div#buttonBar2 {
+		height: 38px;
+	}
+	div.button {
+		float: left;
+		width: 78px;
+		height: 30px;
+		margin: auto;
+	}
+	div.button { margin: 3px; }
+	div#contents {
+		width: 958px;
+		height: auto;
+	}
+	div#homeInfo {
+		position: absolute; 
+		width: 306px;
+		height: 485px;
+		margin: 10px;
+		left: 10px;
+	}
+	div#contents > div#homeInfo {
+		margin: 10px 0px 10px 25px;
+	}
+	div#map {
+		height: 304px;
+	}
+	div#b_content {
+		height: 100px; 
+	}
+	div.box {
+		float: left;
+		width: 100px;
+		height: 75px;
+	}
+	div#sortBar {
+		float: right;
+		width: 50px;
+		height: 200px;
+		margin: 15px;
+	}
+	
+	div.product {
+		float: left;
+		width: 80px;
+		height: 160px;
+		margin: 10px;
+	}
+	
+	/* 상품 상세정보 */
+	div#detail {
+		position: absolute;
+		display: none;
+		background-color: white;
+		border-radius: 5px;
+		width: 800px;
+		height: auto;
+		left: 80px;
+		margin: 10px 0px;		
+	}
+	div#detailColumn1 {
+		float: left;
+		width: 328px;
+		height: auto;
+	}
+	div#detailColumn2 {
+		float: right;
+		width: 468px;
+		height: auto;
+	}
+	div.p_fname {
+		width: 446px;
+		height: auto;
+		margin: 10px;
+	}
+	div#p_content {
+		width: 446px;
+		height: 200px;
+		margin-left: 10px;
+	}
+	div#contentTop {
+		border: 0px;
+		height: 35px;
+	}
+	div#contentTopL {
+		border: 0px;
+		float: left;
+		width: 73%;
+		height: 100%;
+	}
+	div#contentTopR {
+		border: 0px;
+		float: right;
+		width: 27%;
+		height: 100%;
+	}
+	div#contentMid {
+		height: 128px;
+	}
+	div#contentBottom {
+		border: 0px;
+		height: 35px;
+	}
+	div#detailComment {
+		float: right;
+		width: 446px;
+		margin-right: 12px;
+	}
+	div.comment {
+		width: 434px;
+		height: auto;
+		padding: 5px;
+	}
+	div.commentName {
+		padding: 5px;
+	}
+	div.commentContent {
+		padding: 5px 20px;
+	}
+	div.commentTime {
+		text-align: right;
+		padding-right: 10px;
+	}	
+	div#commentInput {
+		float: right;
+		width: 446px;
+		height: 35px;
+		margin-right: 12px;
+	}
+	div.footer {
+		clear: both;
+		width: auto;
+		height: 40px;
+	}
+	div#footer_detailL {
+		float: left;
+		border: 0px;
+		width: 400px;
+		height: 40px;
+	}
+	div#footer_detailR {
+		float: right;
+		border: 0px;
+		height: 40px;
+		padding: 5px 8px;
+	}
+	
+	/* 가게꾸미기 */
+	div#deco {
+		position: absolute;
+		display: none;
+		background-color: white;
+		border-radius: 5px;
+		width: 468px;
+		height: auto;
+		left: 246px;
+		margin: 10px 0px;
+	}
+	div.image_b_main {
+		width: 446px;
+		height: 223px;
+		margin: 10px;
+	}
+	div#deco .RPbar {
+		height: 96px;
+	}
+	div#deco .RPbar div{
+		border-top: 1px solid red;
+		height: 48px;
+	}
+	div#deco input[type="file"] {
+		margin: 10px;
+	}
+	
+	/* 상품 등록하기 */
+	div#RP {
+		position: absolute;
+		display: none;
+		background-color: white;
+		border-radius: 5px;
+		width: 468px;
+		height: auto;
+		left: 246px;
+		margin: 10px 0px;
+		/* (960 - width) / 2 + 183 */
+	}
+	div.RPbar {
+		width: auto;
+		height: 35px;
+	}
+	div.RPbarL {
+		float: left;
+		border: 0;
+		width: 33%;
+		height: 35px;
+	}
+	div.RPbarR {
+		float: right;
+		border: 0;
+		width: 66%;
+		height: 35px;
+		text-align: left;
+	}
+	div.RPp_content {
+		padding: 10px;
+	}
+	div.RPsubmit {
+		text-align: right;
+	}
+	
+	/* 내 단골 목록 */
+	div#MyDL {
+		position: absolute;
+		display: none;
+		background-color: white;
+		border-radius: 5px;
+		width: 900px;
+		height: auto;
+		left: 30px;
+		margin: 10px 0px;
+	}
+	div.image_DL {
+		width: auto;
+		height: 157px;
+	}
+	
+	/* 단골 목록 */
+	div#DL {
+		position: absolute;
+		display: none;
+		background-color: white;
+		border-radius: 5px;
+		width: 900px;
+		height: auto;
+		left: 30px;
+		margin: 10px 0px;
+	}
+	
+	/* 상품구매창 */
+	div#buy {
+		position: absolute;
+		display: none;
+		background-color: white;
+		border-radius: 5px;
+		width: 600px;
+		height: auto;
+		left: 180px;
+		margin: 10px 0px;
+	}
+	div#image_buy {
+		border: 0px;
+		width: 600px;
+		height: 128px;
+	}
+	div.buyL {
+		float: left;
+		width: 200px;
+		height: 30px;
+		padding: 5px 20px;
+		text-align: right;
+	}
+	div.buyR {
+		width: auto;
+		height: 30px;
+		padding: 5px 100px 5px 5px;
+		text-align: right;
+	}
+	div#footer_buy {
+		float: right;
+		border: 0px;
+		width: auto;
+		height: 40px;
+	}
+	
+	/* 마켓 후기게시판 */
+	div#review {
+		position: absolute;
+		display: none;
+		background-color: white;
+		border-radius: 5px;
+		width: 720px;
+		height: auto;
+		left: 120px;
+		margin: 10px 0px;
+	}
+	div.bar_review {
+		border: 0px;
+		width: auto;
+		height: auto;
+		padding: 3px;
+	}
+	div#review_content {
+		position: relative;
+		border: 0px;
+		width: 720px;
+		height: auto;
+	}
+	div#review_side {
+		position: relative;
+		float: left;
+		height: auto;
+		top: 8px;
+		left: 8px;
+	}
+	div#review_list {
+		float: right;
+		width: 83.4%;
+	}
+	div.review {
+		border: 0px;
+		width: auto;
+		height: 85px;
+		padding: 5px;
+	}
+
+	/* 기타 button, img, input, p */
+	button {
+		height: 25px;
+	}
+	
+	img.button {
+		width: 25px;
+		height: 25px;
+		padding: 5px;
+	}
+	#image_DL img {
+		width: auto;
+	}
+	#detailColumn2 > .p_fname > img {
+		width: 446px;
+	}
+	
+	input {
+		height: 25px;
+		margin: 5px;
+	}
+	
+	p {
+		margin: 3px auto;
+		text-align: center;
+	}
+	.RPp_content p {
+		margin-left: 8px;
+		text-align: left;
+	}
+	div#review_list .review p{
+		text-align: left;
+	}
+	
+	/* Masonry플러그인 관련 */
+	.item  {
+	    width: 150px;
+	    margin: 10px;    
+	    background-color:White;
+	    border-radius:4px; 
+	    float: left;
+	    box-shadow:5px 5px 10px Black;
+	}
+	.item > .bottom {
+	    padding-left:10px; padding-right:10px;
+	    position:relative;
+	}
+	
+	/* jQuery-blockUI 관련 */	
+	#closeDetail {
+	    display: block;
+	    background: url(../image/button.gif) no-repeat;
+	    width: 25px;
+	    height: 25px;
+	    position: absolute;
+		top: 0px;
+		right: -30px;
+	    cursor: pointer;
+	}
+	
+	#closeDeco {
+	    display: block;
+	    background: url(../image/button.gif) no-repeat;
+	    width: 25px;
+	    height: 25px;
+	    position: absolute;
+		top: 0px;
+		right: -30px;
+	    cursor: pointer;
+	}
+	
+	#closeRP {
+		display: block;
+	    background: url(../image/button.gif) no-repeat;
+	    width: 25px;
+	    height: 25px;
+	    position: absolute;
+	    top: 0px;
+		right: -30px;
+	    cursor: pointer;
+	}
+	
+	#closeMyDL {
+		display: block;
+	    background: url(../image/button.gif) no-repeat;
+	    width: 25px;
+	    height: 25px;
+	    position: absolute;
+	    top: 0px;
+		right: -30px;
+	    cursor: pointer;
+	}
+	
+	#closeBuy {
+		display: block;
+	    background: url(../image/button.gif) no-repeat;
+	    width: 25px;
+	    height: 25px;
+	    position: absolute;
+	    top: 0px;
+		right: -30px;
+	    cursor: pointer;
+	}
+	
+	#closeDL {
+		display: block;
+	    background: url(../image/button.gif) no-repeat;
+	    width: 25px;
+	    height: 25px;
+	    position: absolute;
+	    top: 0px;
+		right: -30px;
+	    cursor: pointer;
+	}
+	
+	#closeReview {
+		display: block;
+	    background: url(../image/button.gif) no-repeat;
+	    width: 25px;
+	    height: 25px;
+	    position: absolute;
+	    top: 0px;
+		right: -30px;
+	    cursor: pointer;
+	}

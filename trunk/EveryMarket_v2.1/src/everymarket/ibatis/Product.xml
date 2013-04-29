@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<!-- sqlMapConfig초기화에서 에러나서 임시로 만든 sql파일 ㅋㅋ -->
+
+<sqlMap namespace="Product">
+	
+	<typeAlias alias="Product" type="everymarket.model.Product"/>
+	
+	<insert id="registerProduct" parameterClass="Product">
+		insert into product values(
+			#p_id#,
+			#p_name#,
+			#p_price#,
+			#p_img#,
+			#p_detail#,
+			#p_date#,
+			#m_id#,
+			#ct_id#,
+			'n'
+		)
+	</insert>
+	
+	<select id="getMaxP_id" resultClass="Integer">
+		select max(p_id) from product
+	</select>
+	
+	<select id="getReportedProduct" resultClass="Product">
+		select * from product where p_report > 3
+	</select>
+	
+	<select id="getProductById" resultClass="Product">
+		select * from product where p_id = #p_id# 
+	</select>
+	
+	<select id="getProductListById" resultClass="Product">
+		select * from product where m_id = #m_id# order by p_date desc
+	</select>
+	
+	<select id="getM_idByP_id" resultClass="String">
+		select m_id from product where p_id = #p_id#
+	</select>
+	
+	<select id="getRandomProductByM_id" resultClass="Product">
+		select * from ( 
+			select * from product 
+			order by dbms_random.value ) 
+		where rownum &#60;= 3 and m_id = #m_id#
+	</select>
+	
+</sqlMap>

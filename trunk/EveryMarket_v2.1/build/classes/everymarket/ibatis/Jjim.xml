@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Jjim">
+
+ 	<typeAlias alias="Jjim" type="everymarket.model.Jjim"/>
+ 	<typeAlias alias="Product" type="everymarket.model.Product"/>
+ 	<typeAlias alias="JJimResult" type="everymarket.object4output.JjimResult" />
+ 	
+ 	<!-- indivMarket.jsp에서 사용하는 sqlStatements -->
+ 	<insert id="registerJjim" parameterClass="Jjim">
+ 		insert into jjim values(
+ 			#j_id#,
+ 			#p_id#,
+ 			#m_id#,
+ 			#b_thumb#
+ 		)
+ 	</insert>
+ 
+	<select id="getMaxJ_id" resultClass="Integer">
+		select max(j_id) from jjim
+	</select>
+	
+	<select id="getJjimByP_id" resultClass="Jjim">
+		select * from jjim where p_id = #p_id#
+	</select>
+ 	
+ 	<!-- list.jsp에서 사용하는 sqlStatements -->
+ 	<select id="buyList_p_id" resultClass="Integer"> 	
+ 	    select p_id from trade where t_buyer = #m_id#
+ 	</select>
+ 	
+ 	<select id="buyList_product" resultClass="Product">
+		select * from product where p_id = #p_id# 	    	
+ 	</select>
+ 	
+ 	<select id="buyList_Jjim" resultClass="Integer">
+		select count(j_id) from JJim where p_id = #p_id#
+ 	</select>
+ 	
+ 	<select id="buyList_comment" resultClass="String">
+		select count(c_id) from comments where p_id = #p_id#
+ 	</select>
+ 	
+ 	<select id="sellList_p_id" resultClass="Integer"> 	
+ 	    select t.p_id from product p join trade t on p.p_id = t.p_id where p.m_id = #m_id# 
+ 	</select>
+ 	
+ 	<select id="jjimList_p_id" resultClass="Integer"> 	
+ 	    select p_id from jjim where m_id = #m_id#
+ 	</select>
+ 	
+</sqlMap>

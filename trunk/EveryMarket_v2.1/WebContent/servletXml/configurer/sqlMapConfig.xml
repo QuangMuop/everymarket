@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+  <transactionManager type="JDBC" commitRequired="false">
+    <dataSource type="JNDI">
+      	<property name="DataSource" value="java:comp/env/jdbc/oracle"/>
+    </dataSource>
+  </transactionManager>
+ 
+	<sqlMap resource="everymarket/ibatis/Blog.xml"/>
+	<sqlMap resource="everymarket/ibatis/Category.xml"/>
+	<sqlMap resource="everymarket/ibatis/Comments.xml"/>
+	<sqlMap resource="everymarket/ibatis/Jjim.xml"/>
+	<sqlMap resource="everymarket/ibatis/Member.xml"/>
+	<sqlMap resource="everymarket/ibatis/Product.xml"/>
+	
+	<sqlMap resource="everymarket/ibatis/List.xml"/>
+
+</sqlMapConfig>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<!-- sqlMapConfig초기화에서 에러나서 임시로 만든 sql파일 ㅋㅋ -->
+
+<sqlMap namespace="Member">
+	
+	<typeAlias alias="Member" type="everymarket.model.Member"/>
+
+	<insert id="registerMember" parameterClass="Member">
+  		insert into member(
+  			m_id,
+  			m_nick,
+  			m_name,
+  			m_pwd,
+  			m_phone,
+  			m_cash,
+  			m_report,
+  			m_status
+  		) values(
+  			#m_id#,
+  			#m_nick#,
+  			#m_name#,
+  			#m_pwd#,
+  			#m_phone#,
+  			0,
+  			0,
+  			'일반'
+  		)
+  	</insert>
+
+	<!-- 로그인 -->
+	<select id="loginMember" parameterClass="HashMap" resultClass="Member">
+		select * 
+		from Member 
+		where m_id = #m_id# and m_pwd = #m_pwd#
+	</select>
+	
+	<!-- 회원가입 Validation : Id 중복확인 -->
+	<select id="idConfrim" parameterClass="String" resultClass="Member">
+  		select * 
+  		from Member 
+  		where m_id = #m_id#
+  	</select>
+
+	<select id="getMemberList" resultClass="Member">
+		select * 
+		from member
+	</select>
+
+	<select id="getMemberById" resultClass="Member">
+		select * 
+		from member 
+		where m_id = #m_id#
+	</select>
+	
+	<update id="chargeCash" parameterClass="HashMap">
+		update member 
+		set m_cash = m_cash + #m_cash# 
+		where m_id = #m_id#
+	</update>
+	
+</sqlMap>
