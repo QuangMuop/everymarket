@@ -38,6 +38,11 @@
 	<bean id="commentsDao" class="everymarket.dao.CommentsDao">
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
+	
+	<!-- 단순 페이지 이동 관련 업무 수행 컨트롤러 -->
+	<bean id="fowardingController" class="everymarket.controller.FowardingController">
+		<property name="daoP" ref="productDao"/>
+	</bean>
 
 	<!-- 찜 관련 업무 수행 컨트롤러 -->
 	<bean id="jjimController" class="everymarket.controller.JjimController">

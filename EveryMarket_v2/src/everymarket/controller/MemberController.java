@@ -28,22 +28,6 @@ public class MemberController {
 		this.daoP = daoP;
 	}
 	
-	@RequestMapping("/enter.do")
-	public ModelAndView enter(){
-		ModelAndView mav = new ModelAndView();
-		
-		String category = "All";
-		String searchtext = "basic";
-		
-		List<Product> listProduct = daoP.ListProduct(category, 5, searchtext);
-		
-		mav.addObject("category", "All");
-		mav.addObject("searchtext", "All");
-		mav.addObject("listProduct", listProduct);
-		mav.setViewName("main");
-		return mav;
-	}
-	
 	@RequestMapping("/login.do")
 	public ModelAndView login_sc(HttpServletRequest request, ModelAndView mav,
 			@RequestParam("m_id")String m_id, 
@@ -56,7 +40,7 @@ public class MemberController {
 		Member member = daoM.loginMember(member_map);
 		if(member != null){
 			session.setAttribute("member", member);
-			mav.setViewName("main_template");
+			mav.setViewName("main");
 			return mav;
 		}else{
 			mav.addObject("error", "로그인에 실패하였습니다.");
@@ -134,7 +118,7 @@ public class MemberController {
 		try{
 			daoM.registerMember(member);
 			session.setAttribute("member", member);
-			mav.setViewName("main_template");
+			mav.setViewName("main");
 		}catch(Exception e){
 			
 		}
@@ -158,7 +142,7 @@ public class MemberController {
 		
 		try{
 			daoM.chargeCash(cash_map);
-			mav.setViewName("main_template");
+			mav.setViewName("main");
 		}catch(Exception e){
 			mav.addObject("error", "문제가 발생하였습니다.");
 			mav.setViewName("errorPage");
@@ -191,7 +175,7 @@ public class MemberController {
 		
 		session.setAttribute("member", null);
 		
-		mav.setViewName("main_template");
+		mav.setViewName("main");
 		return mav;
 	}
 }

@@ -52,6 +52,11 @@
 
 	<servlet-mapping>
 		<servlet-name>springServlet</servlet-name>
+		<url-pattern>*.go</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>springServlet</servlet-name>
 		<url-pattern>/dwr/*</url-pattern>
 	</servlet-mapping>
 	<!-- 서블렛 구현부 종료 -->
