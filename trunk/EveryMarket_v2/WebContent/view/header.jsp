@@ -49,11 +49,107 @@
 		</div>
 	</div>
 	<!-- List, JJimbasket -->
-	<div>
-		영준: 
-		<a href="list.do?category=의류">의류</a>
-		<a href="list.do?category=여성의류">여성의류</a> 
-		<a href="JJimbasket.do">찜</a>
+	<div id="h_menu">
+		<ul id="h_menu" class="h_menu">
+				<li>
+					<a href="list.do?category=의류">
+						<img src="images/header/1.png" alt=""/>
+						<span class="h_active"></span>
+						<span class="h_wrap">
+							<span class="h_link">의류</span>
+							<span class="h_descr">clothes</span>
+						</span>
+					</a>
+					<div class="h_box">
+							<a href="list.do?category=여성의류">여성의류</a>
+							<a href="list.do?category=남성의류">남성의류</a>
+							<a href="list.do?category=언더웨어">언더웨어</a>
+							<a href="list.do?category=유아임산부의류">유아/임산부 의류</a>
+							<a href="list.do?category=기타의류">기타의류</a>
+					</div>
+				</li>
+				<li>
+					<a href="list.do?category=잡화">
+						<img src="images/header/2.png" alt=""/>
+						<span class="h_active"></span>
+						<span class="h_wrap">
+							<span class="h_link">잡화</span>
+							<span class="h_descr">goods</span>
+						</span>
+					</a>
+					<div class="h_box">
+							<a href="list.do?category=시계">시계</a>
+							<a href="list.do?category=신발">신발</a>
+							<a href="list.do?category=악세서리">악세서리</a>
+							<a href="list.do?category=화장품">화장품</a>
+							<a href="list.do?category=기타잡화">기타잡화</a>
+					</div>
+				</li>
+				<li>
+					<a href="list.do?category=레저">
+						<img src="images/header/3.png" alt=""/>
+						<span class="h_active"></span>
+						<span class="h_wrap">
+							<span class="h_link">레저</span>
+							<span class="h_descr">leisure</span>
+						</span>
+					</a>
+					<div class="h_box">
+							<a href="list.do?category=스포츠용품">스포츠용품</a>
+							<a href="list.do?category=아웃도어">아웃도어</a>
+							<a href="list.do?category=헬스용품">헬스용품</a>
+					</div>
+				</li>
+				<li>
+					<a href="list.do?category=전자기기">
+						<img src="images/header/4.png" alt=""/>
+						<span class="h_active"></span>
+						<span class="h_wrap">
+							<span class="h_link">전자기기</span>
+							<span class="h_descr">electronic equipment</span>
+						</span>
+					</a>
+					<div class="h_box">
+							<a href="list.do?category=컴퓨터기기">컴퓨터기기</a>
+							<a href="list.do?category=카메라">카메라</a>
+							<a href="list.do?category=휴대폰">휴대폰</a>
+							<a href="list.do?category=가전제품">가전제품</a>
+					</div>
+				</li>
+				<li>
+					<a href="list.do?category=도서음반">
+						<img src="images/header/5.png" alt=""/>
+						<span class="h_active"></span>
+						<span class="h_wrap">
+							<span class="h_link">도서/음반</span>
+							<span class="h_descr">books/records</span>
+						</span>
+					</a>
+					<div class="h_box">
+							<a href="list.do?category=문구팬시">문구팬시</a>
+							<a href="list.do?category=DVD">DVD</a>
+							<a href="list.do?category=도서">도서</a>
+							<a href="list.do?category=음반">음반</a>
+					</div>
+				</li>
+				<li>
+					<a href="list.do?category=가구">
+						<img src="images/header/6.png" alt=""/>
+						<span class="h_active"></span>
+						<span class="h_wrap">
+							<span class="h_link">가구</span>
+							<span class="h_descr">furniture</span>
+						</span>
+					</a>
+					<div class="h_box">
+						<a href="list.do?category=침대">침대</a>
+						<a href="list.do?category=책걸상">책걸상</a>
+						<a href="list.do?category=소파">소파</a>
+						<a href="list.do?category=행거">행거</a>
+						<a href="list.do?category=수납가구">수납가구</a>
+					</div>
+				</li>
+			</ul>
 	</div>
 	
 	<br><br>

@@ -82,9 +82,9 @@
 	
 	<!-- 거래 관련 컨트롤러!! -->
 	
-	<bean id="tradeController" class="everymarket.controller.TradeController">
-       	<property name="daoP" ref="productDao"></property>
-	</bean>
+<!-- 	<bean id="tradeController" class="everymarket.controller.TradeController"> -->
+<!--        	<property name="daoP" ref="productDao"></property> -->
+<!-- 	</bean> -->
 	
 	
 
