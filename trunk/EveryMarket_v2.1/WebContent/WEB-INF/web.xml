@@ -23,19 +23,21 @@
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
-				
-				/servletXml/aop.xml
-					
-				/servletXml/bean.xml		
-				
-				/servletXml/dataBase.xml
-				
-				/servletXml/dwr.xml
-				
-				/servletXml/viewResolver.xml
-				
-				/servletXml/tiles2.xml
-			</param-value>
+		<!-- aop관련 설정 담당 -->
+		/servletXml/aop.xml
+		<!-- bean객체 생성 담당 -->
+		/servletXml/bean.xml		
+		<!-- dateBase관련 설정 담당 -->
+		/servletXml/dataBase.xml
+		<!-- dwr관련 설정 담당 -->
+		/servletXml/dwr.xml
+		<!-- mainSender관련 설정 담당 -->
+		/servletXml/mainSender.xml
+		<!-- viewResolver관련 설정 담당 -->
+		/servletXml/viewResolver.xml
+		<!-- tiles2관련 설정 담당 -->
+		/servletXml/tiles2.xml
+	</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>

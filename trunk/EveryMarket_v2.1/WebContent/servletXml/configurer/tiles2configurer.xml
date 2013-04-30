@@ -10,7 +10,7 @@
 	<definition name="main_template" template="/view/templates/main_template.jsp">
 		<put-attribute name="header" value="/view/header.jsp"/>
 		<put-attribute name="body" value="/view/main.jsp"/>
-		<put-attribute name="commonPopup" value="/view/productInfo.jsp"/>		
+		<put-attribute name="popup" value="/view/popup_productInfo.jsp"/>		
 		<put-attribute name="footer" value="/view/footer.jsp"/>
 	</definition>
 	
@@ -39,7 +39,8 @@
 		
 	<!-- 질문답변 게시판 -->
 	<definition name="qnaBoard" extends="main_template">
-		<put-attribute name="body" value="/view/qnaBoard.jsp"/>
+		<put-attribute name="body" value="/view/board_qna.jsp"/>
+		<put-attribute name="popup" value="/view/popup_qna.jsp"/>
 	</definition>
 		
 	<!-- errorPage View -->
