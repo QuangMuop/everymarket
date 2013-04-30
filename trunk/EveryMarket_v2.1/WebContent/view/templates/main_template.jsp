@@ -15,6 +15,7 @@
 <script src="<%=request.getContextPath()%>/dwr/engine.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/productDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/adminDwr.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/scripts/footer.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/header.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/indivMarket.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/list.js" type="text/javascript"></script>

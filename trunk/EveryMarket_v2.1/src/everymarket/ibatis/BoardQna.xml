@@ -7,7 +7,46 @@
 <sqlMap namespace="BoardQna">
 	
 	<typeAlias alias="BoardQna" type="everymarket.model.BoardQna"/>
- 
 
+	<insert id="insertQna" parameterClass="BoardQna">
+		insert into board_qna
+		values(
+			#qna_id#,
+			#qna_title#,
+			#qna_writer#,
+			#qna_contents#,
+			#qna_regdate#,
+			0,
+			null,
+			'n'
+		)
+	</insert>
+	
+	<delete id="deleteQna">
+		delete board_qna where qna_id = #qna_id#
+	</delete>
+	
+	<update id="updateQna" parameterClass="boardQna">
+		update board_qna
+		set qna_contents = #qna_contents#
+		where qna_id = #qna_id#
+	</update>
+	
+	<update id="insertQnaAnswer" parameterClass="BoardQna">
+		update board_qna 
+		set qna_answer = #qna_answer# 
+		where qna_id = #qna_id#
+	</update>
+
+	<select id="getMaxQna_id" resultClass="Integer">
+		select max(Qna_id)
+		from board_qna
+	</select>
+
+	<select id="getQnaList" resultClass="BoardQna">
+		select *
+		from board_qna
+		order by qna_id desc
+	</select>
 
 </sqlMap>

@@ -20,7 +20,7 @@ public class ProductDao {
 		return (Integer) ibatisTemplate.queryForObject("getMaxP_id");
 	}
 	
-	/*Output: Product(p_report > 3)*/
+	/*Output: List<Product>(p_report > 3)*/
 	public List<Product> getReportedProduct(){
 		return ibatisTemplate.queryForList("getReportedProduct");
 	}

@@ -7,7 +7,11 @@
 <sqlMap namespace="BoardReport">
 	
 	<typeAlias alias="BoardReport" type="everymarket.model.BoardReport"/>
- 
 
+	<select id="getUncheckedReportList" resultClass="BoardReport">
+		select *
+		from board_report
+		where r_check = 'n'
+	</select>
 
 </sqlMap>
