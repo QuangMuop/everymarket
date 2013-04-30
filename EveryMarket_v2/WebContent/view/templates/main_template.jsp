@@ -12,6 +12,7 @@
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.form.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.bpopup.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/scripts/lib/jquery.easing.1.3.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/engine.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/productDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/adminDwr.js" type="text/javascript"></script>
