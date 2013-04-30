@@ -26,13 +26,22 @@
 				<div class="contents hidden">
 					${boardQna.qna_contents }
 					<c:if test="${boardQna.qna_answer != null }">
-						<div class="answer">${boardQna.qna_answer }</div>
+						<div class="answer">
+							<p>replied by Admin :</p>
+							${boardQna.qna_answer }
+						</div>
 					</c:if>
 					<c:if test="${member.m_id == boardQna.qna_writer }">
 						<div>
-							<button class="modify_boardQna">글 수정하기</button>
-							<button class="delete_boardQna">글 삭제하기</button>
+							<button class="modify_boardQna" qna_id="${boardQna.qna_id }">글 수정하기</button>
+							<button class="delete_boardQna" qna_id="${boardQna.qna_id }">글 삭제하기</button>
 						</div>
+					</c:if>
+					<c:if test="${member.m_id == 'aa' }">
+						<div>
+							<button class="answer_boardQna" qna_id="${boardQna.qna_id }">답변하기</button>
+							<button class="delete_boardQna" qna_id="${boardQna.qna_id }">글 삭제하기</button>
+						</div>		
 					</c:if>
 				</div>
 			</div>

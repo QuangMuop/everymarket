@@ -26,13 +26,13 @@
 		delete board_qna where qna_id = #qna_id#
 	</delete>
 	
-	<update id="updateQna" parameterClass="boardQna">
+	<update id="updateQna" parameterClass="BoardQna">
 		update board_qna
 		set qna_contents = #qna_contents#
 		where qna_id = #qna_id#
 	</update>
 	
-	<update id="insertQnaAnswer" parameterClass="BoardQna">
+	<update id="answerQna" parameterClass="BoardQna">
 		update board_qna 
 		set qna_answer = #qna_answer# 
 		where qna_id = #qna_id#
@@ -41,6 +41,12 @@
 	<select id="getMaxQna_id" resultClass="Integer">
 		select max(Qna_id)
 		from board_qna
+	</select>
+
+	<select id="getBoardQnaByQna_id" resultClass="BoardQna">
+		select *
+		from board_qna
+		where qna_id = #qna_id#
 	</select>
 
 	<select id="getQnaList" resultClass="BoardQna">

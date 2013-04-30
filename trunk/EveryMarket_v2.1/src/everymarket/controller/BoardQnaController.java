@@ -44,51 +44,53 @@ public class BoardQnaController {
 		return mav;
 	}
 	
-	@RequestMapping("/insertQnaAnswer.do")
-	public ModelAndView insertQnaAnswer(BoardQna boardQna){
+	@RequestMapping("/answerQna.do")
+	public ModelAndView answerQna(HttpServletRequest request, BoardQna boardQna){
+		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
+		Member member = (Member)session.getAttribute("member");
+
+		daoBQ.answerQna(boardQna);
 		
-		daoBQ.insertQnaAnswer(boardQna);
+		List<BoardQna> listBoardQna = daoBQ.getQnaList();
 		
+		mav.addObject("member", member);
+		mav.addObject("listBoardQna", listBoardQna);
 		mav.setViewName("qnaBoard");
 		return mav;
 	}
 	
 	@RequestMapping("/updateQna.do")
-	public ModelAndView updateQna(BoardQna boardQna){
+	public ModelAndView updateQna(HttpServletRequest request, BoardQna boardQna){
+		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
+		Member member = (Member)session.getAttribute("member");
 		
 		daoBQ.updateQna(boardQna);
 		
+		List<BoardQna> listBoardQna = daoBQ.getQnaList();
+		
+		mav.addObject("member", member);
+		mav.addObject("listBoardQna", listBoardQna);
 		mav.setViewName("qnaBoard");
 		return mav;
 	}
 	
 	@RequestMapping("/deleteQna.do")
-	public ModelAndView deleteQna(@RequestParam("qna_id")int qna_id){
+	public ModelAndView deleteQna(HttpServletRequest request,
+			@RequestParam("qna_id")int qna_id){
+		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
+		Member member = (Member)session.getAttribute("member");
 		
 		daoBQ.deleteQna(qna_id);
 		
+		List<BoardQna> listBoardQna = daoBQ.getQnaList();
+		
+		mav.addObject("member", member);
+		mav.addObject("listBoardQna", listBoardQna);
 		mav.setViewName("qnaBoard");
 		return mav;
 	}
-	
-//	/*getJSON*/
-//	@RequestMapping("/refreshQna.do")
-//	public ModelAndView refreshBoardQnaList(HttpServletRequest request){
-//		HttpSession session = request.getSession();
-//		ModelAndView mav = new ModelAndView();
-//		
-//		List<BoardQna> listBoardQna = daoBQ.getQnaList();
-//		Member member = (Member)session.getAttribute("member");
-//		
-//		Map<String, Object> map = new HashMap<String, Object>();
-//		map.put("listBoardQna", listBoardQna);
-//		map.put("member", member);
-//		
-//		mav.addAllObjects(map);
-//		mav.setViewName("jsonView");
-//		return mav;
-//	}
+
 }
