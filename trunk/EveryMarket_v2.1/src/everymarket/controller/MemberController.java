@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -105,11 +106,11 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping("/registerMember.do")
+	@RequestMapping(value="/registerMember.do", method=RequestMethod.POST)
 	public ModelAndView registerMember(HttpServletRequest request, Member member){
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
-		
+		System.out.println("1234141");
 		if(daoM.idConfirm(member.getM_id()) != null){
 			mav.addObject("error", "아이디가 중복되었습니다.");
 			mav.setViewName("errorPage");
@@ -120,8 +121,9 @@ public class MemberController {
 			daoM.registerMember(member);
 			session.setAttribute("member", member);
 			mav.setViewName("main");
-		}catch(Exception e){
 			
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 		
 		
