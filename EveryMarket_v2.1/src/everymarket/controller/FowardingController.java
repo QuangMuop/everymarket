@@ -6,13 +6,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import everymarket.dao.BoardQnaDao;
 import everymarket.dao.ProductDao;
+import everymarket.model.BoardQna;
 import everymarket.model.Product;
 
 @Controller
 public class FowardingController {
+	private BoardQnaDao daoBQ;
 	private ProductDao daoP;
 
+	public void setDaoBQ(BoardQnaDao daoBQ) {
+		this.daoBQ = daoBQ;
+	}
 	public void setDaoP(ProductDao daoP) {
 		this.daoP = daoP;
 	}
@@ -35,11 +41,17 @@ public class FowardingController {
 	
 	@RequestMapping("/administer.go")
 	public ModelAndView goAdminister(){
+
 		return new ModelAndView("administer");
 	}
 	
 	@RequestMapping("/qnaBoard.go")
 	public ModelAndView goQnaBoard(){
-		return new ModelAndView("qnaBoard");
+		ModelAndView mav = new ModelAndView();
+		List<BoardQna> listBoardQna = daoBQ.getQnaList();
+		
+		mav.addObject("listBoardQna", listBoardQna);
+		mav.setViewName("qnaBoard");
+		return mav;
 	}
 }
