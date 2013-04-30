@@ -13,12 +13,13 @@
   </transactionManager>
  
 	<sqlMap resource="everymarket/ibatis/Blog.xml"/>
+	<sqlMap resource="everymarket/ibatis/BoardQna.xml"/>	
+	<sqlMap resource="everymarket/ibatis/BoardReport.xml"/>	
 	<sqlMap resource="everymarket/ibatis/Category.xml"/>
 	<sqlMap resource="everymarket/ibatis/Comments.xml"/>
 	<sqlMap resource="everymarket/ibatis/Jjim.xml"/>
 	<sqlMap resource="everymarket/ibatis/Member.xml"/>
 	<sqlMap resource="everymarket/ibatis/Product.xml"/>
-	
 	<sqlMap resource="everymarket/ibatis/List.xml"/>
 
 </sqlMapConfig>
