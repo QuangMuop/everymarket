@@ -87,7 +87,7 @@
 	<bean id="productController" class="everymarket.controller.ProductController">
 		<property name="daoB" ref="blogDao" />
 		<property name="daoP" ref="productDao" />
-		<property name="daoC" ref="categoryDao"></property>
+		<property name="daoC" ref="categoryDao"/>
 	</bean>
 
 	<bean id="productDao" class="everymarket.dao.ProductDao">
@@ -98,22 +98,4 @@
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
 
-	<!-- 메일 센더 관련 모든 빈들 -->
- 	<bean id="MailController" class="everymarket.controller.MailController">
-		<property name="sender" ref="mimeMailSender"></property> 
-	 </bean>
-	 
-	 <bean id="javaMailSender" class="everymarket.mailsender.JavaMailAuthenticator">
-		<property name="host" value="smtp.gmail.com"/>
-		<property name="port" value="465"/>
-		<property name="protocol" value="smtps"/>
-		<property name="username" value="kpj5427@gmail.com"/>
-		<property name="password" value="vodebd2911"/>
-	</bean>
-	
-	<bean id="mimeMailSender" class="everymarket.mailsender.MimeMailSender">
-		<property name="sender">
-			<ref bean="javaMailSender"/>
-		</property>
-	</bean>
 </beans>

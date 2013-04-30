@@ -28,7 +28,7 @@
 	<hr>
 		
 	<tiles:insertAttribute name="body"/>
-	<tiles:insertAttribute name="commonPopup"/>	
+	<tiles:insertAttribute name="popup"/>	
 	
 	<hr>
 	
