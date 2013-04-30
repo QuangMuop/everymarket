@@ -19,6 +19,24 @@
 	<bean id="blogDao" class="everymarket.dao.BlogDao">
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
+	
+	<!-- Qna게시판 관련 업무 수행 컨트롤러 -->
+	<bean id="boardQnaController" class="everymarket.controller.BoardQnaController">
+		<property name="daoBQ" ref="boardQnaDao"/>
+	</bean>
+	
+	<bean id="boardQnaDao" class="everymarket.dao.BoardQnaDao">
+		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+	</bean>
+	
+	<!-- 신고게시판 관련 업무 수행 컨트롤러 -->
+	<bean id="boardReportController" class="everymarket.controller.BoardReportController">
+		<property name="daoBR" ref="boardReportDao"/>
+	</bean>
+	
+	<bean id="boardReportDao" class="everymarket.dao.BoardReportDao">
+		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+	</bean>
 
 	<!-- 카테고리 관련 업무 수행 컨트롤러 -->
 	<bean id="categoryController" class="everymarket.controller.CategoryController">
