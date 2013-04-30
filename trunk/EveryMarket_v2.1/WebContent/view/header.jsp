@@ -87,10 +87,13 @@
 				</select> 
 				<input type="text" class="number_txt" name="m_phone_2" id="m_phone_2" placeholder="전화번호 앞자리" size="4" maxlength="4" />
 				<input	type="text" class="number_txt" name="m_phone_3" id="m_phone_3" placeholder="전화번호 뒷자리" size="4" maxlength="4" />
-				<input type="hidden" class="number_txt" name="m_phone" id="m_phone">
+				<input type="hidden" class="number_txt" name="m_phone" id="m_phone"><br>
+				<input type="text" name="m_mail" id="m_mail">
+				<input type="button" id="m_mailConfirm" value="인증메일발송"> <br>
+				<input type="text" name="reg_confirm" id="reg_confirm"><br>
 			</div>
 			<div class="box-footer">
-				<input class="box-btn" type="submit" value="회원가입" /> 
+				<input class="box-btn" id="submit"  type="submit" value="회원가입" /> 
 				<input class="box-btn" type="reset" value="취소" />
 			</div>
 		</form>		
