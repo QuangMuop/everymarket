@@ -59,6 +59,7 @@
 	
 	<!-- 단순 페이지 이동 관련 업무 수행 컨트롤러 -->
 	<bean id="fowardingController" class="everymarket.controller.FowardingController">
+		<property name="daoBQ" ref="boardQnaDao"/>
 		<property name="daoP" ref="productDao"/>
 	</bean>
 

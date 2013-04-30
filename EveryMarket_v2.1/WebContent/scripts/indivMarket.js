@@ -21,7 +21,7 @@ $(document).ready(function(){
 	function refreshComments(){
 		$("#productComments > div").remove();
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2/refreshComments.do?p_id=" 
+			"http://localhost:8081/EveryMarket_v2.1/refreshComments.do?p_id=" 
 				+ $("input[name='p_id']").attr("value"),
 			function(data){
 				$.each(data.listComments, function(index, comments){
@@ -37,7 +37,7 @@ $(document).ready(function(){
 	function popUp_productInfo(){
 		/*productInfo Div객체 최신화*/
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2/getProductInfo.do?p_id="
+			"http://localhost:8081/EveryMarket_v2.1/getProductInfo.do?p_id="
 				+ $(this).attr("productId"),
 			function(data){
 				/*HomeInfo Div*/
@@ -82,7 +82,7 @@ $(document).ready(function(){
 	/*상품 등록창 띄우기*/
 	function popUp_registerProduct(){
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2/getCategoryList.do",
+			"http://localhost:8081/EveryMarket_v2.1/getCategoryList.do",
 			function(data){
 				$.each(data.listCategory, function(index, category){
 					$("#registerProduct select").append(
@@ -97,7 +97,7 @@ $(document).ready(function(){
 	
 	function registerJjim(){
 		$.ajax({
-			url: "http://localhost:8081/EveryMarket_v2/registerJjim.do",
+			url: "http://localhost:8081/EveryMarket_v2.1/registerJjim.do",
 			data: { 'p_id': $("#productInfo").attr("p_id") }
 		});
 		alert("해당 상품을 찜했습니다!");
@@ -106,7 +106,7 @@ $(document).ready(function(){
 	
 	function refreshJjim(){
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2/refreshJjim.do?p_id="
+			"http://localhost:8081/EveryMarket_v2.1/refreshJjim.do?p_id="
 				+ $("#productInfo").attr("p_id"),
 			function(data){
 				$("#listJjimer > span").remove();

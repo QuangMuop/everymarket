@@ -9,9 +9,28 @@
 	<div id="insertBoardQna" class="hidden">
 		<h2>글쓰기 폼</h2>
 		<form action="insertQna.do" method="post">
-			제목:		<input type="text" name="qna_title"/><br>
+			제목:		<input type="text" name="qna_title"><br>
 			내용:		<textarea name="qna_contents" rows="6" cols="30"/></textarea><br>
-			<input type="submit" value="글 작성하기"/>
+			<input type="submit" value="글 작성하기">
+		</form>
+	</div>
+	
+	<div id="answerBoardQna" class="hidden">
+		<h2>답변 폼</h2>
+		<form action="answerQna.do" method="post">
+			내용:		<textarea name="qna_answer" rows="6" cols="30"></textarea><br>
+			<input type="hidden" name="qna_id" value="">
+			<input type="submit" value="답변하기">		
+		</form>
+	</div>
+	
+	<div id="updateBoardQna" class="hidden">
+		<h2>글 수정 폼</h2>
+		<form action="updateQna.do" method="post">
+			제목:		<input type="text" name="qna_title" readonly="readonly"><br>
+			내용:		<textarea name="qna_contents" rows="6" cols="30"></textarea><br>
+			<input type="hidden" name="qna_id" value="">
+			<input type="submit" value="수정하기"/>		
 		</form>
 	</div>
 	

@@ -33,12 +33,17 @@ public class BoardQnaDao {
 	}
 	
 	/*Input: qna_id, qna_answer*/
-	public void insertQnaAnswer(BoardQna boardQna){
-		ibatisTemplate.update("insertQnaAnswer", boardQna);
+	public void answerQna(BoardQna boardQna){
+		ibatisTemplate.update("answerQna", boardQna);
 	}
 	
+	/*Input: qna_id*/
 	public void deleteQna(int qna_id){
 		ibatisTemplate.delete("deleteQna", qna_id);
+	}
+	
+	public BoardQna getBoardQnaByQna_id(int qna_id){
+		return (BoardQna)ibatisTemplate.queryForObject("getBoardQnaByQna_id", qna_id);
 	}
 	
 	/*Output: List<BoardQna>*/
