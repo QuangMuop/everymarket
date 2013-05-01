@@ -14,7 +14,7 @@
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.bpopup.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/blocksit.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/engine.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/dwr/interface/adminDwr.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/dwr/interface/boardReportDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/productDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/administer.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/footer.js" type="text/javascript"></script>
