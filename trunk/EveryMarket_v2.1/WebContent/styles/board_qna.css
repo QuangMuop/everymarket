@@ -9,6 +9,11 @@ div.narrow{
 	width: 50px;
 }
 
+div.normal{
+	display: inline-block;
+	width: 150px;
+}
+
 div.wide{
 	display: inline-block;
 	width: 250px;
