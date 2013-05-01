@@ -22,7 +22,6 @@ public class BoardReportController {
 	/*getJSON*/
 	@RequestMapping("/callReportedList.do")
 	public ModelAndView callReportedProductList(){
-		System.out.println("¿äÃ» µé¾î¿È");
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 		

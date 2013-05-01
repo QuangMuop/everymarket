@@ -28,7 +28,7 @@ $(document).ready(function(){
 		var memberId = $(this).attr("m_id");
 		var actionCode = $(this).val();
 		
-		alert("멤버아이디:" + memberId + " / " + "신고처리:" + actionCode);
+		boardReportDwr.test(memberId, actionCode);
 	}
 	
 	function callMemberList(){
