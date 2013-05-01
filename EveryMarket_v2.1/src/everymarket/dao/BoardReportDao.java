@@ -13,6 +13,16 @@ public class BoardReportDao {
 		this.ibatisTemplate = ibatisTemplate;
 	}
 
+	/*Output: List<BoardReport>(r_productId != null and r_check == 'n')*/
+	public List<BoardReport> getReportedProduct(){
+		return ibatisTemplate.queryForList("getReportedProduct");
+	}
+	
+	/*Output: List<BoardReport>(r_productId == null and r_check == 'n')*/
+	public List<BoardReport> getReportedMember(){
+		return ibatisTemplate.queryForList("getReportedMember");
+	}
+	
 	/*Output: List<BoardReport>(r_check = 'n')*/
 	public List<BoardReport> getUncheckedReportList(){
 		return ibatisTemplate.queryForList("getUncheckedReportList");

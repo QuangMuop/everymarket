@@ -8,7 +8,8 @@ public class BoardReport {
 	private String r_writer;
 	private String r_contents;
 	private Timestamp r_regdate;
-	private String r_target;
+	private int r_productId;
+	private String r_memberId;
 	private String r_check;
 	
 	public int getR_id() {
@@ -41,11 +42,17 @@ public class BoardReport {
 	public void setR_regdate(Timestamp r_regdate) {
 		this.r_regdate = r_regdate;
 	}
-	public String getR_target() {
-		return r_target;
+	public int getR_productId() {
+		return r_productId;
 	}
-	public void setR_target(String r_target) {
-		this.r_target = r_target;
+	public void setR_productId(int r_productId) {
+		this.r_productId = r_productId;
+	}
+	public String getR_memberId() {
+		return r_memberId;
+	}
+	public void setR_memberId(String r_memberId) {
+		this.r_memberId = r_memberId;
 	}
 	public String getR_check() {
 		return r_check;

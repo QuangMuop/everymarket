@@ -11,7 +11,7 @@
 	<!-- Admin, QnaBoard -->
 	<div>
 		승혁:
-		<c:if test="${member.m_name == 'Admin' }">
+		<c:if test="${member.m_id == 'aa' }">
 			<button id="goAdminister">관리자모드</button>
 		</c:if>
 		<button id="goQnaBoard">QnA게시판</button>

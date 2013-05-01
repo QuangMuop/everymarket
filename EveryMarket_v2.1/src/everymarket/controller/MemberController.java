@@ -2,6 +2,7 @@ package everymarket.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -179,6 +180,20 @@ public class MemberController {
 		session.setAttribute("member", null);
 		
 		mav.setViewName("main");
+		return mav;
+	}
+	
+	/*getJSON*/
+	@RequestMapping("/callMemberList.do")
+	public ModelAndView callMemberList(){
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		List<Member> listMember = daoM.getMemberList();
+		map.put("listMember", listMember);
+		
+		mav.addAllObjects(map);
+		mav.setViewName("jsonView");
 		return mav;
 	}
 }
