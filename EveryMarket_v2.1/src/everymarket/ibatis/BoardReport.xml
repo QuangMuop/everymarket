@@ -28,4 +28,10 @@
 		where r_check = 'n'
 	</select>
 
+	<update id="checkReportStatus">
+		update board_report
+		set r_check = 'y'
+		where r_id = #r_id#
+	</update>
+
 </sqlMap>

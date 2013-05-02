@@ -27,4 +27,9 @@ public class BoardReportDao {
 	public List<BoardReport> getUncheckedReportList(){
 		return ibatisTemplate.queryForList("getUncheckedReportList");
 	}
+	
+	/*Input: m_id*/
+	public void checkReportStatus(String r_id){
+		ibatisTemplate.update("checkReportStatus", r_id);
+	}
 }
