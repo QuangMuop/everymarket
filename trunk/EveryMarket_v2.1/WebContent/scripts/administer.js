@@ -25,10 +25,14 @@ $(document).ready(function(){
 	}
 	
 	function reportAction(){
-		var memberId = $(this).attr("m_id");
+		var r_id = $(this).attr("r_id");
 		var actionCode = $(this).val();
 		
-		boardReportDwr.reportAction(memberId, actionCode);
+		if(confirm(r_id + "번 게시글에 대한 처리를 확정하시겠습니까?")){
+			boardReportDwr.reportAction(r_id, actionCode);
+			alert("처리되었습니다.");
+			callReportedList();
+		}
 	}
 	
 	function callMemberList(){
@@ -72,11 +76,11 @@ $(document).ready(function(){
 							"<div class='normal'>" + boardReport.r_productId + 
 								" (" + boardReport.r_memberId + ")</div>" +
 							"<div class='contents hidden'>" + boardReport.r_contents + 
-								"<select m_id='" + boardReport.r_memberId + "'>" +
+								"<select r_id='" + boardReport.r_id + "'>" +
 									"<option value='0' selected='selected'>선택</option>" +
-									"<option value='1'>제재내용1</option>" +
-									"<option value='2'>제재내용2</option>" +
-									"<option value='3'>제재내용3</option>" +
+									"<option value='actionForProduct_1'>제재내용1</option>" +
+									"<option value='actionForProduct_2'>제재내용2</option>" +
+									"<option value='actionForProduct_3'>제재내용3</option>" +
 								"</select>"	+
 							"</div>" +
 						"</div>");
@@ -94,11 +98,11 @@ $(document).ready(function(){
 							"<div class='wide'>" + r_regdate + "</div>" +
 							"<div class='normal'>" + boardReport.r_memberId + "</div>" +
 							"<div class='contents hidden'>" + boardReport.r_contents +
-								"<select m_id='" + boardReport.r_memberId + "'>" +
+								"<select r_id='" + boardReport.r_id + "'>" +
 									"<option value='0' selected='selected'>선택</option>" +
-									"<option value='1'>제재내용1</option>" +
-									"<option value='2'>제재내용2</option>" +
-									"<option value='3'>제재내용3</option>" +
+									"<option value='actionForMember_1'>제재내용1</option>" +
+									"<option value='actionForMember_2'>제재내용2</option>" +
+									"<option value='actionForMember_3'>제재내용3</option>" +
 								"</select>"	+
 							"</div>" +
 						"</div>");

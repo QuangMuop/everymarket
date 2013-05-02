@@ -37,6 +37,8 @@
 		/servletXml/viewResolver.xml
 		<!-- tiles2관련 설정 담당 -->
 		/servletXml/tiles2.xml
+		<!-- transaction관련 설정 담당 -->
+		/servletXml/transaction.xml
 	</param-value>
     </init-param>
   </servlet>
