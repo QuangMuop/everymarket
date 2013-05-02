@@ -28,7 +28,7 @@ $(document).ready(function(){
 		var memberId = $(this).attr("m_id");
 		var actionCode = $(this).val();
 		
-		boardReportDwr.test(memberId, actionCode);
+		boardReportDwr.reportAction(memberId, actionCode);
 	}
 	
 	function callMemberList(){
