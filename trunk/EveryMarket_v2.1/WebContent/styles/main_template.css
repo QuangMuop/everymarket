@@ -32,7 +32,7 @@
 
 #productInfo{
 	width: 760px;
-	height: 600px;
+	height: auto;
 }
 
 .hidden{

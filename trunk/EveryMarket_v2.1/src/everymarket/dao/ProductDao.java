@@ -3,6 +3,7 @@ package everymarket.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
@@ -42,9 +43,18 @@ public class ProductDao {
 
 	/* Input: p_id / Output: List<Product> */
 	public List<Product> getRandomProductByP_id(int p_id) {
-		String m_id = (String) ibatisTemplate.queryForObject("getM_idByP_id",
-				p_id);
+		String m_id = (String) ibatisTemplate.queryForObject("getM_idByP_id", p_id);
 		return ibatisTemplate.queryForList("getRandomProductByM_id", m_id);
+	}
+	
+	/*Input: Map(m_id, p_id) / Output: boolean*/
+	public boolean checkOwn(Map<String, Object> paramMap) {
+		int result = (Integer)ibatisTemplate.queryForObject("checkOwn", paramMap);
+		if(result == 0){ 
+			return false; 
+		}else{ 
+			return true; 
+		}
 	}
 
 	// 검색했을시 List뿌려주기

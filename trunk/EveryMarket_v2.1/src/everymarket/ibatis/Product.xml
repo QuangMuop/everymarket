@@ -40,6 +40,12 @@
 		select m_id from product where p_id = #p_id#
 	</select>
 	
+	<select id="checkOwn" resultClass="Integer">
+		select count(*) 
+		from product
+		where m_id = #m_id# and p_id = #p_id# 
+	</select>
+	
 	<select id="getRandomProductByM_id" resultClass="Product">
 		select * from ( 
 			select * from product 

@@ -26,12 +26,7 @@
 				</form>
 			</div>
 		
-		<div id="bar_button_detail">
-			<div class="button_detail">찜하기</div>
-			<div class="button_detail">구매신청하기</div>
-			<div class="button_detail">상품수정하기</div>
-			<div class="button_detail">창닫기</div>
-		</div>
+		<div id="bar_button_detail"></div>
 	</div>
 
 	<div>팝업창 들어와있음!</div>

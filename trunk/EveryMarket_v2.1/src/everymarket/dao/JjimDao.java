@@ -2,6 +2,7 @@ package everymarket.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
@@ -25,17 +26,29 @@ public class JjimDao {
 		return maxJ_id;
 	}
 
+	/*Input: Map(m_id, p_id)*/
+	public void deleteJjim(Map<String, Object> paramMap) {
+		ibatisTemplate.delete("deleteJjim", paramMap);
+	}
+	
 	/* Input: Jjim */
 	public void registerJjim(Jjim jjim) {
 		ibatisTemplate.insert("registerJjim", jjim);
 	}
 
-	public List<Jjim> getJjimByP_id(int p_id) {
-		return ibatisTemplate.queryForList("getJjimByP_id", p_id);
+	/*Input: p_id / Output: List<Jjim>*/ 
+	public List<String> getB_thumbByP_id(int p_id) {
+		return ibatisTemplate.queryForList("getB_thumbByP_id", p_id);
 	}
 
-	public int checkJjim(Jjim jjim) {
-		return (Integer) ibatisTemplate.queryForObject("checkJjim", jjim);
+	/*Input: Map(m_id, p_id) / Output: boolean*/
+	public boolean checkJjim(Map<String, Object> paramMap) {
+		int result = (Integer)ibatisTemplate.queryForObject("checkJjim", paramMap);
+		if(result == 0){ 
+			return false; 
+		}else{ 
+			return true; 
+		}
 	}
 
 	// 찜한 목록
@@ -48,13 +61,10 @@ public class JjimDao {
 
 		// 내가 찜한 물건객체들
 		ArrayList<Product> p_list3 = new ArrayList();
-
 		// 내가 찜한 물건들의 찜 횟수
 		ArrayList<Integer> jjim_list3 = new ArrayList();
-
 		// 내가 찜한 물건들의 comment수
 		ArrayList<Integer> comment_list3 = new ArrayList();
-
 		// 위에 것들을 다 합친 리스트
 		ArrayList<JjimResult> listJjim = new ArrayList();
 
@@ -62,13 +72,10 @@ public class JjimDao {
 				m_id);
 
 		for (int i = 0; i < p_id_list.size(); i++) {
-
 			p = (Product) ibatisTemplate.queryForObject("buyList_product",
 					p_id_list.get(i));
-
 			jjim = (int) ibatisTemplate.queryForObject("buyList_Jjim",
 					p_id_list.get(i));
-
 			comment = (int) ibatisTemplate.queryForObject("buyList_Jjim",
 					p_id_list.get(i));
 
@@ -78,7 +85,6 @@ public class JjimDao {
 		}
 
 		for (int i = 0; i < p_id_list.size() - 1; i++) {
-
 			jjimresult.setP_id(p_list3.get(i).getP_id());
 			jjimresult.setJ_price(p_list3.get(i).getP_price());
 			jjimresult.setJ_img(p_list3.get(i).getP_img());

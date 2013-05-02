@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import everymarket.dao.BlogDao;
 import everymarket.dao.CategoryDao;
+import everymarket.dao.JjimDao;
 import everymarket.dao.ProductDao;
 import everymarket.model.Blog;
 import everymarket.model.Category;
@@ -27,19 +28,21 @@ import everymarket.model.Product;
 @Controller
 public class ProductController {
 	private BlogDao daoB;
-	private ProductDao daoP;
 	private CategoryDao daoC;
-
+	private JjimDao daoJ;
+	private ProductDao daoP;
+	
 	public void setDaoB(BlogDao daoB) {
 		this.daoB = daoB;
 	}
-
-	public void setDaoP(ProductDao daoP) {
-		this.daoP = daoP;
-	}
-
 	public void setDaoC(CategoryDao daoC) {
 		this.daoC = daoC;
+	}
+	public void setDaoJ(JjimDao daoJ) {
+		this.daoJ = daoJ;
+	}
+	public void setDaoP(ProductDao daoP) {
+		this.daoP = daoP;
 	}
 
 	@RequestMapping("/registerProduct.do")
@@ -90,6 +93,32 @@ public class ProductController {
 		map.put("randomProducts", randomProducts);
 
 		mav.addAllObjects(map);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	/*getJSON*/
+	@RequestMapping("/checkJjimAndOwn.do")
+	public ModelAndView checkJjimAndOwn(HttpServletRequest request,
+			@RequestParam("p_id") int p_id){
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> resultmap = new HashMap<String, Object>();
+		
+		if(member != null){
+			Map<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("m_id", member.getM_id());
+			paramMap.put("p_id", p_id);
+			
+			resultmap.put("member", true);
+			resultmap.put("jjim", daoJ.checkJjim(paramMap));
+			resultmap.put("own", daoP.checkOwn(paramMap));
+		}else{
+			resultmap.put("member", false);
+		}
+		
+		mav.addAllObjects(resultmap);
 		mav.setViewName("jsonView");
 		return mav;
 	}
