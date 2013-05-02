@@ -20,21 +20,27 @@ public class BoardReportDwr {
 		switch (actionCode) {
 		case "actionForProduct_1":
 			System.out.println("actionForProduct_1");
+			/*조치메서드 호출*/
 			break;
 		case "actionForProduct_2":
 			System.out.println("actionForProduct_2");
+			/*조치메서드 호출*/
 			break;
 		case "actionForProduct_3":
 			System.out.println("actionForProduct_3");
+			/*조치메서드 호출*/
 			break;
 		case "actionForMember_1":
 			System.out.println("actionForMember1");
+			/*조치메서드 호출*/
 			break;
 		case "actionForMember_2":
 			System.out.println("actionForMember2");
+			/*조치메서드 호출*/
 			break;
 		case "actionForMember_3":
 			System.out.println("actionForMember3");
+			/*조치메서드 호출*/
 			break;
 		}
 		
