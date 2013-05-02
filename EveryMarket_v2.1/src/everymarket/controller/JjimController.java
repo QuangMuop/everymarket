@@ -29,17 +29,28 @@ public class JjimController {
 	public void setDaoB(BlogDao daoB) {
 		this.daoB = daoB;
 	}
-
 	public void setDaoJ(JjimDao daoJ) {
 		this.daoJ = daoJ;
 	}
-
 	public void setDaoT(TradeDao daoT) {
 		this.daoT = daoT;
 	}
 
+	@RequestMapping("/deleteJjim.do")
+	public void deleteJjim(HttpServletRequest request,
+			@RequestParam("p_id") int p_id) {
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("member");
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("m_id", member.getM_id());
+		paramMap.put("p_id", p_id);
+
+		daoJ.deleteJjim(paramMap);
+	}
+	
 	@RequestMapping("/registerJjim.do")
-	public ModelAndView registerJjim(HttpServletRequest request,
+	public void registerJjim(HttpServletRequest request,
 			@RequestParam("p_id") int p_id) {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
@@ -48,11 +59,8 @@ public class JjimController {
 		jjim.setJ_id(daoJ.getMaxJ_id() + 1);
 		jjim.setM_id(member.getM_id());
 		jjim.setP_id(p_id);
-		jjim.setB_thumb(daoB.getB_thumbByM_id("aa"));
 
 		daoJ.registerJjim(jjim);
-
-		return null;
 	}
 
 	/* getJSON */
@@ -61,9 +69,9 @@ public class JjimController {
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 
-		List<Jjim> listJjim = daoJ.getJjimByP_id(p_id);
+		List<String> listB_thumb = daoJ.getB_thumbByP_id(p_id);
 
-		map.put("listJjim", listJjim);
+		map.put("listB_thumb", listB_thumb);
 
 		mav.addAllObjects(map);
 		mav.setViewName("jsonView");
