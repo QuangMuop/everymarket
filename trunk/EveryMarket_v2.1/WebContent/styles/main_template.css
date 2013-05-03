@@ -9,15 +9,6 @@
 	cursor: pointer;
 }
 
-.button_detail{
-	display: inline-block;
-	background: #ffffe0;
-	border: 1px solid black;
-	border-radius: 3px;
-	padding: 3px; 	
-	cursor: pointer;
-}
-
 .product{
 	display: inline-block;
 	padding: 5px;
@@ -28,11 +19,6 @@
 	background: white;
 	border-radius: 10px;
 	padding: 20px;
-}
-
-#productInfo{
-	width: 760px;
-	height: auto;
 }
 
 .hidden{

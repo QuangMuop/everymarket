@@ -3,3 +3,17 @@
 #ajaxForm_registerComments{
 	display: none;
 }
+
+.button_detail{
+	display: inline-block;
+	background: #ffffe0;
+	border: 1px solid black;
+	border-radius: 3px;
+	padding: 3px; 	
+	cursor: pointer;
+}
+
+#productInfo{
+	width: 760px;
+	height: auto;
+}
