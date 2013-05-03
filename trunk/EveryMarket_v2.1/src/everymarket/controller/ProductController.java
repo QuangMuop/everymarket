@@ -98,8 +98,8 @@ public class ProductController {
 	}
 	
 	/*getJSON*/
-	@RequestMapping("/checkJjimAndOwn.do")
-	public ModelAndView checkJjimAndOwn(HttpServletRequest request,
+	@RequestMapping("/checkStatus.do")
+	public ModelAndView checkStatus(HttpServletRequest request,
 			@RequestParam("p_id") int p_id){
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("member");

@@ -51,6 +51,16 @@
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
 	
+	<!-- 단골 관련 업무 수행 컨트롤러 -->
+	<bean id="dangolController" class="everymarket.controller.DangolController">
+		<property name="daoD" ref="dangolDao"/>
+		<property name="daoM" ref="memberDao"/>
+	</bean>
+	
+	<bean id="dangolDao" class="everymarket.dao.DangolDao">
+		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+	</bean>
+	
 	<!-- 단순 페이지 이동 관련 업무 수행 컨트롤러 -->
 	<bean id="fowardingController" class="everymarket.controller.FowardingController">
 		<property name="daoBQ" ref="boardQnaDao"/>
