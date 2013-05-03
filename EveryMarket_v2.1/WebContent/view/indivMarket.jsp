@@ -4,22 +4,31 @@
 <html>
 <body>
 <center>
-	<!-- <div> 마켓 메인이미지 </div> -->
-	<h1>${owner.m_name }님의 가게</h1>
-	<div>
-		<div class="button">가게 꾸미기</div>
-		<div class="button">상품 등록</div>
-		<div class="button">내 단골 놀러가기</div>
-	</div>
-	<div id="productContainer">	
-		<c:forEach var="product" items="${listProduct }">
-			<div class="product" productId="${product.p_id }">${product.p_name }</div>	<br>
-		</c:forEach>
+
+	<div id="indivMarketWrapper" owner_id="${owner.m_id }">
+
+		<div id="blog_b_main">
+			<img src="image_blog/${blog.b_main }">
+		</div>
+		<h1>${owner.m_name }님의 가게</h1>
+		<div id="bar_button_indivMarket"></div>
+		
+		<div id="productContainer">	
+			<c:forEach var="product" items="${listProduct }">
+				<div class="product" productId="${product.p_id }">${product.p_name }</div>	<br>
+			</c:forEach>
+		</div>
+		
+		<div class="button">메인가기</div>
+	
 	</div>
 	
-	<div class="button">메인가기</div>
+	<!-- 팝업창 : 가게 꾸미기 -->
+	<div id="decoBlog" class="popUp hidden">
 	
-	<!-- 팝업창 : 상품등록창 -->
+	</div>
+	
+	<!-- 팝업창 : 상품등록 -->
 	<div id="registerProduct" class="popUp hidden">
 		<form action="registerProduct.do" method="post" enctype="multipart/form-data">
 			품명:		<input type="text" name="p_name" size="10">				<br>
@@ -30,6 +39,9 @@
 			<input type="submit" value="상품 등록하기">
 		</form> 
 	</div>
+	
+	<!-- 팝업창 : 내 단골리스트 -->
+	<div id="dangolList" class="popUp hidden"></div>
 	
 </center>
 </body>

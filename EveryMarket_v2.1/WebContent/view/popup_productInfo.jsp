@@ -3,7 +3,7 @@
 <html>
 <body>
 
-	<!-- 팝업창 : 상품정보창 -->
+	<!-- 팝업창 : 상품 상세정보창 -->
 	<div id="productInfo" class="popUp hidden">
 		<div id="homeInfo">
 			<div id="blogB_map"></div>
@@ -20,7 +20,7 @@
 			<div id="productComments">
 			
 				<form id="ajaxForm_registerComments" action="registerComments.do" method="post">
-					댓글작성: <input type="text" name="c_content" size="20">
+					댓글내용: <input type="text" name="c_content" size="20">
 					<input type="hidden" name="p_id" value="">
 					<input type="submit" value="작성하기">
 				</form>
@@ -29,7 +29,7 @@
 		<div id="bar_button_detail"></div>
 	</div>
 
-	<div>팝업창 들어와있음!</div>
+	<div>기둥 뒤에 팝업창 있음!</div>
 
 </body>
 </html>

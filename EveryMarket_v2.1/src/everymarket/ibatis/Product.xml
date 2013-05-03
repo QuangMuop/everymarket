@@ -20,7 +20,8 @@
 			#p_date#,
 			#m_id#,
 			#ct_id#,
-			'n'
+			'n',
+			0
 		)
 	</insert>
 	

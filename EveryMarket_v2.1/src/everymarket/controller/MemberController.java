@@ -13,16 +13,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import everymarket.dao.BlogDao;
 import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
+import everymarket.model.Blog;
 import everymarket.model.Member;
 import everymarket.model.Product;
 
 @Controller
 public class MemberController {
+	private BlogDao daoB;
 	private MemberDao daoM;
 	private ProductDao daoP; 
 
+	public void setDaoB(BlogDao daoB) {
+		this.daoB = daoB;
+	}
 	public void setDaoM(MemberDao daoM) {
 		this.daoM = daoM;
 	}
@@ -161,12 +167,15 @@ public class MemberController {
 		Member owner = daoM.getMemberByM_id(m_id);
 		if(owner != null){
 			List<Product> listProduct = daoP.getProductListById(m_id);
+			Blog blog = daoB.getBlogByM_id(m_id);
 			
 			mav.addObject("listProduct", listProduct);
+			mav.addObject("blog", blog);
 			mav.addObject("owner", owner);
 			mav.setViewName("indivMarket");
 		}else{
 			mav.addObject("error", "일치하는 id 없음");
+			mav.setViewName("main");
 		}
 		
 		return mav;
@@ -193,6 +202,32 @@ public class MemberController {
 		map.put("listMember", listMember);
 		
 		mav.addAllObjects(map);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	/*getJSON*/
+	@RequestMapping("/checkSession.do")
+	public ModelAndView checkSession(HttpServletRequest request,
+			@RequestParam("owner_id")String owner_id){
+		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+		Member member = (Member)session.getAttribute("member");
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		/*세션값이 존재하지 않을 때*/ int status = 0;
+		
+		if(member != null){
+			/*세션값이 존재할 때*/ status += 1;
+			
+			if(member.getM_id().equals(owner_id)){
+				/*세션값과 마켓페이지 아이디가 일치할 때*/ status += 1;
+			}
+		}
+			
+		resultMap.put("status", status);
+		
+		mav.addAllObjects(resultMap);
 		mav.setViewName("jsonView");
 		return mav;
 	}

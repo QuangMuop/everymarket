@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Dangol">
+	
+	<typeAlias alias="Dangol" type="everymarket.model.Dangol"/>
+
+	<select id="getDangolB_thumbByM_id" resultClass="String">
+		select b.b_thumb
+		from blog b
+		  join dangol d
+		  on b.m_id = d.dg_id
+		where d.m_id = #m_id#
+	</select>
+
+</sqlMap>
