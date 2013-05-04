@@ -28,6 +28,7 @@
 /* Çì´õ css */
 #h_out_header{
 	background-color: #fbfbfc;
+	border-bottom: 1px solid #dedede;
 }
 #h_inner_header{
 	width: 960px;
