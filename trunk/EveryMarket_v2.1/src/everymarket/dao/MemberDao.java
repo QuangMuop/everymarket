@@ -48,4 +48,9 @@ public class MemberDao {
 	public Member getMemberByM_id(String m_id){
 		return (Member)ibatisTemplate.queryForObject("getMemberById", m_id);
 	}
+	
+	/*Input: b_thumb / Output: Member*/
+	public Member getMemberByB_thumb(String b_thumb){
+		return (Member)ibatisTemplate.queryForObject("getMemberByB_thumb", b_thumb);
+	}
 }

@@ -1,15 +1,16 @@
 package everymarket.dwr;
 
-import everymarket.dao.BlogDao;
+import everymarket.dao.MemberDao;
+import everymarket.model.Member;
 
 public class IndivMarketDwr {
-	private BlogDao daoB;
+	private MemberDao daoM;
 
-	public void setDaoB(BlogDao daoB) {
-		this.daoB = daoB;
+	public void setDaoM(MemberDao daoM) {
+		this.daoM = daoM;
 	}
-	
-	public String getM_idByB_thumb(String b_thumb) {
-		return daoB.getM_idByB_thumb(b_thumb);
+
+	public Member getMemberByB_thumb(String b_thumb) {
+		return daoM.getMemberByB_thumb(b_thumb);
 	}
 }

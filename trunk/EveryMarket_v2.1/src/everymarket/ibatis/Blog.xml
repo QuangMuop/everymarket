@@ -23,13 +23,7 @@
  		from blog 
  		where m_id = #m_id#
  	</select>
- 	
- 	<select id="getM_idByB_thumb" resultClass="String">
- 		select m_id
- 		from blog
- 		where b_thumb = #b_thumb#
- 	</select>
- 
+ 	 
 	<select id="getBlogByM_id" resultClass="Blog">
 		select * 
 		from blog 

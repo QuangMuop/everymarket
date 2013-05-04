@@ -55,6 +55,14 @@
 		where m_id = #m_id#
 	</select>
 	
+	<select id="getMemberByB_thumb" resultClass="Member">
+		select m.*
+		from member m
+		  join blog b
+		  on m.m_id = b.m_id
+		where b.b_thumb = #b_thumb#
+	</select>
+	
 	<update id="chargeCash" parameterClass="HashMap">
 		update member 
 		set m_cash = m_cash + #m_cash# 
