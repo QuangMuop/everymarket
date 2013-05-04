@@ -39,4 +39,9 @@
 		where p.p_id = #p_id#
 	</select>
 	
+	<select id="getBlogList" resultClass="Blog">
+		select*from blog order by dbms_random.value
+	</select>
+	
+	
 </sqlMap>

@@ -23,9 +23,11 @@ public class sessionCheck {
 		HttpSession session = request.getSession();
 		Object member = session.getAttribute("member");
 		
+		
 		if(member != null){
 			System.out.println("技记 眉农");
 			mav.addObject("member", (Member)member);
+
 		}else{
 			System.out.println("技记 固眉农");
 			mav.setViewName("main_template");

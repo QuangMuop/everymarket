@@ -6,8 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import everymarket.dao.BlogDao;
 import everymarket.dao.BoardQnaDao;
 import everymarket.dao.ProductDao;
+import everymarket.model.Blog;
 import everymarket.model.BoardQna;
 import everymarket.model.Product;
 
@@ -15,7 +17,11 @@ import everymarket.model.Product;
 public class FowardingController {
 	private BoardQnaDao daoBQ;
 	private ProductDao daoP;
+	private BlogDao daoB;
 
+	public void setDaoB(BlogDao daoB) {
+		this.daoB = daoB;
+	}
 	public void setDaoBQ(BoardQnaDao daoBQ) {
 		this.daoBQ = daoBQ;
 	}
@@ -31,10 +37,12 @@ public class FowardingController {
 		String searchtext = "basic";
 		
 		List<Product> listProduct = daoP.ListProduct(category, 5, searchtext);
+		List<Blog> listBlog = daoB.getBlogList();
 		
-		mav.addObject("category", "All");
+ 		mav.addObject("category", "All");
 		mav.addObject("searchtext", "All");
 		mav.addObject("listProduct", listProduct);
+		mav.addObject("blog",listBlog);
 		mav.setViewName("main");
 		return mav;
 	}

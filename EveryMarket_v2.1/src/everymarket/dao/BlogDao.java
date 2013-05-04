@@ -1,5 +1,6 @@
 package everymarket.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
@@ -31,5 +32,10 @@ public class BlogDao {
 	/*Input: Blog*/
 	public void updateBlog(Map<String, Object> paramMap){
 		ibatisTemplate.update("updateBlog", paramMap);
+	}
+	
+	public List<Blog> getBlogList(){
+		System.out.println(ibatisTemplate.queryForList("getBlogList"));
+		return ibatisTemplate.queryForList("getBlogList");
 	}
 }
