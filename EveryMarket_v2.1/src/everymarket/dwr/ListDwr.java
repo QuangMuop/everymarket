@@ -11,6 +11,7 @@ public class ListDwr {
 	public void setDaoP(ProductDao daoP) {
 		this.daoP = daoP;
 	}
+	
 	public List<Product> getList(String category, int pageNum, String searchtext) {
 		return daoP.ListProduct(category, pageNum, searchtext);
 	}

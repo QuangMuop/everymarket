@@ -25,6 +25,7 @@
 <!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/dwr/engine.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/boardReportDwr.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/dwr/interface/indivMarketDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/listDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/administer.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/footer.js" type="text/javascript"></script>

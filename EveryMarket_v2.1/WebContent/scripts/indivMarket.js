@@ -172,12 +172,14 @@ $(document).ready(function(){
 	function goMarket(){
 		var src = $(this).attr("src").split("/");
 		var b_thumb = src[1];
-		
-		productDwr.getM_idByB_thumb(b_thumb, callback);
+
+		indivMarketDwr.getMemberByB_thumb(b_thumb, callback);
 		
 		function callback(data){
-			alert(data);
-		}
+			if(confirm(data.m_name + "님의 가게로 이동하시겠습니까?")){
+				location.href="goMarket.do?m_id=" + data.m_id;
+			}
+		};
 	}
 	
 	function popoUp_showOwnerDangol(){
