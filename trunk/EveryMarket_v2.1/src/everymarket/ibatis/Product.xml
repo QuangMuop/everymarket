@@ -54,4 +54,19 @@
 		where rownum &#60;= 3 and m_id = #m_id#
 	</select>
 	
+	<!-- 내가 검색한 제품의 수 -->
+	<select id="product_count" parameterClass="String" resultClass="int">
+		select count(*) from product
+		where p_name like '%'||#search_content#||'%'
+		or p_detail like '%'||#search_content#||'%'
+	</select>
+	
+		
+	<!-- 내가 검색한 제품 -->
+	<select id="searchProduct" parameterClass="String" resultClass="Product">
+		select * from product
+		where p_name like '%'||#search_content#||'%'
+		or p_detail like '%'||#seasrch_content#||'%'
+	</select>
+	
 </sqlMap>
