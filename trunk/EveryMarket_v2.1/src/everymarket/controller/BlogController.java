@@ -55,4 +55,20 @@ public class BlogController {
 		mav.setViewName("redirect: goMarket.do?m_id=" + member.getM_id());
 		return mav;
 	}
+	
+//	메인블로그슬라이드
+	@RequestMapping("/callBlogList.do")
+	public ModelAndView callMemberList(){
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		List<Blog> listBlog = daoB.getBlogList();
+		map.put("listMember", listBlog);
+		
+		mav.addAllObjects(map);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	
 }
