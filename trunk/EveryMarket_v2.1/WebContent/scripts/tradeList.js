@@ -1,14 +1,14 @@
 $(document).ready(function() {
 	
 		
-	$("#dn_bt").onclick(function(event){
+//	$("#dn_bt").onclick(function(event){
 		
-		alert("ff");
+//		alert("ff");
 	/*	event.preventDefault();
 		
 		return false;*/
 		
-	});
+//	});
 	
 	
 	
