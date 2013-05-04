@@ -12,6 +12,8 @@ $(document).ready(function(){
 	$(".product").click(popUp_productInfo);
 	$("#productPurchase button").click(closePop_productPurchase);
 	
+	$(document).on('click', ".b_thumb", goMarket);
+	
 	$(document).on('click', "#button_goMain", goMain);
 	$(document).on('click', "#button_showOwnerDangol", popoUp_showOwnerDangol);
 	
@@ -73,7 +75,7 @@ $(document).ready(function(){
 				$("#listJjimer > img").remove();
 				$.each(data.listB_thumb, function(index, b_thumb){
 					$("#listJjimer").append(
-						"<img src='image_blog/" + b_thumb + "'>"
+						"<img class='b_thumb' src='image_blog/" + b_thumb + "'>"
 					);
 				});
 			}
@@ -161,9 +163,21 @@ $(document).ready(function(){
 		);
 	}	
 
-	/*MainView 가기*/
+	/*mainView 가기*/
 	function goMain(){
 		location.href="enter.go";
+	}
+	
+	/*개인마켓페이지 가기*/
+	function goMarket(){
+		var src = $(this).attr("src").split("/");
+		var b_thumb = src[1];
+		
+		productDwr.getM_idByB_thumb(b_thumb, callback);
+		
+		function callback(data){
+			alert(data);
+		}
 	}
 	
 	function popoUp_showOwnerDangol(){
@@ -175,7 +189,7 @@ $(document).ready(function(){
 				$("#dangolList").append( "<p>" + data.owner.m_name + "님의 단골리스트</p>" );
 				$.each(data.listDangolB_thumb, function(index, b_thumb){
 					$("#dangolList").append(
-						"<img src='image_blog/" + b_thumb + "'>"
+						"<img class='b_thumb' src='image_blog/" + b_thumb + "'>"
 					);
 				});
 			}
@@ -200,7 +214,7 @@ $(document).ready(function(){
 						category.ct_large + " : " + category.ct_small + "</option>"
 					);
 				});
-			}		
+			}
 		);
 		
 		$("#registerProduct").bPopup();
@@ -215,7 +229,7 @@ $(document).ready(function(){
 				$("#dangolList").append( "<p>내 단골리스트</p>" );
 				$.each(data.listDangolB_thumb, function(index, b_thumb){
 					$("#dangolList").append(
-						"<img src='image_blog/" + b_thumb + "'>"
+						"<img class='b_thumb' src='image_blog/" + b_thumb + "'>"
 					);
 				});
 			}

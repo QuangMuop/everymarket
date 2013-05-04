@@ -14,14 +14,14 @@
 		<dwr:remote javascript="boardReportDwr"/>
 	</bean>
 
-	<bean id="jjimDwr" class="everymarket.dwr.JjimDwr">
-		<property name="daoJ" ref="jjimDao" />
-		<dwr:remote javascript="jjimDwr" />
+	<bean id="indivMarketDwr" class="everymarket.dwr.IndivMarketDwr">
+		<property name="daoB" ref="blogDao"/>
+		<dwr:remote javascript="indivMarketDwr"/>
 	</bean>
-	
-	<bean id="productDwr" class="everymarket.dwr.ProductDwr">
+
+	<bean id="listDwr" class="everymarket.dwr.ListDwr">
 		<property name="daoP" ref="productDao" />
-		<dwr:remote javascript="productDwr" />
+		<dwr:remote javascript="listDwr" />
 	</bean>
 
 	<!-- Dwr Setting -->

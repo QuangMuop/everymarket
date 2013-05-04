@@ -31,7 +31,7 @@ $(document).ready(function() {
 								.height()
 								- $(window).height()) {
 
-							productDwr.getList(category1, pageNum, searchtext,showList);
+							listDwr.getList(category1, pageNum, searchtext,showList);
 							pageNum += 5;
 							
 							
