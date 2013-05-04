@@ -50,7 +50,7 @@ $(document).ready(function() {
 			      
 			$.each(data, function(index, product) {
          
-               var html = "<div class='grid' p_id = '" + product.p_id + "'>" ;
+               var html = "<div class='grid' id = '" + product.p_id + "'>" ;
                html += "<div class = 'imgholder'>";
                html += "<img src='image_product/" + product.p_img + "'/>";
                html += "</div>";

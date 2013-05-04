@@ -5,6 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(document).ready(function (){
+		$(document).on("click", '.grid', function(){
+			alert("코카콜라");
+			$.getJSON(
+			"http://localhost:8081/EveryMarket_v2/remote.do?p_id="+$(this).attr('id'),	
+			function(data){
+				alert("마시따");
+				$("#remote").html("");
+				$.each(data.remote_list , function(index, product){
+					
+					var list = "<img src='image_product/"+product.p_img+"' width='50' height='50'/>";
+					$("#remote").append(list);
+					
+				});
+			});
+		
+		});
+	});
+</script>
 </head>
 <body>
 
@@ -131,7 +151,7 @@
 			<section id="wrapper">
 			<div id="item_container" category="${category}" searchtext="${searchtext}">
 				<c:forEach var="product" items="${listProduct}">
-					<div class="grid" p_id="${product.p_id}">
+					<div class="grid" id="${product.p_id}">
 						<div class="imgholder">
 							<img src="image_product/${product.p_img}" />
 						</div>
@@ -142,5 +162,6 @@
 			</section>
 		</div>
 	</div>
+	<div id="remote"></div>
 </body>
 </html>

@@ -86,7 +86,9 @@
 <!--        	<property name="daoP" ref="productDao"></property> -->
 <!-- 	</bean> -->
 	
-	
-
+	<!-- 리모콘 컨트롤러 -->
+	<bean id="remoteController" class="everymarket.controller.remoteController">
+		<property name="daoP" ref="productDao" />
+	</bean>
 
 </beans>
