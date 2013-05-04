@@ -30,6 +30,16 @@
 	padding-bottom: 10px;
 	
 }
+
+#container7{
+	position:relative;
+	width:960px;
+	height: 1000px;
+	margin:0 auto 25px;
+	padding-bottom: 10px;
+	
+}
+
 .grid{
 	width:188px;
 	min-height:100px;

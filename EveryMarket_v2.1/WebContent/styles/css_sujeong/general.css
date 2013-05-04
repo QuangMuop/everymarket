@@ -1,0 +1,217 @@
+@CHARSET "UTF-8";
+/******* GENERAL RESET *******/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+ tfoot, thead, tr, th, td {
+border:0pt none;
+font-family:inherit;
+font-size: 100%;
+font-style:inherit;
+font-weight:inherit;
+margin:0pt;
+padding:0pt;
+vertical-align:baseline;
+/* text-shadow: 0.3px 0.3px #9c9c9c; */
+}
+body{
+	background: #fff;
+	line-height:14px;
+	font-size: 12px;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	margin:0pt;
+	cursor:default;
+	overflow: auto;
+}
+html,body{
+	height:100%;
+	/* 	text-align: center; */
+	text-align: left;
+	
+}
+.clear{
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	display: block;
+}
+a{
+	text-decoration: none;
+}
+
+.b_id{
+	display: none;
+}
+/******* GENERAL RESET *******/
+/******* LOGO *******/
+#logo{
+	margin-top: 1em;
+	display: block;
+}
+/******* /LOGO  *******/
+/******* MENU *******/
+#container{
+	
+	margin:0px auto;
+	padding-top:10px;
+	width: 960px;
+	
+}
+#container ul{
+	list-style: none outside none;
+	list-style-position: outside;
+	margin-bottom: 5px;
+
+}
+/* 클릭하지 않은거 */
+#container ul.menu li{
+	float: left;
+
+	margin-bottom: -1px;
+}
+#container ul.menu li{
+	font-weight: 700;
+	display: block;
+	padding: 10px 15px 10px 15px;
+	background: white;
+	margin-bottom: 10px;
+/* 	border: 0.5px solid #d0ccc9; */
+	
+	position: relative;
+	color: #333333;
+	cursor: pointer;
+	font-size: 15px;
+	width:150px;
+	
+	
+}
+#container ul.menu li a{
+	float: left;
+	background: white;
+	color: #333333;
+	font-size: 15px;
+	text-shadow: 0.5px 0.5px #b6b7b7;
+	
+}
+/* 클릭하지 않은거 여기까지 */
+
+.tab-btn1{
+	font-size: 18px;
+	
+}
+.tab-btn2{
+	margin-left:10px;
+	font-size: 13px;
+	color: #ea4e71;
+	
+}
+/* 클릭했을때 */
+#container ul.menu li.active{
+/* 	전체배경 */
+	background-color:#8c8c8c;
+	top: -1px;
+	border-bottom: 0;
+	border: 0.5px solid #d0ccc9;
+}
+#container ul.menu li.active .tab-btn1{
+/* 	글자배경 */
+	background-color: #8c8c8c;
+	color: white;
+	
+}
+#container ul.menu li.active .tab-btn2{ 
+/* 	숫자배경 */
+	background-color: #8c8c8c;
+	color: white;
+	
+}
+
+/******* /MENU *******/
+/******* CONTENT *******/
+.content{
+	float:left;
+	margin: 0px;
+	/* background: #f3f3f3; */
+/* 	border: 1px solid #d0ccc9; */
+	text-align: left;
+/* 	padding: 10px; */
+/* 	padding-bottom: 20px; */
+	font-size: 11px;
+	height: 600px;
+	width: 960px;
+/* 	overflow:auto; */
+}
+
+/******* /CONTENT *******/
+/******* NEWS *******/
+.content.search_item h1{
+	background: transparent url(images/news.jpg) no-repeat scroll left top;
+}
+.content.search_item{
+	display: block;
+/* 	overflow:auto; */
+}
+.search_item-list{
+	/* border: 0.5px solid #d9d9d9; */
+	float: left;
+	width: 150px;
+	margin-left: 5px;
+/* 	overflow:auto; */
+}
+
+.search_item-list p{
+	height: 35px;
+	background-color: white;
+	padding-top: 5px;
+	padding-left: 5px;
+	font-size: 13px;
+	color: #333333;
+	border-bottom: 0.5px dotted #d8d8d8;
+}
+
+.content search_blog{
+	
+	float: left;
+	text-align: left;
+	display: block;
+}
+
+.buy-good-image{
+	width: 145px;
+	height: 190px;
+}
+.search_item-border{
+	
+	border: 5px solid white;
+}
+#buy-good-price{
+	border-bottom: 0.5px solid #d8d8d8;
+	color:#333333;
+	font-size: 20px;
+}
+
+
+
+/******* /NEWS *******/
+/******* TUTORIALS *******/
+.content. h1{
+	background: transparent url(images/tuts.jpg) no-repeat scroll left top;
+}
+.content.{
+	display: none;
+/* 	overflow:auto; */
+}
+
+/******* /LINKS *******/
+
+#menubar{
+border: 0.5px solid #dadada;
+width: 0px auto;
+height: 34px;
+background-color: white;
+margin-top: 2px;
+border-bottom: 3px solid #8c8c8c;
+
+}
+
+////////////////////
+

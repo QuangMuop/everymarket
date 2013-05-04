@@ -111,6 +111,14 @@
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
 
+	<!-- 제품 및 블로그 검색 관련 컨트롤러 -->
+	<bean id="SearchController" class="everymarket.controller.SearchController">
+		<property name="searchdao" ref="SearchDao"/>
+	</bean>
+	
+	<bean id="SearchDao" class="everymarket.dao.SearchDao">
+		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+	</bean>
 
 
 </beans>

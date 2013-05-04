@@ -11,6 +11,8 @@
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/basic.css" rel="stylesheet" type="text/css"/>
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/content.css" rel="stylesheet" type="text/css"/>
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/style.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/styles/css_sujeong/shopstyle.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/styles/css_sujeong/general.css" rel="stylesheet" type="text/css"/>
 <!-- 마켓슬라이드 -->
 <link href="<%=request.getContextPath()%>/styles/skitterstyles.css" media="all" rel="stylesheet" type="text/css"/>
 <!-- 마켓슬라이드 -->
@@ -18,7 +20,11 @@
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.form.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.bpopup.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/blocksit.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/scripts/lib/blocksit.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/scripts/lib/blocksit_container7.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/scripts/lib/jqeury-ui-1.10.2.custom.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/scripts/lib/tabs.js" type="text/javascript"></script>
 <!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.skitter.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/highlight.js" type="text/javascript"></script>

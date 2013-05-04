@@ -22,9 +22,14 @@
 		<put-attribute name="body" value="/view/indivMarket.jsp"/>
 	</definition>
 	
-	<!-- 카테고리 및 검색어에 의한 상품 리스트 -->
+	<!-- 카테고리에 의한 상품 리스트 -->
 	<definition name="list" extends="main_template">
 		<put-attribute name="body" value="/view/list.jsp"/>  
+	</definition>
+	
+	<!-- 검색어에 의한 상품 리스트 -->
+	<definition name="search" extends="main_template">
+		<put-attribute name="body" value="/view/search_result.jsp"/>  
 	</definition>
 	
 	<!-- 거래내역 및 찜바구니 페이지 -->

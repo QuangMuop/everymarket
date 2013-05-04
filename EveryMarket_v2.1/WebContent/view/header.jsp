@@ -41,7 +41,7 @@
 			<a>logo</a>
 		</div>
 		<div id="h_searchbar">
-			<form action="main.do" id="h_searchline" method="get">
+			<form action="search_result.do" id="h_searchline" method="post">
 						<input id="h_search" class="search-input" name="search_content" 
 								type="text" placeholder="물품이나 가게이름을 검색해보세요" />
 						<button id="h_sbutton" type="submit"></button>
