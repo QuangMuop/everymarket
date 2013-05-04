@@ -42,8 +42,17 @@
 		<put-attribute name="body" value="/view/board_qna.jsp"/>
 		<put-attribute name="popup" value="/view/popup_qna.jsp"/>
 	</definition>
+	
+	
+	<!-- 거래 목록 -->
+	<definition name="trade_list" extends="main_template">
+		<put-attribute name="body" value="/view/trade_List.jsp"/>
+	</definition>
+	
+	
 		
 	<!-- errorPage View -->
 	<definition name="errorPage" template="/view/templates/errorPage.jsp"/>
+	
 
 </tiles-definitions>
