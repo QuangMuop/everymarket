@@ -19,6 +19,11 @@ public class BlogDao {
 		return (String)ibatisTemplate.queryForObject("getB_thumbByM_id", m_id);
 	}
 	
+	/*Input: b_thumb / Output: m_id*/
+	public String getM_idByB_thumb(String b_thumb){
+		return (String)ibatisTemplate.queryForObject("getM_idByB_thumb", b_thumb);
+	}
+	
 	/*Input: m_id / Output: Blog*/ 
 	public Blog getBlogByM_id(String m_id){
 		return (Blog)ibatisTemplate.queryForObject("getBlogByM_id", m_id);

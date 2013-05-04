@@ -19,19 +19,29 @@
  	</update>
  
  	<select id="getB_thumbByM_id" resultClass="String">
- 		select b_thumb from blog where m_id = #m_id#
+ 		select b_thumb 
+ 		from blog 
+ 		where m_id = #m_id#
+ 	</select>
+ 	
+ 	<select id="getM_idByB_thumb" resultClass="String">
+ 		select m_id
+ 		from blog
+ 		where b_thumb = #b_thumb#
  	</select>
  
 	<select id="getBlogByM_id" resultClass="Blog">
-		select * from blog where m_id = #m_id#
+		select * 
+		from blog 
+		where m_id = #m_id#
 	</select>
 	
 	<select id="getBlogByP_id" resultClass="Blog">
 		select b.*
 		from blog b join member m
-			on b.m_id = m.m_id
-			join product p
-			on p.m_id = m.m_id
+		  on b.m_id = m.m_id
+		  join product p
+		  on p.m_id = m.m_id
 		where p.p_id = #p_id#
 	</select>
 	
