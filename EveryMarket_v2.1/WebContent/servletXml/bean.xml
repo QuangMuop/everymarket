@@ -65,6 +65,7 @@
 	<bean id="fowardingController" class="everymarket.controller.FowardingController">
 		<property name="daoBQ" ref="boardQnaDao" />
 		<property name="daoP" ref="productDao" />
+		<property name="daoB" ref="blogDao" />
 	</bean>
 
 	<!-- 찜 관련 업무 수행 컨트롤러 -->
