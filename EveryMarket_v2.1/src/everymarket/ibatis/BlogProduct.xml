@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="BlogProduct">
+	
+	<typeAlias alias="BlogProduct" type="everymarket.object4output.BlogProduct"/>
+
+	<!-- 내가 검색한 블로그의 수 -->
+	<select id="blog_count" parameterClass="String" resultClass="int">
+		select count(distinct b.b_id) 
+		from member m join blog b
+		on m.m_id = b.m_id
+		join product p 
+		on m.m_id = p.m_id
+		where m_nick like '%'||#search_content#||'%'
+		or b_content like '%'||#search_content#||'%'
+		or p_name like '%'||#search_content#||'%'
+	</select>
+	
+	<!-- 내가 검색한 블로그 정보-->
+	<select id="searchBlog" parameterClass="String" resultClass="BlogProduct">
+		select distinct b.*, m.m_nick
+		from member m join blog b
+		on m.m_id = b.m_id
+		join product p
+		on m.m_id = p.m_id
+		where m_nick like '%'||#search_content#||'%'
+		or b_content like '%'||#search_content#||'%'
+		or p_name like '%'||#search_content#||'%'		
+	</select>
+	
+	<!-- 내가 검색한 블로그가 가지고 있는 제품이미지1 -->
+	<select id="searchBlog_p1" parameterClass="String" resultClass="String">
+		select p_img
+		from ( select p_img, ROWNUM rs 
+				from product where m_id=#m_id#)p_img1 
+		where rs=1
+	</select>
+	
+	<!-- 내가 검색한 블로그가 가지고 있는 제품이미지2 -->
+	<select id="searchBlog_p2" parameterClass="String" resultClass="String">
+		select p_img
+		from ( select p_img, ROWNUM rs 
+				from product where m_id=#m_id#)p_img2 
+		where rs=2
+	</select>
+	
+	<!-- 내가 검색한 블로그가 가지고 있는 제품이미지3 -->
+	<select id="searchBlog_p3" parameterClass="String" resultClass="String">
+		select p_img
+		from ( select p_img, ROWNUM rs 
+				from product where m_id=#m_id#)p_img3 
+		where rs=3
+	</select>
+	
+	<!-- 내가 검색한 블로그의 단골 수 -->
+	<select id="searchBlog_dg" parameterClass="String" resultClass="int">
+		select count(d.dg_id)
+		from dangol d join member m
+		on m.m_id=d.m_id
+		where m.m_id=#m_id#
+	</select>
+	
+	<!-- 내가 검색한 블로그의 제품 수 -->
+	<select id="searchBlog_p" parameterClass="String" resultClass="int">
+		select count(p.p_id)
+		from product p join member m
+		on m.m_id=p.m_id
+		where m.m_id=#m_id#
+	</select>
+	
+	<!-- 내가 검색한 블로그의 후기 수 -->
+	<select id="searchBlog_r" parameterClass="int" resultClass="int">
+		select count(r.r_content) 
+		from review r join blog b
+		on r.b_id=b.b_id
+		where b.b_id=#b_id#
+	</select>
+</sqlMap>
+
+
+
+
