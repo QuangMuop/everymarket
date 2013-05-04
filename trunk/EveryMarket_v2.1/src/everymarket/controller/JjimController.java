@@ -24,16 +24,13 @@ import everymarket.object4output.JjimResult;
 public class JjimController {
 	private BlogDao daoB;
 	private JjimDao daoJ;
-	private TradeDao daoT;
 
 	public void setDaoB(BlogDao daoB) {
 		this.daoB = daoB;
 	}
+
 	public void setDaoJ(JjimDao daoJ) {
 		this.daoJ = daoJ;
-	}
-	public void setDaoT(TradeDao daoT) {
-		this.daoT = daoT;
 	}
 
 	@RequestMapping("/deleteJjim.do")
@@ -42,13 +39,13 @@ public class JjimController {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
 		Map<String, Object> paramMap = new HashMap<String, Object>();
-		
+
 		paramMap.put("m_id", member.getM_id());
 		paramMap.put("p_id", p_id);
 
 		daoJ.deleteJjim(paramMap);
 	}
-	
+
 	@RequestMapping("/registerJjim.do")
 	public void registerJjim(HttpServletRequest request,
 			@RequestParam("p_id") int p_id) {
@@ -91,7 +88,7 @@ public class JjimController {
 		ArrayList<JjimResult> listJJim = new ArrayList<JjimResult>();
 
 		Member member1 = new Member();
-		
+
 		member1.setM_id("gg");
 		member1.setM_nick("럭키가이");
 		member1.setM_name("유석");
@@ -105,10 +102,10 @@ public class JjimController {
 		Member member = (Member) session.getAttribute("member");
 
 		// 내가 산 목록
-		listBuy = daoT.buyList(member.getM_id());
+		listBuy = daoJ.buyList(member.getM_id());
 		int size_JRListBuy = listBuy.size();
 		// 내가 판 목록
-		listSell = daoT.SellList(member.getM_id());
+		listSell = daoJ.SellList(member.getM_id());
 		int size_JRListSell = listSell.size();
 		// 내가 찜한 목록
 		listJJim = daoJ.JjimList(member.getM_id());

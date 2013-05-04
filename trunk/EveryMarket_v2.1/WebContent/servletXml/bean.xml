@@ -13,23 +13,23 @@
 	<bean id="blogDao" class="everymarket.dao.BlogDao">
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
-	
+
 	<!-- Qna게시판 관련 업무 수행 컨트롤러 -->
 	<bean id="boardQnaController" class="everymarket.controller.BoardQnaController">
-		<property name="daoBQ" ref="boardQnaDao"/>
+		<property name="daoBQ" ref="boardQnaDao" />
 	</bean>
-	
+
 	<bean id="boardQnaDao" class="everymarket.dao.BoardQnaDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
-	
+
 	<!-- 신고게시판 관련 업무 수행 컨트롤러 -->
 	<bean id="boardReportController" class="everymarket.controller.BoardReportController">
-		<property name="daoBR" ref="boardReportDao"/>
+		<property name="daoBR" ref="boardReportDao" />
 	</bean>
-	
+
 	<bean id="boardReportDao" class="everymarket.dao.BoardReportDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
 
 	<!-- 카테고리 관련 업무 수행 컨트롤러 -->
@@ -50,28 +50,27 @@
 	<bean id="commentsDao" class="everymarket.dao.CommentsDao">
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
-	
+
 	<!-- 단골 관련 업무 수행 컨트롤러 -->
 	<bean id="dangolController" class="everymarket.controller.DangolController">
-		<property name="daoD" ref="dangolDao"/>
-		<property name="daoM" ref="memberDao"/>
+		<property name="daoD" ref="dangolDao" />
+		<property name="daoM" ref="memberDao" />
 	</bean>
-	
+
 	<bean id="dangolDao" class="everymarket.dao.DangolDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
-	
+
 	<!-- 단순 페이지 이동 관련 업무 수행 컨트롤러 -->
 	<bean id="fowardingController" class="everymarket.controller.FowardingController">
-		<property name="daoBQ" ref="boardQnaDao"/>
-		<property name="daoP" ref="productDao"/>
+		<property name="daoBQ" ref="boardQnaDao" />
+		<property name="daoP" ref="productDao" />
 	</bean>
 
 	<!-- 찜 관련 업무 수행 컨트롤러 -->
 	<bean id="jjimController" class="everymarket.controller.JjimController">
 		<property name="daoB" ref="blogDao" />
 		<property name="daoJ" ref="jjimDao" />
-		<property name="daoT" ref="tradeDao" />
 	</bean>
 
 	<bean id="jjimDao" class="everymarket.dao.JjimDao">
@@ -91,8 +90,8 @@
 	<!-- 제품 관련 업무 수행 컨트롤러 -->
 	<bean id="productController" class="everymarket.controller.ProductController">
 		<property name="daoB" ref="blogDao" />
-		<property name="daoC" ref="categoryDao"/>
-		<property name="daoJ" ref="jjimDao"/>
+		<property name="daoC" ref="categoryDao" />
+		<property name="daoJ" ref="jjimDao" />
 		<property name="daoP" ref="productDao" />
 	</bean>
 
@@ -100,8 +99,5 @@
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
 
-	<bean id="tradeDao" class="everymarket.dao.TradeDao">
-		<property name="ibatisTemplate" ref="ibatisTemplate" />
-	</bean>
 
 </beans>
