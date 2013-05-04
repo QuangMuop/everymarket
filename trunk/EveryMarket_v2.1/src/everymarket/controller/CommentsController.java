@@ -32,7 +32,7 @@ public class CommentsController {
 	
 	/*AjaxForm*/
 	@RequestMapping("/registerComments.do")
-	public String registerComment(HttpServletRequest request, Comments comments){
+	public void registerComment(HttpServletRequest request, Comments comments){
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("member");
 
@@ -44,8 +44,6 @@ public class CommentsController {
 		comments.setM_id(member.getM_id());
 		
 		daoC.registerComments(comments);
-		
-		return "전송완료!";
 	}
 	
 	/*getJSON*/

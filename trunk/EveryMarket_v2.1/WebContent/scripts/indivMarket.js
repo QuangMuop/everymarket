@@ -4,12 +4,13 @@ $(document).ready(function(){
 	
 	/*개인마켓페이지 메인버튼 초기화*/
 	refreshButton_indivMarket();
-	
+		
 	/*AjaxForm 동기화*/
 	$("#ajaxForm_registerComments").ajaxForm();
 	$("#ajaxForm_registerComments").submit(registerComments);
 	
 	$(".product").click(popUp_productInfo);
+	$("#productPurchase button").click(closePop_productPurchase);
 	
 	$(document).on('click', "#button_goMain", goMain);
 	$(document).on('click', "#button_showOwnerDangol", popoUp_showOwnerDangol);
@@ -21,11 +22,29 @@ $(document).ready(function(){
 	$(document).on('click', "#button_detail_deleteJjim", deleteJjim);
 	$(document).on('click', "#button_detail_registerJjim", registerJjim);
 //	$(document).on('click', "#button_detail_modifyProduct", modifyProduct);
-//	$(document).on('click', "#button_detail_buyProduct", buyProduct);
+	$(document).on('click', "#button_detail_buyProduct", buyProduct);
 	$(document).on('click', "#button_detail_closeProductInfo", closePop_productInfo);
 		
-	$(".button:last").click(go_main);
-
+		/*decoBlog: 탭 구동버튼*/
+		$("#tab_mainImage").click(tab_mainImage);
+		$("#tab_thumbNail").click(tab_thumbNail);
+		$("#tab_geoLocation").click(tab_geoLocation);
+		$("#tab_blogContents").click(tab_blogContents);
+	
+		/*decoBlog: mainImage, thunbNail, geoLocation, blogContents 탭 구현*/	
+		function tab_mainImage(){
+			$("#decoBlog").find(".tab").not("#mainImage").hide();
+			$("#mainImage").fadeIn("slow"); }
+		function tab_thumbNail(){
+			$("#decoBlog").find(".tab").not("#thumbNail").hide();
+			$("#thumbNail").fadeIn("slow"); }
+		function tab_geoLocation(){
+			$("#decoBlog").find(".tab").not("#geoLocation").hide();
+			$("#geoLocation").fadeIn("slow"); }
+		function tab_blogContents(){
+			$("#decoBlog").find(".tab").not("#blogContents").hide();
+			$("#blogContents").fadeIn("slow"); }
+	
 	function deleteJjim(){
 		$.ajax({
 			url: contextUrl + "deleteJjim.do",
@@ -207,7 +226,7 @@ $(document).ready(function(){
 	
 	/*상품 상세정보창 띄우기*/
 	function popUp_productInfo(){
-		/*productInfo Div객체 최신화*/
+		/*productInfo div요체 최신화*/
 		$.getJSON(
 			contextUrl + "getProductInfo.do?p_id=" 
 				+ $(this).attr("productId"),
@@ -253,8 +272,47 @@ $(document).ready(function(){
 		});
 	};
 	
+	/*상품 구매신청창 띄우기*/
+	function buyProduct(){
+		/*productPurchase div요체 최신화*/
+		$.getJSON(
+			contextUrl + "getProductByP_id.do?p_id="
+				+ $("#productInfo").attr("p_id"),
+			function(data){
+				$("#productPurchase").find(".data").remove();
+				$("#productP_img_purchase").append(
+					"<span class='data'>" +
+					"<img src='image_product/" + data.product.p_img + "'>" +
+					"</span>"
+				);
+				$("#productP_name_purchase").append(
+					"<span class='data'>" + data.product.p_name + "</span>"
+				);
+				$("#productP_price_purchase").append(
+					"<span class='data'>" + data.product.p_price + "</span>"
+				);
+				$("#ajaxForm_productPurchase").find("input:[name='p_id']")
+					.val($("#productInfo").attr("p_id"));
+			}
+		);
+		
+		/*최신화 후 팝업창 출력*/
+		$("#productPurchase").bPopup({
+			fadeSpeed: 'slow',
+			follow: [false, false],
+			modalClose: false,
+			position: [274, 50]
+		});
+	}
+	
 	/*상품 상세정보창 닫기*/
 	function closePop_productInfo(){
 		$("#productInfo").bPopup().close();
 	};
+	
+	/*상품 구매신청창 닫기*/
+	function closePop_productPurchase(){
+		$("#productPurchase").bPopup().close();
+		return false;
+	}
 });

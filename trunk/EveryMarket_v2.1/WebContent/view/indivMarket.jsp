@@ -7,25 +7,54 @@
 
 	<div id="indivMarketWrapper" owner_id="${owner.m_id }">
 
-		<div id="blog_b_main">
-			<img src="image_blog/${blog.b_main }">
-		</div>
+		<div id="blog_b_main"> <img src="image_blog/${blog.b_main }"> </div>
+		<div id="blog_b_thumb"> <img src="image_blog/${blog.b_thumb }"> </div>
 		<h1>${owner.m_name }님의 가게</h1>
+		
 		<div id="bar_button_indivMarket"></div>
+		
+		<div id="homeInfo">
+			<div id="blog_b_map"> <img src="${blog.b_map }"> </div>
+			<div id="blog_b_content"> ${blog.b_content } </div>
+			<div id="blog_b_hit"></div>
+			<div id="dangol_count"></div>
+			<div id="review_count"></div>
+		</div>
 		
 		<div id="productContainer">	
 			<c:forEach var="product" items="${listProduct }">
 				<div class="product" productId="${product.p_id }">${product.p_name }</div>	<br>
 			</c:forEach>
 		</div>
-		
-		<div class="button">메인가기</div>
 	
 	</div>
 	
 	<!-- 팝업창 : 가게 꾸미기 -->
 	<div id="decoBlog" class="popUp hidden">
+		<form action="updateBlog.do" method="post">
+			<div id="tab_mainImage" class="button_tab">메인이미지</div>
+			<div id="tab_thumbNail" class="button_tab">썸네일이미지</div>
+			<div id="tab_geoLocation" class="button_tab">구글맵API</div>
+			<div id="tab_blogContents" class="button_tab">마켓소개글</div>
+			<input type="submit" value="변경하기">
+		
+			<div id="mainImage" class="tab">
+				<h4>메인이미지 수정폼</h4>
+				<input type="file" name="b_main">
+			</div>
+			<div id="thumbNail" class="tab hidden">
+				<h4>썸네일이미지 수정폼</h4>
+				<input type="file" name="b_thumb">
+			</div>
+			<div id="geoLocation" class="tab hidden">
+				<h4>구글맵API 적용폼</h4>
 	
+			</div>
+			<div id="blogContents" class="tab hidden">
+				<h4>마켓소개글 수정폼</h4>
+				<textarea rows="5" cols="30" name="b_content"></textarea>
+			</div>
+		</form>
 	</div>
 	
 	<!-- 팝업창 : 상품등록 -->

@@ -51,4 +51,11 @@ public class Blog {
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
 	}
+	
+	@Override
+	public String toString() {
+		return "Blog [b_id=" + b_id + ", b_thumb=" + b_thumb + ", b_main="
+				+ b_main + ", b_content=" + b_content + ", b_map=" + b_map
+				+ ", b_hit=" + b_hit + ", m_id=" + m_id + "]";
+	}
 }

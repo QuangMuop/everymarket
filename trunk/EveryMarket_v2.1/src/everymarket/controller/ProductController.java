@@ -77,6 +77,15 @@ public class ProductController {
 		mav.setViewName("indivMarket");
 		return mav;
 	}
+	
+	@RequestMapping("/purchaseProduct.do")
+	public ModelAndView purchaseProduct(HttpServletRequest request,
+			@RequestParam("waitingTime") int waitingTime,
+			@RequestParam("p_id") int p_id){
+		ModelAndView mav = new ModelAndView();
+		
+		return mav;
+	}
 
 	/* getJSON */
 	@RequestMapping("/getProductInfo.do")
@@ -85,7 +94,7 @@ public class ProductController {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		Blog blog = daoB.getBlogByP_id(p_id);
-		Product product = daoP.getProductById(p_id);
+		Product product = daoP.getProductByP_id(p_id);
 		List<Product> randomProducts = daoP.getRandomProductByP_id(p_id);
 
 		map.put("blog", blog);
@@ -93,6 +102,21 @@ public class ProductController {
 		map.put("randomProducts", randomProducts);
 
 		mav.addAllObjects(map);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	/*getJSON*/
+	@RequestMapping("/getProductByP_id.do")
+	public ModelAndView getProductByP_id(@RequestParam("p_id") int p_id){
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		Product product = daoP.getProductByP_id(p_id);
+		
+		resultMap.put("product", product);
+		
+		mav.addAllObjects(resultMap);
 		mav.setViewName("jsonView");
 		return mav;
 	}
