@@ -1,0 +1,214 @@
+body{
+
+	
+}
+#today-market{
+font-family: HYÁß°íµñ	, Dotum, Baekmuk Dotum, Undotum, Apple Gothic, Latin font, sans-serif;
+text-align: center;
+
+
+text-shadow: 0px 2px 3px #555;
+margin: 0px;
+margin-bottom: 10px;
+margin-top: 10px;
+
+color: #fff;
+        text-shadow: 0px 0.5px 0px #999, 0px 1px 0px #888, 0px 1.5px 0px #777, 0px 2px 0px #666, 0px 2.5px 0px #555, 0px 3px 0px #444, 0px 3.5px 0px #333, 0px 4px 7px #001135;
+        font: 25px 'ChunkFiveRegular';
+        font-weight:bold;
+
+}
+
+#wrap{
+	margin: 0px auto;
+	padding: 10px;
+	width: 985px;
+	background: -moz-radial-gradient(center top, circle farthest-corner, #474a53 0%, #212328 100%);
+	
+	
+}
+h1, h2{
+	font-weight: normal;
+	border-bottom: 1px solid #E0E0E0;
+}
+.slider{
+
+	height: 400px;
+	width: 975px;
+	padding: 5px;
+	background-color: background: -moz-linear-gradient(top,  #474a53,  #212328);
+}
+.title{
+display: none;
+}
+
+.market-border2{
+
+float: left;
+padding: 5px;
+margin-right: 7px;
+background-color: white;
+width: 300px;
+
+margin-bottom: 7px;
+
+box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	
+	-webkit-transition: top 1s ease, left 1s ease;
+	-moz-transition: top 1s ease, left 1s ease;
+	-o-transition: top 1s ease, left 1s ease;
+	-ms-transition: top 1s ease, left 1s ease;
+
+}
+
+
+.market-detail{
+
+padding: 0px;
+margin: 0px;
+}
+.market-name-border{
+padding-top: 10px;
+padding-left: 10px;
+padding-right: 10px;
+height: 150px;
+}
+
+.market-name{
+
+text-align: center;
+color:white;
+text-shadow: 1px 0.5px #353542;
+
+
+}
+
+.market-name *{
+
+margin:0px;
+padding:0px;
+}
+.market-name #name1{
+font-size: 18px;
+font-weight:bold;
+padding-top:100px;
+/* padding-bottom: 10px; */
+}
+.market-name h3{
+font-weight:lighter;
+font-size: 13px;
+}
+.market-name h4{
+font-size: 15px;
+font-weight: bold;
+}
+.market-btn{
+border-bottom:solid thin  #d2d2d2;
+float:left;
+width: 95px;
+height: 55px;
+
+margin: 0px;
+
+}
+#btn-center{
+border-left: solid thin  #d2d2d2;
+border-right: solid thin  #d2d2d2;
+}
+
+.body-number{
+margin-top: 5px;
+margin-bottom: 0px;
+margin-left:5px;
+color: #333333;
+font-size: 20px;
+font-weight: bold;
+text-shadow: 0.5px 0.5px #e0e0e0;
+
+}
+.market-body-btn{
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left:5px;
+color:#8c8c8c;
+text-shadow: 0.5px 0.5px #e0e0e0;
+font-size: 12px;
+}
+.market-goods{
+border :1.5px solid #a0a0a0;
+float:left;
+width: 96px;
+height: 110px;
+
+margin: 0px;
+
+}
+.market-good{
+margin-top: 0px;
+margin-bottom: 0px;
+
+}
+.good-price{
+margin-top: 50px;
+margin-bottom: 0px;
+margin-left: 7px;
+}
+#zero{
+margin-top:12px;
+padding-bottom: 13px;
+float:left;
+margin-left: 220px;
+
+}
+#dan-btn{
+text-align: center;
+background-image: -moz-linear-gradient(top, #41a0c9 0%, #a6e2ee 100%);
+color:white;
+text-shadow: 0.5px 0.5px #2682a3;
+font-size: 12px;
+padding: 6px;
+font-weight:bold;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+
+}
+#slider-btn{
+margin-left: 0px;
+}
+
+
+.buttons, .control{
+	background: #000000;
+	padding: 3px 10px;
+	margin: 5px;
+	line-height: 0px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.active{
+	background: #feefff;
+	color: #5c0017;
+}
+.buttons:hover, .control:hover{
+	background: #0099FF;
+}
+.market-footer{
+	float: left;
+
+}
+.market-footer div{
+	display: inline;
+	
+}
+.imgLiquidFill{
+	margin: 0px;
+	padding: 0px;
+}
+
+.search_blog {
+	display: none;
+}
+
