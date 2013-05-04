@@ -9,10 +9,17 @@
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/basic.css" rel="stylesheet" type="text/css"/>
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/content.css" rel="stylesheet" type="text/css"/>
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/style.css" rel="stylesheet" type="text/css"/>
+<!-- 마켓슬라이드 -->
+<link href="<%=request.getContextPath()%>/styles/css_sh/skitter.styles.css" media="all" rel="stylesheet" type="text/css"/>
+<!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.form.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.bpopup.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.easing.1.3.js" type="text/javascript"></script>
+<!-- 마켓슬라이드 -->
+<script src="<%=request.getContextPath()%>/scripts/lib/jquery.skitter.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/scripts/lib/highlight.js" type="text/javascript"></script>
+<!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/dwr/engine.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/productDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/adminDwr.js" type="text/javascript"></script>
@@ -20,6 +27,10 @@
 <script src="<%=request.getContextPath()%>/scripts/indivMarket.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/list.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/blocksit.js" type="text/javascript"></script>
+<!-- 마켓슬라이드 -->
+<script src="<%=request.getContextPath()%>/scripts/slide_market.js" type="text/javascript"></script>
+<!-- 마켓슬라이드 -->
+
 </head>
 <body>
 <center>

@@ -90,7 +90,7 @@ $(document).ready(function(){
 				 .andSelf()
 				 .find('.h_wrap')
 			     .stop(true)
-				 .animate({'top':'140px'},500,'easeOutBack')
+				 .animate({'top':'120px'},500,'easeOutBack')
 				 .andSelf()
 				 .find('.h_active')
 			     .stop(true)
@@ -121,7 +121,7 @@ $(document).ready(function(){
 				 .andSelf()
 				 .find('.h_wrap')
 				 .stop(true)
-				 .animate({'top':'25px'},500);
+				 .animate({'top':'5px'},500);
 		});
     });
 });
