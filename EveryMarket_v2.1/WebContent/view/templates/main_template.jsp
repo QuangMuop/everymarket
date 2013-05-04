@@ -12,7 +12,7 @@
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/content.css" rel="stylesheet" type="text/css"/>
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/style.css" rel="stylesheet" type="text/css"/>
 <!-- 마켓슬라이드 -->
-<link href="<%=request.getContextPath()%>/styles/css_sh/skitter.styles.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/styles/css_sh/skitterstyles.css" media="all" rel="stylesheet" type="text/css"/>
 <!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.form.js" type="text/javascript"></script>
