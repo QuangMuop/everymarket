@@ -20,9 +20,9 @@ public class ProductDao {
 	public int getMaxP_id() {
 		return (Integer) ibatisTemplate.queryForObject("getMaxP_id");
 	}
-	
-	/*Output: List<Product>(p_report > 3)*/
-	public List<Product> getReportedProduct(){
+
+	/* Output: List<Product>(p_report > 3) */
+	public List<Product> getReportedProduct() {
 		return ibatisTemplate.queryForList("getReportedProduct");
 	}
 
@@ -43,38 +43,49 @@ public class ProductDao {
 
 	/* Input: p_id / Output: List<Product> */
 	public List<Product> getRandomProductByP_id(int p_id) {
-		String m_id = (String) ibatisTemplate.queryForObject("getM_idByP_id", p_id);
+		String m_id = (String) ibatisTemplate.queryForObject("getM_idByP_id",
+				p_id);
 		return ibatisTemplate.queryForList("getRandomProductByM_id", m_id);
 	}
-	
-	/*Input: Map(m_id, p_id) / Output: boolean*/
+
+	/* Input: Map(m_id, p_id) / Output: boolean */
 	public boolean checkOwn(Map<String, Object> paramMap) {
-		int result = (Integer)ibatisTemplate.queryForObject("checkOwn", paramMap);
-		if(result == 0){ 
-			return false; 
-		}else{ 
-			return true; 
+		int result = (Integer) ibatisTemplate.queryForObject("checkOwn",
+				paramMap);
+		if (result == 0) {
+			return false;
+		} else {
+			return true;
 		}
 	}
 
 	// 검색했을시 List뿌려주기
-	public List<Product> ListProduct(String category, int pageNum, String searchtext) {
+	public List<Product> ListProduct(String category, int pageNum,
+			String searchtext) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
 		map.put("category", category);
 		map.put("startPage", pageNum - 4);
 		map.put("endPage", pageNum);
 		map.put("searchtext", searchtext);
-		
-		if(category.equals("All")){			
-			ArrayList<Product> list = (ArrayList) ibatisTemplate.queryForList("listProduct_main", map);
+
+		if (category.equals("All")) {
+			ArrayList<Product> list = (ArrayList) ibatisTemplate.queryForList(
+					"listProduct_main", map);
 			return ibatisTemplate.queryForList("listProduct_main", map);
-		}else if (searchtext.equals("basic")) {
-			System.out.println("난가?");
+		} else if (searchtext.equals("basic")) {
+
 			return ibatisTemplate.queryForList("listProduct", map);
 		} else {
-			System.out.println("나야?");
+
 			return ibatisTemplate.queryForList("listProductSearch", map);
 		}
 	}
+
+	public void trade_status_update(HashMap map) {
+
+		ibatisTemplate.update("trade_stauts_update", map);
+
+	}
+
 }

@@ -22,5 +22,6 @@
 	<sqlMap resource="everymarket/ibatis/Member.xml"/>
 	<sqlMap resource="everymarket/ibatis/Product.xml"/>
 	<sqlMap resource="everymarket/ibatis/List.xml"/>
+	<sqlMap resource="everymarket/ibatis/Trade.xml"     />
 
 </sqlMapConfig>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<!-- sqlMapConfig초기화에서 에러나서 임시로 만든 sql파일 ㅋㅋ -->
+
+<sqlMap namespace="Trade">
+
+	<typeAlias alias="Trade" type="everymarket.model.Trade" />
+
+
+	<select id="getBuyingTrade" resultClass="Trade">
+		select t.t_id,
+		t.t_buyer, t.p_id, t.t_date, t.t_status, t.t_del_number,
+		p.p_name, p.p_price from
+		trade t
+		join product p on t.p_id = p.p_id
+		where
+		t.t_buyer = #m_id# and t.t_status = 1
+	</select>
+
+	<select id="getSellingTrade" resultClass="Trade">
+		select t.t_id,
+		t.t_buyer, t.p_id, t.t_date, t.t_status, t.t_del_number,
+		p.p_name, p.p_price from
+		trade t
+		join product p on t.p_id = p.p_id
+		where
+		p.m_id = #m_id# and t.t_status = 1
+	</select>
+
+
+
+</sqlMap>
