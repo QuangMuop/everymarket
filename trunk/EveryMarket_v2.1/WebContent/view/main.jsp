@@ -13,32 +13,32 @@
 				<ul>
 					<li>
 						<a href="#cube">
-							<img src="images/slide_image/001.jpg" class="cube" />
+							<img src="images/smarket/001.jpg" class="cube" />
 						</a>
 							<div class="label_text">
 								<div class="slide_marketname">
 									<a class="m_font" id="m_nick">이승혁</a>
-									<img alt="" src="images/slide_image/smarket4.png">
+									<img alt="" src="images/smarket/smarket4.png">
 								</div>
 								<div class="m_goods">
 									<a class="m_font" id="m_recent">최근에 올린 상품</a>
 										<div class="m_innergoods">
 											<div class="goods">
-											<img class="good_image" alt="" src="images/slide_image/004.jpg">
+											<img class="good_image" alt="" src="images/smarket/004.jpg">
 												<a class="good_name">페라리</a>
-											<img class="coin" alt="" src="images/slide_image/coin.png">
+											<img class="coin" alt="" src="images/smarket/coin.png">
 												<a class="m_font" id="good_money">10000</a>
 											</div>
 											<div class="goods">
-											<img class="good_image" alt="" src="images/slide_image/005.jpg">
+											<img class="good_image" alt="" src="images/smarket/005.jpg">
 												<a class="good_name">페라리</a>
-											<img class="coin" alt="" src="images/slide_image/coin.png">
+											<img class="coin" alt="" src="images/smarket/coin.png">
 												<a class="m_font" id="good_money">10000</a>
 											</div>
 											<div class="goods">
-											<img class="good_image" alt="" src="images/slide_image/006.jpg">
+											<img class="good_image" alt="" src="images/smarket/006.jpg">
 												<a class="good_name">페라리</a>
-											<img class="coin" alt="" src="images/slide_image/coin.png">
+											<img class="coin" alt="" src="images/smarket/coin.png">
 												<a class="m_font" id="good_money">10000</a>
 											</div>
 										</div>
@@ -63,32 +63,32 @@
 					</li>
 					<li>
 						<a href="#cube">
-							<img src="images/slide_image/002.jpg" class="cube" />
+							<img src="images/smarket/002.jpg" class="cube" />
 						</a>
 							<div class="label_text">
 								<div class="slide_marketname">
 									<a class="m_font" id="m_nick">이승혁</a>
-									<img alt="" src="images/slide_image/smarket4.png">
+									<img alt="" src="images/smarket/smarket4.png">
 								</div>
 								<div class="m_goods">
 									<a class="m_font" id="m_recent">최근에 올린 상품</a>
 										<div class="m_innergoods">
 											<div class="goods">
-											<img class="good_image" alt="" src="images/slide_image/004.jpg">
+											<img class="good_image" alt="" src="images/smarket/004.jpg">
 												<a class="good_name">페라리</a>
-											<img class="coin" alt="" src="images/slide_image/coin.png">
+											<img class="coin" alt="" src="images/smarket/coin.png">
 												<a class="m_font" id="good_money">10000</a>
 											</div>
 											<div class="goods">
-											<img class="good_image" alt="" src="images/slide_image/005.jpg">
+											<img class="good_image" alt="" src="images/smarket/005.jpg">
 												<a class="good_name">페라리</a>
-											<img class="coin" alt="" src="images/slide_image/coin.png">
+											<img class="coin" alt="" src="images/smarket/coin.png">
 												<a class="m_font" id="good_money">10000</a>
 											</div>
 											<div class="goods">
-											<img class="good_image" alt="" src="images/slide_image/006.jpg">
+											<img class="good_image" alt="" src="images/smarket/006.jpg">
 												<a class="good_name">페라리</a>
-											<img class="coin" alt="" src="images/slide_image/coin.png">
+											<img class="coin" alt="" src="images/smarket/coin.png">
 												<a class="m_font" id="good_money">10000</a>
 											</div>
 										</div>
