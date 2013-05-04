@@ -1,5 +1,8 @@
 package everymarket.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
 import everymarket.model.Blog;
@@ -24,5 +27,10 @@ public class BlogDao {
 	/*Input: p_id / Output: Blog*/
 	public Blog getBlogByP_id(int p_id){
 		return (Blog)ibatisTemplate.queryForObject("getBlogByP_id", p_id);
+	}
+	
+	/*Input: Blog*/
+	public void updateBlog(Map<String, Object> paramMap){
+		ibatisTemplate.update("updateBlog", paramMap);
 	}
 }

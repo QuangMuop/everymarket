@@ -8,6 +8,16 @@
 	
 	<typeAlias alias="Blog" type="everymarket.model.Blog"/>
  
+ 	<update id="updateBlog">
+ 		update blog
+ 		<dynamic prepend="set">
+ 			<iterate property="paramList" conjunction=",">
+ 				$paramList[]$ = #paramList[]#
+ 			</iterate>
+ 		</dynamic>
+ 		where m_id = #m_id#
+ 	</update>
+ 
  	<select id="getB_thumbByM_id" resultClass="String">
  		select b_thumb from blog where m_id = #m_id#
  	</select>

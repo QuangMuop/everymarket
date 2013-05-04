@@ -32,8 +32,8 @@ public class ProductDao {
 	}
 
 	/* Input: p_id / Output: Product */
-	public Product getProductById(int p_id) {
-		return (Product) ibatisTemplate.queryForObject("getProductById", p_id);
+	public Product getProductByP_id(int p_id) {
+		return (Product) ibatisTemplate.queryForObject("getProductByP_id", p_id);
 	}
 
 	/* Input: m_id / Output: List<Product> */
