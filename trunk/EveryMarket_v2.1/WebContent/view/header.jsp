@@ -29,6 +29,10 @@
 					알림1
 					</div>
 				</div>
+				<c:if test="${member.m_id == 'aa' }">
+					<a id="h_bar" >|</a>
+					<button  class="h_tag"  id="goAdminister">관리자페이지</button>
+				</c:if>
 				<a id="h_bar" >|</a>
 				<a class="h_tag">${member.m_name }님 안녕하세요.</a>
 			</c:otherwise>
@@ -38,7 +42,7 @@
 	<!--logo-image,search -->
 	<div id="h_mid">
 		<div id="h_logo">
-			<a>logo</a>
+			
 		</div>
 		<div id="h_searchbar">
 			<form action="search_result.do" id="h_searchline" method="post">

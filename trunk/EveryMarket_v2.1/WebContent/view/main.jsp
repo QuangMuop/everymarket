@@ -12,7 +12,7 @@
 		<div class="box_skitter box_skitter_large">
 			<ul>
 				<c:forEach var="blog" items="${blog }">
-				<li><a href="#cube"> <img src="image_blog/${blog.b_main }" class="cube" id="m_image"/>
+				<li><a href="#cube"> <img src="image_blog/${blog.b_main }" class="randomSmart"/>
 				</a>
 					<div class="label_text">
 						<div class="slide_marketname">
