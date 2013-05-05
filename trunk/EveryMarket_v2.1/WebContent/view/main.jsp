@@ -5,8 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+
 </head>
 <body>
+
+	
 	<!--					 마켓 광고 시작								 -->
 	<div id="mid_contents">
 	<div class="border_box">
@@ -92,7 +95,12 @@
 		<input type="text" name="m_id" size="10"> <input type="submit"
 			value="마켓이동">
 	</form>
-
+	
+	<!--  리모트 부분 -->
+	<div id="remote"></div>
+	<!--  끝 -->
+	
+	
 	<c:if test="${error != null }">	${error } </c:if>
 
 	<div id="container_grid">
@@ -101,7 +109,7 @@
 			<div id="item_container" category="${category}"
 				searchtext="${searchtext}">
 				<c:forEach var="product" items="${listProduct}">
-					<div class="grid" p_id="${product.p_id}">
+					<div class="grid" id="${product.p_id}">
 						<div class="imgholder">
 							<img src="image_product/${product.p_img}" />
 						</div>
@@ -112,5 +120,7 @@
 			</div>
 		</div>
 	</div>
+	
+
 </body>
 </html>
