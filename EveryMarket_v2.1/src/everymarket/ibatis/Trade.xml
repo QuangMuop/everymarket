@@ -15,22 +15,38 @@
 	<select id="getBuyingTrade" resultClass="Trade">
 		select t.t_id,
 		t.t_buyer, t.p_id, t.t_date, t.t_status, t.t_del_number,
-		p.p_name, p.p_price from
+		p.p_name,
+		p.p_price from
 		trade t
 		join product p on t.p_id = p.p_id
 		where
-		t.t_buyer = #m_id# and t.t_status = 1
+		t.t_buyer =
+		#m_id# and t.t_status = 1
 	</select>
 
 	<select id="getSellingTrade" resultClass="Trade">
 		select t.t_id,
 		t.t_buyer, t.p_id, t.t_date, t.t_status, t.t_del_number,
-		p.p_name, p.p_price from
+		p.p_name,
+		p.p_price from
 		trade t
 		join product p on t.p_id = p.p_id
 		where
-		p.m_id = #m_id# and t.t_status = 1
+		p.m_id =
+		#m_id# and t.t_status > 0
 	</select>
+
+	<!-- 운송번호입력과 거래상태를 바꿔주는 쿼리문 -->
+	<update id="update_deliver_number">
+		update trade set t_status = #t_status#, t_del_number
+		=
+		#d_number# where t_id = #t_id#
+	</update>
+
+	<!-- 배송 완료됐을시 status바꿔주기 -->
+	<update id="update_deliver_ok">
+		update trade set t_status = #t_status# where t_id = #t_id#
+	</update>
 
 
 
