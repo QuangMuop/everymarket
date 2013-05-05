@@ -346,13 +346,13 @@ $(document).ready(function(){
 				+ $(this).attr("productId"),
 			function(data){
 				/*HomeInfo Div*/
-				$("#blogB_map").html(data.blog.b_map);
+				$("#blogB_map").html("<img src='" + data.blog.b_map + "'>");
 				$("#blogB_content").html(data.blog.b_content);
 				
 				$("#randomProducts > div").remove();
 				$.each(data.randomProducts, function(index, product){
 					$("#randomProducts").append(
-						"<div>" + product.p_img + "</div>"
+						"<img src='image_product/" + product.p_img + "'>"
 					);
 				});
 				
