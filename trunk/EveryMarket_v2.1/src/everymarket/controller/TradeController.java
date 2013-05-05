@@ -60,11 +60,12 @@ public class TradeController {
 		ModelAndView mav = new ModelAndView();
 		/* Member member = (Member) request.getSession(); */
 		Member member = new Member();
-		member.setM_id("nn");
+		member.setM_id("ee");
 		String m_id = member.getM_id();
 		
 		//나에 구매중인 물품들
 		List<Trade> buyingList = daoT.getBuyingTrade(m_id);
+		
 		//나에 판매중인 물품들 
 		List<Trade> sellingList = daoT.getSellingTrade(m_id);
 		
