@@ -24,7 +24,7 @@
 				<div class="narrow">${boardQna.qna_hitcount }</div>
 				<div class="wide">${boardQna.qna_regdate }</div>
 				<div class="contents hidden">
-					${boardQna.qna_contents }
+					${boardQna.qna_content }
 					<c:if test="${boardQna.qna_answer != null }">
 						<div class="answer">
 							<p>replied by Admin :</p>
