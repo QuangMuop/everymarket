@@ -4,3 +4,15 @@
 	display: inline-block;
 	padding: 5px;
 }
+
+#gMap{
+	width: 625px;
+	height: 530px;	
+}
+
+#geoLocation > div{
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 3px;
+	cursor: pointer;
+}

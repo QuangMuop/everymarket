@@ -8,16 +8,6 @@
 	
 	<typeAlias alias="Blog" type="everymarket.model.Blog"/>
  
- 	<update id="updateBlog">
- 		update blog
- 		<dynamic prepend="set">
- 			<iterate property="paramList" conjunction=",">
- 				$paramList[]$ = #paramList[]#
- 			</iterate>
- 		</dynamic>
- 		where m_id = #m_id#
- 	</update>
- 
  	<select id="getB_thumbByM_id" resultClass="String">
  		select b_thumb 
  		from blog 
@@ -39,9 +29,32 @@
 		where p.p_id = #p_id#
 	</select>
 	
+	<update id="updateB_main" parameterClass="Blog">
+		update blog
+		set b_main = #b_main#
+		where m_id = #m_id#
+	</update>
+	
+	<update id="updateB_thumb" parameterClass="Blog">
+		update blog
+		set b_thumb = #b_thumb#
+		where m_id = #m_id#
+	</update>
+	
+	<update id="updateB_map" parameterClass="Blog">
+		update blog
+		set b_map = #b_map#
+		where m_id = #m_id#
+	</update>
+	
+	<update id="updateB_content" parameterClass="Blog">
+		update blog
+		set b_content = #b_content#
+		where m_id = #m_id#
+	</update>
+	
 	<select id="getBlogList" resultClass="Blog">
 		select*from blog order by dbms_random.value
 	</select>
-	
-	
+
 </sqlMap>

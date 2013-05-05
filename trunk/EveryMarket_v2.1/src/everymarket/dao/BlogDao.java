@@ -30,8 +30,23 @@ public class BlogDao {
 	}
 	
 	/*Input: Blog*/
-	public void updateBlog(Map<String, Object> paramMap){
-		ibatisTemplate.update("updateBlog", paramMap);
+	public void updateB_main(Blog blog){
+		ibatisTemplate.update("updateB_main", blog);
+	}
+	
+	/*Input: Blog*/
+	public void updateB_thumb(Blog blog){
+		ibatisTemplate.update("updateB_thumb", blog);
+	}
+	
+	/*Input: Blog*/
+	public void updateB_map(Blog blog){
+		ibatisTemplate.update("updateB_map", blog);
+	}
+	
+	/*Input: Blog*/
+	public void updateB_content(Blog blog){
+		ibatisTemplate.update("updateB_content", blog);
 	}
 	
 	public List<Blog> getBlogList(){
