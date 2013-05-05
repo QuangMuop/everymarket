@@ -16,8 +16,6 @@
 			<c:otherwise>
 				<a class="h_tag" id="header_logout">로그아웃</a>
 				<a id="h_bar" >|</a>
-				<a class="h_tag" id="header_chargeCash">캐시충전</a>
-				<a id="h_bar" >|</a>
 				<a class="h_tag" href="JJimbasket.do">찜바구니</a>
 				<a id="h_bar" >|</a>
 				<!-- IndivMarket --> 
@@ -29,6 +27,12 @@
 					알림1
 					</div>
 				</div>
+				<a id="h_bar" >|</a>
+				<a class="h_tag" id="header_chargeCash">캐시충전</a>
+				<a id="h_bar" >|</a>
+				<a class="h_tag">${member.m_cash }
+				<img class="coin" alt="" src="images/smarket/coin.png">
+				</a>
 				<c:if test="${member.m_id == 'aa' }">
 					<a id="h_bar" >|</a>
 					<button  class="h_tag"  id="goAdminister">관리자페이지</button>

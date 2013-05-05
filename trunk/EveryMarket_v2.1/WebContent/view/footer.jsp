@@ -7,7 +7,7 @@
 	<div>
 		<div id="footer">
 		<div id="b_banner1">
-			<img alt="" src="image/bottom_banner.gif">
+			<img alt="" src="images/footer/bottom_banner.gif">
 		</div>
 		<div id="b_banner2">
 			<a class="b_font">회사소개</a>

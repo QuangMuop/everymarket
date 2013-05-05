@@ -8,6 +8,7 @@
 </head>
 <body>
 	<!--					 마켓 광고 시작								 -->
+	<div id="mid_contents">
 	<div class="border_box">
 		<div class="box_skitter box_skitter_large">
 			<ul>
@@ -63,9 +64,29 @@
 			</ul>
 		</div>
 	</div>
+	
+<!-- 	//////////////////// -->
+	<div id="now_sale">
+		<img alt="" id="sale_image" src="images/smarket/now.png">
+		<img alt="" id="sale_image2" src="image_product/acc1.PNG">
+			<div id="sale_detail">
+				<p>[누구누구]상품이름</p>
+				<p id="sale_cash"><img class="coin" alt="" src="images/smarket/coin.png">1000</p>
+				
+					<div id="sale_count">
+						<p>찜횟수:</p>
+							<p>1</p>
+							<p>|</p>
+						<p>덧글수:</p>
+							<p>1</p>
+							
+					</div>
+					<button id="now_buy"></button>
+			</div>
+	</div>
 
 
-
+	</div>
 	<!--                    	마켓 광고                                       -->
 	<form action="goMarket.do" method="post">
 		<input type="text" name="m_id" size="10"> <input type="submit"

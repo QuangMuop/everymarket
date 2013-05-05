@@ -159,4 +159,7 @@ $(document).ready(function(){
 				 .animate({'top':'5px'},500);
 		});
     });
+	$('#h_logo').click(function(){
+		location.href="enter.go";
+	});
 });
