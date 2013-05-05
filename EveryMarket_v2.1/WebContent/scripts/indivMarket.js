@@ -12,6 +12,12 @@ $(document).ready(function(){
 	$(".product").click(popUp_productInfo);
 	$("#productPurchase button").click(closePop_productPurchase);
 	
+	$("#opener_locationPicker").click(open_locationPicker);
+	$("#submitAddress").submit(function(){
+		showAddress(this.address.value);
+		return false;
+	});
+	
 	$(document).on('click', ".b_thumb", goMarket);
 	
 	$(document).on('click', "#button_goMain", goMain);
@@ -46,7 +52,92 @@ $(document).ready(function(){
 		function tab_blogContents(){
 			$("#decoBlog").find(".tab").not("#blogContents").hide();
 			$("#blogContents").fadeIn("slow"); }
-	
+		
+		function open_locationPicker(){
+			$("#gMapLocationPicker").slideDown("slow");
+			$(this).hide();
+			loadGBrowser();
+		}
+		
+		/*구글맵API 구현부*/
+		function loadGBrowser() {
+			if (GBrowserIsCompatible()) {
+				var map = new GMap2(document.getElementById("map"));
+				map.addControl(new GSmallMapControl());
+				map.addControl(new GMapTypeControl());
+				var center = new GLatLng(37.47865, 126.88189);
+				map.setCenter(center, 16);
+				geocoder = new GClientGeocoder();
+				var marker = new GMarker(center, { draggable : true });
+				map.addOverlay(marker);
+				document.getElementById("lat").value = center.lat().toFixed(5);
+				document.getElementById("lng").value = center.lng().toFixed(5);
+				GEvent.addListener(marker, "dragend", function() {
+					var point = marker.getPoint();
+					map.panTo(point);
+					document.getElementById("lat").value = point.lat().toFixed(5);
+					document.getElementById("lng").value = point.lng().toFixed(5);
+				});
+				GEvent.addListener(map, "moveend", function() {
+					map.clearOverlays();
+					var center = map.getCenter();
+					var marker = new GMarker(center, { draggable : true });
+					map.addOverlay(marker);
+					document.getElementById("lat").value = center.lat().toFixed(5);
+					document.getElementById("lng").value = center.lng().toFixed(5);
+					GEvent.addListener(marker, "dragend", function() {
+						var point = marker.getPoint();
+						map.panTo(point);
+						document.getElementById("lat").value = point.lat().toFixed(5);
+						document.getElementById("lng").value = point.lng().toFixed(5);
+					});
+				});
+			}
+		}
+		
+		function showAddress(address) {
+			var map = new GMap2(document.getElementById("map"));
+			map.addControl(new GSmallMapControl());
+			map.addControl(new GMapTypeControl());
+			if (geocoder) {
+				geocoder.getLatLng(address, function(point) {
+					if (!point) {
+						alert(address + " not found");
+					} else {
+						document.getElementById("lat").value = point.lat().toFixed(5);
+						document.getElementById("lng").value = point.lng().toFixed(5);
+						var lat = document.getElementById("lat").value;
+						var lng = document.getElementById("lng").value;
+					
+						map.clearOverlays();
+						map.setCenter(point, 16);
+						var marker = new GMarker(point, { draggable : true });
+						map.addOverlay(marker);
+						GEvent.addListener(marker, "dragend", function() {
+							var pt = marker.getPoint();
+							map.panTo(pt);
+							document.getElementById("lat").value = pt.lat().toFixed(5);
+							document.getElementById("lng").value = pt.lng().toFixed(5);
+						});
+						GEvent.addListener(map, "moveend", function() {
+							map.clearOverlays();
+							var center = map.getCenter();
+							var marker = new GMarker(center, { draggable : true });
+							map.addOverlay(marker);
+							document.getElementById("lat").value = center.lat().toFixed(5);
+							document.getElementById("lng").value = center.lng().toFixed(5);
+							GEvent.addListener(marker, "dragend", function() {
+								var pt = marker.getPoint();
+								map.panTo(pt);
+								document.getElementById("lat").value = pt.lat().toFixed(5);
+								document.getElementById("lng").value = pt.lng().toFixed(5);
+							});
+						});
+					}
+				});
+			}
+		}
+		
 	function deleteJjim(){
 		$.ajax({
 			url: contextUrl + "deleteJjim.do",
@@ -202,7 +293,14 @@ $(document).ready(function(){
 	
 	/*가게 데코창 띄우기*/
 	function popUp_decoBlog(){
-		$("#decoBlog").bPopup();
+		$('html, body').animate( { 'scrollTop': 0 }, 'slow' );
+		
+		$("#decoBlog").bPopup({
+			fadeSpeed: 'slow',
+			follow: [false, false],
+			modalClose: false,
+			position: [274, 50]
+		});
 	}	
 	
 	/*상품 등록창 띄우기*/
