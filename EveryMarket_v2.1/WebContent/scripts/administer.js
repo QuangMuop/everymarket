@@ -5,7 +5,7 @@ $(document).ready(function(){
 	$(".tab:eq(1)").click(tab_boardReport);
 	
 	$(document).on('click', ".boardReport", toggleReportContents);
-	$(document).on('change', "select", reportAction);
+	$(document).on('change', ".boardReport select", reportAction);
 	
 	$("#callMemberList").click(function(){ alert("ππ¿”∏∂"); });
 	
