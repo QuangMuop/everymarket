@@ -11,7 +11,7 @@
 <style type="text/css">
 table {
 	border: 1px solid;
-	width: 600px;
+	width: 1000px;
 }
 
 table td,th {
@@ -21,7 +21,7 @@ table td,th {
 </head>
 <body>
 
-
+	 
 	<table id="buying">
 		<tr>
 			<th>주문번호</th>
@@ -38,8 +38,11 @@ table td,th {
 				<td>${bl.t_status }</td>
 			</tr>
 		</c:forEach>
-	</table>
-
+	</table> 
+	
+	
+	
+<%-- 
 	<table id="selling">
 		<tr>
 			<th>주문번호</th>
@@ -51,29 +54,40 @@ table td,th {
 		<c:forEach var="sl" items="${sellingList}">
 			<tr>
 				<td>${sl.t_del_number}</td>
-				<td>${sl.p_name}</td>
-				<td>${sl.p_price}</td>
+				<td id="t_id" type="hidden" value="${sl.t_id}">${sl.p_name}</td>
+				<td id="t_status" name="${sl.t_status}">${sl.p_price}</td>
 
 
-				<td><c:choose>
 
-						<c:when test="${sl.t_status > 1}">
-							<td>${sl.t_status}</td>
-						</c:when>
+				<c:choose>
+					<c:when test="${sl.t_status == 2 }">
+						<td id="db_text">배송중</td>
+						<td><input class="db_trace" type="button" value="배송추적"
+							onclick="db_pop()" /></td>
+					</c:when>
 
-						<c:when test="${sl.t_status < 2 }">
-							<form>
-								송장번호입력: <input type="text">
-							<td><input id="dn_bt" type="submit" value="확인"></td>
+					<c:when test="${sl.t_status == 3 }">
+						<td id="db_text">배송완료</td>
+						<td><input class="db_trace" type="button" value="배송추적" /></td>
+					</c:when>
 
-							</form>
-						</c:when>
 
-					</c:choose></td>
+					<c:when test="${sl.t_status == 1}">
+						<form>
+							<td>송장번호입력: <input id="dn_bt_nb" type="text"> 거래번호 or 프로덕트 아이디 
+							</td>
+							<td><input id="dn_bt" type="button" value="확인"></td>
+
+						</form>
+					</c:when>
+
+				</c:choose>
+
+
 
 			</tr>
 		</c:forEach>
-	</table>
+	</table> --%>
 
 
 
