@@ -23,6 +23,12 @@
 		<property name="daoP" ref="productDao" />
 		<dwr:remote javascript="listDwr" />
 	</bean>
+	
+	<bean id="tradeDwr" class="everymarket.dwr.TradeDwr">
+	    <property name="daoT" ref="tradeDao"/>
+	    <dwr:remote javascript="tradeDwr"/>	
+	</bean>	
+	
 
 	<!-- Dwr Setting -->
 	<dwr:controller id="dwrController" debug="true">
