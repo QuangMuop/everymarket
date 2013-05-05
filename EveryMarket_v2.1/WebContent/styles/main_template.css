@@ -205,3 +205,62 @@ ul.h_menu li div.h_box a:hover{
 #h_menu{
 	height: 85px;
 }
+#footer *{
+	text-align: left;
+}
+.b_font{
+ color:#777777;
+ font-size: 11px;
+ margin-left: 22px;
+ margin-right: 22px;
+ text-shadow: 0.5px 0.5px 0.5px #777777;
+}
+.b_bar{
+color: #dadada;
+font-size: 10px;
+}
+#b_banner1{
+text-align: center;
+width:1020px;
+}
+#b_banner2{
+border: 1px solid #e7e7e7;
+text-align: center;
+height: 25px;
+padding-top: 2px;
+width:1020px;
+}
+.b_banner3{
+width: 490px;
+height:60px;
+float: left;
+}
+.b_banner3 p{
+margin: 0px;
+margin-left: 10px;
+}
+#b3_font{
+font-size: 10px;
+text-shadow: 0.3px 0.3px 0.3px #777777;
+color:#777777;
+}
+.b_title{
+color:#4d4d4d;
+font-size: 12px;
+font-weight: bold;
+text-shadow: 0.5px 0.5px 0.5px #777777;
+
+}
+#b_banner4{
+	width:990px;
+	height: 60px;
+	padding: 15px;
+}
+#b3_bar{
+border-right: 1px solid #d7d7d7;
+}
+
+#goAdminister{
+	border: 0px;
+	background: none;
+}
