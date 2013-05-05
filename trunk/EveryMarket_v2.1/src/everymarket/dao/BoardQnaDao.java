@@ -27,7 +27,7 @@ public class BoardQnaDao {
 		ibatisTemplate.insert("insertQna", boardQna);
 	}
 	
-	/*Input: qna_id, qna_contents*/
+	/*Input: qna_id, qna_content*/
 	public void updateQna(BoardQna boardQna){
 		ibatisTemplate.update("updateQna", boardQna);
 	}

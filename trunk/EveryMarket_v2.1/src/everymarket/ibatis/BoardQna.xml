@@ -14,7 +14,7 @@
 			#qna_id#,
 			#qna_title#,
 			#qna_writer#,
-			#qna_contents#,
+			#qna_content#,
 			#qna_regdate#,
 			0,
 			null,
@@ -28,7 +28,7 @@
 	
 	<update id="updateQna" parameterClass="BoardQna">
 		update board_qna
-		set qna_contents = #qna_contents#
+		set qna_content = #qna_content#
 		where qna_id = #qna_id#
 	</update>
 	

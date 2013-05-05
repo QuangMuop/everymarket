@@ -10,7 +10,7 @@
 		<h2>글쓰기 폼</h2>
 		<form action="insertQna.do" method="post">
 			제목:		<input type="text" name="qna_title"><br>
-			내용:		<textarea name="qna_contents" rows="6" cols="30"/></textarea><br>
+			내용:		<textarea name="qna_content" rows="6" cols="30"/></textarea><br>
 			<input type="submit" value="글 작성하기">
 		</form>
 	</div>
@@ -28,7 +28,7 @@
 		<h2>글 수정 폼</h2>
 		<form action="updateQna.do" method="post">
 			제목:		<input type="text" name="qna_title" readonly="readonly"><br>
-			내용:		<textarea name="qna_contents" rows="6" cols="30"></textarea><br>
+			내용:		<textarea name="qna_content" rows="6" cols="30"></textarea><br>
 			<input type="hidden" name="qna_id" value="">
 			<input type="submit" value="수정하기"/>		
 		</form>

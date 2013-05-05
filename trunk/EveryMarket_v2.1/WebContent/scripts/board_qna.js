@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$(document).on('click', ".modify_boardQna", popUp_modifyQna);
 	$(document).on('click', ".delete_boardQna", deleteQna);
 	
-	$(document).on('click', ".boardQna", toggleQnaContents);
+	$(document).on('click', ".boardQna", toggleQnaContent);
 	
 	function popUp_insertQna(){ $("#insertBoardQna").bPopup(); }
 	
@@ -27,7 +27,7 @@ $(document).ready(function(){
 		}
 	}
 	
-	function toggleQnaContents(){
+	function toggleQnaContent(){
 		$(".boardQna").not($(this)).find(".contents").slideUp();
 		$(this).find(".contents").slideDown().end().find(".answer").fadeIn();
 	}
