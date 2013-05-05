@@ -11,27 +11,27 @@
 	<select id="getReportedProduct" resultClass="BoardReport">
 		select *
 		from board_report
-		where r_check = 'n' and not r_productid = -1
-		order by r_regdate desc
+		where rep_check = 'n' and not rep_productid = -1
+		order by rep_regdate desc
 	</select>
 	
 	<select id="getReportedMember" resultClass="BoardReport">
 		select *
 		from board_report
-		where r_check = 'n' and r_productid = -1 
-		order by r_regdate desc
+		where rep_check = 'n' and rep_productid = -1 
+		order by rep_regdate desc
 	</select>
 
 	<select id="getUncheckedReportList" resultClass="BoardReport">
 		select *
 		from board_report
-		where r_check = 'n'
+		where rep_check = 'n'
 	</select>
 
 	<update id="checkReportStatus">
 		update board_report
-		set r_check = 'y'
-		where r_id = #r_id#
+		set rep_check = 'y'
+		where rep_id = #r_id#
 	</update>
 
 </sqlMap>

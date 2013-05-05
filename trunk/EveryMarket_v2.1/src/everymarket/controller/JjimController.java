@@ -93,7 +93,7 @@ public class JjimController {
 		member1.setM_nick("럭키가이");
 		member1.setM_name("유석");
 		member1.setM_pwd("gg1234");
-		member1.setM_pno("8908111214748");
+		member1.setM_email("asdf@naver.com");
 		member1.setM_phone("01021207487");
 		member1.setM_cash(6000);
 

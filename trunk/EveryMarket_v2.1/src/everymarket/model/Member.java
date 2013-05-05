@@ -5,7 +5,7 @@ public class Member {
 	private String m_nick;
 	private String m_name;
 	private String m_pwd;
-	private String m_pno;
+	private String m_email;
 	private String m_phone;
 	private int m_cash;
 	private int m_report;
@@ -47,11 +47,11 @@ public class Member {
 	public void setM_pwd(String m_pwd) {
 		this.m_pwd = m_pwd;
 	}
-	public String getM_pno() {
-		return m_pno;
+	public String getM_email() {
+		return m_email;
 	}
-	public void setM_pno(String m_pno) {
-		this.m_pno = m_pno;
+	public void setM_email(String m_email) {
+		this.m_email = m_email;
 	}
 	public String getM_phone() {
 		return m_phone;

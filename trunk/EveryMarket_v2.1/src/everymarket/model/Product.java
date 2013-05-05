@@ -12,14 +12,7 @@ public class Product {
 	private String m_id;
 	private int ct_id;
 	private String p_status;
-	private int p_report;
-	
-	public int getP_report() {
-		return p_report;
-	}
-	public void setP_report(int p_report) {
-		this.p_report = p_report;
-	}
+
 	public int getP_id() {
 		return p_id;
 	}
