@@ -143,7 +143,7 @@
 
 		//update style first before get object height
 		obj.css({
-			'width': blockWidth - blocksOptions.offsetX*2,
+			'width': blockWidth - blocksOptions.offsetX*4,
 			//css신이 이거라고함 
 			'left': pos[0] * colwidth,
 			'top': pos[1],

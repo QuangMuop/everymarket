@@ -52,13 +52,9 @@
 		
 	<tiles:insertAttribute name="header"/>
 		
-	<hr>
-		
 	<tiles:insertAttribute name="body"/>
 	<tiles:insertAttribute name="popup"/>	
-	
-	<hr>
-	
+
 	<tiles:insertAttribute name="footer"/>
 		
 </center>
