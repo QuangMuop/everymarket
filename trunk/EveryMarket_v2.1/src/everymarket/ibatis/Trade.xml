@@ -22,6 +22,7 @@
 	<update id="update_t_seller" parameterClass="int">
 		update trade set
 			t_seller = (select p.m_id from member m join product p on m.m_id = p.m_id where p.p_id=#p_id#)
+			  where p_id = #p_id#
 	</update>
 
 	<select id="getM_nameByP_id" resultClass="String">
@@ -68,6 +69,12 @@
 	<update id="update_deliver_ok">
 		update trade set t_status = #t_status# where t_id = #t_id#
 	</update>
+	
+	
+	<select id="db_number_remainday" resultClass="String">
+		select to_char(t_date + 5, 'dd') - to_char(sysdate, 'dd') from trade where t_id = #t_id#
+	</select>
+	
 
 
 

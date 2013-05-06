@@ -24,4 +24,9 @@ public class TradeDwr {
 
 	}
 
+	public String db_number_remainday(int t_id) {
+
+		return daoT.db_number_remainday(t_id);
+	}
+
 }

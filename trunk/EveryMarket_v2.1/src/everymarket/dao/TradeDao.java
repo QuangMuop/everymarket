@@ -15,24 +15,21 @@ public class TradeDao {
 		this.ibatisTemplate = ibatisTemplate;
 	}
 
-	
-	//구매요청 시 거래 내역 생성
-	public void insertTrade(HashMap map){
-		ibatisTemplate.insert("insertTrade", map);	
+	// 구매요청 시 거래 내역 생성
+	public void insertTrade(HashMap map) {
+		ibatisTemplate.insert("insertTrade", map);
 	}
-	
-	//판매자 아이디 업데이트
-	public void update_t_seller(int p_id){
+
+	// 판매자 아이디 업데이트
+	public void update_t_seller(int p_id) {
 		ibatisTemplate.update("update_t_seller", p_id);
 	}
 
-	
-	/*Input: p_id / Output: m_name*/
-	public String getM_nameByP_id(int p_id){
+	/* Input: p_id / Output: m_name */
+	public String getM_nameByP_id(int p_id) {
 		System.out.println(p_id);
-		return (String)ibatisTemplate.queryForObject("getM_nameByP_id", p_id);
+		return (String) ibatisTemplate.queryForObject("getM_nameByP_id", p_id);
 	}
-
 
 	// 거래중인 물건 가져오기
 	public List<Trade> getBuyingTrade(String m_id) {
@@ -52,7 +49,7 @@ public class TradeDao {
 		map.put("t_id", t_id);
 
 		ibatisTemplate.update("update_deliver_number", map);
-		
+
 		return "redirect:/trade_list.do";
 	}
 
@@ -64,4 +61,12 @@ public class TradeDao {
 
 		ibatisTemplate.update("update_deliver_ok", map);
 	}
+
+	// 남은 배송번호 입력 날짜
+	public String db_number_remainday(int t_id) {
+		  System.out.println((String)ibatisTemplate.queryForObject("db_number_remainday", t_id)); 
+		return (String)ibatisTemplate.queryForObject("db_number_remainday", t_id);
+
+	}
+
 }
