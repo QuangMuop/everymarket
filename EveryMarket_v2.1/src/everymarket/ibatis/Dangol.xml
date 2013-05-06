@@ -8,6 +8,12 @@
 	
 	<typeAlias alias="Dangol" type="everymarket.model.Dangol"/>
 
+	<select id="countDangolByM_id" resultClass="Integer">
+		select count(*)
+		from dangol
+		where m_id = #m_id#
+	</select>
+
 	<select id="getDangolB_thumbByM_id" resultClass="String">
 		select b.b_thumb
 		from blog b

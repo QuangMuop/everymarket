@@ -19,9 +19,9 @@
 		<div id="homeInfo">
 			<div id="blog_b_map"> <img src="${blog.b_map }"> </div>
 			<div id="blog_b_content"> ${blog.b_content } </div>
-			<div id="blog_b_hit">${blog.b_hit }</div>
-			<div id="dangol_count"></div>
-			<div id="review_count"></div>
+			<div id="blog_b_hit">조회수: ${blog.b_hit }</div>
+			<div id="count_dangol">단골수: ${count_dangol }</div>
+			<div id="count_review">상품평: ${count_review }</div>
 		</div>
 		
 		<div id="productContainer">	
