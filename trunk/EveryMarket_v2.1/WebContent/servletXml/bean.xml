@@ -136,6 +136,15 @@
 	<bean id="remoteController" class="everymarket.controller.remoteController">
 		<property name="daoP" ref="productDao" />
 	</bean>
+	
+	<!-- 메세지 관련 컨트롤러 -->
+	<bean id="MessageController" class="everymarket.controller.MessageController">
+		<property name="messageDao" ref="MessageDao"/>
+	</bean>
+	
+	<bean id="MessageDao" class="everymarket.dao.MessageDao">
+		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+	</bean>
 
 
 </beans>
