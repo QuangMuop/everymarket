@@ -43,7 +43,7 @@ table td,th {
 						<td colspan="2">배송준비중</td>
 					</c:when>
 					<c:when test="${bl.t_status == 2 }">
-					   <td id="${sl.t_id}3">배송중</td>
+					   <td id="${bl.t_id}3">배송중</td>
 						<td><input class="db_trace" type="button" value="배송추적"
 							t_id="${bl.t_id}" />
 														
