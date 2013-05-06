@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Blog">
+	
+	<typeAlias alias="Blog" type="everymarket.model.Blog"/>
+ 
+ 	<select id="getB_thumbByM_id" resultClass="String">
+ 		select b_thumb 
+ 		from blog 
+ 		where m_id = #m_id#
+ 	</select>
+ 	 
+	<select id="getBlogByM_id" resultClass="Blog">
+		select * 
+		from blog 
+		where m_id = #m_id#
+	</select>
+	
+	<select id="getBlogByP_id" resultClass="Blog">
+		select b.*
+		from blog b join member m
+		  on b.m_id = m.m_id
+		  join product p
+		  on p.m_id = m.m_id
+		where p.p_id = #p_id#
+	</select>
+	
+	<update id="countB_hit" parameterClass="String">
+		update blog
+		set b_hit = b_hit + 1
+		where m_id = #m_id#
+	</update>
+	
+	<update id="updateB_main" parameterClass="Blog">
+		update blog
+		set b_main = #b_main#
+		where m_id = #m_id#
+	</update>
+	
+	<update id="updateB_thumb" parameterClass="Blog">
+		update blog
+		set b_thumb = #b_thumb#
+		where m_id = #m_id#
+	</update>
+	
+	<update id="updateB_map" parameterClass="Blog">
+		update blog
+		set b_map = #b_map#
+		where m_id = #m_id#
+	</update>
+	
+	<update id="updateB_content" parameterClass="Blog">
+		update blog
+		set b_content = #b_content#
+		where m_id = #m_id#
+	</update>
+	
+	<select id="getBlogList" resultClass="Blog">
+		select *
+		from blog 
+		order by dbms_random.value
+	</select>
+
+</sqlMap>
