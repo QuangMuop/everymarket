@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-
 </head>
 <body>
 
@@ -16,8 +15,7 @@
 		<div class="box_skitter box_skitter_large">
 			<ul>
 				<c:forEach var="blog" items="${blog }">
-				<li><a href="#cube"> <img src="image_blog/${blog.b_main }" class="randomSmart"/>
-				</a>
+				<li><a href="#cube"><img src="image_blog/${blog.b_main }" class="randomSmart"/></a>
 					<div class="label_text">
 						<div class="slide_marketname">
 							<a class="m_font" id="m_nick">${blog.b_id }</a> 
@@ -28,9 +26,9 @@
 							<div class="m_innergoods">
 								<div class="goods">
 									<img class="good_image" alt="" src="images/smarket/004.jpg">
-									<a class="good_name">페라리</a> <img class="coin" alt=""
-										src="images/smarket/coin.png"> <a class="m_font"
-										id="good_money">10000</a>
+									<a class="good_name">페라리</a> 
+									<img class="coin" alt="" src="images/smarket/coin.png"> 
+									<a class="m_font" id="good_money">10000</a>
 								</div>
 								<div class="goods">
 									<img class="good_image" alt="" src="images/smarket/005.jpg">

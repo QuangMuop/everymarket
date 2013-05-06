@@ -12,11 +12,11 @@ $(document).ready(function(){
 		/*memberList, boardReport 탭 구현*/	
 		function tab_memberList(){
 			callMemberList();
-			$("#board_report").fadeOut("slow");
+			$("#board_report").hide();
 			$("#memberList").fadeIn("slow"); }
 		function tab_boardReport(){
 			callReportedList();
-			$("#memberList").fadeOut("slow");
+			$("#memberList").hide();
 			$("#board_report").fadeIn("slow"); }
 	
 	function toggleReportContents(){
@@ -25,10 +25,10 @@ $(document).ready(function(){
 	}
 	
 	function reportAction(){
-		var r_id = $(this).attr("r_id");
+		var rep_id = $(this).attr("rep_id");
 		var actionCode = $(this).val();
 		
-		if(confirm(r_id + "번 게시글에 대한 처리를 확정하시겠습니까?")){
+		if(confirm(rep_id + "번 게시글에 대한 처리를 확정하시겠습니까?")){
 			boardReportDwr.reportAction(r_id, actionCode);
 			alert("처리되었습니다.");
 			callReportedList();
@@ -63,20 +63,20 @@ $(document).ready(function(){
 			"http://localhost:8081/EveryMarket_v2.1/callReportedList.do",
 			function(data){
 				$.each(data.listReportedProduct, function(index, boardReport){
-					var r_regdate = (boardReport.r_regdate.year + 1900) + "년 " +
-									(boardReport.r_regdate.month + 1) + "월 " +
-									boardReport.r_regdate.date + "일 " + 
-									boardReport.r_regdate.hours + ":" +
-									boardReport.r_regdate.minutes; 
+					var rep_regdate = (boardReport.rep_regdate.year + 1900) + "년 " +
+									(boardReport.rep_regdate.month + 1) + "월 " +
+									boardReport.rep_regdate.date + "일 " + 
+									boardReport.rep_regdate.hours + ":" +
+									boardReport.rep_regdate.minutes; 
 					$("#reportedProductList").append(
 						"<div class='boardReport'>" +
-							"<div class='normal'>" + boardReport.r_reason + "</div>" +
-							"<div class='normal'>" + boardReport.r_writer + "</div>" +
-							"<div class='wide'>" + r_regdate + "</div>" +
-							"<div class='normal'>" + boardReport.r_productId + 
-								" (" + boardReport.r_memberId + ")</div>" +
-							"<div class='contents hidden'>" + boardReport.r_contents + 
-								"<select r_id='" + boardReport.r_id + "'>" +
+							"<div class='normal'>" + boardReport.rep_reason + "</div>" +
+							"<div class='normal'>" + boardReport.rep_writer + "</div>" +
+							"<div class='wide'>" + rep_regdate + "</div>" +
+							"<div class='normal'>" + boardReport.rep_productId + 
+								" (" + boardReport.rep_memberId + ")</div>" +
+							"<div class='contents hidden'>" + boardReport.rep_content + 
+								"<select rep_id='" + boardReport.rep_id + "'>" +
 									"<option value='0' selected='selected'>선택</option>" +
 									"<option value='actionForProduct_1'>제재내용1</option>" +
 									"<option value='actionForProduct_2'>제재내용2</option>" +
@@ -86,19 +86,19 @@ $(document).ready(function(){
 						"</div>");
 				});
 				$.each(data.listReportedMember, function(index, boardReport){
-					var r_regdate = (boardReport.r_regdate.year + 1900) + "년 " +
-									(boardReport.r_regdate.month + 1) + "월 " +
-									boardReport.r_regdate.date + "일 " + 
-									boardReport.r_regdate.hours + ":" +
-									boardReport.r_regdate.minutes;					
+					var rep_regdate = (boardReport.rep_regdate.year + 1900) + "년 " +
+									(boardReport.rep_regdate.month + 1) + "월 " +
+									boardReport.rep_regdate.date + "일 " + 
+									boardReport.rep_regdate.hours + ":" +
+									boardReport.rep_regdate.minutes;					
 					$("#reportedMemberList").append(
 						"<div class='boardReport'>" +
-							"<div class='normal'>" + boardReport.r_reason + "</div>" +
-							"<div class='normal'>" + boardReport.r_writer + "</div>" +
-							"<div class='wide'>" + r_regdate + "</div>" +
-							"<div class='normal'>" + boardReport.r_memberId + "</div>" +
-							"<div class='contents hidden'>" + boardReport.r_contents +
-								"<select r_id='" + boardReport.r_id + "'>" +
+							"<div class='normal'>" + boardReport.rep_reason + "</div>" +
+							"<div class='normal'>" + boardReport.rep_writer + "</div>" +
+							"<div class='wide'>" + rep_regdate + "</div>" +
+							"<div class='normal'>" + boardReport.rep_memberId + "</div>" +
+							"<div class='contents hidden'>" + boardReport.rep_content +
+								"<select rep_id='" + boardReport.rep_id + "'>" +
 									"<option value='0' selected='selected'>선택</option>" +
 									"<option value='actionForMember_1'>제재내용1</option>" +
 									"<option value='actionForMember_2'>제재내용2</option>" +
