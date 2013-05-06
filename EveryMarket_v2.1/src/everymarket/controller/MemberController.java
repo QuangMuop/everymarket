@@ -45,11 +45,13 @@ public class MemberController {
 		HashMap<String, String> member_map = new HashMap<String, String>();
 		member_map.put("m_id", m_id);
 		member_map.put("m_pwd", m_pwd);
+		List<Blog> listBlog = daoB.getBlogList();
 		
 		Member member = daoM.loginMember(member_map);
 		if(member != null){
 			session.setAttribute("member", member);
 			mav.setViewName("main");
+			mav.addObject("blog",listBlog);
 			return mav;
 		}else{
 			mav.addObject("error", "로그인에 실패하였습니다.");
@@ -187,7 +189,9 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		
 		session.setAttribute("member", null);
+		List<Blog> listBlog = daoB.getBlogList();
 		
+		mav.addObject("blog",listBlog);
 		mav.setViewName("main");
 		return mav;
 	}
