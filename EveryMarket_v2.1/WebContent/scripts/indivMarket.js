@@ -29,7 +29,7 @@ $(document).ready(function(){
 	
 	$(document).on('click', "#button_detail_deleteJjim", deleteJjim);
 	$(document).on('click', "#button_detail_registerJjim", registerJjim);
-//	$(document).on('click', "#button_detail_modifyProduct", modifyProduct);
+	$(document).on('click', "#button_detail_modifyProduct", modifyProduct);
 	$(document).on('click', "#button_detail_buyProduct", buyProduct);
 	$(document).on('click', "#button_detail_closeProductInfo", closePop_productInfo);
 		
@@ -320,6 +320,15 @@ $(document).ready(function(){
 		$("#registerProduct").bPopup();
 	}
 	
+	/*상품 수정창 띄우기*/
+	function modifyProduct(){
+		/*p_id input요소 최신화*/
+		$("#modifyProduct").find("input[name='p_id']").attr("value", $("#productInfo").attr("p_id"));
+		
+		/*최신화 후 팝업창 출력*/
+		$("#modifyProduct").bPopup();
+	}
+	
 	/*내 단골리스트 띄우기*/
 	function popUp_showMyDangol(){
 		$.getJSON(
@@ -340,7 +349,7 @@ $(document).ready(function(){
 	
 	/*상품 상세정보창 띄우기*/
 	function popUp_productInfo(){
-		/*productInfo div요체 최신화*/
+		/*productInfo div요소 최신화*/
 		$.getJSON(
 			contextUrl + "getProductInfo.do?p_id=" 
 				+ $(this).attr("productId"),
@@ -388,7 +397,7 @@ $(document).ready(function(){
 	
 	/*상품 구매신청창 띄우기*/
 	function buyProduct(){
-		/*productPurchase div요체 최신화*/
+		/*productPurchase div요소 최신화*/
 		$.getJSON(
 			contextUrl + "getProductByP_id.do?p_id="
 				+ $("#productInfo").attr("p_id"),

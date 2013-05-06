@@ -29,6 +29,11 @@ public class ProductDao {
 	public void registerProduct(Product product) {
 		ibatisTemplate.insert("registerProduct", product);
 	}
+	
+	/*Input: Product*/
+	public void modifyProduct(Product product) {
+		ibatisTemplate.update("modifyProduct", product);
+	}
 
 	/* Input: p_id / Output: Product */
 	public Product getProductByP_id(int p_id) {
