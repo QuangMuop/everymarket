@@ -8,12 +8,29 @@
 	
 	<typeAlias alias="Review" type="everymarket.model.Review"/>
  
+ 	<select id="getScoreSumByM_id" resultClass="Integer">
+ 		select sum(r_score)
+		from review r
+		  join product p
+		  on r.p_id = p.p_id
+		where p.m_id = #m_id#
+ 	</select>
+ 
  	<select id="countReviewByM_id" resultClass="Integer">
  		select count(*)
 		from review r
 		  join product p
 		  on r.p_id = p.p_id
 		where p.m_id = #m_id#
+ 	</select>
+ 	
+ 	<select id="getReviewListByM_id" resultClass="Review">
+ 		select *
+ 		from review r
+ 		  join product p
+ 		  on r.p_id = p.p_id
+ 		where p.m_id = #m_id#
+ 		order by r.r_date asc
  	</select>
 
 </sqlMap>

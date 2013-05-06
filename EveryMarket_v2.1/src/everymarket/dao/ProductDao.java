@@ -44,6 +44,11 @@ public class ProductDao {
 	public List<Product> getProductListById(String m_id) {
 		return ibatisTemplate.queryForList("getProductListById", m_id);
 	}
+	
+	/*Input: p_id / Output: p_name*/
+	public String getP_nameByP_id(int p_id){
+		return (String)ibatisTemplate.queryForObject("getP_nameByP_id", p_id);
+	}
 
 	/* Input: p_id / Output: List<Product> */
 	public List<Product> getRandomProductByP_id(int p_id) {

@@ -108,8 +108,17 @@
 		</form>
 	</div>
 	
-	<!-- 팝업창 : 내 단골리스트 -->
+	<!-- 팝업창 : 단골리스트 -->
 	<div id="dangolList" class="popUp hidden"></div>
+	
+	<!-- 팝업창 : 구매후기리스트 -->
+	<div id="review" class="popUp hidden">
+		<div id="scoreRating">
+			<p>평점: <span class="data"></span></p>
+			<p>총 평가인원: <span class="data"></span></p>
+		</div>
+		<div id="reviewList"></div>
+	</div>
 	
 </center>
 </body>

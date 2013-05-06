@@ -5,9 +5,9 @@ import java.sql.Timestamp;
 public class Review {
 	private int r_id;
 	private String r_content;
+	private int r_score;
 	private Timestamp r_date;
-	private String m_id;
-	private int b_id;
+	private int p_id;
 	
 	public int getR_id() {
 		return r_id;
@@ -21,22 +21,22 @@ public class Review {
 	public void setR_content(String r_content) {
 		this.r_content = r_content;
 	}
+	public int getR_score() {
+		return r_score;
+	}
+	public void setR_score(int r_score) {
+		this.r_score = r_score;
+	}
 	public Timestamp getR_date() {
 		return r_date;
 	}
 	public void setR_date(Timestamp r_date) {
 		this.r_date = r_date;
 	}
-	public String getM_id() {
-		return m_id;
+	public int getP_id() {
+		return p_id;
 	}
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
-	}
-	public int getB_id() {
-		return b_id;
-	}
-	public void setB_id(int b_id) {
-		this.b_id = b_id;
+	public void setP_id(int p_id) {
+		this.p_id = p_id;
 	}
 }
