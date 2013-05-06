@@ -301,6 +301,9 @@ $(document).ready(function(){
 				$("#scoreRating span:eq(1)").html(data.countReview);
 				$("#reviewList").children().remove();
 				$.each(data.listReview, function(index, review){
+					var r_score = review.r_score;
+						if(r_score > 0){ r_score = "+" + r_score; }
+					
 					var r_date = (review.r_date.year + 1900) + "년" +
 								(review.r_date.month + 1) + "월" +
 								review.r_date.date + "일";
@@ -309,7 +312,7 @@ $(document).ready(function(){
 						"<div class='reviewContent' p_id='" + review.p_id + "'>" +
 						"<p><span class='productName'></span> 상품을 구매한 " +
 							"<span class='memberName'></span> 님의 상품평 </p>" +
-						"<p><span>(" + review.r_score + ")</span>" + review.r_content + "</p>" +
+						"<p><span>(" + r_score + ")</span>" + review.r_content + "</p>" +
 						"<p>" + r_date + "</p>" +
 						"</div>"
 					);
