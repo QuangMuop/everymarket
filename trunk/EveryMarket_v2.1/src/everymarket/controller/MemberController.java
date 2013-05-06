@@ -166,8 +166,18 @@ public class MemberController {
 	@RequestMapping("/goMarket.do")
 	public ModelAndView goMarket(HttpServletRequest request, ModelAndView mav, 
 			@RequestParam("m_id")String m_id){
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
 		Member owner = daoM.getMemberByM_id(m_id);
+
+		
 		if(owner != null){
+			if(member != null){
+				if(!member.getM_id().equals(owner.getM_id())){
+					daoB.countB_hit(m_id);
+				}
+			}
+			
 			List<Product> listProduct = daoP.getProductListById(m_id);
 			Blog blog = daoB.getBlogByM_id(m_id);
 			
