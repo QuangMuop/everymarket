@@ -47,9 +47,7 @@ public class ProductController {
 
 	@RequestMapping("/registerProduct.do")
 	public ModelAndView registerProduct_sc(
-			HttpServletRequest request,
-			ModelAndView mav,
-			Product product,
+			HttpServletRequest request, ModelAndView mav, Product product,
 			@RequestParam(value = "uploadFile", required = false) MultipartFile uploadFile) {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
@@ -75,6 +73,18 @@ public class ProductController {
 		List<Product> listProduct = daoP.getProductListById(member.getM_id());
 		mav.addObject("listProduct", listProduct);
 		mav.setViewName("indivMarket");
+		return mav;
+	}
+	
+	@RequestMapping("/modifyProduct.do")
+	public ModelAndView modifyProduct(HttpServletRequest request, Product product){
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		ModelAndView mav = new ModelAndView();
+
+		daoP.modifyProduct(product);
+		
+		mav.setViewName("redirect: goMarket.do?m_id=" + member.getM_id());
 		return mav;
 	}
 	

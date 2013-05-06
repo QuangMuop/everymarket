@@ -24,6 +24,12 @@
 		)
 	</insert>
 	
+	<update id="modifyProduct" parameterClass="Product">
+		update product
+		set p_detail = #p_detail#
+		where p_id = #p_id#
+	</update>
+	
 	<select id="getMaxP_id" resultClass="Integer">
 		select max(p_id) from product
 	</select>

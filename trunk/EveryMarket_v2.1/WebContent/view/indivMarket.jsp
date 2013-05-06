@@ -87,14 +87,25 @@
 	
 	<!-- 팝업창 : 상품등록 -->
 	<div id="registerProduct" class="popUp hidden">
+		<h4>새로운 상품 등록폼</h4>
 		<form action="registerProduct.do" method="post" enctype="multipart/form-data">
-			품명:		<input type="text" name="p_name" size="10">				<br>
-			가격:		<input type="text" name="p_price" size="10">			<br>
-			분류:		<select name="ct_id"></select>							<br>
-			상품소개:	<textarea rows="5" cols="30" name="p_detail"></textarea><br>
+			품명:		<input type="text" name="p_name" size="10">					<br>
+			가격:		<input type="text" name="p_price" size="10">				<br>
+			분류:		<select name="ct_id"></select>								<br>
+			상품소개:	<textarea rows="5" cols="30" name="p_detail"></textarea>	<br>
 			상품사진:	<input type="file" name="uploadFile" size="10">				<br>
 			<input type="submit" value="상품 등록하기">
 		</form> 
+	</div>
+	
+	<div id="modifyProduct" class="popUp hidden">
+		<h4>새로운 상품 등록폼</h4>
+		<p>거래의 안전을 위해 상품게시글의 본문만 수정가능해요 ^^</p>
+		<form action="modifyProduct.do" method="post">
+			상품소개:	<textarea rows="5" cols="30" name="p_detail"></textarea>	<br>
+			<input type="hidden" name="p_id" value=""> 
+			<input type="submit" value="상품 수정하기">
+		</form>
 	</div>
 	
 	<!-- 팝업창 : 내 단골리스트 -->
