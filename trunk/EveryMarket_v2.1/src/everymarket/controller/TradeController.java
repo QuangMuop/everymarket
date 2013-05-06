@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import everymarket.dao.ProductDao;
 import everymarket.dao.TradeDao;
 
-
 import everymarket.model.Member;
 import everymarket.model.Trade;
 
@@ -33,7 +32,6 @@ public class TradeController {
 	public void setDaoT(TradeDao daoT) {
 		this.daoT = daoT;
 	}
-	
 
 	// 판매확인 버튼을 눌렀을 경우
 	@RequestMapping(value = "/messageok.do", method = RequestMethod.POST)
@@ -60,24 +58,26 @@ public class TradeController {
 		ModelAndView mav = new ModelAndView();
 		/* Member member = (Member) request.getSession(); */
 		Member member = new Member();
-		member.setM_id("ee");
+		member.setM_id("ll");
+		
+
 		String m_id = member.getM_id();
-		
-		//나에 구매중인 물품들
+
+		// 나에 구매중인 물품들
 		List<Trade> buyingList = daoT.getBuyingTrade(m_id);
-		
-		//나에 판매중인 물품들 
+
+		// 나에 판매중인 물품들
 		List<Trade> sellingList = daoT.getSellingTrade(m_id);
-		
-	
+
 		mav.addObject("buyingList", buyingList);
 		mav.addObject("sellingList", sellingList);
 		mav.setViewName("trade_list");
 
+
 		return mav;
 	}
-	
-/*	@RequestMapping(value ="/deliver_number.do")
-	public ModelAndView 
-*/
+
+	/*
+	 * @RequestMapping(value ="/deliver_number.do") public ModelAndView
+	 */
 }
