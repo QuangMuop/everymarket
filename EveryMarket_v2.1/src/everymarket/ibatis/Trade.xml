@@ -21,7 +21,7 @@
 		join product p on t.p_id = p.p_id
 		where
 		t.t_buyer =
-		#m_id# and t.t_status = 1
+		#m_id# and t.t_status >= 0
 	</select>
 
 	<select id="getSellingTrade" resultClass="Trade">
@@ -33,7 +33,7 @@
 		join product p on t.p_id = p.p_id
 		where
 		p.m_id =
-		#m_id# and t.t_status > 0
+		#m_id# and t.t_status >= 0
 	</select>
 
 	<!-- 운송번호입력과 거래상태를 바꿔주는 쿼리문 -->
