@@ -87,15 +87,6 @@ public class ProductController {
 		mav.setViewName("redirect: goMarket.do?m_id=" + member.getM_id());
 		return mav;
 	}
-	
-	@RequestMapping("/purchaseProduct.do")
-	public ModelAndView purchaseProduct(HttpServletRequest request,
-			@RequestParam("waitingTime") int waitingTime,
-			@RequestParam("p_id") int p_id){
-		ModelAndView mav = new ModelAndView();
-		
-		return mav;
-	}
 
 	/* getJSON */
 	@RequestMapping("/getProductInfo.do")
