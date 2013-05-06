@@ -1,6 +1,5 @@
 package everymarket.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,8 +42,7 @@ public class ProductDao {
 
 	/* Input: p_id / Output: List<Product> */
 	public List<Product> getRandomProductByP_id(int p_id) {
-		String m_id = (String) ibatisTemplate.queryForObject("getM_idByP_id",
-				p_id);
+		String m_id = (String) ibatisTemplate.queryForObject("getM_idByP_id", p_id);
 		return ibatisTemplate.queryForList("getRandomProductByM_id", m_id);
 	}
 
@@ -70,8 +68,7 @@ public class ProductDao {
 		map.put("searchtext", searchtext);
 
 		if (category.equals("All")) {
-			ArrayList<Product> list = (ArrayList) ibatisTemplate.queryForList(
-					"listProduct_main", map);
+			
 			return ibatisTemplate.queryForList("listProduct_main", map);
 		} else if (searchtext.equals("basic")) {
 

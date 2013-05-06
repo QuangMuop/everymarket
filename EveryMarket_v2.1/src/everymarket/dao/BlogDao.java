@@ -29,6 +29,11 @@ public class BlogDao {
 		return (Blog)ibatisTemplate.queryForObject("getBlogByP_id", p_id);
 	}
 	
+	/*Input: m_id*/
+	public void countB_hit(String m_id){
+		ibatisTemplate.update("countB_hit", m_id);
+	}
+	
 	/*Input: Blog*/
 	public void updateB_main(Blog blog){
 		ibatisTemplate.update("updateB_main", blog);
@@ -50,7 +55,6 @@ public class BlogDao {
 	}
 	
 	public List<Blog> getBlogList(){
-		System.out.println(ibatisTemplate.queryForList("getBlogList"));
 		return ibatisTemplate.queryForList("getBlogList");
 	}
 }
