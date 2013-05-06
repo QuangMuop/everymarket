@@ -14,12 +14,25 @@ public class TradeDao {
 	public void setIbatisTemplate(SqlMapClientTemplate ibatisTemplate) {
 		this.ibatisTemplate = ibatisTemplate;
 	}
+
+	
+	//구매요청 시 거래 내역 생성
+	public void insertTrade(HashMap map){
+		ibatisTemplate.insert("insertTrade", map);	
+	}
+	
+	//판매자 아이디 업데이트
+	public void update_t_seller(int p_id){
+		ibatisTemplate.update("update_t_seller", p_id);
+	}
+
 	
 	/*Input: p_id / Output: m_name*/
 	public String getM_nameByP_id(int p_id){
 		System.out.println(p_id);
 		return (String)ibatisTemplate.queryForObject("getM_nameByP_id", p_id);
 	}
+
 
 	// 거래중인 물건 가져오기
 	public List<Trade> getBuyingTrade(String m_id) {
