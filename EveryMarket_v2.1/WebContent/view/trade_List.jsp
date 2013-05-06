@@ -35,14 +35,14 @@ table td,th {
 				<td>${bl.t_del_number}</td>
 				<td>${bl.p_name }</td>
 				<td>${bl.p_price }</td>
-				
+
 				<c:choose>
-				<c:when test="${bl.t_status == 0}">
-				 <td>판매승인대기중</td>
-				</c:when>
-				
+					<c:when test="${bl.t_status == 0}">
+						<td>판매승인대기중</td>
+					</c:when>
+
 				</c:choose>
-				
+
 			</tr>
 		</c:forEach>
 	</table>
@@ -68,9 +68,9 @@ table td,th {
 
 				<c:choose>
 					<c:when test="${sl.t_status == 2 }">
-						<td id="db_text">배송중</td>
+						<td id="${sl.t_id}3">배송중</td>
 						<td><input class="db_trace" type="button" value="배송추적"
-							onclick="db_pop()" /></td>
+							t_id="${sl.t_id}" /></td>
 					</c:when>
 
 					<c:when test="${sl.t_status == 3 }">
@@ -81,11 +81,11 @@ table td,th {
 
 					<c:when test="${sl.t_status == 1}">
 						<form>
-							<td id="status2_text">송장번호입력: <input class="dn_bt_nb" type="text"> 
-							
-							<!-- 거래번호 or 프로덕트 아이디 -->
+							<td id="${sl.t_id}1">송장번호입력: <input class="dn_bt_nb"
+								type="text"> <!-- 거래번호 or 프로덕트 아이디 -->
 							</td>
-							<td id="status1_text"><input class="dn_bt" type="button" value="확인" t_id="${sl.t_id}" name="${sl.t_status}"></td>
+							<td id="${sl.t_id}2"><input class="dn_bt" type="button"
+								value="확인" t_id="${sl.t_id}" name="${sl.t_status}"></td>
 
 						</form>
 					</c:when>
@@ -97,7 +97,7 @@ table td,th {
 			</tr>
 		</c:forEach>
 	</table>
-	
+
 
 
 
