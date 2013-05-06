@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	/*상수 구현부*/
-	var contextUrl = "http://localhost:8081/EveryMarket_v2.1/";
+	var contextUrl = "/EveryMarket_v2.1/";
 	
 	/*개인마켓페이지 메인버튼 초기화*/
 	refreshButton_indivMarket();
