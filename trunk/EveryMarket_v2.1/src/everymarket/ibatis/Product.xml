@@ -31,19 +31,33 @@
 	</update>
 	
 	<select id="getMaxP_id" resultClass="Integer">
-		select max(p_id) from product
+		select max(p_id) 
+		from product
 	</select>
 	
 	<select id="getProductByP_id" resultClass="Product">
-		select * from product where p_id = #p_id# 
+		select * 
+		from product 
+		where p_id = #p_id# 
 	</select>
 	
 	<select id="getProductListById" resultClass="Product">
-		select * from product where m_id = #m_id# order by p_date desc
+		select * 
+		from product 
+		where m_id = #m_id# 
+		order by p_date desc
+	</select>
+	
+	<select id="getP_nameByP_id" resultClass="String">
+		select p_name
+		from product
+		where p_id = #p_id#	
 	</select>
 	
 	<select id="getM_idByP_id" resultClass="String">
-		select m_id from product where p_id = #p_id#
+		select m_id 
+		from product 
+		where p_id = #p_id#
 	</select>
 	
 	<select id="checkOwn" resultClass="Integer">
@@ -61,15 +75,16 @@
 	
 	<!-- 내가 검색한 제품의 수 -->
 	<select id="product_count" parameterClass="String" resultClass="int">
-		select count(*) from product
+		select count(*) 
+		from product
 		where p_name like '%'||#search_content#||'%'
 		or p_detail like '%'||#search_content#||'%'
 	</select>
-	
 		
 	<!-- 내가 검색한 제품 -->
 	<select id="searchProduct" parameterClass="String" resultClass="Product">
-		select * from product
+		select * 
+		from product
 		where p_name like '%'||#search_content#||'%'
 		or p_detail like '%'||#seasrch_content#||'%'
 	</select>

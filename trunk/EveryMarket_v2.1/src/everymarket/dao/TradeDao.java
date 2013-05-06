@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
-import org.springframework.web.servlet.ModelAndView;
 
 import everymarket.model.Trade;
 
@@ -18,6 +17,7 @@ public class TradeDao {
 	
 	/*Input: p_id / Output: m_name*/
 	public String getM_nameByP_id(int p_id){
+		System.out.println(p_id);
 		return (String)ibatisTemplate.queryForObject("getM_nameByP_id", p_id);
 	}
 

@@ -16,6 +16,8 @@
 
 	<bean id="indivMarketDwr" class="everymarket.dwr.IndivMarketDwr">
 		<property name="daoM" ref="memberDao"/>
+		<property name="daoP" ref="productDao"/>
+		<property name="daoT" ref="tradeDao"/>
 		<dwr:remote javascript="indivMarketDwr"/>
 	</bean>
 

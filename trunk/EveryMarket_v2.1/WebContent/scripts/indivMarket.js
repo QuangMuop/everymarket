@@ -293,7 +293,41 @@ $(document).ready(function(){
 	}
 	
 	function popUp_showListReview(){
-		alert("뭘봐임마");
+		$.getJSON(
+			contextUrl + "getReviewList.do?m_id="
+				+ $("#indivMarketWrapper").attr("owner_id"),
+			function(data){
+				$("#scoreRating span:eq(0)").html(data.scoreSum);
+				$("#scoreRating span:eq(1)").html(data.countReview);
+				$("#reviewList").children().remove();
+				$.each(data.listReview, function(index, review){
+					var r_date = (review.r_date.year + 1900) + "년" +
+								(review.r_date.month + 1) + "월" +
+								review.r_date.date + "일";
+					
+					$("#reviewList").append(
+						"<div class='reviewContent' p_id='" + review.p_id + "'>" +
+						"<p><span class='productName'></span> 상품을 구매한 " +
+							"<span class='memberName'></span> 님의 상품평 </p>" +
+						"<p><span>(" + review.r_score + ")</span>" + review.r_content + "</p>" +
+						"<p>" + r_date + "</p>" +
+						"</div>"
+					);
+					
+					indivMarketDwr.getP_nameByP_id(review.p_id, callbackP_name);
+					function callbackP_name(p_name){
+						$(".reviewContent[p_id='"+review.p_id+"']")	.find(".productName").html(p_name);
+					}
+					
+					indivMarketDwr.getM_nameByP_id(review.p_id, callbackM_name);
+					function callbackM_name(m_name){
+						$(".reviewContent[p_id='"+review.p_id+"']")	.find(".memberName").html(m_name); 
+					}
+				});
+			}
+		);
+		
+		$("#review").bPopup();
 	}
 	
 	/*가게 데코창 띄우기*/
