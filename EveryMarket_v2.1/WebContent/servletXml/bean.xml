@@ -140,6 +140,7 @@
 	<!-- 메세지 관련 컨트롤러 -->
 	<bean id="MessageController" class="everymarket.controller.MessageController">
 		<property name="messageDao" ref="MessageDao"/>
+		<property name="daoT" ref="tradeDao"/>
 	</bean>
 	
 	<bean id="MessageDao" class="everymarket.dao.MessageDao">
