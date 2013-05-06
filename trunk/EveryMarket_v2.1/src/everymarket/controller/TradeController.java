@@ -52,7 +52,7 @@ public class TradeController {
 		return null;
 	}
 
-	@RequestMapping(value = "/trade_list.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/trade_list.do")
 	public ModelAndView trade_list(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();

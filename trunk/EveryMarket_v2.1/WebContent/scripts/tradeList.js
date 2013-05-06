@@ -13,8 +13,9 @@ $(document)
 										var t1 = t_id + "[0]";
 										alert(t_id);
 
-										var db_nb = $(".dn_bt_nb").val();
+										var db_nb = $("." + t_id + "5").val();
 
+										alert(db_nb);
 										// db trade status바꿔주고
 										tradeDwr.update_db_nb(db_nb, t_id);
 
@@ -24,7 +25,24 @@ $(document)
 												+ t_id + ' />';
 										$("#" + t_id + "1").html("배송중");
 										$("#" + t_id + "2").html(html);
+										$("#" + t_id + "4").text(db_nb);
 									});
+
+					$(".db_trace").on(
+							'click',
+							function() {
+								
+								var t_id = $(this).attr("t_id");
+
+								window.open("view/popup_deliver.jsp", "배송조회",
+										"width=700,height=700,resizalbe=no");
+
+								$("#" + t_id + "3").text("배송완료");
+								$("#db_text").text("배송완료");
+								tradeDwr.update_status(t_id);
+
+							});
+
 				});
 
 $(document).on(
@@ -34,13 +52,13 @@ $(document).on(
 					'click',
 					function() {
 
-						alert("클릭");
 						var t_id = $(this).attr("t_id");
 
 						window.open("view/popup_deliver.jsp", "배송조회",
-								"width=450,height=300,resizalbe=no");
+								"width=700,height=700,resizalbe=no");
 
-						$("#" + t_id + "3").html("배송완료");
+						$("#" + t_id + "1").text("배송완료");
+						$("#" + t_id + "3").text("배송완료");
 						$("#db_text").text("배송완료");
 						tradeDwr.update_status(t_id);
 

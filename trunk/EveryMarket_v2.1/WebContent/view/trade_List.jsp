@@ -22,12 +22,14 @@ table td,th {
 <body>
 
 
+	<h1>사는물건</h1>
 	<table id="buying">
+
 		<tr>
 			<th>주문번호</th>
 			<th>상품명</th>
 			<th>총 결제금액</th>
-			<th>진행상태</th>
+			<th colspan="2">진행상태</th>
 		</tr>
 
 		<c:forEach var="bl" items="${buyingList}">
@@ -37,10 +39,24 @@ table td,th {
 				<td>${bl.p_price }</td>
 
 				<c:choose>
-					<c:when test="${bl.t_status == 0}">
-						<td>판매승인대기중</td>
+					<c:when test="${bl.t_status == 1}">
+						<td colspan="2">배송준비중</td>
 					</c:when>
-
+					<c:when test="${bl.t_status == 2 }">
+					   <td id="${sl.t_id}3">배송중</td>
+						<td><input class="db_trace" type="button" value="배송추적"
+							t_id="${bl.t_id}" />
+														
+							</td>
+					</c:when>
+					
+					<c:when test="${bl.t_status == 3}">
+						<td id="db_text">배송완료</td>
+					     <td><input class="db_trace" type="button" value="수취확인" /> 
+					         <input class="db_trace" type="button" value="신고하기" /></td>
+					</c:when>
+					
+					
 				</c:choose>
 
 			</tr>
@@ -48,8 +64,26 @@ table td,th {
 	</table>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<br>
 	<br>
+	<h2>팔고있는 물건</h2>
 	<table id="selling">
 		<tr>
 			<th>주문번호</th>
@@ -60,7 +94,15 @@ table td,th {
 
 		<c:forEach var="sl" items="${sellingList}">
 			<tr id="">
-				<td>${sl.t_del_number}</td>
+				<c:choose>
+					<c:when test="${sl.t_status == 1 }">
+						<td id="${sl.t_id}4">주문대기</td>
+					</c:when>
+					<c:otherwise>
+					<td>${sl.t_del_number}</td>
+					</c:otherwise>
+
+				</c:choose>
 				<td class="t_id" type="hidden" value="${sl.t_id}">${sl.p_name}</td>
 				<td id="t_status" name="${sl.t_status}">${sl.p_price}</td>
 
@@ -81,7 +123,7 @@ table td,th {
 
 					<c:when test="${sl.t_status == 1}">
 						<form>
-							<td id="${sl.t_id}1">송장번호입력: <input class="dn_bt_nb"
+							<td id="${sl.t_id}1">송장번호입력: <input class="${sl.t_id}5"
 								type="text"> <!-- 거래번호 or 프로덕트 아이디 -->
 							</td>
 							<td id="${sl.t_id}2"><input class="dn_bt" type="button"
