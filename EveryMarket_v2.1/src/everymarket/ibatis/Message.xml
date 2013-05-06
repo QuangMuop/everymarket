@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<sqlMap namespace="Message">
+	
+	<typeAlias alias="Message" type="everymarket.model.Message"/>
+	
+	<!-- 구매자와 구매제품, 구매요청 날짜 저장 -->
+	<insert id="insertMessage" parameterClass="java.util.HashMap">
+		insert into message(
+			msg_id, m_id, p_id, msg_date
+		)values(msg_id_seq.NEXTVAL, #m_id#, #p_id#, sysdate)
+	</insert>
+	
+	<update id="update_nick" parameterClass="String" >
+		update message set
+		m_nick = (select distinct m.m_nick from member m join message msg on m.m_id=msg.m_id where m.m_id=#msg.m_id# )
+		where m_id=#m_id#
+	</update>
+	
+	<update id="update_pname" parameterClass="int">
+		update message set 
+		p_name = (select p.p_name from product p join message m on p.p_id=m.p_id where p.p_id=#m.p_id#)
+		where p_id=#p_id#
+	</update>
+	
+	<select id="get_msg_id" parameterClass="Integer"  resultClass="Integer" >	
+	   select msg_id from message 
+	   where p_id = #p_id#		
+	</select>
+	
+	<select id="get_msg_date" parameterClass="Integer" resultClass="Date">
+		select msg_date from message
+		where p_id = #p_id#
+	</select>
+	
+	<!-- 구매요청 후 기다리는 기한 저장 -->
+	<update id="updateMessage" parameterClass="java.util.HashMap">
+		update message set
+			msg_due=to_char(#msg_date#+#waitingTime#,'yyyy-mm-dd')
+		where msg_id=#msg_id#
+	</update>
+	
+	<!-- 구매요청하면 제품의 상태가 w로 변경 -->
+	<update id="update_p_status" parameterClass="Integer">
+		update product set
+			p_status = 'w'
+		where p_id=#p_id#
+	</update>
+	
+	
+	
+	<!-- 나에게 온 메세지 출력하기 -->
+<!-- 	<select id="listMessage" parameterClass="String" resultClass="Message"> -->
+<!-- 		select * from message -->
+<!-- 		where p_id in (select p.p_id -->
+<!-- 						from product p join member m -->
+<!-- 						on p.m_id = m.m_id -->
+<!-- 						where m.m_id = #m_id#) -->
+<!-- 	</select> -->
+	
+	
+	<!-- 구매자 닉네임 출력하기 -->
+<!-- 	<select id="buyerInfo" parameterClass="String" resultClass="String"> -->
+<!-- 		select m_nick from member -->
+<!-- 		where m_id=#m_id# -->
+<!-- 	</select> -->
+	
+
+	
+	
+</sqlMap>
