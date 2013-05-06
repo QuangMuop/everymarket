@@ -12,12 +12,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import everymarket.dao.MessageDao;
+import everymarket.dao.TradeDao;
 import everymarket.model.Member;
 import everymarket.model.Message;
 
 @Controller
 public class MessageController {
 	private MessageDao messageDao;
+	private TradeDao daoT;
+
+	public void setDaoT(TradeDao daoT) {
+		this.daoT = daoT;
+	}
 
 	public void setMessageDao(MessageDao messageDao) {
 		this.messageDao = messageDao;
@@ -55,6 +61,10 @@ public class MessageController {
 		
 		messageDao.updateMessage(map3);
 		messageDao.update_p_status(p_id);
+		
+		daoT.insertTrade(map);
+		daoT.update_t_seller(p_id);
+		
 	
 		return mav;
 	}

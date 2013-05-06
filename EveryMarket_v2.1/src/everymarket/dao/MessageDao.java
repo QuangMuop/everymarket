@@ -53,6 +53,6 @@ public class MessageDao {
 	public void update_p_status(int p_id){
 		ibatisTemplate.update("update_p_status", p_id);
 	}
-	
+		
 	
 }
