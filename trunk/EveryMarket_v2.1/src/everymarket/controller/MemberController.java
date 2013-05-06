@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import everymarket.dao.BlogDao;
+import everymarket.dao.DangolDao;
 import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
+import everymarket.dao.ReviewDao;
 import everymarket.model.Blog;
 import everymarket.model.Member;
 import everymarket.model.Product;
@@ -23,17 +25,25 @@ import everymarket.model.Product;
 @Controller
 public class MemberController {
 	private BlogDao daoB;
+	private DangolDao daoD;
 	private MemberDao daoM;
-	private ProductDao daoP; 
+	private ProductDao daoP;
+	private ReviewDao daoR; 
 
 	public void setDaoB(BlogDao daoB) {
 		this.daoB = daoB;
+	}
+	public void setDaoD(DangolDao daoD) {
+		this.daoD = daoD;
 	}
 	public void setDaoM(MemberDao daoM) {
 		this.daoM = daoM;
 	}
 	public void setDaoP(ProductDao daoP) {
 		this.daoP = daoP;
+	}
+	public void setDaoR(ReviewDao daoR) {
+		this.daoR = daoR;
 	}
 	
 	@RequestMapping("/login.do")
@@ -180,9 +190,13 @@ public class MemberController {
 			
 			List<Product> listProduct = daoP.getProductListById(m_id);
 			Blog blog = daoB.getBlogByM_id(m_id);
+			int count_dangol = daoD.countDangolByM_id(m_id);
+			int count_review = daoR.countReviewByM_id(m_id);
 			
 			mav.addObject("listProduct", listProduct);
 			mav.addObject("blog", blog);
+			mav.addObject("count_dangol", count_dangol);
+			mav.addObject("count_review", count_review);
 			mav.addObject("owner", owner);
 			mav.setViewName("indivMarket");
 		}else{

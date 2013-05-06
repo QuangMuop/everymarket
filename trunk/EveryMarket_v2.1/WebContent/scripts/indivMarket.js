@@ -10,6 +10,9 @@ $(document).ready(function(){
 	$("#ajaxForm_registerComments").submit(registerComments);
 	
 	$(".product").click(popUp_productInfo);
+	$("#count_dangol").click(popUp_showOwnerDangol);
+	$("#count_review").click(popUp_showListReview);
+	
 	$("#productPurchase button").click(closePop_productPurchase);
 	
 	$("#opener_locationPicker").click(open_locationPicker);
@@ -21,7 +24,6 @@ $(document).ready(function(){
 	$(document).on('click', ".b_thumb", goMarket);
 	
 	$(document).on('click', "#button_goMain", goMain);
-	$(document).on('click', "#button_showOwnerDangol", popoUp_showOwnerDangol);
 	
 	$(document).on('click', "#button_decoBlog", popUp_decoBlog);
 	$(document).on('click', "#button_registerProduct", popUp_registerProduct);
@@ -200,8 +202,7 @@ $(document).ready(function(){
 				+ $("#indivMarketWrapper").attr("owner_id"),
 			function(data){	
 				$("#bar_button_indivMarket").append(
-					"<div id='button_goMain' class='button'>메인페이지 가기</div>" +
-					"<div id='button_showOwnerDangol' class='button'>마켓주인 단골목록</div>"
+					"<div id='button_goMain' class='button'>메인페이지 가기</div>"
 				);
 				
 				if(data.status > 1){
@@ -273,7 +274,7 @@ $(document).ready(function(){
 		};
 	}
 	
-	function popoUp_showOwnerDangol(){
+	function popUp_showOwnerDangol(){
 		$.getJSON(
 			contextUrl + "getOwnerDangolList.do?owner_id=" 
 				+ $("#indivMarketWrapper").attr("owner_id"),
@@ -289,6 +290,10 @@ $(document).ready(function(){
 		);
 		
 		$("#dangolList").bPopup();
+	}
+	
+	function popUp_showListReview(){
+		alert("뭘봐임마");
 	}
 	
 	/*가게 데코창 띄우기*/
