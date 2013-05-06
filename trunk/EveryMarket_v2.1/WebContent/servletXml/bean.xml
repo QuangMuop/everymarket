@@ -100,12 +100,21 @@
 	<bean id="productDao" class="everymarket.dao.ProductDao">
 		<property name="ibatisTemplate" ref="ibatisTemplate" />
 	</bean>
-
+	
+	<!-- 리뷰(상품평) 관련 업무 수행 컨트롤러 -->
+	<bean id="reviewController" class="everymarket.controller.ReviewController">
+		<property name="daoR" ref="reviewDao"/>
+	</bean>
+	
+	<bean id="reviewDao" class="everymarket.dao.ReviewDao">
+		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+	</bean>
+	
+	<!-- 거래 관련 업무 수행 컨트롤러 -->
 	<bean id="tradeController" class="everymarket.controller.TradeController">
 		<property name="daoP" ref="productDao" />
 		<property name="daoT" ref="tradeDao"></property>
 	</bean>
-
 
 	<!-- 거래 관련 Dao -->
 	<bean id="tradeDao" class="everymarket.dao.TradeDao">
