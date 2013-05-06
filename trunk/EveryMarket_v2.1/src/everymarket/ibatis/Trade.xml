@@ -11,6 +11,13 @@
 
 	<typeAlias alias="Trade" type="everymarket.model.Trade" />
 
+	<select id="getM_nameByP_id" resultClass="String">
+		select m.m_name
+		from member m
+		  join trade t
+		  on m.m_id = t.t_buyer
+		where t.p_id = #p_id#
+	</select>
 
 	<select id="getBuyingTrade" resultClass="Trade">
 		select t.t_id,

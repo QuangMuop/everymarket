@@ -1,6 +1,5 @@
 package everymarket.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,6 +14,11 @@ public class TradeDao {
 
 	public void setIbatisTemplate(SqlMapClientTemplate ibatisTemplate) {
 		this.ibatisTemplate = ibatisTemplate;
+	}
+	
+	/*Input: p_id / Output: m_name*/
+	public String getM_nameByP_id(int p_id){
+		return (String)ibatisTemplate.queryForObject("getM_nameByP_id", p_id);
 	}
 
 	// 거래중인 물건 가져오기
@@ -37,18 +41,14 @@ public class TradeDao {
 		ibatisTemplate.update("update_deliver_number", map);
 		
 		return "redirect:/trade_list.do";
-
 	}
 
 	// 배송완료시에 update해주기
 	public void update_status(int t_id, int t_status) {
-
 		HashMap map = new HashMap();
 		map.put("t_status", t_status);
 		map.put("t_id", t_id);
 
 		ibatisTemplate.update("update_deliver_ok", map);
-
 	}
-
 }
