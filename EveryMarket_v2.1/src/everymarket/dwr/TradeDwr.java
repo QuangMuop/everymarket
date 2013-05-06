@@ -18,15 +18,10 @@ public class TradeDwr {
 
 	// 배송완료
 	public void update_status(int t_id) {
-		System.out.println("dd");
 		int t_status = 3;
 		// trade의 status를 변화시키기
 		daoT.update_status(t_id, t_status);
 
-	}
-
-	public void cc() {
-		System.out.println("된다?");
 	}
 
 }
