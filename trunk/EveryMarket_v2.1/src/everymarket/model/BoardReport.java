@@ -6,7 +6,7 @@ public class BoardReport {
 	private int rep_id;
 	private String rep_reason;
 	private String rep_writer;
-	private String rep_contents;
+	private String rep_content;
 	private Timestamp rep_regdate;
 	private int rep_productId;
 	private String rep_memberId;
@@ -30,11 +30,11 @@ public class BoardReport {
 	public void setRep_writer(String rep_writer) {
 		this.rep_writer = rep_writer;
 	}
-	public String getRep_contents() {
-		return rep_contents;
+	public String getRep_content() {
+		return rep_content;
 	}
-	public void setRep_contents(String rep_contents) {
-		this.rep_contents = rep_contents;
+	public void setRep_content(String rep_content) {
+		this.rep_content = rep_content;
 	}
 	public Timestamp getRep_regdate() {
 		return rep_regdate;

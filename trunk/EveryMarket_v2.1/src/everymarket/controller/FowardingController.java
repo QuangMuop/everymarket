@@ -1,5 +1,6 @@
 package everymarket.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import everymarket.dao.ProductDao;
 import everymarket.model.Blog;
 import everymarket.model.BoardQna;
 import everymarket.model.Product;
+import everymarket.object4output.Object4Skitter;
 
 @Controller
 public class FowardingController {
@@ -61,5 +63,13 @@ public class FowardingController {
 		mav.addObject("listBoardQna", listBoardQna);
 		mav.setViewName("qnaBoard");
 		return mav;
+	}
+	
+	/*getJSON*/
+	@RequestMapping("/getDataForSkitter.do")
+	public List<Object4Skitter> getDataForSkitter(){
+		List<Object4Skitter> listSkitter = new ArrayList<Object4Skitter>();
+		
+		return listSkitter;
 	}
 }
