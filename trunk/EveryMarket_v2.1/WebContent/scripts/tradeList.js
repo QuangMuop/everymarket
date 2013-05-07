@@ -13,35 +13,19 @@ $(document).ready(function() {
     	 if(t_status[index] == 1){
     		     		
     		 tradeDwr.db_number_remainday(t_ids[index], show);    	
+    		    		   		 
+    	 }    	 
+    	 function show(data){ 
     		 
-    		   		 
-    	 }
-    	 
-    	 function show(data){
-    		 
+    		 //배송기간을 초과하면 삭제해준다.
     		    if(data < 0){
     		    	   tradeDwr.trade_delete(t_ids[index]);
-    		    	   
-    		    }
-    		 
-    		 
+    		     }    		 
     	    	$('#' + t_ids[index] + "1").append("    입력가능 날짜까지 " + data + "일 남았습니다.");
      	 }
     	 
-   	});
-    
-    
-     
-    
-    
-    
-     
-    
-    
-    
-	
-	/*var aa = $("tr[t_ids]:eq(1)").attr("t_ids");*/
-    /*alert(aa[1]);*/
+   	});      
+  
 		
 	var t_status = $("#t_status").attr("name");
 	
@@ -50,6 +34,11 @@ $(document).ready(function() {
 		
 		var t_id = $(this).attr("t_id");			
 		var db_nb = $("." + t_id + "5").val();
+		
+		if(!(db_nb > 10000000 && db_nb < 10000000000) ){
+			alert("8자리수 이상, 12자리 이하의 알맞은 운송번호를 입력해주세요");
+						
+		}else{		
 		// db trade status바꿔주고
 		tradeDwr.update_db_nb(db_nb, t_id);
 		//운송번호로 주문번호 바꿔주기
@@ -57,11 +46,7 @@ $(document).ready(function() {
 		
 		$("tr[t_ids="+t_id+"]").attr("t_status",2);
 		
-		
-		
-		
-					
-						
+										
 		var html = '<input class="db_trace" type="button" value="배송추적" t_id= '
 			+ t_id + ' />';
 		$("#" + t_id + "1").html("배송중");
@@ -69,19 +54,12 @@ $(document).ready(function() {
 				
 		$("#" + t_id + "2").html(html);
 		$("#" + t_id + "4").text(db_nb);
+		}
 	});
+	
+	
+	
 
-	$(".db_trace").on('click',function() {
-		var t_id = $(this).attr("t_id");
-		
-
-		window.open("view/popup_deliver.jsp", "배송조회",
-		"width=700,height=700,resizalbe=no");
-		
-		$("#" + t_id + "3").text("배송완료");
-		$("#db_text").text("배송완료");
-		tradeDwr.update_status(t_id);
-	});
 });
 
 $(document).on('click',	function() {
@@ -92,12 +70,41 @@ $(document).on('click',	function() {
 		"width=700,height=700,resizalbe=no");
 
 		$("#" + t_id + "1").text("배송완료");
-		$("#" + t_id + "3").text("배송완료");
+		$("#" + t_id + "3").text("배송완료");	
 		
-		$("#db_text").text("배송완료");
+		$(".db_trace").addClass("dis_tr");
+		
+		var html = '<input class="deliver_submit" type="button" t_id='+t_id+' value="수취확인" />	<input class="deliver_reports" type="button" value="신고하기" /> ';
+		
+		
+		
+		$("#button").append(html);
+			
+		
+		
 		tradeDwr.update_status(t_id);
 
 	});
+	
+	//수취확인을 눌렀을시에 바꿔주기
+	$(".deliver_submit").click(function(){
+		   
+		var t_id = $(this).attr("t_id");
+		
+		 if(confirm("물품결제를 확정하시겠습니까?")){
+		      tradeDwr.trade_ok(t_id);	
+		      $("#" + t_id).addClass("dis_tr");		      
+			}else{
+			alert("헐");
+		}
+		
+		
+		
+		
+		
+		
+	});
+	
 
 });
 

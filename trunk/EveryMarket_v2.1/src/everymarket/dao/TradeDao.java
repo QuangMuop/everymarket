@@ -93,10 +93,27 @@ public class TradeDao {
 	 * 
 	 * }
 	 */
+	
+	
+	//수취확인 눌렀을시
+	public void trade_ok(int t_id){
+		
+		ibatisTemplate.update("trade_ok", t_id);
+	}
+	
+	
+	
+	
+	
+	
 
 	// 트레이드 객체 한개 뽑아내기
 	public Trade getTrade(int t_id) {
+		
 		return (Trade) ibatisTemplate.queryForObject("getT_instance", t_id);
 	}
+	
+
+	
 
 }

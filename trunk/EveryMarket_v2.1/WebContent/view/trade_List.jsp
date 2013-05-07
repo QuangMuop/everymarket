@@ -7,19 +7,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <script type="text/javascript">
-	$(document).ready(function (){
-		$(document).on("click", "#accept", function(){
-			location.href="accept.do?t_id="+$("#t_id").val();
+	$(document).ready(function() {
+		$(document).on("click", "#accept", function() {
+			location.href = "accept.do?t_id=" + $("#t_id").val();
 			alert("거래 완료");
 		});
-		
-		$(document).ready(function(){
-			
-			
+
+		$(document).ready(function() {
+
 		});
 	});
-
-
 </script>
 
 
@@ -33,6 +30,13 @@ table {
 table td,th {
 	border: 1px solid;
 }
+
+/* tr안보이게 하기 */
+.dis_tr {
+  display: none;
+}
+
+
 </style>
 </head>
 <body>
@@ -49,7 +53,7 @@ table td,th {
 		</tr>
 
 		<c:forEach var="bl" items="${buyingList}">
-			<tr>
+			<tr id="${bl.t_id}">
 
 				<c:choose>
 					<c:when test="${bl.t_status == 1 }">
@@ -72,21 +76,20 @@ table td,th {
 					</c:when>
 					<c:when test="${bl.t_status == 2 }">
 						<td id="${bl.t_id}3">배송중</td>
-						<td><input class="db_trace" type="button" value="배송추적"
+						<td id="button"><input class="db_trace" type="button" value="배송추적"
 							t_id="${bl.t_id}" /></td>
 					</c:when>
 
 					<c:when test="${bl.t_status == 3}">
 						<td id="db_text">배송완료</td>
-<<<<<<< .mine
-						<td><input class="deliver_submit" type="button" value="수취확인" />
+
+						<td><input class="deliver_submit" type="button" t_id="${bl.t_id}" value="수취확인" />
 							<input class="deliver_reports" type="button" value="신고하기" /></td>
-=======
-						<td>
-						<input type="hidden" id="t_id" value="${bl.t_id}">
-						<input  type="button"  id="accept" value="수취확인" />
-						 <input class="db_trace" type="button" id="report" value="신고하기" /></td>
->>>>>>> .r126
+
+						<!-- <td>
+							<input type="button" id="accept" value="수취확인" /> <input
+							class="db_trace" type="button" id="report" value="신고하기" /></td> -->
+
 					</c:when>
 
 
@@ -95,15 +98,7 @@ table td,th {
 			</tr>
 		</c:forEach>
 	</table>
-<<<<<<< .mine
 
-
-
-
-
-
-=======
->>>>>>> .r126
 	<br>
 	<br>
 	<h2>팔고있는 물건</h2>
@@ -154,7 +149,9 @@ table td,th {
 
 							<c:when test="${sl.t_status == 3 }">
 								<td id="db_text">배송완료</td>
-								<td><input class="db_trace" type="button" value="배송추적" /></td>
+								<td id="db_ok1"><!-- <input class="db_trace" type="button" value="배송추적"/ >-->
+								수취확인 대기
+								</td>
 							</c:when>
 
 
@@ -167,16 +164,17 @@ table td,th {
 
 		</c:forEach>
 	</table>
-
-	<div class="popUp hidden">
-		<form action="">
-		      거래 번호 : ${sl.t_id}
-			신고 상품명 : ${sl.}
-			신고 사유 : 
-		</form>
 	
-	</div>
-
+	
+	
+	
+	<h2>거래된 물건</h2>
+	<table id=>
+	
+	
+	</table>
+	
+	
 
 
 
