@@ -1,7 +1,6 @@
 package everymarket.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
@@ -14,6 +13,11 @@ public class BlogDao {
 		this.ibatisTemplate = ibatisTemplate;
 	}
 	
+	/*Input: m_id / Output: List<Blog>*/
+	public List<Blog> getRandomBlogByM_id(String m_id){
+		return ibatisTemplate.queryForList("getRandomBlogByM_id", m_id);
+	}
+	
 	/*Input: m_id / Output: b_thumb*/
 	public String getB_thumbByM_id(String m_id){
 		return (String)ibatisTemplate.queryForObject("getB_thumbByM_id", m_id);
@@ -22,7 +26,7 @@ public class BlogDao {
 	/*Input: m_id / Output: Blog*/ 
 	public Blog getBlogByM_id(String m_id){
 		return (Blog)ibatisTemplate.queryForObject("getBlogByM_id", m_id);
-	}
+	} 
 	
 	/*Input: p_id / Output: Blog*/
 	public Blog getBlogByP_id(int p_id){

@@ -7,7 +7,15 @@
 <sqlMap namespace="Blog">
 	
 	<typeAlias alias="Blog" type="everymarket.model.Blog"/>
- 
+
+	<select id="getRandomBlogByM_id" resultClass="Blog">
+		select b.*
+		from blog b
+		  join dangol d
+		  on b.m_id = d.dg_id
+		where d.m_id = #m_id# and rownum &#60;= 3	
+	</select>
+
  	<select id="getB_thumbByM_id" resultClass="String">
  		select b_thumb 
  		from blog 

@@ -32,5 +32,13 @@
  		where p.m_id = #m_id#
  		order by r.r_date asc
  	</select>
+ 	
+ 	<select id="getRecentReviewByM_id" resultClass="Review">
+ 		select r.r_content, r.r_date
+		from review r
+		  join product p
+		  on r.p_id = p.p_id
+		where p.m_id = #m_id#
+ 	</select>
 
 </sqlMap>

@@ -25,6 +25,11 @@ public class ProductDao {
 		return ibatisTemplate.queryForList("getReportedProduct");
 	}
 
+	/*Input: m_id / Output: List<Product>*/
+	public List<Product> getRecentProductByM_id(String m_id){
+		return ibatisTemplate.queryForList("getRecentProductByM_id", m_id);
+	}
+	
 	/* Input: Product */
 	public void registerProduct(Product product) {
 		ibatisTemplate.insert("registerProduct", product);
