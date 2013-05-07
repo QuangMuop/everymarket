@@ -1,9 +1,7 @@
 package everymarket.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +12,6 @@ import everymarket.dao.BoardQnaDao;
 import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.ReviewDao;
-import everymarket.model.Blog;
 import everymarket.model.BoardQna;
 import everymarket.model.Product;
 import everymarket.object4output.BlogProduct;
