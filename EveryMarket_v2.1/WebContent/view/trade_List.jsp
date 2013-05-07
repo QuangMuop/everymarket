@@ -6,6 +6,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script type="text/javascript">
+	$(document).ready(function (){
+		$(document).on("click", "#accept", function(){
+			location.href="accept.do?t_id="+$("#t_id").val();
+			alert("거래 완료");
+		});
+		
+		$(document).ready(function(){
+			
+			
+		});
+	});
+
+
+</script>
+
 
 <title>Insert title here</title>
 <style type="text/css">
@@ -50,8 +66,10 @@ table td,th {
 
 					<c:when test="${bl.t_status == 3}">
 						<td id="db_text">배송완료</td>
-						<td><input class="db_trace" type="button" value="수취확인" /> <input
-							class="db_trace" type="button" value="신고하기" /></td>
+						<td>
+						<input type="hidden" id="t_id" value="${bl.t_id}">
+						<input  type="button"  id="accept" value="수취확인" />
+						 <input class="db_trace" type="button" id="report" value="신고하기" /></td>
 					</c:when>
 
 
@@ -60,25 +78,6 @@ table td,th {
 			</tr>
 		</c:forEach>
 	</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<br>
 	<br>
 	<h2>팔고있는 물건</h2>
@@ -135,9 +134,6 @@ table td,th {
 							</c:when>
 
 						</c:choose>
-
-
-
 					</tr>
 				</c:when>
 			</c:choose>
@@ -145,6 +141,14 @@ table td,th {
 		</c:forEach>
 	</table>
 
+	<div class="popUp hidden">
+		<form action="">
+		      거래 번호 : ${sl.t_id}
+			신고 상품명 : ${sl.}
+			신고 사유 : 
+		</form>
+	
+	</div>
 
 
 
