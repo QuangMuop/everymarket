@@ -22,11 +22,16 @@ public class TradeDwr {
 		// trade의 status를 변화시키기
 		daoT.update_status(t_id, t_status);
 
-	}
-
+	}	    
+	//남은 운송번호 입력 날짜 알려주기 
 	public String db_number_remainday(int t_id) {
-
 		return daoT.db_number_remainday(t_id);
+	}
+	
+	//운송날짜 지난거 삭제해주기
+	public void trade_delete(int t_id){
+		
+		
 	}
 
 }

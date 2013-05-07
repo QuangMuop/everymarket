@@ -75,6 +75,26 @@
 		select to_char(t_date + 5, 'dd') - to_char(sysdate, 'dd') from trade where t_id = #t_id#
 	</select>
 	
+	
+	<delete id="trade_delete">
+	    delete from trade where t_id = #t_id#	
+	</delete>
+	
+	
+	
+	
+	
+	
+<!-- 	<select id="get_p_ids" resultClass="Integer">
+	 
+	   select t_id from trade where t_seller = 'ee' and t_status = 1	
+	
+	</select> -->
+	
+
+
+
+
 	<select id="getT_instance" resultClass="trade">
 		select t.t_id,
 		t.t_buyer, t.t_seller, t.p_id,  t.t_date, t.t_status, t.t_del_number,
@@ -85,4 +105,5 @@
 		where
 		t.t_id = #t_id#
 	</select>
+
 </sqlMap>

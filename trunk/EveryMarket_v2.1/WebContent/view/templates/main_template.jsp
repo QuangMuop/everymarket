@@ -42,6 +42,7 @@
 <script src="<%=request.getContextPath()%>/scripts/list.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/remote.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/tradeList.js" type="text/javascript"></script>
+
 <!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/scripts/slide_market.js" type="text/javascript"></script>
 

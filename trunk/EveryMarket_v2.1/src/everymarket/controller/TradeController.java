@@ -65,7 +65,10 @@ public class TradeController {
 		ModelAndView mav = new ModelAndView();
 		/* Member member = (Member) request.getSession(); */
 		Member member = new Member();
-		// member.setM_id("ee");
+		
+		member.setM_id("ee");
+		
+
 
 		String m_id = "ee";
 		// String m_id = member.getM_id();
