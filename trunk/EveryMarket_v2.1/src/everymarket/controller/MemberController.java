@@ -50,18 +50,15 @@ public class MemberController {
 	public ModelAndView login_sc(HttpServletRequest request, ModelAndView mav,
 			@RequestParam("m_id")String m_id, 
 			@RequestParam("m_pwd")String m_pwd){
-		System.out.println("しししししし");
 		HttpSession session = request.getSession();
 		HashMap<String, String> member_map = new HashMap<String, String>();
 		member_map.put("m_id", m_id);
 		member_map.put("m_pwd", m_pwd);
-		List<Blog> listBlog = daoB.getBlogList();
 		
 		Member member = daoM.loginMember(member_map);
 		if(member != null){
 			session.setAttribute("member", member);
-			mav.setViewName("main");
-			mav.addObject("blog",listBlog);
+			mav.setViewName("redirect:enter.go");
 			return mav;
 		}else{
 			mav.addObject("error", "稽益昔拭 叔鳶馬心柔艦陥.");
