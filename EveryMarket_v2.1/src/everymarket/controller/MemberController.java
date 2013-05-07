@@ -126,7 +126,7 @@ public class MemberController {
 	public ModelAndView registerMember(HttpServletRequest request, Member member){
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
-		System.out.println("1234141");
+
 		if(daoM.idConfirm(member.getM_id()) != null){
 			mav.addObject("error", "아이디가 중복되었습니다.");
 			mav.setViewName("errorPage");

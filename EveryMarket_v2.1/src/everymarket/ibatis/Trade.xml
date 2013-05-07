@@ -48,7 +48,7 @@
 
 	<select id="getSellingTrade" resultClass="Trade">
 		select t.t_id,
-		t.t_buyer, t.p_id, t.t_date, t.t_status, t.t_del_number,
+		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status, t.t_del_number,
 		p.p_name,
 		p.p_price from
 		trade t
@@ -75,7 +75,14 @@
 		select to_char(t_date + 5, 'dd') - to_char(sysdate, 'dd') from trade where t_id = #t_id#
 	</select>
 	
-
-
-
+	<select id="getT_instance" resultClass="trade">
+		select t.t_id,
+		t.t_buyer, t.t_seller, t.p_id,  t.t_date, t.t_status, t.t_del_number,
+		p.p_name,
+		p.p_price from
+		trade t
+		join product p on t.p_id = p.p_id
+		where
+		t.t_id = #t_id#
+	</select>
 </sqlMap>
