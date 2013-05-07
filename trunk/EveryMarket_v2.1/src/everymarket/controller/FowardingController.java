@@ -3,6 +3,9 @@ package everymarket.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,6 +16,7 @@ import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.ReviewDao;
 import everymarket.model.BoardQna;
+import everymarket.model.Member;
 import everymarket.model.Product;
 import everymarket.object4output.BlogProduct;
 import everymarket.object4output.Object4Skitter;
@@ -42,7 +46,7 @@ public class FowardingController {
 	}
 	
 	@RequestMapping("/enter.go")
-	public ModelAndView enter(){
+	public ModelAndView goMain(){
 		ModelAndView mav = new ModelAndView();
 		
 		String category = "All";
@@ -56,6 +60,16 @@ public class FowardingController {
 		mav.addObject("listSkitter", listSkitter);
 		mav.addObject("listProduct", listProduct);
 		mav.setViewName("main");
+		return mav;
+	}
+	
+	@RequestMapping("/goMyMarket.go")
+	public ModelAndView goMyMarket(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+		Member member = (Member)session.getAttribute("member");
+		
+		mav.setViewName("redirect:goMarket.do?m_id=" + member.getM_id());
 		return mav;
 	}
 	
