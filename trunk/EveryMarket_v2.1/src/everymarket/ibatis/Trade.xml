@@ -14,15 +14,15 @@
 	<!-- 구매요청 시 거래 내역 생성   -->
 	<insert id="insertTrade" parameterClass="java.util.HashMap">
 		insert into trade(
-			t_id, t_buyer, p_id, t_date, t_status, t_del_number
-		)values(t_id_seq.NEXTVAL, #m_id#, #p_id#, sysdate, 0, 0)
+			t_id, t_buyer, p_id, t_status, t_del_number
+		)values(t_id_seq.NEXTVAL, #m_id#, #p_id#, 0, 0)
 	</insert>
 	
 	<!-- 판매자 아이디 업데이트 -->
 	<update id="update_t_seller" parameterClass="int">
 		update trade set
 			t_seller = (select p.m_id from member m join product p on m.m_id = p.m_id where p.p_id=#p_id#)
-			  where p_id = #p_id#
+		where p_id = #p_id#
 	</update>
 
 	<select id="getM_nameByP_id" resultClass="String">

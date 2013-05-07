@@ -2,6 +2,7 @@ package everymarket.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -65,7 +66,20 @@ public class MessageController {
 		daoT.insertTrade(map);
 		daoT.update_t_seller(p_id);
 		
+		return mav;
+	}
 	
+	/////////////////////구매 요청 확인///////////////////////////
+	@RequestMapping("/message_box.do")
+	public ModelAndView message_box(@RequestParam("m_id") String m_id){
+		ModelAndView mav = new ModelAndView();
+		
+		List<Message> listMessage = messageDao.list(m_id);
+		
+		mav.addObject("listMessage", listMessage);
+		
+		mav.setViewName("view/message_box.jsp");
+		
 		return mav;
 	}
 	
