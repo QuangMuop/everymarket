@@ -55,7 +55,7 @@
 		where rownum &#60;= #numberOfSkitter#
 		order by dbms_random.value 
 	</select>
-
+	
 	<select id="getMemberList" resultClass="Member">
 		select * 
 		from member

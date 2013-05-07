@@ -51,6 +51,11 @@ public class MemberDao {
 		return ibatisTemplate.queryForList("getRandomM_idM_nameB_main", numberOfSkitter);
 	}
 	
+	/*Input: p_id / Output: m_id*/
+	public String getM_idByP_id(int p_id){
+		return (String)ibatisTemplate.queryForObject("getM_idByP_id", p_id);
+	}
+	
 	/*Input: p_id / Output: m_name*/
 	public String getM_nameByP_id(int p_id){
 		return (String)ibatisTemplate.queryForObject("getM_nameByP_id", p_id);
