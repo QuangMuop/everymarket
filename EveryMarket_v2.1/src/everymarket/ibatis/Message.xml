@@ -53,22 +53,20 @@
 	</update>
 	
 	
-	
 	<!-- 나에게 온 메세지 출력하기 -->
-<!-- 	<select id="listMessage" parameterClass="String" resultClass="Message"> -->
-<!-- 		select * from message -->
-<!-- 		where p_id in (select p.p_id -->
-<!-- 						from product p join member m -->
-<!-- 						on p.m_id = m.m_id -->
-<!-- 						where m.m_id = #m_id#) -->
-<!-- 	</select> -->
-	
+	<select id="listMessage" parameterClass="String" resultClass="Message">
+		select * from message
+		where p_id in (select p.p_id
+						from product p join member m
+						on p.m_id = m.m_id
+						where m.m_id = #m_id#)
+	</select>
 	
 	<!-- 구매자 닉네임 출력하기 -->
-<!-- 	<select id="buyerInfo" parameterClass="String" resultClass="String"> -->
-<!-- 		select m_nick from member -->
-<!-- 		where m_id=#m_id# -->
-<!-- 	</select> -->
+	<select id="buyerInfo" parameterClass="String" resultClass="String">
+		select m_nick from member
+		where m_id=#m_id#
+	</select>
 	
 
 	

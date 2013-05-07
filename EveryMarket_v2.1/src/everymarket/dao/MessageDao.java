@@ -3,6 +3,7 @@ package everymarket.dao;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
@@ -53,6 +54,17 @@ public class MessageDao {
 	public void update_p_status(int p_id){
 		ibatisTemplate.update("update_p_status", p_id);
 	}
-		
 	
+	
+	/////////////////구매 요청 확인///////////////////////
+	
+	//나에게 온 메세지 출력하기
+	public List<Message> list(String m_id){
+		return ibatisTemplate.queryForList("listMessage", m_id);
+	}
+	
+	//구매자 닉네임 출력하기
+	public String buyerInfo(String m_id){
+		return (String)ibatisTemplate.queryForObject("buyerInfo", m_id);
+	}
 }
