@@ -50,7 +50,19 @@ table td,th {
 
 		<c:forEach var="bl" items="${buyingList}">
 			<tr>
-				<td>${bl.t_del_number}</td>
+
+				<c:choose>
+					<c:when test="${bl.t_status == 1 }">
+						<td>승인대기</td>
+
+					</c:when>
+					<c:otherwise>
+						<td>${bl.t_del_number}</td>
+					</c:otherwise>
+
+				</c:choose>
+
+
 				<td>${bl.p_name }</td>
 				<td>${bl.p_price }</td>
 
@@ -66,10 +78,15 @@ table td,th {
 
 					<c:when test="${bl.t_status == 3}">
 						<td id="db_text">배송완료</td>
+<<<<<<< .mine
+						<td><input class="deliver_submit" type="button" value="수취확인" />
+							<input class="deliver_reports" type="button" value="신고하기" /></td>
+=======
 						<td>
 						<input type="hidden" id="t_id" value="${bl.t_id}">
 						<input  type="button"  id="accept" value="수취확인" />
 						 <input class="db_trace" type="button" id="report" value="신고하기" /></td>
+>>>>>>> .r126
 					</c:when>
 
 
@@ -78,6 +95,15 @@ table td,th {
 			</tr>
 		</c:forEach>
 	</table>
+<<<<<<< .mine
+
+
+
+
+
+
+=======
+>>>>>>> .r126
 	<br>
 	<br>
 	<h2>팔고있는 물건</h2>
@@ -94,7 +120,7 @@ table td,th {
 
 				<c:when test="${sl.t_status > 0 }">
 
-					<tr id="">
+					<tr t_ids="${sl.t_id}" t_status="${sl.t_status}">
 						<c:choose>
 							<c:when test="${sl.t_status == 1 }">
 								<td id="${sl.t_id}4">주문대기</td>
@@ -107,9 +133,19 @@ table td,th {
 						<td class="t_id" type="hidden" value="${sl.t_id}">${sl.p_name}</td>
 						<td id="t_status" name="${sl.t_status}">${sl.p_price}</td>
 
-
-
 						<c:choose>
+							<c:when test="${sl.t_status == 1}">
+								<form>
+									<td id="${sl.t_id}1">송장번호입력: <input class="${sl.t_id}5"
+										type="text"> <!-- 거래번호 or 프로덕트 아이디 -->
+									</td>
+									<td id="${sl.t_id}2"><input class="dn_bt" type="button"
+										value="확인" t_id="${sl.t_id}" name="${sl.t_status}"></td>
+
+								</form>
+							</c:when>
+
+
 							<c:when test="${sl.t_status == 2 }">
 								<td id="${sl.t_id}3">배송중</td>
 								<td><input class="db_trace" type="button" value="배송추적"
@@ -122,16 +158,7 @@ table td,th {
 							</c:when>
 
 
-							<c:when test="${sl.t_status == 1}">
-								<form>
-									<td id="${sl.t_id}1">송장번호입력: <input class="${sl.t_id}5"
-										type="text"> <!-- 거래번호 or 프로덕트 아이디 --> 
-									</td>
-									<td id="${sl.t_id}2"><input class="dn_bt" type="button"
-										value="확인" t_id="${sl.t_id}" name="${sl.t_status}"></td>
 
-								</form>
-							</c:when>
 
 						</c:choose>
 					</tr>

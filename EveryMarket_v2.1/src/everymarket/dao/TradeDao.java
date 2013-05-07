@@ -1,7 +1,14 @@
 package everymarket.dao;
 
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import oracle.sql.ARRAY;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
@@ -64,13 +71,31 @@ public class TradeDao {
 
 	// 남은 배송번호 입력 날짜
 	public String db_number_remainday(int t_id) {
-		  System.out.println((String)ibatisTemplate.queryForObject("db_number_remainday", t_id)); 
-		return (String)ibatisTemplate.queryForObject("db_number_remainday", t_id);
 
+		return (String) ibatisTemplate.queryForObject("db_number_remainday",
+				t_id);
 	}
-	
-	//트레이드 객체 한개 뽑아내기
-	public Trade getTrade(int t_id){
+
+	// 배송날짜 지난거 삭제해주기
+	public void trade_delete(int t_id) {
+
+		ibatisTemplate.delete("trade_delete", t_id);
+	}
+
+	// 배송날짜를 위해 몇개의 p_id가있는지 알아오기
+
+	/*
+	 * public ArrayList get_p_ids(){
+	 * 
+	 * ArrayList list = new ArrayList();
+	 * 
+	 * 
+	 * 
+	 * }
+	 */
+
+	// 트레이드 객체 한개 뽑아내기
+	public Trade getTrade(int t_id) {
 		return (Trade) ibatisTemplate.queryForObject("getT_instance", t_id);
 	}
 
