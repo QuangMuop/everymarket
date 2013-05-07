@@ -75,12 +75,12 @@
 	<!-- 내가 검색한 블로그의 후기 수 -->
 	<select id="searchBlog_r" parameterClass="int" resultClass="int">
 		select count(r.r_content) 
-		from review r join blog b
-		on r.b_id=b.b_id
-		where b.b_id=#b_id#
+		from review r 
+		  join product p
+		  on r.p_id = p.p_id
+		  join blog b
+		  on p.m_id = b.m_id
+		where b.b_id = #b_id#
 	</select>
+	
 </sqlMap>
-
-
-
-
