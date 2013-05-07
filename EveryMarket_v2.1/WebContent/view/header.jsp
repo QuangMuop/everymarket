@@ -21,7 +21,7 @@
 				<!-- IndivMarket --> 
 				<a class="h_tag" href="goMyMarket.go">내 마켓</a>
 				<a id="h_bar" >|</a>
-				<a class="h_tag" id="alarm">알리미</a>
+				<a class="h_tag" id="alarm" href="message_box.do?m_id=${member.m_id }">알리미</a>
 				<div id="alarm_in">
 					<div>
 					알림1
