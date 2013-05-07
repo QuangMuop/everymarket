@@ -19,7 +19,7 @@
 				<a class="h_tag" href="JJimbasket.do">찜바구니</a>
 				<a id="h_bar" >|</a>
 				<!-- IndivMarket --> 
-				<a class="h_tag" href="enter.go">개인마켓페이지</a>
+				<a class="h_tag" href="goMyMarket.go">내 마켓</a>
 				<a id="h_bar" >|</a>
 				<a class="h_tag" id="alarm">알리미</a>
 				<div id="alarm_in">
