@@ -107,7 +107,7 @@ public class FowardingController {
 			o4s.setListRecentProduct(daoP.getRecentProductByM_id(randomMember.getM_id()));
 			o4s.setListRandomDangol(daoB.getRandomBlogByM_id(randomMember.getM_id()));
 			o4s.setListRecentReview(daoR.getRecentReviewByM_id(randomMember.getM_id()));
-			System.out.println(o4s);
+
 			listSkitter.add(o4s);
 		}
 				

@@ -26,7 +26,7 @@
 		
 		<div id="productContainer">	
 			<c:forEach var="product" items="${listProduct }">
-				<div class="product" productId="${product.p_id }">${product.p_name }</div>	<br>
+				<div class="product" p_id="${product.p_id }">${product.p_name }</div>	<br>
 			</c:forEach>
 		</div>
 	

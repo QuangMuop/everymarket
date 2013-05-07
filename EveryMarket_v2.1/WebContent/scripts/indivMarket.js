@@ -9,10 +9,16 @@ $(document).ready(function(){
 	$("#ajaxForm_registerComments").ajaxForm();
 	$("#ajaxForm_registerComments").submit(registerComments);
 	
-	$(".product").click(popUp_productInfo);
+	$(".product, .grid").click(popUp_productInfo);
 	$("#count_dangol").click(popUp_showOwnerDangol);
 	$("#count_review").click(popUp_showListReview);
 	
+	$("#ajaxForm_productPurchase").submit(function(){
+		if(confirm("해당 상품에 구매신청하시겠습니까?")){
+			$("$ajaxForm_productPurchase").submit;
+		}
+		return false;
+	});
 	$("#productPurchase button").click(closePop_productPurchase);
 	
 	$("#opener_locationPicker").click(open_locationPicker);
@@ -394,7 +400,7 @@ $(document).ready(function(){
 		/*productInfo div요소 최신화*/
 		$.getJSON(
 			contextUrl + "getProductInfo.do?p_id=" 
-				+ $(this).attr("productId"),
+				+ $(this).attr("p_id"),
 			function(data){
 				/*HomeInfo Div*/
 				$("#blogB_map").html("<img src='" + data.blog.b_map + "'>");

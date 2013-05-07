@@ -25,7 +25,7 @@
 								<a class="m_font" id="m_recent">최근 등록한 상품</a>
 								<div class="m_innergoods">
 									<c:forEach var="product" items="${o4s.listRecentProduct }">
-										<div class="goods">
+										<div class="goods" p_id="${product.p_id }">
 											<img class="good_image" alt="" src="image_product/${product.p_img }">
 											<a class="good_name">${product.p_name }</a>
 											<img class="coin" alt="" src="images/smarket/coin.png">
@@ -104,7 +104,7 @@
 			<div id="item_container" category="${category}"
 				searchtext="${searchtext}">
 				<c:forEach var="product" items="${listProduct}">
-					<div class="grid" id="${product.p_id}">
+					<div class="grid" p_id="${product.p_id}">
 						<div class="imgholder">
 							<img src="image_product/${product.p_img}" />
 						</div>

@@ -76,7 +76,7 @@
 					</div>	
 					
 					<div id="zero">
-						<a href="main.jsp?id=${searchBlog.m_id }" id="dan-btn">방문하기</a>
+						<a href="goMarket.do?m_id=${searchBlog.m_id }" id="dan-btn">방문하기</a>
 					</div>
 					
 					<div class="market-footer">
