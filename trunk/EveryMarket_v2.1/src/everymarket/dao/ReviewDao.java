@@ -27,4 +27,9 @@ public class ReviewDao {
 	public List<Review> getReviewListByM_id(String m_id){
 		return ibatisTemplate.queryForList("getReviewListByM_id", m_id);
 	}
+	
+	/*Input: m_id / Output: List<Review>*/
+	public List<Review> getRecentReviewByM_id(String m_id){
+		return ibatisTemplate.queryForList("getRecentReviewByM_id", m_id);
+	}
 }

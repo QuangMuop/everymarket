@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
 import everymarket.model.Member;
+import everymarket.object4output.BlogProduct;
 
 public class MemberDao {
 	private SqlMapClientTemplate ibatisTemplate;
@@ -42,6 +43,11 @@ public class MemberDao {
 	/*Output: List<Member>*/
 	public List<Member> getMemberList(){
 		return ibatisTemplate.queryForList("getMemberList");
+	}
+	
+	/*Input: numberOfSkitter / Output: List<Member>*/
+	public List<BlogProduct> getRandomM_idM_nameB_main(int numberOfSkitter){
+		return ibatisTemplate.queryForList("getRandomM_idM_nameB_main", numberOfSkitter);
 	}
 	
 	/*Input: p_id / Output: m_name*/

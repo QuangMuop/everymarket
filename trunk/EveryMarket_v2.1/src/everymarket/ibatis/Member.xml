@@ -7,6 +7,7 @@
 <sqlMap namespace="Member">
 	
 	<typeAlias alias="Member" type="everymarket.model.Member"/>
+	<typeAlias alias="BlogProduct" type="everymarket.object4output.BlogProduct"/>
 
 	<insert id="registerMember" parameterClass="Member">
   		insert into member(
@@ -45,6 +46,15 @@
   		from Member 
   		where m_id = #m_id#
   	</select>
+
+	<select id="getRandomM_idM_nameB_main" resultClass="BlogProduct">
+		select m.m_id, m.m_nick, b.b_main
+		from member m
+		  join blog b
+		  on m.m_id = b.m_id
+		where rownum &#60;= #numberOfSkitter#
+		order by dbms_random.value 
+	</select>
 
 	<select id="getMemberList" resultClass="Member">
 		select * 

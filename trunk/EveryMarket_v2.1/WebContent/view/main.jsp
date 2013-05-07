@@ -14,53 +14,50 @@
 	<div class="border_box">
 		<div class="box_skitter box_skitter_large">
 			<ul>
-				<c:forEach var="blog" items="${blog }">
-				<li><a href="#cube"><img src="image_blog/${blog.b_main }" class="randomSmart"/></a>
-					<div class="label_text">
-						<div class="slide_marketname">
-							<a class="m_font" id="m_nick">${blog.b_id }</a> 
-							<img alt="" src="images/smarket/smarket4.png">
-						</div>
-						<div class="m_goods">
-							<a class="m_font" id="m_recent">최근에 올린 상품</a>
-							<div class="m_innergoods">
-								<div class="goods">
-									<img class="good_image" alt="" src="images/smarket/004.jpg">
-									<a class="good_name">페라리</a> 
-									<img class="coin" alt="" src="images/smarket/coin.png"> 
-									<a class="m_font" id="good_money">10000</a>
+				<c:forEach var="o4s" items="${listSkitter }">
+					<li><a href="#cube"><img src="image_blog/${o4s.owner_b_main }" class="randomSmart"/></a>
+						<div class="label_text">
+							<div class="slide_marketname">
+								<a class="m_font" id="m_nick">${o4s.owner_m_nick }</a> 
+								<img alt="" src="images/smarket/smarket4.png">
+							</div>
+							<div class="m_goods">
+								<a class="m_font" id="m_recent">최근 등록한 상품</a>
+								<div class="m_innergoods">
+									<c:forEach var="product" items="${o4s.listRecentProduct }">
+										<div class="goods">
+											<img class="good_image" alt="" src="image_product/${product.p_img }">
+											<a class="good_name">${product.p_name }</a>
+											<img class="coin" alt="" src="images/smarket/coin.png">
+											<a class="m_font" id="good_money">${product.p_price }</a>
+										</div>
+									</c:forEach>
 								</div>
-								<div class="goods">
-									<img class="good_image" alt="" src="images/smarket/005.jpg">
-									<a class="good_name">페라리</a> <img class="coin" alt=""
-										src="images/smarket/coin.png"> <a class="m_font"
-										id="good_money">10000</a>
+							</div>
+							<div class="m_dangols">
+								<a class="m_font" id="recent_dangol">단골 회원</a>
+								<div id="m_dangollist">
+									<c:forEach var="blog" items="${o4s.listRandomDangol }">
+										<div class="dangols">
+										<img class="dangol_image" alt="" m_id="${blog.m_id }" 
+												src="image_blog/${blog.b_thumb }">
+									</div>
+									</c:forEach>
 								</div>
-								<div class="goods">
-									<img class="good_image" alt="" src="images/smarket/006.jpg">
-									<a class="good_name">페라리</a> <img class="coin" alt=""
-										src="images/smarket/coin.png"> <a class="m_font"
-										id="good_money">10000</a>
+							</div>
+							<div class="m_reviews">
+								<a class="m_font" id="recent_review">최근 등록된 리뷰</a>
+								<div id="m_reviewlist">
+									<c:forEach var="review" items="${o4s.listRecentReview }">
+										<div class="reviews">
+											<a>${review.r_content }</a>
+											<a>${review.r_date }</a>
+										</div>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
-						<div class="m_dangols">
-							<a class="m_font" id="recent_dangol">최근 단골 회원</a> <a
-								class="count_font" id="m_dangolcount">0</a>
-							<div id="m_dangollist">
-								<a>관리자</a>
-							</div>
-						</div>
-						<div class="m_reviews">
-							<a class="m_font" id="recent_review">최근 등록된 리뷰</a> <a
-								class="count_font" id="m_reviewcount">0</a>
-							<div id="m_reviewlist">
-
-								<a>물건이 느므느므 좋아요!</a> <a>2013/5/1/11:11</a>
-							</div>
-						</div>
-					</div></li>
-					
+					</li>
 				</c:forEach>
 			</ul>
 		</div>

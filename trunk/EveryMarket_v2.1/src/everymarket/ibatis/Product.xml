@@ -4,8 +4,6 @@
     PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-<!-- sqlMapConfig초기화에서 에러나서 임시로 만든 sql파일 ㅋㅋ -->
-
 <sqlMap namespace="Product">
 	
 	<typeAlias alias="Product" type="everymarket.model.Product"/>
@@ -45,6 +43,13 @@
 		select * 
 		from product 
 		where m_id = #m_id# 
+		order by p_date desc
+	</select>
+	
+	<select id="getRecentProductByM_id" resultClass="Product">
+		select p_id, p_name, p_price, p_img
+		from product
+		where m_id = #m_id# and rownum &#60;= 3
 		order by p_date desc
 	</select>
 	

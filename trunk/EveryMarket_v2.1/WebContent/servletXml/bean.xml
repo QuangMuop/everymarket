@@ -64,8 +64,10 @@
 	<!-- 단순 페이지 이동 관련 업무 수행 컨트롤러 -->
 	<bean id="fowardingController" class="everymarket.controller.FowardingController">
 		<property name="daoB" ref="blogDao"/>
-		<property name="daoBQ" ref="boardQnaDao" />
-		<property name="daoP" ref="productDao" />
+		<property name="daoBQ" ref="boardQnaDao"/>
+		<property name="daoM" ref="memberDao"/>
+		<property name="daoP" ref="productDao"/>
+		<property name="daoR" ref="reviewDao"/>
 	</bean>
 
 	<!-- 찜 관련 업무 수행 컨트롤러 -->
