@@ -116,6 +116,7 @@
 	
 	<!-- 거래 관련 업무 수행 컨트롤러 -->
 	<bean id="tradeController" class="everymarket.controller.TradeController">
+		<property name="daoM" ref="memberDao"></property>
 		<property name="daoP" ref="productDao" />
 		<property name="daoT" ref="tradeDao"></property>
 	</bean>
