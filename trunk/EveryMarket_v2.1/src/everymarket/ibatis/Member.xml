@@ -81,4 +81,10 @@
 		where m_id = #m_id#
 	</update>
 	
+	<update id="subCash" parameterClass="HashMap">
+		update member 
+		set m_cash = m_cash - #p_price#
+		where m_id = #m_id#
+	</update>
+	
 </sqlMap>

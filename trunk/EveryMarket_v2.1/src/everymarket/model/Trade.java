@@ -4,8 +4,11 @@ import java.sql.Timestamp;
 
 public class Trade {
 
+	
+
 	int t_id;
 	String t_buyer;
+	String t_seller;
 	int p_id;
 	Timestamp t_date;
 	int t_status;
@@ -41,6 +44,13 @@ public class Trade {
 		return t_buyer;
 	}
 
+	public String getT_seller() {
+		return t_seller;
+	}
+
+	public void setT_seller(String t_seller) {
+		this.t_seller = t_seller;
+	}
 	public void setT_buyer(String t_buyer) {
 		this.t_buyer = t_buyer;
 	}

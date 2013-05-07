@@ -68,5 +68,10 @@ public class TradeDao {
 		return (String)ibatisTemplate.queryForObject("db_number_remainday", t_id);
 
 	}
+	
+	//트레이드 객체 한개 뽑아내기
+	public Trade getTrade(int t_id){
+		return (Trade) ibatisTemplate.queryForObject("getT_instance", t_id);
+	}
 
 }

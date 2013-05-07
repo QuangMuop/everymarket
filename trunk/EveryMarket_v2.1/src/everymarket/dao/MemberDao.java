@@ -37,6 +37,7 @@ public class MemberDao {
 	
 	/*캐쉬 충전 - Input: HashMap*/
 	public void chargeCash(HashMap<String, Object> cash_map){
+		
 		ibatisTemplate.update("chargeCash", cash_map);
 	}
 	
@@ -63,5 +64,10 @@ public class MemberDao {
 	/*Input: b_thumb / Output: Member*/
 	public Member getMemberByB_thumb(String b_thumb){
 		return (Member)ibatisTemplate.queryForObject("getMemberByB_thumb", b_thumb);
+	}
+	
+	//캐쉬 감소
+	public void subCash(HashMap<String, Object> cash_map){
+		ibatisTemplate.update("subCash",cash_map);
 	}
 }
