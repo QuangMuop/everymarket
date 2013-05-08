@@ -5,14 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!-- Tiles Setting 시작 - 20130420 -->
-	
+	<!-- Tiles Setting 시작 -->
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
-		<property name="definitions">
-			<list>
-				<value>/servletXml/configurer/tiles2configurer.xml</value>
-			</list>
-		</property>
+		<property name="definitions" value="/servletXml/configurer/tiles2configurer.xml"/>
 	</bean>
 		
 	<!-- Tiles Setting 종료 -->

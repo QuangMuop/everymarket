@@ -10,7 +10,5 @@
 
 	<aop:aspectj-autoproxy/>
 	<aop:config proxy-target-class="true"/>
-	
-	<bean id="sessionCheck" class="everymarket.aop.sessionCheck"/>
 
 </beans>
