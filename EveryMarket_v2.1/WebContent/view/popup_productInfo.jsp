@@ -54,6 +54,39 @@
 		</form>
 	</div>
 	
+	<!-- 팝업창: 회원 신고창 -->
+	<div id="memberReport" class="popUp hidden">
+		<div id="memberInfo_report">
+			<span id="memberM_nick_report"></span>
+				(<span id="memberM_id_report"></span>)
+				님을 다음의 사유로 신고하려고 합니다.
+		</div>		
+		
+		<div class="notice_report">
+			<h4>신고시 꼭 확인해주세요!</h4>
+			<ul>
+				<li>해당 회원을 신고할 경우 관리자가 사실여부 판단 뒤 조치를 취합니다.</li>			
+				<li>신고사유가 적절하지 않을 경우 해당 신고는 기각될 수 있습니다.</li>			
+				<li>무의미한 신고행위의 반복은 신고자의 제재사유가 될 수 있습니다.</li>			
+			</ul>		
+		</div>
+		
+		<div id="buttonBar_reportMember">
+			<form id="form_reportMember" action="reportMember.do" method="post">
+				<input type="hidden" name="rep_memberId">
+				신고사유: 	<select name="rep_reason">	
+							<option value="광고성 글 게시">광고성 글 게시</option>
+							<option value="무의미한 도배">무의미한 도배</option>
+							<option value="거래사기">거래사기</option>
+						</select><br>
+				신고내용:	<br>
+				<textarea rows="5" cols="50" name="rep_content"></textarea>
+				<input type="submit" value="신고하기">
+				<button>취소하기</button>
+			</form>
+		</div>
+	</div>
+	
 	<!-- 팝업창: 상품 신고창 -->
 	<div id="productReport" class="popUp hidden">
 		<div id="productInfo_report">
@@ -65,7 +98,7 @@
 			</div>
 		</div>
 		
-		<div id="notice_report">
+		<div class="notice_report">
 			<h4>신고시 꼭 확인해주세요!</h4>
 			<ul>
 				<li>해당 상품을 신고할 경우 관리자가 사실여부 판단 뒤 조치를 취합니다.</li>			
@@ -74,13 +107,14 @@
 			</ul>		
 		</div>
 		
-		<div id="buttonBar_report">
+		<div id="buttonBar_reportProduct">
 			<form id="form_reportProduct" action="reportProduct.do" method="post">
 				<input type="hidden" name="rep_productId">
+				<input type="hidden" name="rep_memberId">
 				신고사유: 	<select name="rep_reason">	
 							<option value="부적절한 상품">부적절한 상품</option>
 							<option value="음란물">음란물</option>
-							<option value="사행성 조장">사행성 조장</option>
+							<option value="사행성 조장">사행성 조장물품</option>
 						</select><br>
 				신고내용:	<br>
 				<textarea rows="5" cols="50" name="rep_content"></textarea>

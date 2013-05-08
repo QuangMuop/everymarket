@@ -46,6 +46,14 @@
 		from board_report
 		where rep_check = 'n'
 	</select>
+	
+	<select id="checkAlreadyReported" resultClass="BoardReport">
+		select *
+		from board_report
+		where rep_writer = #rep_writer#  
+			and rep_memberId = #rep_memberId#
+			and rep_check = 'n'
+	</select>
 
 	<update id="checkReportStatus">
 		update board_report

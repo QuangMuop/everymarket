@@ -29,6 +29,24 @@ public class BoardReportController {
 		this.daoM = daoM;
 	}
 
+	@RequestMapping("/reportMember.do")
+	public ModelAndView reportMember(HttpServletRequest request, BoardReport boardReport){
+		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+		Member member = (Member)session.getAttribute("member");
+		
+		boardReport.setRep_id(daoBR.getMaxRep_id() + 1);
+		boardReport.setRep_writer(member.getM_id());
+		boardReport.setRep_regdate(new Timestamp(System.currentTimeMillis()));
+		boardReport.setRep_productId(-1);
+		boardReport.setRep_check("n");
+
+		daoBR.registerReport(boardReport);
+		
+		mav.setViewName("redirect:goMarket.do?m_id=" + boardReport.getRep_memberId());
+		return mav;
+	}
+	
 	@RequestMapping("/reportProduct.do")
 	public ModelAndView reportProduct(HttpServletRequest request, BoardReport boardReport){
 		HttpSession session = request.getSession();

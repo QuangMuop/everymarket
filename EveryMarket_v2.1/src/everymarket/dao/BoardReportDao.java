@@ -1,6 +1,7 @@
 package everymarket.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
@@ -41,5 +42,10 @@ public class BoardReportDao {
 	/*Input: m_id*/
 	public void checkReportStatus(String r_id){
 		ibatisTemplate.update("checkReportStatus", r_id);
+	}
+	
+	/*Input: rep_writer, rep_memberId / Output: BoardReport*/
+	public BoardReport checkAlreadyReported(Map<String, Object> paramMap){
+		return (BoardReport)ibatisTemplate.queryForObject("checkAlreadyReported", paramMap);
 	}
 }
