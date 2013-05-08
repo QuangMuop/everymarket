@@ -8,13 +8,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(document).on("click", "#accept", function() {
-			location.href = "accept.do?t_id=" + $("#t_id").val();
-
+		
+		$(document).on("click", "#accept", function(){
+			location.href="accept.do?t_id="+$(this).attr("t_id");
 		});
-
-		$(document).ready(function() {
-
+		$(document).on("change", "#report_choice",function(){
+			$("#rep_reason").removeAttr("value").attr("value", $("#report_choice >option:selected").html());
+		});
+		
+		$(document).on("click", "#report", function(){
+			$("#main_report").bPopup();
+			$("#rep_reason").attr("value", $("#report_choice >option:selected").html());
 		});
 	});
 </script>
@@ -81,13 +85,31 @@ table td,th {
 					<c:when test="${bl.t_status == 3}">
 						<td id="db_text">배송완료</td>
 
-						<td><input class="deliver_submit" type="button"
-							t_id="${bl.t_id}" value="수취확인" /> <input class="deliver_reports"
-							type="button" value="신고하기" /></td>
 
-						<!-- <td>
-							<input type="button" id="accept" value="수취확인" /> <input
-							class="db_trace" type="button" id="report" value="신고하기" /></td> -->
+						<td>
+						<input type="button"  id="accept" value="수취확인" t_id="${bl.t_id}"/>
+						<input type="button" id="report" value="신고하기" t_id="${bl.t_id}"/></td>
+
+						<div id="main_report" class="popUp hidden">
+								<form action="reportAction.do" method="post">
+		    						  거래 번호 : ${bl.t_id}<br>
+										신고 상품명 : ${bl.p_name}<br>
+										신고 사유 : <select id="report_choice">
+											<option value = "report1">본 제품과 다른 제품</option>
+											<option value = "report2">배송 지연</option>
+											<option value = "report3">제품 불량</option>
+											<option value = "report4">기타 사유</option>
+											</select><br>
+										신고의 내용	
+											<textarea name="rep_content" id="rep_content"></textarea><br>
+											<input type="hidden" name="rep_memberId" value="${bl.t_seller}">		
+											<input type="hidden" name="rep_reason" id="rep_reason">
+											<input type="hidden" name="rep_writer" value="${bl.t_buyer}">
+											<input type="hidden" name="rep_productId" value="${bl.p_id}">
+											<input type="submit" value="신고 완료">
+											<input type="reset" value="취소">		
+								</form>
+							</div>
 
 					</c:when>
 
