@@ -31,6 +31,11 @@ public class TradeDao {
 	public void update_t_seller(int p_id) {
 		ibatisTemplate.update("update_t_seller", p_id);
 	}
+	
+	//구매요청 거절시 거래테이블에서 정보 삭제
+	public void deleteTrade(int p_id){
+		ibatisTemplate.delete("deleteTrade", p_id);
+	}
 
 	/* Input: p_id / Output: m_name */
 	public String getM_nameByP_id(int p_id) {

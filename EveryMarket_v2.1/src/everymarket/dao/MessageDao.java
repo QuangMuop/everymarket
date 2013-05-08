@@ -67,4 +67,14 @@ public class MessageDao {
 	public String buyerInfo(String m_id){
 		return (String)ibatisTemplate.queryForObject("buyerInfo", m_id);
 	}
+	
+	//구매요청 거절시 제품 상태 다시 n으로 변경
+	public void refuse_p_status(int p_id){
+		ibatisTemplate.update("refuse_p_status", p_id);
+	}
+	
+	//구매요청 거절시 메세지 상태 x로 변경
+	public void refuse_msg_status(int p_id){
+		ibatisTemplate.update("refuse_msg_status", p_id);
+	}
 }
