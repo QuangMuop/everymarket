@@ -22,8 +22,10 @@
 		)
 	</insert>
 
+		<!--  최대값 뽑기 sql 수정  -->
 	<select id="getMaxRep_id" resultClass="Integer">
-		select max(rep_id)
+		select decode(max(rep_id), null,0, max(rep_id)) 
+		as "max(rep_id)"
 		from board_report
 	</select>
 	

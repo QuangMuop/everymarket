@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import everymarket.dao.BoardReportDao;
@@ -79,6 +80,26 @@ public class BoardReportController {
 		
 		mav.addAllObjects(map);
 		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	//거래 후 리폿하기
+	@RequestMapping(value="/reportAction.do", method=RequestMethod.POST)
+	public ModelAndView report(HttpServletRequest request, BoardReport boardReport){
+//		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+		
+//		Member member = (Member)session.getAttribute("member");
+		
+		boardReport.setRep_id(daoBR.getMaxRep_id() + 1);
+
+		boardReport.setRep_regdate(new Timestamp(System.currentTimeMillis()));
+
+		boardReport.setRep_check("n");
+		
+		daoBR.registerReport(boardReport);
+		
+		mav.setViewName("trade_list.do");
 		return mav;
 	}
 }
