@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class BanList {
 	private String m_id;
-	private int p_id;
+	private int rep_id;
 	private Timestamp judgeTime;
 	private Timestamp releaseTime;
 	
@@ -14,11 +14,11 @@ public class BanList {
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
 	}
-	public int getP_id() {
-		return p_id;
+	public int getRep_id() {
+		return rep_id;
 	}
-	public void setP_id(int p_id) {
-		this.p_id = p_id;
+	public void setRep_id(int rep_id) {
+		this.rep_id = rep_id;
 	}
 	public Timestamp getJudgeTime() {
 		return judgeTime;

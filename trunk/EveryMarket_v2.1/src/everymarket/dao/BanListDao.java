@@ -1,8 +1,8 @@
 package everymarket.dao;
 
-import java.util.Map;
-
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
+
+import everymarket.model.BanList;
 
 public class BanListDao {
 	private SqlMapClientTemplate ibatisTemplate;
@@ -12,7 +12,8 @@ public class BanListDao {
 	}
 	
 	/*Input: m_id, day*/
-	public void registerBan(Map<String, Object> paramMap){
-		ibatisTemplate.insert("registerBan", paramMap);
+	public void registerBan(BanList banList){
+		System.out.println("µé¾î¿È");
+		ibatisTemplate.insert("registerBan", banList);
 	}
 }

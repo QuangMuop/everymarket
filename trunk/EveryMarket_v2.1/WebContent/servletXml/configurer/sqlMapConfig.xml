@@ -12,6 +12,7 @@
     </dataSource>
   </transactionManager>
  
+	<sqlMap resource="everymarket/ibatis/BanList.xml"/>
 	<sqlMap resource="everymarket/ibatis/Blog.xml"/>
 	<sqlMap resource="everymarket/ibatis/BoardQna.xml"/>	
 	<sqlMap resource="everymarket/ibatis/BoardReport.xml"/>	

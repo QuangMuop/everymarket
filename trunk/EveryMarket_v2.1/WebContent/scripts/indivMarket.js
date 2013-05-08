@@ -590,4 +590,11 @@ $(document).ready(function(){
 		$("#productReport").bPopup().close();
 		return false;
 	}
+	
+	
+	
+	$("#mainImage").find("input[name='uploadFile']").change(function(){
+		var srcAddress = $(this).val();  
+		alert(srcAddress);
+	});
 });

@@ -45,6 +45,7 @@
 		<div id="mainImage" class="tab">
 			<form action="updateBlog.do" method="post" enctype="multipart/form-data">
 				<h4>메인이미지 수정폼</h4>
+				<img src="C:\Users\kosta.Kitchu\Downloads\wallPaper.png">
 				<input type="file" name="uploadFile">
 				<input type="hidden" name="updateKey" value="b_main">
 				<input type="submit" value="변경하기">

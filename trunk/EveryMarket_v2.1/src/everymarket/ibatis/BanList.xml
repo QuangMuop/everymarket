@@ -8,12 +8,12 @@
 	
 	<typeAlias alias="BanList" type="everymarket.model.BanList"/>
 
-	<insert id="registerBan" parameterClass="HashMap">
+	<insert id="registerBan" parameterClass="BanList">
 		insert into banlist values(
 			#m_id#,
 			#rep_id#,
-			sysdate,
-			sysdate + #banTime#
+			#judgeTime#,
+			#releaseTime#
 		)
 	</insert>
 
