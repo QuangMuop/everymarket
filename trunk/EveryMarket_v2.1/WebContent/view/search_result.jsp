@@ -30,7 +30,7 @@
 			<section id="wrapper">
 				<div id="container7">
 					<c:forEach var="product" items="${searchProduct}">
-						<div class="grid">
+						<div class="grid" p_id="${product.p_id }">
 							<div class="imgholder">
 								<img src="image_product/${product.p_img}"/>
 							</div>
