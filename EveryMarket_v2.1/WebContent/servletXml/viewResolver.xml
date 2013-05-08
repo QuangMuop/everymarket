@@ -5,10 +5,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!-- MultipartResolver Setting 시작 -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	<!-- MultipartResolver Setting 시작 - 20130427 -->
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
-	<!-- ViewResolver Setting 시작 -->
+	<!-- ViewResolver Setting 시작 - 20130423 -->
 		
 	<!-- JSon View : 1순위 -->
 	<bean id="jsonView" class="net.sf.json.spring.web.servlet.view.JsonView">
