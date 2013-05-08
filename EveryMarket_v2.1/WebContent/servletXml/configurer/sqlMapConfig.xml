@@ -24,7 +24,7 @@
 	<sqlMap resource="everymarket/ibatis/Product.xml"/>
 	<sqlMap resource="everymarket/ibatis/Review.xml"/>
 	<sqlMap resource="everymarket/ibatis/List.xml"/>
-	<sqlMap resource="everymarket/ibatis/Trade.xml"     />
+	<sqlMap resource="everymarket/ibatis/Trade.xml"/>
 	<sqlMap resource="everymarket/ibatis/BlogProduct.xml"/>
 	<sqlMap resource="everymarket/ibatis/Message.xml"/>
 
