@@ -26,12 +26,15 @@ $(document).ready(function(){
 	
 	function reportAction(){
 		var rep_id = $(this).attr("rep_id");
+		var rep_memberId = $(this).attr("rep_memberId");
 		var actionCode = $(this).val();
 		
-		if(confirm(rep_id + "번 게시글에 대한 처리를 확정하시겠습니까?")){
-			boardReportDwr.reportAction(r_id, actionCode);
-			alert("처리되었습니다.");
-			callReportedList();
+		if(actionCode != '선택'){
+			if(confirm("사용자 '" + rep_memberId + "'에 대한 처리를 확정하시겠습니까?")){
+				boardReportDwr.reportAction(rep_id, actionCode);
+				alert("처리되었습니다.");
+				callReportedList();
+			}
 		}
 	}
 	
@@ -76,11 +79,12 @@ $(document).ready(function(){
 							"<div class='normal'>" + boardReport.rep_productId + 
 								" (" + boardReport.rep_memberId + ")</div>" +
 							"<div class='contents hidden'>" + boardReport.rep_content + 
-								"<select rep_id='" + boardReport.rep_id + "'>" +
-									"<option value='0' selected='selected'>선택</option>" +
-									"<option value='actionForProduct_1'>제재내용1</option>" +
-									"<option value='actionForProduct_2'>제재내용2</option>" +
-									"<option value='actionForProduct_3'>제재내용3</option>" +
+								"<select rep_id='" + boardReport.rep_id +
+										"' rep_memberId='" + boardReport.rep_memberId + "'>" +
+									"<option selected='selected'>선택</option>" +
+									"<option value='ban_1days'>1일 사이트 접근 불허</option>" +
+									"<option value='ban_3days'>3일 사이트 접근 불허</option>" +
+									"<option value='ban_5days'>5일 사이트 접근 불허</option>" +
 								"</select>"	+
 							"</div>" +
 						"</div>");
@@ -98,11 +102,11 @@ $(document).ready(function(){
 							"<div class='wide'>" + rep_regdate + "</div>" +
 							"<div class='normal'>" + boardReport.rep_memberId + "</div>" +
 							"<div class='contents hidden'>" + boardReport.rep_content +
-								"<select rep_id='" + boardReport.rep_id + "'>" +
-									"<option value='0' selected='selected'>선택</option>" +
-									"<option value='actionForMember_1'>제재내용1</option>" +
-									"<option value='actionForMember_2'>제재내용2</option>" +
-									"<option value='actionForMember_3'>제재내용3</option>" +
+								"<select rep_memberId='" + boardReport.rep_memberId + "'>" +
+									"<option selected='selected'>선택</option>" +
+									"<option value='ban_1days'>1일 사이트 접근 불허</option>" +
+									"<option value='ban_3days'>3일 사이트 접근 불허</option>" +
+									"<option value='ban_5days'>5일 사이트 접근 불허</option>" +
 								"</select>"	+
 							"</div>" +
 						"</div>");
