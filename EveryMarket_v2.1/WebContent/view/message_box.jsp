@@ -23,13 +23,13 @@
 	line-height: 25px;
 }
 
-#bt_sellapprove{
+.bt_sellapprove{
 	margin-left:120px;
 	height:30px;
 	
 }
 
-#bt_sellrefuse{
+.bt_sellrefuse{
 	height:30px;
 }
 
@@ -44,8 +44,8 @@
 					${listMessage.msg_due } 까지 확인해 주시기 바랍니다.
 				</div>
 				<div id="message_btn">
-					<input type="button" id="bt_sellapprove" value="  승 인  " p_id="${listMessage.p_id }"/>&nbsp; &nbsp; &nbsp;
-					<input type="button" id="bt_sellrefuse" value="  거 절  " p_id="${listMessage.p_id }"/>
+					<input type="button" class="bt_sellapprove" value="  승 인  " p_id="${listMessage.p_id }"/>&nbsp; &nbsp; &nbsp;
+					<input type="button" class="bt_sellrefuse"  value="  거 절  " p_id="${listMessage.p_id }"/>${listMessage.p_id }
 				</div>
 			</div>
 		</c:forEach>
