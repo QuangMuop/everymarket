@@ -52,7 +52,7 @@
 			<section id="wrapper">
 			<div id="item_container" category= ${category} searchtext = ${searchtext}>
 				<c:forEach var="product" begin="1" end="5" items="${listProduct}">
-					<div class="grid">
+					<div class="grid" p_id="${product.p_id }">
 						<div class="imgholder">
 							<img src="image_product/${product.p_img}" />
 						</div>
