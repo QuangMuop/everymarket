@@ -24,6 +24,11 @@ public class BoardReportDao {
 		return (Integer)ibatisTemplate.queryForObject("getMaxRep_id");
 	}
 	
+	/*Input: BoardReport / Output: rep_id*/
+	public BoardReport getBoardReportByRep_id(int rep_id){
+		return (BoardReport)ibatisTemplate.queryForObject("getBoardReportByRep_id", rep_id);
+	}
+	
 	/*Output: List<BoardReport>(r_productId != null and r_check == 'n')*/
 	public List<BoardReport> getReportedProduct(){
 		return ibatisTemplate.queryForList("getReportedProduct");
@@ -40,8 +45,8 @@ public class BoardReportDao {
 	}
 	
 	/*Input: m_id*/
-	public void checkReportStatus(String r_id){
-		ibatisTemplate.update("checkReportStatus", r_id);
+	public void checkReportStatus(int rep_id){
+		ibatisTemplate.update("checkReportStatus", rep_id);
 	}
 	
 	/*Input: rep_writer, rep_memberId / Output: BoardReport*/

@@ -26,6 +26,12 @@
 		select max(rep_id)
 		from board_report
 	</select>
+	
+	<select id="getBoardReportByRep_id" resultClass="BoardReport">
+		select *
+		from board_report
+		where rep_id = #rep_id#
+	</select>
 
 	<select id="getReportedProduct" resultClass="BoardReport">
 		select *
@@ -58,7 +64,7 @@
 	<update id="checkReportStatus">
 		update board_report
 		set rep_check = 'y'
-		where rep_id = #r_id#
+		where rep_id = #rep_id#
 	</update>
 
 </sqlMap>

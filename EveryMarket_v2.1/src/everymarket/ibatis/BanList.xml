@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="BanList">
+	
+	<typeAlias alias="BanList" type="everymarket.model.BanList"/>
+
+	<insert id="registerBan" parameterClass="HashMap">
+		insert into banlist values(
+			#m_id#,
+			#rep_id#,
+			sysdate,
+			sysdate + #banTime#
+		)
+	</insert>
+
+</sqlMap>
