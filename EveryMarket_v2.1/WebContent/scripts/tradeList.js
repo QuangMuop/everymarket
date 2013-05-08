@@ -21,7 +21,7 @@ $(document).ready(function() {
     		    if(data < 0){
     		    	   tradeDwr.trade_delete(t_ids[index]);
     		     }    		 
-    	    	$('#' + t_ids[index] + "1").append("    입력가능 날짜까지 " + data + "일 남았습니다.");
+    	    	$('#' + t_ids[index] + "1s").append("    입력가능 날짜까지 " + data + "일 남았습니다.");
      	 }
     	 
    	});      
@@ -49,7 +49,7 @@ $(document).ready(function() {
 										
 		var html = '<input class="db_trace" type="button" value="배송추적" t_id= '
 			+ t_id + ' />';
-		$("#" + t_id + "1").html("배송중");
+		$("#" + t_id + "1s").html("배송중");
 		
 				
 		$("#" + t_id + "2").html(html);

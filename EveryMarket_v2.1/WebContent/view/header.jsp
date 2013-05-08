@@ -17,6 +17,7 @@
 				<a class="h_tag" id="header_logout">로그아웃</a>
 				<a id="h_bar" >|</a>
 				<a class="h_tag" href="JJimbasket.do">찜바구니</a>
+				<a href="trade_list.do">거래내역</a>
 				<a id="h_bar" >|</a>
 				<!-- IndivMarket --> 
 				<a class="h_tag" href="goMyMarket.go">내 마켓</a>
