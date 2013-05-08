@@ -41,35 +41,34 @@ public class MessageController {
 			@RequestParam("waitingTime") int waitingTime,
 			@RequestParam("p_id") int p_id){
 		ModelAndView mav = new ModelAndView();
-		System.out.println("time:"+waitingTime);
-		System.out.println("p_id:"+p_id);
-//	    HttpSession session = request.getSession();
-//	    Member member = (Member)session.getAttribute("member");
-//	    String m_id = member.getM_id();
-//	    
-//	    HashMap map = new HashMap<>();
-//	    map.put("m_id", m_id);
-//	    map.put("p_id", p_id);
-//		
-//	    HashMap map2 = messageDao.insert(map);
-//
-//		messageDao.update_nick(m_id);
-//		messageDao.update_pname(p_id);
-//		
-//		int msg_id = (int) map2.get("msg_id");
-//	
-//		Date msg_date = (Date)map2.get("msg_date");
-//		
-//		HashMap map3 = new HashMap<>();
-//		map3.put("msg_id", msg_id);
-//		map3.put("msg_date", msg_date);
-//		map3.put("waitingTime", waitingTime);
-//		
-//		messageDao.updateMessage(map3);
-//		messageDao.update_p_status(p_id);
-//		
-//		daoT.insertTrade(map);
-//		daoT.update_t_seller(p_id);
+
+	    HttpSession session = request.getSession();
+	    Member member = (Member)session.getAttribute("member");
+	    String m_id = member.getM_id();
+	    
+	    HashMap map = new HashMap<>();
+	    map.put("m_id", m_id);
+	    map.put("p_id", p_id);
+		
+	    HashMap map2 = messageDao.insert(map);
+
+		messageDao.update_nick(m_id);
+		messageDao.update_pname(p_id);
+		
+		int msg_id = (int) map2.get("msg_id");
+	
+		Date msg_date = (Date)map2.get("msg_date");
+		
+		HashMap map3 = new HashMap<>();
+		map3.put("msg_id", msg_id);
+		map3.put("msg_date", msg_date);
+		map3.put("waitingTime", waitingTime);
+		
+		messageDao.updateMessage(map3);
+		messageDao.update_p_status(p_id);
+		
+		daoT.insertTrade(map);
+		daoT.update_t_seller(p_id);
 		
 		
 		mav.setViewName("redirect:goMarket.do?m_id=" + daoM.getM_idByP_id(p_id));
@@ -89,5 +88,20 @@ public class MessageController {
 		mav.setViewName("view/message_box.jsp");
 		
 		return mav;
+	}
+	
+	///////////////구매요청 거절///////////////////////
+	@RequestMapping("/sellrefuse.do")
+	public ModelAndView sellrefuse(@RequestParam("p_id") int p_id){
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println(p_id);
+		
+		daoT.deleteTrade(p_id);
+		messageDao.refuse_p_status(p_id);
+		messageDao.refuse_msg_status(p_id);
+		
+		mav.setViewName("redirect:goMarket.do?m_id=" + daoM.getM_idByP_id(p_id));
+		return mav;	
 	}
 }

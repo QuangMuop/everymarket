@@ -24,6 +24,12 @@
 			t_seller = (select p.m_id from member m join product p on m.m_id = p.m_id where p.p_id=#p_id#)
 		where p_id = #p_id#
 	</update>
+	
+	<!-- 구매요청 거절시 거래내역 삭제 -->
+	<delete id="deleteTrade" parameterClass="int">
+		delete from trade
+		where p_id = #p_id#
+	</delete>
 
 	<select id="getM_nameByP_id" resultClass="String">
 		select m.m_name
