@@ -75,4 +75,9 @@ public class MemberDao {
 	public void subCash(HashMap<String, Object> cash_map){
 		ibatisTemplate.update("subCash",cash_map);
 	}
+	
+	/*Input: m_id*/
+	public void setStatus_ban(String m_id){
+		ibatisTemplate.update("setStatus_ban", m_id);
+	}
 }

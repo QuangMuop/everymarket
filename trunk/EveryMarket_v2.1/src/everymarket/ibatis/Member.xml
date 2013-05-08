@@ -87,4 +87,10 @@
 		where m_id = #m_id#
 	</update>
 	
+	<update id="setStatus_ban">
+		update member
+		set m_status = '접근금지'
+		where m_id = #m_id#
+	</update>
+	
 </sqlMap>

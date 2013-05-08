@@ -5,6 +5,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+	<!-- 접근금지목록 관련 업무 수행 컨트롤러 -->
+	<bean id="banListController" class="everymarket.controller.BanListController">
+		<property name="daoBL" ref="banListDao"/>
+	</bean>
+	
+	<bean id="banListDao" class="everymarket.dao.BanListDao">
+		<property name="ibatisTemplate" ref="ibatisTemplate"/>
+	</bean>
+
 	<!-- 블로그 관련 업무 수행 컨트롤러 -->
 	<bean id="blogController" class="everymarket.controller.BlogController">
 		<property name="daoB" ref="blogDao" />
