@@ -6,6 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript" src="scripts/lib/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript" src="scripts/message.js"></script>
 <style type="text/css">
 
 #message_box{
@@ -42,7 +45,7 @@
 				</div>
 				<div id="message_btn">
 					<input type="button" id="bt_sellapprove" value="  승 인  "/>&nbsp; &nbsp; &nbsp;
-					<input type="button" id="bt_sellrefuse" value="  거 절  "/>
+					<input type="button" id="bt_sellrefuse" value="  거 절  " p_id="${listMessage.p_id }"/>
 				</div>
 			</div>
 		</c:forEach>
