@@ -14,7 +14,7 @@
 #message_box{
 	border:1px solid;
 	width: 450px;
-	height: 80px;
+	height: 100px;
 	margin-bottom: 20px;
 	padding: 20px;
 }
@@ -44,7 +44,7 @@
 					${listMessage.msg_due } 까지 확인해 주시기 바랍니다.
 				</div>
 				<div id="message_btn">
-					<input type="button" id="bt_sellapprove" value="  승 인  "/>&nbsp; &nbsp; &nbsp;
+					<input type="button" id="bt_sellapprove" value="  승 인  " p_id="${listMessage.p_id }"/>&nbsp; &nbsp; &nbsp;
 					<input type="button" id="bt_sellrefuse" value="  거 절  " p_id="${listMessage.p_id }"/>
 				</div>
 			</div>
