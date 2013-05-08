@@ -13,6 +13,16 @@ public class BoardReportDao {
 		this.ibatisTemplate = ibatisTemplate;
 	}
 
+	/*Input: BoardReport*/
+	public void registerReport(BoardReport boardReport){
+		ibatisTemplate.insert("registerReport", boardReport);
+	}
+	
+	/*Output: max(rep_id)*/
+	public int getMaxRep_id(){
+		return (Integer)ibatisTemplate.queryForObject("getMaxRep_id");
+	}
+	
 	/*Output: List<BoardReport>(r_productId != null and r_check == 'n')*/
 	public List<BoardReport> getReportedProduct(){
 		return ibatisTemplate.queryForList("getReportedProduct");

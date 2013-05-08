@@ -25,7 +25,8 @@
 
 	<!-- 신고게시판 관련 업무 수행 컨트롤러 -->
 	<bean id="boardReportController" class="everymarket.controller.BoardReportController">
-		<property name="daoBR" ref="boardReportDao" />
+		<property name="daoBR" ref="boardReportDao"/>
+		<property name="daoM" ref="memberDao"/>
 	</bean>
 
 	<bean id="boardReportDao" class="everymarket.dao.BoardReportDao">

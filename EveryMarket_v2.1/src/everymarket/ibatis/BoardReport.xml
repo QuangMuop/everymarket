@@ -8,6 +8,25 @@
 	
 	<typeAlias alias="BoardReport" type="everymarket.model.BoardReport"/>
 
+	<insert id="registerReport" parameterClass="BoardReport">
+		insert into board_report
+		values(
+			#rep_id#,
+			#rep_reason#,
+			#rep_writer#,
+			#rep_content#,
+			#rep_regdate#,
+			#rep_productId#,
+			#rep_memberId#,
+			#rep_check#
+		)
+	</insert>
+
+	<select id="getMaxRep_id" resultClass="Integer">
+		select max(rep_id)
+		from board_report
+	</select>
+
 	<select id="getReportedProduct" resultClass="BoardReport">
 		select *
 		from board_report
