@@ -90,7 +90,5 @@
 		</div>
 	</div>
 
-	<div>기둥 뒤에 팝업창 있음!</div>
-
 </body>
 </html>
