@@ -10,7 +10,9 @@
 
 	<!-- Dwr Controller -->
 	<bean id="boardReportDwr" class="everymarket.dwr.BoardReportDwr">
+		<property name="daoBL" ref="banListDao"/>
 		<property name="daoBR" ref="boardReportDao"/>
+		<property name="daoM" ref="memberDao"/>
 		<dwr:remote javascript="boardReportDwr"/>
 	</bean>
 
