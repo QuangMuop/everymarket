@@ -74,7 +74,7 @@ $(document).on('click',	function() {
 		
 		$(".db_trace").addClass("dis_tr");
 		
-		var html = '<input class="deliver_submit" type="button" t_id='+t_id+' value="수취확인" />	<input class="deliver_reports" type="button" value="신고하기" /> ';
+		var html = '<input type="button"  id="accept"  t_id='+t_id+' value="수취확인" />	<input id="report" type="button"  t_id='+t_id+'  value="신고하기" /> ';
 		
 		
 		
