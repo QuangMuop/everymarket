@@ -63,23 +63,30 @@ public class TradeController {
 	public ModelAndView trade_list(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
-		/* Member member = (Member) request.getSession(); */
-		Member member = new Member();
-		
-		member.setM_id("ee");
-		
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("member");
 
-		String m_id = "ee";
+		String m_id = member.getM_id();
+
 		// String m_id = member.getM_id();
 
 		// 나에 구매중인 물품들
 		List<Trade> buyingList = daoT.getBuyingTrade(m_id);
- 
+
 		// 나에 판매중인 물품들
 		List<Trade> sellingList = daoT.getSellingTrade(m_id);
 
+		// 거래 완료된 산 물품들
+		List<Trade> completeBList = daoT.getBCompleteList(m_id);
+
+		// 거래 완료된 판 물품들
+		List<Trade> completeSList = daoT.getSCompleteList(m_id);
+
 		mav.addObject("buyingList", buyingList);
 		mav.addObject("sellingList", sellingList);
+		mav.addObject("completeBList", completeBList);
+		mav.addObject("completeBList", completeSList);
+
 		mav.setViewName("trade_list");
 
 		return mav;
@@ -104,10 +111,9 @@ public class TradeController {
 			daoM.subCash(sub_cash);
 
 			int status = 4;
-			
-			
+
 			daoT.update_status(trade.getT_id(), status);
-			
+
 		} catch (Exception e) {
 
 			mav.addObject("error", "거래가 완료되지 못했습니다");
@@ -117,9 +123,5 @@ public class TradeController {
 		mav.setViewName("main");
 		return mav;
 	}
-	
-	
-	
-
 
 }

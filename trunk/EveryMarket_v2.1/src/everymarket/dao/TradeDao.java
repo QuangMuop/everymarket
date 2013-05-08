@@ -31,14 +31,14 @@ public class TradeDao {
 	public void update_t_seller(int p_id) {
 		ibatisTemplate.update("update_t_seller", p_id);
 	}
-	
-	//구매요청 거절시 거래테이블에서 정보 삭제
-	public void deleteTrade(int p_id){
+
+	// 구매요청 거절시 거래테이블에서 정보 삭제
+	public void deleteTrade(int p_id) {
 		ibatisTemplate.delete("deleteTrade", p_id);
 	}
-	
-	//구매요청 승인시 승인날짜와 거래상태 1(배송준비중)로 변경
-	public void update_approve(int p_id){
+
+	// 구매요청 승인시 승인날짜와 거래상태 1(배송준비중)로 변경
+	public void update_approve(int p_id) {
 		ibatisTemplate.update("update_approve", p_id);
 	}
 
@@ -55,6 +55,18 @@ public class TradeDao {
 
 	public List<Trade> getSellingTrade(String m_id) {
 		return ibatisTemplate.queryForList("getSellingTrade", m_id);
+	}
+
+	//완료된 산 물건 가져오기
+	public List<Trade> getBCompleteList(String m_id) {
+
+		return ibatisTemplate.queryForList("getBCompleteList", m_id);
+	}
+
+	//완료된 판 물건 가져오기 
+	public List<Trade> getSCompleteList(String m_id) {
+
+		return ibatisTemplate.queryForList("getSCompleteList", m_id);
 	}
 
 	// Dwr용 메서드
@@ -92,38 +104,16 @@ public class TradeDao {
 		ibatisTemplate.delete("trade_delete", t_id);
 	}
 
-	// 배송날짜를 위해 몇개의 p_id가있는지 알아오기
+	// 수취확인 눌렀을시
+	public void trade_ok(int t_id) {
 
-	/*
-	 * public ArrayList get_p_ids(){
-	 * 
-	 * ArrayList list = new ArrayList();
-	 * 
-	 * 
-	 * 
-	 * }
-	 */
-	
-	
-	//수취확인 눌렀을시
-	public void trade_ok(int t_id){
-		
 		ibatisTemplate.update("trade_ok", t_id);
 	}
-	
-	
-	
-	
-	
-	
 
 	// 트레이드 객체 한개 뽑아내기
 	public Trade getTrade(int t_id) {
-		
+
 		return (Trade) ibatisTemplate.queryForObject("getT_instance", t_id);
 	}
-	
-
-	
 
 }

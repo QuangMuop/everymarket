@@ -70,6 +70,41 @@
 		p.m_id =
 		#m_id# and t.t_status between 0 and 3
 	</select>
+	
+	<!-- 거래완료된 판 물품들을 뿌려주기 -->
+	<select id="getSCompleteList" resultClass="Trade">
+	    select t.t_id,
+		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status, t.t_del_number,
+		p.p_name,
+		p.p_price from
+		trade t
+		join product p on t.p_id = p.p_id
+		where
+		p.m_id =
+		#m_id# and t.t_status = 4 and t.t_seller = #m_id#
+	</select>
+	
+	<!-- 거래 완료된 산 물건 보여주기  -->
+	<select id="getBCompleteList" resultClass="Trade">
+	    select t.t_id,
+		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status, t.t_del_number,
+		p.p_name,
+		p.p_price from
+		trade t
+		join product p on t.p_id = p.p_id
+		where
+		p.m_id =
+		#m_id# and t.t_status = 4 and t.t_buyer = #m_id#
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	<!-- 운송번호입력과 거래상태를 바꿔주는 쿼리문 -->
 	<update id="update_deliver_number">
@@ -99,24 +134,6 @@
 	   update trade set t_status = 4 where t_id = #t_id#
     </update>
 	
-	
-	
-	
-	
-	
-	
-<!-- 	<select id="get_p_ids" resultClass="Integer">
-	 
-	   select t_id from trade where t_seller = 'ee' and t_status = 1	
-	
-	</select> -->
-	
-
-
-
-
-
-
 	<select id="getT_instance" resultClass="trade">
 		select t.t_id,
 		t.t_buyer, t.t_seller, t.p_id,  t.t_date, t.t_status, t.t_del_number,
