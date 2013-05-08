@@ -49,7 +49,7 @@
 
 	<select id="getBuyingTrade" resultClass="Trade">
 		select t.t_id,
-		t.t_buyer, t.p_id, t.t_date, t.t_status, t.t_del_number,
+		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status, t.t_del_number,
 		p.p_name,
 		p.p_price from
 		trade t
