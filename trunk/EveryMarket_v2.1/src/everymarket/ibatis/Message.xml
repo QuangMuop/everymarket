@@ -73,14 +73,21 @@
 	<update id="refuse_p_status" parameterClass="int">
 		update product set
 		p_status = 'n'
-		where p_id=#p_id#
+		where p_id = #p_id#
 	</update>
 	
 	<!-- 구매요청 거절시 메시지 상태 x로 변경 -->
 	<update id="refuse_msg_status" parameterClass="int">
 		update message set
 		msg_status = 'x'
-		where p_id=#p_id# 
+		where p_id = #p_id# 
+	</update>
+	
+	<!-- 구매요청 승인시 메시지 상태 y로 변경 -->
+	<update id="approve_msg_status" parameterClass="int">
+		update message set
+		msg_status = 'y'
+		where p_id = #p_id#
 	</update>
 	
 	

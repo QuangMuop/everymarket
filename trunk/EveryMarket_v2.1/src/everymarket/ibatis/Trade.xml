@@ -30,6 +30,13 @@
 		delete from trade
 		where p_id = #p_id#
 	</delete>
+	
+	<!-- 구매요청 승인시 승인날짜와 거래상태 1(배송준비중)로 변경 -->
+	<update id="update_approve" parameterClass="int">
+		update trade set
+		t_date=sysdate, t_status=1
+		where p_id=#p_id#
+	</update>
 
 	<select id="getM_nameByP_id" resultClass="String">
 		select m.m_name

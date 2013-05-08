@@ -77,4 +77,9 @@ public class MessageDao {
 	public void refuse_msg_status(int p_id){
 		ibatisTemplate.update("refuse_msg_status", p_id);
 	}
+	
+	//구매요청 승인시 메세지 상태 y로 변경
+	public void approve_msg_status(int p_id){
+		ibatisTemplate.update("approve_msg_status", p_id);
+	}
 }

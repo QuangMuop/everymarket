@@ -95,13 +95,23 @@ public class MessageController {
 	public ModelAndView sellrefuse(@RequestParam("p_id") int p_id){
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println(p_id);
-		
 		daoT.deleteTrade(p_id);
 		messageDao.refuse_p_status(p_id);
 		messageDao.refuse_msg_status(p_id);
 		
-		mav.setViewName("redirect:goMarket.do?m_id=" + daoM.getM_idByP_id(p_id));
+		mav.setViewName("redirect:enter.go?m_id=" + daoM.getM_idByP_id(p_id));
 		return mav;	
+	}
+	
+	///////////////구매 요청 승인////////////////////////
+	@RequestMapping("/sellapprove.do")
+	public ModelAndView sellapprove(@RequestParam("p_id") int p_id){
+		ModelAndView mav = new ModelAndView();
+		
+		daoT.update_approve(p_id);
+		messageDao.approve_msg_status(p_id);
+		
+		mav.setViewName("redirect:enter.go?m_id=" + daoM.getM_idByP_id(p_id));
+		return mav;
 	}
 }

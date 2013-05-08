@@ -36,6 +36,11 @@ public class TradeDao {
 	public void deleteTrade(int p_id){
 		ibatisTemplate.delete("deleteTrade", p_id);
 	}
+	
+	//구매요청 승인시 승인날짜와 거래상태 1(배송준비중)로 변경
+	public void update_approve(int p_id){
+		ibatisTemplate.update("update_approve", p_id);
+	}
 
 	/* Input: p_id / Output: m_name */
 	public String getM_nameByP_id(int p_id) {
