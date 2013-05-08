@@ -60,4 +60,13 @@ public class BoardReport {
 	public void setRep_check(String rep_check) {
 		this.rep_check = rep_check;
 	}
+	
+	@Override
+	public String toString() {
+		return "BoardReport [rep_id=" + rep_id + ", rep_reason=" + rep_reason
+				+ ", rep_writer=" + rep_writer + ", rep_content=" + rep_content
+				+ ", rep_regdate=" + rep_regdate + ", rep_productId="
+				+ rep_productId + ", rep_memberId=" + rep_memberId
+				+ ", rep_check=" + rep_check + "]";
+	}
 }
