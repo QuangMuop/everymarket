@@ -5,6 +5,15 @@
 	padding: 5px;
 }
 
+#bar_button_indivMarket > div{
+	display: inline-block;
+}
+
+#button_reportMember{
+	border-radius: 6px;
+	cursor: pointer;
+}
+
 #gMap{
 	width: 625px;
 	height: 530px;	

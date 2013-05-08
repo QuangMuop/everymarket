@@ -14,7 +14,10 @@
 		<div id="blog_b_thumb"> <img src="image_blog/${blog.b_thumb }"> </div>
 		<h1>${owner.m_name }¥‘¿« ∞°∞‘</h1>
 		
-		<div id="bar_button_indivMarket"></div>
+		<div id="bar_button_indivMarket">
+			<div id="bar_button_indivMarket_left"></div>		
+			<div id="bar_button_indivMarket_right"></div>		
+		</div>
 		
 		<div id="homeInfo">
 			<div id="blog_b_map"> <img src="${blog.b_map }"> </div>
