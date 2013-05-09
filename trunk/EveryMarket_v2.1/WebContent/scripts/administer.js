@@ -82,6 +82,7 @@ $(document).ready(function(){
 								"<select rep_id='" + boardReport.rep_id +
 										"' rep_memberId='" + boardReport.rep_memberId + "'>" +
 									"<option selected='selected'>선택</option>" +
+									"<option value='test'>테스트용 : 20초</option>" +
 									"<option value='ban_1days'>1일 사이트 접근 불허</option>" +
 									"<option value='ban_3days'>3일 사이트 접근 불허</option>" +
 									"<option value='ban_5days'>5일 사이트 접근 불허</option>" +
@@ -102,8 +103,10 @@ $(document).ready(function(){
 							"<div class='wide'>" + rep_regdate + "</div>" +
 							"<div class='normal'>" + boardReport.rep_memberId + "</div>" +
 							"<div class='contents hidden'>" + boardReport.rep_content +
-								"<select rep_memberId='" + boardReport.rep_memberId + "'>" +
+								"<select rep_id='" + boardReport.rep_id +
+										"' rep_memberId='" + boardReport.rep_memberId + "'>" +
 									"<option selected='selected'>선택</option>" +
+									"<option value='test'>테스트용 : 20초</option>" +
 									"<option value='ban_1days'>1일 사이트 접근 불허</option>" +
 									"<option value='ban_3days'>3일 사이트 접근 불허</option>" +
 									"<option value='ban_5days'>5일 사이트 접근 불허</option>" +
