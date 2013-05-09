@@ -115,5 +115,25 @@ public class TradeDao {
 
 		return (Trade) ibatisTemplate.queryForObject("getT_instance", t_id);
 	}
+	
+	// 포인트 비교해서 거래가능 여부 확인하기
+	public int member_point(String m_id){
+		return (Integer)ibatisTemplate.queryForObject("member_point", m_id);
+	}
+	
+	public int trade_point(String m_id){
+		int trade_point = 0;
+		if(ibatisTemplate.queryForObject("trade_point", m_id) != null){
+			trade_point = (Integer)ibatisTemplate.queryForObject("trade_point", m_id);
+		}
+		return trade_point;		
+	}
+	
+	public int product_price(int p_id){
+		return (Integer)ibatisTemplate.queryForObject("product_price", p_id);
+	}
+	
+	
+	
 
 }
