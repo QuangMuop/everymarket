@@ -93,6 +93,8 @@
 	<!-- 계정 관련 업무 수행 컨트롤러 -->
 	<bean id="memberController" class="everymarket.controller.MemberController">
 		<property name="daoB" ref="blogDao"/>
+		<property name="daoBL" ref="banListDao"/>
+		<property name="daoBR" ref="boardReportDao"/>
 		<property name="daoD" ref="dangolDao"/>
 		<property name="daoM" ref="memberDao"/>
 		<property name="daoP" ref="productDao"/>
