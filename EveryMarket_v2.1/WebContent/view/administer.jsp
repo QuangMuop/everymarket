@@ -7,10 +7,12 @@
 </head>
 <body>
 
-	<span class="tab">(회원정보 총괄)</span>
-	<span class="tab">(일반신고 접수현황)</span>
+	<span class="button_tab">(회원정보 총괄)</span>
+	<span class="button_tab">(일반신고 접수현황)</span>
+	<span class="button_tab">(거래신고 접수현황)</span>
+	<span class="button_tab">(조치완료된 신고현황)</span>
 	
-	<div id="memberList">
+	<div id="memberList" class="tabContent">
 		<table border="1">
 			<tr>
 				<th>아이디</th>
@@ -27,7 +29,7 @@
 		<button id="callMemberList">회원목록 호출</button>
 	</div>
 	
-	<div id="board_report" class="hidden">
+	<div id="uncheckedList_report" class="tabContent hidden">
 		<div id="reportedProductList" class="list">
 			<div id="reportedProductList_head">
 				<div class="normal">신고사유</div>
@@ -43,6 +45,21 @@
 				<div class="wide">신고일자</div>
 				<div class="normal">신고대상 회원</div>
 			</div>
+		</div>
+	</div>
+	
+	<div id="uncheckedList_tradeReport" class="tabContent hidden">
+	
+	</div>
+	
+	<div id="checkedList_report" class="tabContent hidden">
+		<div id="checkedReportList" class="list">
+			<div id="checkedReportList_head">
+				<div class="normal">일련번호</div>
+				<div class="wide">제재일자</div>
+				<div class="normal">제재대상 아이디</div>
+				<div class="wide">제재내용</div>
+			</div>	
 		</div>
 	</div>
 	

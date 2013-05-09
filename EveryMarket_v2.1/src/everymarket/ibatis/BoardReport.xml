@@ -18,7 +18,8 @@
 			#rep_regdate#,
 			#rep_productId#,
 			#rep_memberId#,
-			#rep_check#
+			#rep_check#,
+			null
 		)
 	</insert>
 
@@ -61,6 +62,13 @@
 		where rep_check = 'n'
 	</select>
 	
+	<select id="getCheckedReportList" resultClass="BoardReport">
+		select *
+		from board_report
+		where not rep_check = 'n'
+		order by rep_id desc
+	</select>
+	
 	<select id="checkAlreadyReported" resultClass="BoardReport">
 		select *
 		from board_report
@@ -71,7 +79,7 @@
 
 	<update id="checkReportStatus" parameterClass="java.util.Map">
 		update board_report
-		set rep_check = #actionCode#
+		set rep_check = #actionCode#, rep_checktime = #rep_checkTime#
 		where rep_id = #rep_id#
 	</update>
 
