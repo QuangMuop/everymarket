@@ -52,8 +52,8 @@ public class BoardReportDwr {
 				/*접근금지목록에 m_id에 해당하는 데이터가 존재하지 않을 경우 : 접근금지목록에 등록*/
 				daoBL.registerBan(banList);
 				
-				/*회원상태 접근금지로 변경 & m_report+1*/
-				daoM.setStatus_ban(m_id);
+				/*회원상태 접근금지로 변경*/
+				daoM.updateM_status(m_id);
 			}else{
 				/*접근금지목록에 m_id에 해당하는 데이터가 존재할 경우 : 추가제재내용만큼 기간 연장*/
 				BanList existingBanList = daoBL.getBanListByM_id(m_id);
@@ -64,7 +64,10 @@ public class BoardReportDwr {
 				daoBL.renewReleaseTime(existingBanList);
 			}
 		}
-
+		
+		/*m_report + 1*/
+		daoM.updateM_report(m_id);
+		
 		/*rep_id에 해당하는 신고글 Check처리*/
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("rep_id", rep_id);

@@ -77,8 +77,13 @@ public class MemberDao {
 	}
 	
 	/*Input: m_id*/
-	public void setStatus_ban(String m_id){
-		ibatisTemplate.update("setStatus_ban", m_id);
+	public void updateM_status(String m_id){
+		ibatisTemplate.update("updateM_status", m_id);
+	}
+	
+	/*Input: m_id*/
+	public void updateM_report(String m_id){
+		ibatisTemplate.update("updateM_report", m_id);
 	}
 
 	public Member getProduct_min_nick(String m_id) {
