@@ -1,10 +1,12 @@
 package everymarket.dwr;
 
+import everymarket.dao.ProductDao;
 import everymarket.dao.TradeDao;
 
 public class TradeDwr {
 
 	private TradeDao daoT;
+	private ProductDao daoP;
 
 	public void setDaoT(TradeDao daoT) {
 		this.daoT = daoT;
@@ -35,10 +37,13 @@ public class TradeDwr {
 	}
 
 	//수취확인 눌렀을떄
-	public void trade_ok(int t_id) {
-
-		
-		daoT.trade_ok(t_id);
+	public void trade_ok(int t_id) { 
+		daoT.trade_ok(t_id);		
+	}
+	
+	public void trade_product_status(int t_id){
+		System.out.println("하하ㅇ");
+		daoP.trade_product_status(t_id);
 	}
 
 }

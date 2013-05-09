@@ -99,7 +99,7 @@ public class TradeController {
 		Trade trade = daoT.getTrade(t_id);
 		
 			HashMap<String, Object> add_cash = new HashMap<>();
-			try{
+		/*	try{*/
 			add_cash.put("m_id", trade.getT_seller());
 			add_cash.put("m_cash", trade.getP_price());
 			
@@ -113,13 +113,13 @@ public class TradeController {
 			int status = 4;
 
 			daoT.update_status(trade.getT_id(), status);
-
+                 
 		
-			}catch (Exception e){
-			mav.addObject("error", "거래가 완료되지 못했습니다");
+			/*}catch (Exception e){*/
+			/*mav.addObject("error", "거래가 완료되지 못했습니다");
 			mav.setViewName("errorPage");
 			return mav;
-			}
+			}*/
 		mav.setViewName("trade_list.do");
 		return mav;
 	}

@@ -11,6 +11,9 @@
 		
 		$(document).on("click", "#accept", function(){
 			location.href="accept.do?t_id="+$(this).attr("t_id");
+			
+			
+			
 		});
 		$(document).on("change", "#report_choice",function(){
 			$("#rep_reason").removeAttr("value").attr("value", $("#report_choice >option:selected").html());
@@ -42,6 +45,25 @@ table td,th {
 </style>
 </head>
 <body>
+
+
+        <div id="trade_menubar">
+			<ul class="trade_menu">
+				<li id="buying_trade"  class="active">
+					<a class="tab-btn1" id="search_item">구매 진행목록</a>
+				</li>
+				
+				<li id="selling_trade">
+					<a class="tab-btn1" id="search_blog">판매 진행목록</a>
+				</li>	
+				
+				<li id="All_traded">
+					<a class="tab-btn1" id="search_blog">거래 완료목록</a>
+				</li>		
+			</ul>
+		</div>
+
+
 
 
 	<h1>사는물건</h1>
@@ -194,6 +216,8 @@ table td,th {
 
 
 	<h2>산 물건</h2>
+	
+	<div id="traded">
 	<table id="buy">
 		<tr>
 			<th>주문번호</th>
@@ -233,7 +257,7 @@ table td,th {
 		</c:forEach>
 
 	</table>
-	
+	</div>
 	
 
 

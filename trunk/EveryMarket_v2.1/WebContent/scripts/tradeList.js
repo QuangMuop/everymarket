@@ -87,12 +87,13 @@ $(document).on('click',	function() {
 	});
 	
 	//수취확인을 눌렀을시에 바꿔주기
-	$(".deliver_submit").click(function(){
+	/*$(".deliver_submit").click(function(){
 		   
 		var t_id = $(this).attr("t_id");
 		
 		 if(confirm("물품결제를 확정하시겠습니까?")){
 		      tradeDwr.trade_ok(t_id);	
+		      tradeDwr.trade_product_status(t_id);
 		      $("#" + t_id).addClass("dis_tr");		      
 			}else{
 			alert("헐");
@@ -103,7 +104,7 @@ $(document).on('click',	function() {
 		
 		
 		
-	});
+	});*/
 	
 
 });
