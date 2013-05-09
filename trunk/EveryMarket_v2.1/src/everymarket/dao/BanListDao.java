@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
 import everymarket.model.BanList;
+import everymarket.object4output.BannedMember;
 
 public class BanListDao {
 	private SqlMapClientTemplate ibatisTemplate;
@@ -26,6 +27,11 @@ public class BanListDao {
 	/*Input: m_id, day*/
 	public void registerBan(BanList banList){
 		ibatisTemplate.insert("registerBan", banList);
+	}
+	
+	/*Output: List<BanList>*/
+	public List<BannedMember> getListBannedMemberList(){
+		return ibatisTemplate.queryForList("getListBannedMemberList");
 	}
 	
 	/*Input: m_id / Output: BanList*/
