@@ -13,6 +13,9 @@
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/style.css" rel="stylesheet" type="text/css"/>
 <link href="<%=request.getContextPath()%>/styles/css_sujeong/shopstyle.css" rel="stylesheet" type="text/css"/>
 <link href="<%=request.getContextPath()%>/styles/css_sujeong/general.css" rel="stylesheet" type="text/css"/>
+<!-- 마이페이지 -->
+<link href="<%=request.getContextPath()%>/styles/css_mypage/mypage.css" rel="stylesheet" type="text/css"/>
+<!-- 마이페이지 -->
 <!-- 마켓슬라이드 -->
 <link href="<%=request.getContextPath()%>/styles/skitterstyles.css" media="all" rel="stylesheet" type="text/css"/>
 <!-- 마켓슬라이드 -->
@@ -44,9 +47,15 @@
 
 <!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/scripts/slide_market.js" type="text/javascript"></script>
-
 <!-- 마켓슬라이드 -->
-
+<!-- 마이페이지 -->
+<script src="<%=request.getContextPath()%>/scripts/mypage.js" type="text/javascript"></script>
+<!-- 마이페이지 -->
+<style type="text/css">
+body{
+background-image: url(image_mypage/ema2.png);
+}
+</style>
 </head>
 <body>
 <center>
