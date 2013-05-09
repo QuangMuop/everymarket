@@ -38,20 +38,31 @@ public class BoardReportDwr {
 		banList.setJudgeTime(new Timestamp(System.currentTimeMillis()));
 
 		/*actionCode에 따른 접근금지 기간 설정*/
+		int banTime = 0;
 		switch (actionCode) {
-		case "신고기각": rejectReport(rep_id);
-		case "테스트용 : 20초": banList.setReleaseTime(new Timestamp(System.currentTimeMillis() + 86400000 / 4320)); break;
-		case "1일 사이트 접근 불허": banList.setReleaseTime(new Timestamp(System.currentTimeMillis() + 86400000 * 1)); break;
-		case "3일 사이트 접근 불허": banList.setReleaseTime(new Timestamp(System.currentTimeMillis() + 86400000 * 3)); break;
-		case "5일 사이트 접근 불허": banList.setReleaseTime(new Timestamp(System.currentTimeMillis() + 86400000 * 5)); break; }
-
+		case "테스트용 : 20초": banTime = 86400000 / 4320; break;
+		case "1일 사이트 접근 불허": banTime = 86400000 * 1; break;
+		case "3일 사이트 접근 불허": banTime = 86400000 * 3; break;
+		case "5일 사이트 접근 불허": banTime = 86400000 * 5; break; }
+		banList.setReleaseTime(new Timestamp(System.currentTimeMillis() + banTime));
+		
 		/*actionCode가 기각이 아닌 접근금지일 경우*/
 		if(!actionCode.equals("신고기각")){
-			/*접근금지목록에 등록*/
-			daoBL.registerBan(banList);
-			
-			/*회원상태 접근금지로 변경*/
-			daoM.setStatus_ban(m_id);
+			if(daoBL.getBanListByM_id(m_id) == null){
+				/*접근금지목록에 m_id에 해당하는 데이터가 존재하지 않을 경우 : 접근금지목록에 등록*/
+				daoBL.registerBan(banList);
+				
+				/*회원상태 접근금지로 변경 & m_report+1*/
+				daoM.setStatus_ban(m_id);
+			}else{
+				/*접근금지목록에 m_id에 해당하는 데이터가 존재할 경우 : 추가제재내용만큼 기간 연장*/
+				BanList existingBanList = daoBL.getBanListByM_id(m_id);
+				
+				long timeMillis = existingBanList.getReleaseTime().getTime() + banTime;
+				existingBanList.setReleaseTime(new Timestamp(timeMillis));
+				
+				daoBL.renewReleaseTime(existingBanList);
+			}
 		}
 
 		/*rep_id에 해당하는 신고글 Check처리*/
@@ -59,14 +70,6 @@ public class BoardReportDwr {
 		paramMap.put("rep_id", rep_id);
 		paramMap.put("actionCode", actionCode);
 		paramMap.put("rep_checkTime", new Timestamp(System.currentTimeMillis()));
-		daoBR.checkReportStatus(paramMap);
-	}
-	
-	public void rejectReport(int rep_id){
-		/*rep_id에 해당하는 신고글 Check처리*/
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("rep_id", rep_id);
-		paramMap.put("actionCode", "신고기각");
 		daoBR.checkReportStatus(paramMap);
 	}
 }
