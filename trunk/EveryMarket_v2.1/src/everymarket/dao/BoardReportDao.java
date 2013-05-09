@@ -24,6 +24,11 @@ public class BoardReportDao {
 		return (Integer)ibatisTemplate.queryForObject("getMaxRep_id");
 	}
 	
+	/*Input: rep_id / Output: rep_reason*/
+	public String getRep_reasonByRep_id(int rep_id){
+		return (String)ibatisTemplate.queryForObject("getRep_reasonByRep_id", rep_id);
+	}
+	
 	/*Input: BoardReport / Output: rep_id*/
 	public BoardReport getBoardReportByRep_id(int rep_id){
 		return (BoardReport)ibatisTemplate.queryForObject("getBoardReportByRep_id", rep_id);

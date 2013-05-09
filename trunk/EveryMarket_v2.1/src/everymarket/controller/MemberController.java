@@ -1,5 +1,6 @@
 package everymarket.controller;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,18 +14,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import everymarket.dao.BanListDao;
 import everymarket.dao.BlogDao;
+import everymarket.dao.BoardReportDao;
 import everymarket.dao.DangolDao;
 import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.ReviewDao;
+import everymarket.model.BanList;
 import everymarket.model.Blog;
+import everymarket.model.BoardReport;
 import everymarket.model.Member;
 import everymarket.model.Product;
 
 @Controller
 public class MemberController {
 	private BlogDao daoB;
+	private BanListDao daoBL;
+	private BoardReportDao daoBR;
 	private DangolDao daoD;
 	private MemberDao daoM;
 	private ProductDao daoP;
@@ -32,6 +39,12 @@ public class MemberController {
 
 	public void setDaoB(BlogDao daoB) {
 		this.daoB = daoB;
+	}
+	public void setDaoBL(BanListDao daoBL) {
+		this.daoBL = daoBL;
+	}
+	public void setDaoBR(BoardReportDao daoBR) {
+		this.daoBR = daoBR;
 	}
 	public void setDaoD(DangolDao daoD) {
 		this.daoD = daoD;
@@ -50,13 +63,26 @@ public class MemberController {
 	public ModelAndView login_sc(HttpServletRequest request, ModelAndView mav,
 			@RequestParam("m_id")String m_id, 
 			@RequestParam("m_pwd")String m_pwd){
+		daoBL.deleteExpiredBanList();
 		HttpSession session = request.getSession();
 		HashMap<String, String> member_map = new HashMap<String, String>();
 		member_map.put("m_id", m_id);
 		member_map.put("m_pwd", m_pwd);
 		
 		Member member = daoM.loginMember(member_map);
+		BanList banList = daoBL.getBanListByM_id(m_id);
+
 		if(member != null){
+			if(banList != null){
+				String banReason = daoBR.getRep_reasonByRep_id(banList.getRep_id());
+				long remainingTime = getRemainingTime(m_id);
+				
+				mav.addObject("banReason", banReason);
+				mav.addObject("tempMember", member);
+				mav.addObject("remainingTime", remainingTime);
+				mav.setViewName("noticeBan");
+				return mav;
+			}
 			session.setAttribute("member", member);
 			mav.setViewName("redirect:enter.go");
 			return mav;
@@ -255,5 +281,14 @@ public class MemberController {
 		mav.addAllObjects(resultMap);
 		mav.setViewName("jsonView");
 		return mav;
+	}
+	
+	public int getRemainingTime(String m_id){
+		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		Timestamp releaseTime = daoBL.getBanListByM_id(m_id).getReleaseTime();
+		
+		int remainingTime = (int)((releaseTime.getTime() - currentTime.getTime()) / 1000);
+
+		return remainingTime; 
 	}
 }

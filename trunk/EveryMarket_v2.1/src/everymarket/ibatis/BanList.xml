@@ -17,4 +17,16 @@
 		)
 	</insert>
 
+	<delete id="deleteExpiredBanList">
+		delete
+		from banlist
+		where releasetime &#60; sysdate
+	</delete>
+
+	<select id="getBanListByM_id" resultClass="BanList">
+		select *
+		from banlist
+		where m_id = #m_id#
+	</select>
+
 </sqlMap>
