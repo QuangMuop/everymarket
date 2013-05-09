@@ -8,6 +8,7 @@ $(document).ready(function(){
 	$(".button_tab:eq(1)").click(showTab_uncheckedList_report);
 	$(".button_tab:eq(2)").click(showTab_uncheckedList_tradeReport);
 	$(".button_tab:eq(3)").click(showTab_checkedList_report);
+	$(".button_tab:eq(4)").click(showTab_list_bannedMember);
 	
 	$(document).on('click', ".boardReport", toggleReportContents);
 	$(document).on('change', ".boardReport select", reportAction);
@@ -31,6 +32,10 @@ $(document).ready(function(){
 			callCheckedList_report();
 			$(".tabContent").hide();
 			$("#checkedList_report").fadeIn("slow"); }
+		function showTab_list_bannedMember(){
+			callList_bannedMember();
+			$(".tabContent").hide();
+			$("#list_bannedMember").fadeIn("slow"); }
 	
 	function toggleReportContents(){
 		$(".boardReport").not($(this)).find(".contents").slideUp();
@@ -159,6 +164,37 @@ $(document).ready(function(){
 							"<div class='wide'>" + rep_checkTime + "</div>" +
 							"<div class='normal'>" + boardReport.rep_memberId + "</div>" +
 							"<div class='wide'>" + boardReport.rep_check + "</div>" +
+						"</div>"
+					);
+				});
+			}
+		);
+	}
+	
+	function callList_bannedMember(){
+		$("#list_bannedMember .list .bannedMember").remove();
+		$.getJSON(
+			contextUrl + "callListBannedMember.do",
+			function(data){
+				$.each(data.listBannedMemberList, function(index, bannedMember){
+					var judgeTime = (bannedMember.judgeTime.year + 1900) + "년 " +
+									(bannedMember.judgeTime.month + 1) + "월 " +
+									bannedMember.judgeTime.date + "일 " + 
+									bannedMember.judgeTime.hours + ":" +
+									bannedMember.judgeTime.minutes;
+					var releaseTime = (bannedMember.releaseTime.year + 1900) + "년 " +
+									(bannedMember.releaseTime.month + 1) + "월 " +
+									bannedMember.releaseTime.date + "일 " + 
+									bannedMember.releaseTime.hours + ":" +
+									bannedMember.releaseTime.minutes;
+					$("#bannedMemberList").append(
+						"<div class='bannedMember'>" +
+							"<div class='normal'>" + bannedMember.m_id + "</div>" +
+							"<div class='normal'>" + bannedMember.m_name + "</div>" +
+							"<div class='wide'>" + bannedMember.rep_reason + "</div>" +
+							"<div class='wide'>" + judgeTime + "</div>" +
+							"<div class='wide'>" + releaseTime + "</div>" +
+							"<div class='normal'>" + bannedMember.m_report + "</div>" +
 						"</div>"
 					);
 				});

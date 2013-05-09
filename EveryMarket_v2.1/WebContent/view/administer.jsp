@@ -11,6 +11,7 @@
 	<span class="button_tab">(일반신고 접수현황)</span>
 	<span class="button_tab">(거래신고 접수현황)</span>
 	<span class="button_tab">(조치완료된 신고현황)</span>
+	<span class="button_tab">(접근금지 회원 목록)</span>
 	
 	<div id="memberList" class="tabContent">
 		<table border="1">
@@ -60,6 +61,19 @@
 				<div class="normal">제재대상 아이디</div>
 				<div class="wide">제재내용</div>
 			</div>	
+		</div>
+	</div>
+	
+	<div id="list_bannedMember" class="tabContent hidden">
+		<div id="bannedMemberList" class="list">
+			<div id="bannedMemberList_head">
+				<div class="normal">아이디</div>
+				<div class="normal">이름</div>
+				<div class="wide">조치사유</div>
+				<div class="wide">접근금지 조치일자</div>
+				<div class="wide">접근금지 해제일자</div>
+				<div class="normal">누적제재횟수</div>
+			</div>
 		</div>
 	</div>
 	
