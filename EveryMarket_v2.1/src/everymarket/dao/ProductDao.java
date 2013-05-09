@@ -110,10 +110,18 @@ public class ProductDao {
 	public Product getProduct_min(){
 		
 		List<Product> list = ibatisTemplate.queryForList("getProduct_min");
-		System.out.println(list.get(0).getP_id() + "파파");
+		
 		return list.get(0);
 	}
 	
+	//이거다
+	public int get_p_id(int t_id){		   
+	  return (Integer)ibatisTemplate.queryForObject("get_p_id", t_id);
+	}
+
+	public void update_product_st(int p_id) {
+		ibatisTemplate.update("update_product_st", p_id);		
+	}
 	
 
 }

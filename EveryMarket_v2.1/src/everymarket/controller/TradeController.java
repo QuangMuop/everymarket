@@ -67,8 +67,6 @@ public class TradeController {
 		Member member = (Member) session.getAttribute("member");
 
 		String m_id = member.getM_id();
-	
-		
 
 		// 나에 구매중인 물품들
 		List<Trade> buyingList = daoT.getBuyingTrade(m_id);
@@ -95,31 +93,33 @@ public class TradeController {
 	@RequestMapping("/accept.do")
 	public ModelAndView accept(@RequestParam("t_id") int t_id) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("14141421242");
 		Trade trade = daoT.getTrade(t_id);
-		
-			HashMap<String, Object> add_cash = new HashMap<>();
-		/*	try{*/
-			add_cash.put("m_id", trade.getT_seller());
-			add_cash.put("m_cash", trade.getP_price());
-			
-			daoM.chargeCash(add_cash);
-			
-			HashMap<String, Object> sub_cash = new HashMap<>();
-			sub_cash.put("m_id", trade.getT_buyer());
-			sub_cash.put("p_price", trade.getP_price());
-			daoM.subCash(sub_cash);
-			
-			int status = 4;
 
-			daoT.update_status(trade.getT_id(), status);
-                 
-		
-			/*}catch (Exception e){*/
-			/*mav.addObject("error", "거래가 완료되지 못했습니다");
-			mav.setViewName("errorPage");
-			return mav;
-			}*/
+		HashMap<String, Object> add_cash = new HashMap<>();
+		/* try{ */
+		add_cash.put("m_id", trade.getT_seller());
+		add_cash.put("m_cash", trade.getP_price());
+
+		int p_id = daoP.get_p_id(t_id);
+
+		daoP.update_product_st(p_id);
+
+		daoM.chargeCash(add_cash);
+
+		HashMap<String, Object> sub_cash = new HashMap<>();
+		sub_cash.put("m_id", trade.getT_buyer());
+		sub_cash.put("p_price", trade.getP_price());
+		daoM.subCash(sub_cash);
+
+		int status = 4;
+
+		daoT.update_status(trade.getT_id(), status);
+
+		/* }catch (Exception e){ */
+		/*
+		 * mav.addObject("error", "거래가 완료되지 못했습니다");
+		 * mav.setViewName("errorPage"); return mav; }
+		 */
 		mav.setViewName("trade_list.do");
 		return mav;
 	}
