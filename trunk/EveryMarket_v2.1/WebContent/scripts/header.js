@@ -12,7 +12,7 @@ $(document).ready(function(){
 	
 	$("#m_id").keyup(function (){
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.2/tryRegister.do?input="+$(this).attr('id')+"&value="+$(this).val(),
+			"http://localhost:8081/EveryMarket_v2.1/tryRegister.do?input="+$(this).attr('id')+"&value="+$(this).val(),
 				function(data){
 				$("#errorid").remove();
 					if(data.errorId != null){
@@ -28,7 +28,7 @@ $(document).ready(function(){
 	
 	$("#m_nick").blur(function(){
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.2/tryRegister.do?input="+$(this).attr('id')+"&value="+$(this).val(),	
+			"http://localhost:8081/EveryMarket_v2.1/tryRegister.do?input="+$(this).attr('id')+"&value="+$(this).val(),	
 			function(data){
 				$("#errornick").remove();
 			if(data.errorNick != null){
@@ -40,7 +40,7 @@ $(document).ready(function(){
 	
 	$("#m_pwd").blur(function(){
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.2/tryRegister.do?input="+$(this).attr('id')+"&value="+$(this).val(),	
+			"http://localhost:8081/EveryMarket_v2.1/tryRegister.do?input="+$(this).attr('id')+"&value="+$(this).val(),	
 			function(data){
 					$("#errorpwd").remove();
 					
@@ -54,7 +54,7 @@ $(document).ready(function(){
 	
 	$("#m_pwdConfirm").blur(function(){
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.2/confirmPwd.do?input="+$(this).attr('id')+"&value="+$(this).val()+"&con_value="+$("#m_pwd").val(),	
+			"http://localhost:8081/EveryMarket_v2.1/confirmPwd.do?input="+$(this).attr('id')+"&value="+$(this).val()+"&con_value="+$("#m_pwd").val(),	
 			function(data){
 				$("#errorPwdCon").remove();
 				
@@ -85,12 +85,12 @@ $(document).ready(function(){
 	
 	$("#m_mailConfirm").click(function(){
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.2/mailsend.do?m_mail="+$("#m_mail").val(),		
+			"http://localhost:8081/EveryMarket_v2.1/mailsend.do?m_mail="+$("#m_mail").val(),		
 		function(data){
 			alert("인증메일 발송이 완료되었습니다   메일 확인 후 인증번호를 적어주세요");
 			$("#reg_confirm").keyup(function(){
 				$.getJSON(
-				"http://localhost:8081/EveryMarket_v2.2/regConfirm.do?connum1="+data.text+"&connum2="+$("#reg_confirm").val(),
+				"http://localhost:8081/EveryMarket_v2.1/regConfirm.do?connum1="+data.text+"&connum2="+$("#reg_confirm").val(),
 				function(data){
 					$("#confirm").remove();
 					if(data.error == null){
