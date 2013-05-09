@@ -86,6 +86,16 @@ public class FowardingController {
 		mav.setViewName("redirect:goMarket.do?m_id=" + member.getM_id());
 		return mav;
 	}
+	
+	@RequestMapping("/goMyPage.go")
+	public ModelAndView goMyPage(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+		Member member = (Member) session.getAttribute("member");
+
+		mav.setViewName("goMyPage");
+		return mav;
+	}
 
 	@RequestMapping("/administer.go")
 	public ModelAndView goAdminister() {
