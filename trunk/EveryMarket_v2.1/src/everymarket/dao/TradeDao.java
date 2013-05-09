@@ -44,7 +44,6 @@ public class TradeDao {
 
 	/* Input: p_id / Output: m_name */
 	public String getM_nameByP_id(int p_id) {
-		System.out.println(p_id);
 		return (String) ibatisTemplate.queryForObject("getM_nameByP_id", p_id);
 	}
 
@@ -57,13 +56,13 @@ public class TradeDao {
 		return ibatisTemplate.queryForList("getSellingTrade", m_id);
 	}
 
-	//완료된 산 물건 가져오기
+	// 완료된 산 물건 가져오기
 	public List<Trade> getBCompleteList(String m_id) {
 
 		return ibatisTemplate.queryForList("getBCompleteList", m_id);
 	}
 
-	//완료된 판 물건 가져오기 
+	// 완료된 판 물건 가져오기
 	public List<Trade> getSCompleteList(String m_id) {
 
 		return ibatisTemplate.queryForList("getSCompleteList", m_id);

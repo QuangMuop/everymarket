@@ -104,18 +104,24 @@
 		'%'||#seasrch_content#||'%'
 	</select>
 
-	<update id="trade_product_status">
-		update product set p_status = 'y' where p_id = (
-		select p_id from trade where t_id = #t_id#)
-	</update>
+	<!-- <update id="trade_product_status"> update product set p_status = 'y' 
+		where p_id = ( select p_id from trade where t_id = #t_id#) </update> -->
 
-    <!-- 최저가 상품 찾기 -->
+	<!-- 최저가 상품 찾기 -->
 	<select id="getProduct_min" resultClass="Product">
-		select * from product where p_price = (select min(p_price) from product
+		select * from product
+		where p_price = (select min(p_price) from product
 		where p_status = 'n')
 	</select>
 
 
+	<select id="get_p_id" resultClass="Integer">
+		select p_id from trade where t_id = #t_id#
+	</select>
+	
+	<update id="update_product_st">
+	     update product set p_status = 'y' where p_id = #p_id#	
+	</update>
 
 
 	<!-- <statement id="trade_product_status"> update product set p_status = 
