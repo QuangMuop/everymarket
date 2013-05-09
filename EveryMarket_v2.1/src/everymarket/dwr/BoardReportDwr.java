@@ -38,6 +38,7 @@ public class BoardReportDwr {
 
 		/*actionCode에 따른 접근금지 기간 설정*/
 		switch (actionCode) {
+		case "test": banList.setReleaseTime(new Timestamp(System.currentTimeMillis() + 86400000 / 4320)); break;
 		case "ban_1days": banList.setReleaseTime(new Timestamp(System.currentTimeMillis() + 86400000 * 1)); break;
 		case "ban_3days": banList.setReleaseTime(new Timestamp(System.currentTimeMillis() + 86400000 * 3)); break;
 		case "ban_5days": banList.setReleaseTime(new Timestamp(System.currentTimeMillis() + 86400000 * 5)); break; }
@@ -46,9 +47,9 @@ public class BoardReportDwr {
 		daoBL.registerBan(banList);
 		
 		/*회원상태 접근금지로 변경*/
-//		daoM.setStatus_ban(m_id);
+		daoM.setStatus_ban(m_id);
 		
 		/*r_id에 해당하는 신고글 Check처리*/
-//		daoBR.checkReportStatus(rep_id);
+		daoBR.checkReportStatus(rep_id);
 	}
 }

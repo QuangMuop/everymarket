@@ -29,6 +29,12 @@
 		from board_report
 	</select>
 	
+	<select id="getRep_reasonByRep_id" resultClass="String">
+		select rep_reason
+		from board_report
+		where rep_id = #rep_id#
+	</select>
+	
 	<select id="getBoardReportByRep_id" resultClass="BoardReport">
 		select *
 		from board_report
