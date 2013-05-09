@@ -41,6 +41,7 @@
 
 	<dwr:configuration>
 		<dwr:convert type="bean" class="everymarket.model.*" />
+		<dwr:convert type="bean" class="everymarket.object4output.*" />
 	</dwr:configuration>
 
 	<bean id="handlerMapping"
