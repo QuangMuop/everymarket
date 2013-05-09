@@ -25,39 +25,41 @@ public class ProductDao {
 		return ibatisTemplate.queryForList("getReportedProduct");
 	}
 
-	/*Input: m_id / Output: List<Product>*/
-	public List<Product> getRecentProductByM_id(String m_id){
+	/* Input: m_id / Output: List<Product> */
+	public List<Product> getRecentProductByM_id(String m_id) {
 		return ibatisTemplate.queryForList("getRecentProductByM_id", m_id);
 	}
-	
+
 	/* Input: Product */
 	public void registerProduct(Product product) {
 		ibatisTemplate.insert("registerProduct", product);
 	}
-	
-	/*Input: Product*/
+
+	/* Input: Product */
 	public void modifyProduct(Product product) {
 		ibatisTemplate.update("modifyProduct", product);
 	}
 
 	/* Input: p_id / Output: Product */
 	public Product getProductByP_id(int p_id) {
-		return (Product) ibatisTemplate.queryForObject("getProductByP_id", p_id);
+		return (Product) ibatisTemplate
+				.queryForObject("getProductByP_id", p_id);
 	}
 
 	/* Input: m_id / Output: List<Product> */
 	public List<Product> getProductListById(String m_id) {
 		return ibatisTemplate.queryForList("getProductListById", m_id);
 	}
-	
-	/*Input: p_id / Output: p_name*/
-	public String getP_nameByP_id(int p_id){
-		return (String)ibatisTemplate.queryForObject("getP_nameByP_id", p_id);
+
+	/* Input: p_id / Output: p_name */
+	public String getP_nameByP_id(int p_id) {
+		return (String) ibatisTemplate.queryForObject("getP_nameByP_id", p_id);
 	}
 
 	/* Input: p_id / Output: List<Product> */
 	public List<Product> getRandomProductByP_id(int p_id) {
-		String m_id = (String) ibatisTemplate.queryForObject("getM_idByP_id", p_id);
+		String m_id = (String) ibatisTemplate.queryForObject("getM_idByP_id",
+				p_id);
 		return ibatisTemplate.queryForList("getRandomProductByM_id", m_id);
 	}
 
@@ -83,7 +85,7 @@ public class ProductDao {
 		map.put("searchtext", searchtext);
 
 		if (category.equals("All")) {
-			
+
 			return ibatisTemplate.queryForList("listProduct_main", map);
 		} else if (searchtext.equals("basic")) {
 
@@ -95,9 +97,23 @@ public class ProductDao {
 	}
 
 	public void trade_status_update(HashMap map) {
-
 		ibatisTemplate.update("trade_stauts_update", map);
-
 	}
+
+	
+	//최종적으로 거래 완료시 product status를 'y'로 바꿔주는 것
+	public void trade_product_status(int t_id) {
+
+			/*ibatisTemplate.update("trade_product_status", t_id);*/
+	}
+	
+	public Product getProduct_min(){
+		
+		List<Product> list = ibatisTemplate.queryForList("getProduct_min");
+		System.out.println(list.get(0).getP_id() + "파파");
+		return list.get(0);
+	}
+	
+	
 
 }

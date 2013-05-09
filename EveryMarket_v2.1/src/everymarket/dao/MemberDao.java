@@ -80,4 +80,12 @@ public class MemberDao {
 	public void setStatus_ban(String m_id){
 		ibatisTemplate.update("setStatus_ban", m_id);
 	}
+
+	public Member getProduct_min_nick(String m_id) {
+		// TODO Auto-generated method stub
+	  return (Member) ibatisTemplate.queryForObject("getMemberById", m_id);
+	}
+	
+	
+	
 }

@@ -63,23 +63,23 @@
 		</div>
 	</div>
 	
-<!-- 	//////////////////// -->
+<!--  ////////////////////  즉시구매-->
 	<div id="now_sale">
+	
 		<img alt="" id="sale_image" src="images/smarket/now.png">
-		<img alt="" id="sale_image2" src="image_product/acc1.PNG">
+		<img alt="" id="sale_image2" src="image_product/${product_min.p_img}">
 			<div id="sale_detail">
-				<p>[누구누구]상품이름</p>
-				<p id="sale_cash"><img class="coin" alt="" src="images/smarket/coin.png">1000</p>
+				<p>[${member_min_nick}]     ${product_min.p_name}</p>
+				<p id="sale_cash"><img class="coin" alt="" src="images/smarket/coin.png">${product_min.p_price}</p>
 				
-					<div id="sale_count">
-						<p>찜횟수:</p>
+					 <!-- <div id="sale_count">
+						<p>상품등록일:</p>
 							<p>1</p>
 							<p>|</p>
 						<p>덧글수:</p>
 							<p>1</p>
-							
-					</div>
-					<button id="now_buy"></button>
+					</div> -->
+					<button id="now_buy" p_id="${product_min.p_id}"></button>
 			</div>
 	</div>
 

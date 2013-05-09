@@ -5,93 +5,120 @@
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="Product">
-	
-	<typeAlias alias="Product" type="everymarket.model.Product"/>
-	
+
+	<typeAlias alias="Product" type="everymarket.model.Product" />
+
 	<insert id="registerProduct" parameterClass="Product">
-		insert into product values(
-			#p_id#,
-			#p_name#,
-			#p_price#,
-			#p_img#,
-			#p_detail#,
-			#p_date#,
-			#m_id#,
-			#ct_id#,
-			'n'
+		insert into product
+		values(
+		#p_id#,
+		#p_name#,
+		#p_price#,
+		#p_img#,
+		#p_detail#,
+		#p_date#,
+		#m_id#,
+		#ct_id#,
+		'n'
 		)
 	</insert>
-	
+
 	<update id="modifyProduct" parameterClass="Product">
 		update product
-		set p_detail = #p_detail#
+		set
+		p_detail = #p_detail#
 		where p_id = #p_id#
 	</update>
-	
+
 	<select id="getMaxP_id" resultClass="Integer">
-		select max(p_id) 
+		select max(p_id)
 		from product
 	</select>
-	
+
 	<select id="getProductByP_id" resultClass="Product">
-		select * 
-		from product 
-		where p_id = #p_id# 
-	</select>
-	
-	<select id="getProductListById" resultClass="Product">
-		select * 
-		from product 
-		where m_id = #m_id# 
-		order by p_date desc
-	</select>
-	
-	<select id="getRecentProductByM_id" resultClass="Product">
-		select p_id, p_name, p_price, p_img
+		select *
 		from product
-		where m_id = #m_id# and rownum &#60;= 3
-		order by p_date desc
-	</select>
-	
-	<select id="getP_nameByP_id" resultClass="String">
-		select p_name
-		from product
-		where p_id = #p_id#	
-	</select>
-	
-	<select id="getM_idByP_id" resultClass="String">
-		select m_id 
-		from product 
 		where p_id = #p_id#
 	</select>
-	
-	<select id="checkOwn" resultClass="Integer">
-		select count(*) 
+
+	<select id="getProductListById" resultClass="Product">
+		select *
 		from product
-		where m_id = #m_id# and p_id = #p_id# 
+		where m_id = #m_id#
+		order by p_date desc
 	</select>
-	
+
+	<select id="getRecentProductByM_id" resultClass="Product">
+		select p_id,
+		p_name, p_price, p_img
+		from product
+		where m_id = #m_id# and rownum
+		&#60;= 3
+		order by p_date desc
+	</select>
+
+	<select id="getP_nameByP_id" resultClass="String">
+		select p_name
+		from
+		product
+		where p_id = #p_id#
+	</select>
+
+	<select id="getM_idByP_id" resultClass="String">
+		select m_id
+		from product
+		where p_id = #p_id#
+	</select>
+
+	<select id="checkOwn" resultClass="Integer">
+		select count(*)
+		from product
+		where m_id = #m_id# and p_id = #p_id#
+	</select>
+
 	<select id="getRandomProductByM_id" resultClass="Product">
-		select * from ( 
-			select * from product 
-			order by dbms_random.value ) 
-		where rownum &#60;= 3 and m_id = #m_id#
+		select * from (
+		select * from product
+		order by dbms_random.value )
+		where rownum &#60;= 3
+		and m_id = #m_id#
 	</select>
-	
+
 	<!-- 내가 검색한 제품의 수 -->
 	<select id="product_count" parameterClass="String" resultClass="int">
-		select count(*) 
+		select count(*)
 		from product
-		where p_name like '%'||#search_content#||'%'
-		or p_detail like '%'||#search_content#||'%'
+		where p_name like
+		'%'||#search_content#||'%'
+		or p_detail like
+		'%'||#search_content#||'%'
 	</select>
-		
+
 	<!-- 내가 검색한 제품 -->
 	<select id="searchProduct" parameterClass="String" resultClass="Product">
-		select * 
+		select *
 		from product
 		where p_name like '%'||#search_content#||'%'
-		or p_detail like '%'||#seasrch_content#||'%'
+		or
+		p_detail like
+		'%'||#seasrch_content#||'%'
 	</select>
-	
+
+	<update id="trade_product_status">
+		update product set p_status = 'y' where p_id = (
+		select p_id from trade where t_id = #t_id#)
+	</update>
+
+    <!-- 최저가 상품 찾기 -->
+	<select id="getProduct_min" resultClass="Product">
+		select * from product where p_price = (select min(p_price) from product
+		where p_status = 'n')
+	</select>
+
+
+
+
+	<!-- <statement id="trade_product_status"> update product set p_status = 
+		'y' where p_id = ( select p_id from trade where t_id = #t_id#) </statement> -->
+
 </sqlMap>
