@@ -82,10 +82,10 @@ $(document).ready(function(){
 								"<select rep_id='" + boardReport.rep_id +
 										"' rep_memberId='" + boardReport.rep_memberId + "'>" +
 									"<option selected='selected'>선택</option>" +
-									"<option value='test'>테스트용 : 20초</option>" +
-									"<option value='ban_1days'>1일 사이트 접근 불허</option>" +
-									"<option value='ban_3days'>3일 사이트 접근 불허</option>" +
-									"<option value='ban_5days'>5일 사이트 접근 불허</option>" +
+									"<option value='테스트용 : 20초'>테스트용 : 20초</option>" +
+									"<option value='1일 사이트 접근 불허'>1일 사이트 접근 불허</option>" +
+									"<option value='3일 사이트 접근 불허'>3일 사이트 접근 불허</option>" +
+									"<option value='5일 사이트 접근 불허'>5일 사이트 접근 불허</option>" +
 								"</select>"	+
 							"</div>" +
 						"</div>");

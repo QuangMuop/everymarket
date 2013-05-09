@@ -3,11 +3,18 @@ package everymarket.model;
 import java.sql.Timestamp;
 
 public class BanList {
+	private int bl_id;
 	private String m_id;
 	private int rep_id;
 	private Timestamp judgeTime;
 	private Timestamp releaseTime;
 	
+	public int getBl_id() {
+		return bl_id;
+	}
+	public void setBl_id(int bl_id) {
+		this.bl_id = bl_id;
+	}
 	public String getM_id() {
 		return m_id;
 	}
