@@ -44,9 +44,14 @@ public class BoardReportDao {
 		return ibatisTemplate.queryForList("getReportedMember");
 	}
 	
-	/*Output: List<BoardReport>(r_check = 'n')*/
+	/*Output: List<BoardReport>(r_check == 'n')*/
 	public List<BoardReport> getUncheckedReportList(){
 		return ibatisTemplate.queryForList("getUncheckedReportList");
+	}
+	
+	/*Output: List<BoardReport>(r_check != 'n')*/
+	public List<BoardReport> getCheckedReportList(){
+		return ibatisTemplate.queryForList("getCheckedReportList");
 	}
 	
 	/*Input: m_id*/

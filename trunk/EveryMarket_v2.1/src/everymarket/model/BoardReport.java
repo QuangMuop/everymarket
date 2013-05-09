@@ -11,6 +11,7 @@ public class BoardReport {
 	private int rep_productId;
 	private String rep_memberId;
 	private String rep_check;
+	private Timestamp rep_checkTime;
 	
 	public int getRep_id() {
 		return rep_id;
@@ -59,6 +60,12 @@ public class BoardReport {
 	}
 	public void setRep_check(String rep_check) {
 		this.rep_check = rep_check;
+	}
+	public Timestamp getRep_checkTime() {
+		return rep_checkTime;
+	}
+	public void setRep_checkTime(Timestamp rep_checkTime) {
+		this.rep_checkTime = rep_checkTime;
 	}
 	
 	@Override

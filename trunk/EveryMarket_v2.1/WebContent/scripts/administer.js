@@ -1,8 +1,13 @@
 $(document).ready(function(){
+	/*상수 구현부*/
+	var contextUrl = "/EveryMarket_v2.1/";
+
 	callMemberList();
 	
-	$(".tab:eq(0)").click(tab_memberList);
-	$(".tab:eq(1)").click(tab_boardReport);
+	$(".button_tab:eq(0)").click(showTab_memberList);
+	$(".button_tab:eq(1)").click(showTab_uncheckedList_report);
+	$(".button_tab:eq(2)").click(showTab_uncheckedList_tradeReport);
+	$(".button_tab:eq(3)").click(showTab_checkedList_report);
 	
 	$(document).on('click', ".boardReport", toggleReportContents);
 	$(document).on('change', ".boardReport select", reportAction);
@@ -10,14 +15,22 @@ $(document).ready(function(){
 	$("#callMemberList").click(function(){ alert("뭐임마"); });
 	
 		/*memberList, boardReport 탭 구현*/	
-		function tab_memberList(){
+		function showTab_memberList(){
 			callMemberList();
-			$("#board_report").hide();
+			$(".tabContent").hide();
 			$("#memberList").fadeIn("slow"); }
-		function tab_boardReport(){
-			callReportedList();
-			$("#memberList").hide();
-			$("#board_report").fadeIn("slow"); }
+		function showTab_uncheckedList_report(){
+			callUncheckedList_report();
+			$(".tabContent").hide();
+			$("#uncheckedList_report").fadeIn("slow"); }
+		function showTab_uncheckedList_tradeReport(){
+//			callUncheckedList_tradeReport();
+			$(".tabContent").hide();
+			$("#uncheckedList_tradeReport").fadeIn("slow"); }
+		function showTab_checkedList_report(){
+			callCheckedList_report();
+			$(".tabContent").hide();
+			$("#checkedList_report").fadeIn("slow"); }
 	
 	function toggleReportContents(){
 		$(".boardReport").not($(this)).find(".contents").slideUp();
@@ -33,7 +46,7 @@ $(document).ready(function(){
 			if(confirm("사용자 '" + rep_memberId + "'에 대한 처리를 확정하시겠습니까?")){
 				boardReportDwr.reportAction(rep_id, actionCode);
 				alert("처리되었습니다.");
-				callReportedList();
+				callUncheckedList_report();
 			}
 		}
 	}
@@ -41,7 +54,7 @@ $(document).ready(function(){
 	function callMemberList(){
 		$("#memberList table tr:gt(0)").remove();
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.1/callMemberList.do",
+			contextUrl + "callMemberList.do",
 			function(data){
 				$.each(data.listMember, function(index, member){
 					$("#memberList > table").append(
@@ -60,10 +73,10 @@ $(document).ready(function(){
 		);
 	}
 	
-	function callReportedList(){
-		$("#board_report .list .boardReport").remove();
+	function callUncheckedList_report(){
+		$("#uncheckedList_report .list .boardReport").remove();
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.1/callReportedList.do",
+			contextUrl + "callReportedList.do",
 			function(data){
 				$.each(data.listReportedProduct, function(index, boardReport){
 					var rep_regdate = (boardReport.rep_regdate.year + 1900) + "년 " +
@@ -82,6 +95,7 @@ $(document).ready(function(){
 								"<select rep_id='" + boardReport.rep_id +
 										"' rep_memberId='" + boardReport.rep_memberId + "'>" +
 									"<option selected='selected'>선택</option>" +
+									"<option value='신고기각'>신고기각</option>" +
 									"<option value='테스트용 : 20초'>테스트용 : 20초</option>" +
 									"<option value='1일 사이트 접근 불허'>1일 사이트 접근 불허</option>" +
 									"<option value='3일 사이트 접근 불허'>3일 사이트 접근 불허</option>" +
@@ -106,6 +120,7 @@ $(document).ready(function(){
 								"<select rep_id='" + boardReport.rep_id +
 										"' rep_memberId='" + boardReport.rep_memberId + "'>" +
 									"<option selected='selected'>선택</option>" +
+									"<option value='신고기각'>신고기각</option>" +
 									"<option value='테스트용 : 20초'>테스트용 : 20초</option>" +
 									"<option value='1일 사이트 접근 불허'>1일 사이트 접근 불허</option>" +
 									"<option value='3일 사이트 접근 불허'>3일 사이트 접근 불허</option>" +
@@ -113,6 +128,39 @@ $(document).ready(function(){
 								"</select>"	+
 							"</div>" +
 						"</div>");
+				});
+			}
+		);
+	}
+	
+	function callUncheckedList_tradeReport(){
+		$.getJSON(
+			contextUrl + "",
+			function(data){
+				
+			}
+		);
+	}
+	
+	function callCheckedList_report(){
+		$("#checkedList_report .list .boardReport").remove();
+		$.getJSON(
+			contextUrl + "callCheckedReportList.do",
+			function(data){
+				$.each(data.listCheckedReportList, function(index, boardReport){
+					var rep_checkTime = (boardReport.rep_checkTime.year + 1900) + "년 " +
+										(boardReport.rep_checkTime.month + 1) + "월 " +
+										boardReport.rep_checkTime.date + "일 " + 
+										boardReport.rep_checkTime.hours + ":" +
+										boardReport.rep_checkTime.minutes;
+					$("#checkedReportList").append(
+						"<div class='boardReport'>" +
+							"<div class='normal'>" + boardReport.rep_id + "</div>" +
+							"<div class='wide'>" + rep_checkTime + "</div>" +
+							"<div class='normal'>" + boardReport.rep_memberId + "</div>" +
+							"<div class='wide'>" + boardReport.rep_check + "</div>" +
+						"</div>"
+					);
 				});
 			}
 		);

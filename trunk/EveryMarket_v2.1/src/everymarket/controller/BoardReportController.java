@@ -74,11 +74,24 @@ public class BoardReportController {
 		
 		List<BoardReport> listReportedProduct = daoBR.getReportedProduct();
 		List<BoardReport> listReportedMember = daoBR.getReportedMember();
-		
 		map.put("listReportedProduct", listReportedProduct);
 		map.put("listReportedMember", listReportedMember);
 		
 		mav.addAllObjects(map);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	/*getJSON*/
+	@RequestMapping("/callCheckedReportList.do")
+	public ModelAndView callCheckedReportList(){
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		List<BoardReport> listCheckedReportList = daoBR.getCheckedReportList();
+		resultMap.put("listCheckedReportList", listCheckedReportList);
+		
+		mav.addAllObjects(resultMap);
 		mav.setViewName("jsonView");
 		return mav;
 	}
