@@ -50,8 +50,8 @@ public class BoardReportDao {
 	}
 	
 	/*Input: m_id*/
-	public void checkReportStatus(int rep_id){
-		ibatisTemplate.update("checkReportStatus", rep_id);
+	public void checkReportStatus(Map<String, Object> paramMap){
+		ibatisTemplate.update("checkReportStatus", paramMap);
 	}
 	
 	/*Input: rep_writer, rep_memberId / Output: BoardReport*/

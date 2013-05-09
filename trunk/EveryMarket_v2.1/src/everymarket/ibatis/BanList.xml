@@ -10,6 +10,7 @@
 
 	<insert id="registerBan" parameterClass="BanList">
 		insert into banlist values(
+			#bl_id#,
 			#m_id#,
 			#rep_id#,
 			#judgeTime#,
@@ -22,11 +23,32 @@
 		from banlist
 		where releasetime &#60; sysdate
 	</delete>
+	
+	<select id="getMaxBl_id" resultClass="Integer">
+		select max(bl_id)
+		from banlist
+	</select>
 
 	<select id="getBanListByM_id" resultClass="BanList">
 		select *
 		from banlist
 		where m_id = #m_id#
 	</select>
+	
+	<select id="getExpiredBanListM_id" resultClass="String">
+		select m_id
+		from banlist
+		where releasetime &#60; sysdate
+	</select>
+	
+	<update id="recoverM_status" parameterClass="java.util.List">
+		update member
+		set m_status = '일반'
+		<dynamic prepend="where">
+			<iterate conjunction="or">
+				m_id = #[]#
+			</iterate>
+		</dynamic>
+	</update>
 
 </sqlMap>

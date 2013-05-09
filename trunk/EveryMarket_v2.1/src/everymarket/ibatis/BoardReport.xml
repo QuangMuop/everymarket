@@ -69,9 +69,9 @@
 			and rep_check = 'n'
 	</select>
 
-	<update id="checkReportStatus">
+	<update id="checkReportStatus" parameterClass="java.util.Map">
 		update board_report
-		set rep_check = 'y'
+		set rep_check = #actionCode#
 		where rep_id = #rep_id#
 	</update>
 
