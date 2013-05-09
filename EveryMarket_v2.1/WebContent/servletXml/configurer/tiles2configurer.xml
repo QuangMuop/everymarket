@@ -48,14 +48,16 @@
 		<put-attribute name="popup" value="/view/popup_qna.jsp"/>
 	</definition>
 	
-	
 	<!-- 거래 목록 -->
 	<definition name="trade_list" extends="main_template">
 		<put-attribute name="body" value="/view/trade_List.jsp"/>
 	</definition>
 	
+	<!-- 접근금지 조치 유저용 View -->
+	<definition name="noticeBan" extends="main_template">
+		<put-attribute name="body" value="/view/noticeBan.jsp"/>
+	</definition>
 	
-		
 	<!-- errorPage View -->
 	<definition name="errorPage" template="/view/templates/errorPage.jsp"/>
 	
