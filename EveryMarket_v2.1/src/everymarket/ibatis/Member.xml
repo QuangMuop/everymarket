@@ -87,9 +87,15 @@
 		where m_id = #m_id#
 	</update>
 	
-	<update id="setStatus_ban">
+	<update id="updateM_status">
 		update member
-		set m_status = '접근금지', m_report = m_report + 1
+		set m_status = '접근금지'
+		where m_id = #m_id#
+	</update>
+	
+	<update id="updateM_report">
+		update member
+		set m_report = m_report + 1
 		where m_id = #m_id#
 	</update>
 	
