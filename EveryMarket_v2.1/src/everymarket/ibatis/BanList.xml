@@ -7,6 +7,7 @@
 <sqlMap namespace="BanList">
 	
 	<typeAlias alias="BanList" type="everymarket.model.BanList"/>
+	<typeAlias alias="BannedMember" type="everymarket.object4output.BannedMember"/>
 
 	<insert id="registerBan" parameterClass="BanList">
 		insert into banlist values(
@@ -27,6 +28,17 @@
 	<select id="getMaxBl_id" resultClass="Integer">
 		select max(bl_id)
 		from banlist
+	</select>
+	
+	<select id="getListBannedMemberList" resultClass="BannedMember">
+		select m.m_id, m.m_name, rep.rep_reason, 
+			   bl.judgeTime, bl.releaseTime, m.m_report
+		from banlist bl
+		  join member m
+		  on bl.m_id = m.m_id
+		  join board_report rep
+		  on bl.rep_id = rep.rep_id
+		order by rep.rep_regdate
 	</select>
 
 	<select id="getBanListByM_id" resultClass="BanList">
