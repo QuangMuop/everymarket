@@ -15,7 +15,7 @@
 		<property name="daoM" ref="memberDao"/>
 		<dwr:remote javascript="boardReportDwr"/>
 	</bean>
-
+	
 	<bean id="indivMarketDwr" class="everymarket.dwr.IndivMarketDwr">
 		<property name="daoBR" ref="boardReportDao"/>
 		<property name="daoM" ref="memberDao"/>
@@ -34,9 +34,6 @@
 	    <dwr:remote javascript="tradeDwr"/>	
 	</bean>	
 	
-	
-	
-
 	<!-- Dwr Setting -->
 	<dwr:controller id="dwrController" debug="true">
 		<dwr:config-param name="crossDomainSessionSecurity" value="false" />
