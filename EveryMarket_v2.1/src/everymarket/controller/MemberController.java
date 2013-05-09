@@ -23,7 +23,6 @@ import everymarket.dao.ProductDao;
 import everymarket.dao.ReviewDao;
 import everymarket.model.BanList;
 import everymarket.model.Blog;
-import everymarket.model.BoardReport;
 import everymarket.model.Member;
 import everymarket.model.Product;
 
@@ -162,7 +161,7 @@ public class MemberController {
 		try{
 			daoM.registerMember(member);
 			session.setAttribute("member", member);
-			mav.setViewName("main");
+			mav.setViewName("redirect:enter.go");
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -239,7 +238,7 @@ public class MemberController {
 		List<Blog> listBlog = daoB.getBlogList();
 		
 		mav.addObject("blog",listBlog);
-		mav.setViewName("main");
+		mav.setViewName("redirect:enter.go");
 		return mav;
 	}
 	
