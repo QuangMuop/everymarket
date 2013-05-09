@@ -60,6 +60,9 @@
 	
 	<!-- errorPage View -->
 	<definition name="errorPage" template="/view/templates/errorPage.jsp"/>
+	<!-- 	마이페이지 -->
 	
-
+	<definition name="goMyPage" extends="main_template">
+		<put-attribute name="body" value="/view/mypage/mymenu.jsp"/>
+	</definition>
 </tiles-definitions>
