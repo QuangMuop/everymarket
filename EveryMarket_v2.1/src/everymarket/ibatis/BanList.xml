@@ -41,6 +41,18 @@
 		where releasetime &#60; sysdate
 	</select>
 	
+	<select id="getRemaningTimeByM_id" resultClass="java.sql.Timestamp">
+		select releasetime
+		from banlist
+		where m_id = #m_id#
+	</select>
+	
+	<update id="renewReleaseTime" parameterClass="BanList">
+		update banlist
+		set releaseTime = #releaseTime#
+		where m_id = #m_id#
+	</update>
+	
 	<update id="recoverM_status" parameterClass="java.util.List">
 		update member
 		set m_status = '일반'

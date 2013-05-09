@@ -89,7 +89,7 @@
 	
 	<update id="setStatus_ban">
 		update member
-		set m_status = '접근금지'
+		set m_status = '접근금지', m_report = m_report + 1
 		where m_id = #m_id#
 	</update>
 	
