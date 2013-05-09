@@ -16,14 +16,15 @@ $(document).ready(function(){
 		$("#noticeBan_tryLogin").fadeIn(3000);
 		
 		setInterval(function(){
-			$("#noticeBan_tryLogin").append(".");
+			$("#noticeBan_tryLogin").find("span").html(
+				$("#noticeBan_tryLogin").find("span").html() - 1);
 		}, 1000);
 		
 		setTimeout(function(){
 			location.href="login.do?" +
 				"m_id=" + $("#triedInfo").attr("m_id") + "&" +
 				"m_pwd=" + $("#triedInfo").attr("m_pwd");
-		}, 6000);
+		}, 5000);
 	}
 	
 });
