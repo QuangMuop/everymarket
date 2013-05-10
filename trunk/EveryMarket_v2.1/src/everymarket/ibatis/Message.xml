@@ -28,6 +28,14 @@
 		where p_id=#p_id#
 	</update>
 	
+	<select id="getCount_unCheckedMessage" resultClass="Integer">
+		select count(*)
+		from message msg
+		  join product p
+		  on msg.p_id = p.p_id
+		where p.m_id = #m_id#
+	</select>
+	
 	<select id="get_msg_id" parameterClass="Integer"  resultClass="Integer" >	
 	   select msg_id from message 
 	   where p_id = #p_id#		
