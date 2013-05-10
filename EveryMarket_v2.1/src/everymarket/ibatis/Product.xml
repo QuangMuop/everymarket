@@ -70,6 +70,12 @@
 		where p_id = #p_id#
 	</select>
 
+	<select id="checkP_status" resultClass="String">
+		select p_status
+		from product
+		where p_id = #p_id#
+	</select>
+
 	<select id="checkOwn" resultClass="Integer">
 		select count(*)
 		from product
