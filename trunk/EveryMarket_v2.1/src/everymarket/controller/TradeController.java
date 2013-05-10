@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import everymarket.dao.JjimDao;
 import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.TradeDao;
 
 import everymarket.model.Member;
+import everymarket.model.Product;
 import everymarket.model.Trade;
 
 @Controller
@@ -27,6 +29,11 @@ public class TradeController {
 	private ProductDao daoP;
 	private TradeDao daoT;
 	private MemberDao daoM;
+	private JjimDao daoJ;
+
+	public void setDaoJ(JjimDao daoJ) {
+		this.daoJ = daoJ;
+	}
 
 	public void setDaoM(MemberDao daoM) {
 		this.daoM = daoM;
@@ -75,16 +82,25 @@ public class TradeController {
 		List<Trade> sellingList = daoT.getSellingTrade(m_id);
 
 		// 거래 완료된 산 물품들
-		List<Trade> completeBList = daoT.getBCompleteList(m_id);
-	
+		List<Trade> completeBList = daoT.getBCompleteList(m_id);	
 
 		// 거래 완료된 판 물품들
 		List<Trade> completeSList = daoT.getSCompleteList(m_id);
 
+		//찜한 물건들
+		List<Product> jjimList = daoJ.getjjimList(m_id);
+		
+		//찜한 물건 총 가격
+		int jjim_sum = daoJ.getjjim_sum(m_id);
+		
+		
+		
 		mav.addObject("buyingList", buyingList);
 		mav.addObject("sellingList", sellingList);
 		mav.addObject("completeBList", completeBList);		
 		mav.addObject("completeSList", completeSList);
+		mav.addObject("jjimList", jjimList);
+		mav.addObject("jjim_sum", jjim_sum);
 
 		mav.setViewName("trade_list");
 

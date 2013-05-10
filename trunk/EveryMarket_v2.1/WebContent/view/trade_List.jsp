@@ -277,6 +277,40 @@ table td,th {
 			</c:forEach>
 
 		</table>
+		
+		
+		<h2>찜 리스트</h2>
+		
+		<table>
+		 <tr>
+		  <th>상품명/옵션정보</th>
+		  <th>상품금액</th>
+		  <th>판매자</th>
+		  <th>삭제</th>
+		  <th>구입하기</th>		 
+		 </tr>
+		 
+		 <c:forEach var="JP" items="${jjimList}">
+		 <tr class="${JP.p_id}j">
+		 <td>${JP.p_name}<br>
+		 <img alt="" src="image_product/${JP.p_img}">
+		 ${JP.p_detail}
+		 </td>
+		 <td>${JP.p_price}</td>
+		 <td>${JP.m_id}</td>
+		 <td><button class="delete_button" p_id="${JP.p_id}">삭제</button></td>
+		 <td><button class="buyj_button" p_id="${JP.p_id}">구입하기</button></td>
+		 </tr>
+		 </c:forEach>
+		 <tr>
+		 <td colspan="5">총 금액 ${jjim_sum}</td>
+		 </tr>
+		
+		
+		
+		
+		
+		</table>
 
 	</div>
 

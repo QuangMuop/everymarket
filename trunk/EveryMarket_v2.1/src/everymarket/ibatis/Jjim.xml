@@ -6,80 +6,104 @@
 
 <sqlMap namespace="Jjim">
 
- 	<typeAlias alias="Jjim" type="everymarket.model.Jjim"/>
- 	<typeAlias alias="Product" type="everymarket.model.Product"/>
- 	<typeAlias alias="JJimResult" type="everymarket.object4output.JjimResult" />
- 	
- 	<!-- indivMarket.jsp에서 사용하는 sqlStatements -->
- 	<delete id="deleteJjim">
- 		delete
- 		from jjim
- 		where m_id = #m_id# and p_id = #p_id#
- 	</delete>
- 	
- 	<insert id="registerJjim" parameterClass="Jjim">
- 		insert into jjim values(
- 			#j_id#,
- 			#p_id#,
- 			#m_id#
- 		)
- 	</insert>
- 
+	<typeAlias alias="Jjim" type="everymarket.model.Jjim" />
+	<typeAlias alias="Product" type="everymarket.model.Product" />
+	<typeAlias alias="JJimResult" type="everymarket.object4output.JjimResult" />
+
+	<!-- indivMarket.jsp에서 사용하는 sqlStatements -->
+	<delete id="deleteJjim">
+		delete
+		from jjim
+		where m_id = #m_id# and p_id = #p_id#
+	</delete>
+
+	<insert id="registerJjim" parameterClass="Jjim">
+		insert into jjim
+		values(
+		#j_id#,
+		#p_id#,
+		#m_id#
+		)
+	</insert>
+
 	<select id="getMaxJ_id" resultClass="Integer">
-		select max(j_id) 
+		select max(j_id)
 		from jjim
 	</select>
-	
+
 	<select id="getB_thumbByP_id" resultClass="String">
 		select b.b_thumb
-		from blog b join jjim j
-		  on b.m_id = j.m_id
+		from
+		blog b join jjim j
+		on b.m_id = j.m_id
 		where j.p_id = #p_id#
 	</select>
-	
+
 	<select id="checkJjim" resultClass="Integer">
-		select count(*) 
+		select count(*)
 		from jjim
-		where m_id = #m_id# 
-		  and p_id = #p_id# 
+		where m_id = #m_id#
+		and p_id = #p_id#
 	</select>
- 	
- 	<!-- list.jsp에서 사용하는 sqlStatements -->
- 	<select id="buyList_p_id" resultClass="Integer"> 	
- 	    select p_id 
- 	    from trade 
- 	    where t_buyer = #m_id#
- 	</select>
- 	
- 	<select id="buyList_product" resultClass="Product">
-		select * 
-		from product 
-		where p_id = #p_id# 	    	
- 	</select>
- 	
- 	<select id="buyList_Jjim" resultClass="Integer">
-		select count(j_id) 
-		from JJim 
+
+	<!-- list.jsp에서 사용하는 sqlStatements -->
+	<select id="buyList_p_id" resultClass="Integer">
+		select p_id
+		from trade
+		where t_buyer = #m_id#
+	</select>
+
+	<select id="buyList_product" resultClass="Product">
+		select *
+		from product
 		where p_id = #p_id#
- 	</select>
- 	
- 	<select id="buyList_comment" resultClass="String">
-		select count(c_id) 
-		from comments 
+	</select>
+
+	<select id="buyList_Jjim" resultClass="Integer">
+		select count(j_id)
+		from
+		JJim
 		where p_id = #p_id#
- 	</select>
- 	
- 	<select id="sellList_p_id" resultClass="Integer"> 	
- 	    select t.p_id 
- 	    from product p join trade t 
- 	      on p.p_id = t.p_id 
- 	    where p.m_id = #m_id# 
- 	</select>
- 	
- 	<select id="jjimList_p_id" resultClass="Integer"> 	
- 	    select p_id 
- 	    from jjim 
- 	    where m_id = #m_id#
- 	</select>
- 	
+	</select>
+
+	<select id="buyList_comment" resultClass="String">
+		select count(c_id)
+		from
+		comments
+		where p_id = #p_id#
+	</select>
+
+	<select id="sellList_p_id" resultClass="Integer">
+		select t.p_id
+		from product
+		p join trade t
+		on p.p_id = t.p_id
+		where p.m_id = #m_id#
+	</select>
+
+	<select id="jjimList_p_id" resultClass="Integer">
+		select p_id
+		from jjim
+		where m_id = #m_id#
+	</select>
+
+	<!-- 새로하는 찜리스트 -->
+	<select id="get_jjimList" resultClass="Product">
+		select * from product p,
+		jjim j
+		where j.p_id = p.p_id and j.m_id = #m_id#
+	</select>
+
+	<!-- 찜 지우기 -->
+	<delete id="deleteJjim_tr">
+		delete from jjim where p_id = #p_id#
+	</delete>
+    
+    <!-- 찜 총가격  -->
+	<select id="getjjim_sum" resultClass="Integer">
+		select sum(p.p_price) from
+		product p, jjim j
+		where j.p_id = p.p_id and j.m_id = #m_id#
+	</select>
+
 </sqlMap>

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
+import everymarket.dao.JjimDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.TradeDao;
 import everymarket.model.Member;
@@ -15,6 +16,11 @@ public class TradeDwr {
 
 	private TradeDao daoT;
 	private ProductDao daoP;
+	private JjimDao daoJ;
+
+	public void setDaoJ(JjimDao daoJ) {
+		this.daoJ = daoJ;
+	}
 
 	public void setDaoT(TradeDao daoT) {
 		this.daoT = daoT;
@@ -44,36 +50,42 @@ public class TradeDwr {
 
 	}
 
-	//수취확인 눌렀을떄
-	public void trade_ok(int t_id) { 
-		daoT.trade_ok(t_id);		
+	// 수취확인 눌렀을떄
+	public void trade_ok(int t_id) {
+		daoT.trade_ok(t_id);
 	}
-	
-	public void trade_product_status(int t_id){
+
+	public void trade_product_status(int t_id) {
 		daoP.trade_product_status(t_id);
 	}
-	
-	public String getsession(HttpServletRequest request){
+
+	public String getsession(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		
-		Member member = (Member)session.getAttribute("member");
+
+		Member member = (Member) session.getAttribute("member");
 		String m_id = member.getM_id();
-		
+
 		return m_id;
 	}
-	
-	//포인트 비교하여 거래가능 여부 확인하기
-	public int compare_point(@RequestParam("p_id") int p_id, @RequestParam("data") String m_id){
-		
+
+	// 포인트 비교하여 거래가능 여부 확인하기
+	public int compare_point(@RequestParam("p_id") int p_id,
+			@RequestParam("data") String m_id) {
+
 		int member_point = daoT.member_point(m_id);
-		
- 		int trade_point = daoT.trade_point(m_id);
- 		
+
+		int trade_point = daoT.trade_point(m_id);
+
 		int product_price = daoT.product_price(p_id);
-		
-		int point = (member_point)-(trade_point+product_price);
+
+		int point = (member_point) - (trade_point + product_price);
 
 		return point;
 	}
-    
+
+	// jjimlist에서 지우기
+	public void deletejjim_tr(int p_id){
+		System.out.println("사사사사");
+		daoJ.deleteJjim_tr(p_id);
+	}
 }
