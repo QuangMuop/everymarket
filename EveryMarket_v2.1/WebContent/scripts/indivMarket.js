@@ -260,9 +260,11 @@ $(document).ready(function(){
 								"<div id='button_detail_registerJjim' class='button_detail'>찜하기</div>"
 							);
 						}
-						$("#bar_button_detail").append(
-							"<div id='button_detail_buyProduct' class='button_detail'>구매신청하기</div>"
-						);
+						if(!data.onTrade){
+							$("#bar_button_detail").append(
+								"<div id='button_detail_buyProduct' class='button_detail'>구매신청하기</div>"
+							);
+						}
 						$("#bar_button_detail").append(
 							"<div id='button_detail_reportProduct' class='button_detail'>상품신고하기</div>"
 						);

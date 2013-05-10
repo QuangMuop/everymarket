@@ -137,6 +137,8 @@ public class ProductController {
 			paramMap.put("p_id", p_id);
 			
 			resultmap.put("member", true);
+			System.out.println(daoP.checkP_status(p_id));
+			resultmap.put("onTrade", daoP.checkP_status(p_id));
 			resultmap.put("jjim", daoJ.checkJjim(paramMap));
 			resultmap.put("own", daoP.checkOwn(paramMap));
 		}else{

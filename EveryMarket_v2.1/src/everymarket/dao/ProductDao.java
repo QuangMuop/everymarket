@@ -63,10 +63,19 @@ public class ProductDao {
 		return ibatisTemplate.queryForList("getRandomProductByM_id", m_id);
 	}
 
+	/*Input: p_id / Output: boolean*/
+	public boolean checkP_status(int p_id){
+		String result = (String)ibatisTemplate.queryForObject("checkP_status", p_id);
+		if(result.equals("n")){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
 	/* Input: Map(m_id, p_id) / Output: boolean */
 	public boolean checkOwn(Map<String, Object> paramMap) {
-		int result = (Integer) ibatisTemplate.queryForObject("checkOwn",
-				paramMap);
+		int result = (Integer)ibatisTemplate.queryForObject("checkOwn", paramMap);
 		if (result == 0) {
 			return false;
 		} else {
