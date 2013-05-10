@@ -12,11 +12,11 @@ public class HeaderDwr {
 	public void setDaoMsg(MessageDao daoMsg) {
 		this.daoMsg = daoMsg;
 	}
-
+	
 	public int getCount_unCheckedMessage(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("member");
-
+		
 		return daoMsg.getCount_unCheckedMessage(member.getM_id());
 	}
 }
