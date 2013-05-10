@@ -17,13 +17,15 @@
 				<a class="h_tag" id="header_logout">로그아웃</a>
 				<a id="h_bar" >|</a>
 				<a class="h_tag" href="JJimbasket.do">찜바구니</a>
-				<a href="trade_list.do">거래내역</a>
+				<a id="h_bar" >|</a>
+				<a class="h_tag" href="trade_list.do">거래내역</a>
 				<a id="h_bar" >|</a>
 				<!-- IndivMarket --> 
 				<a class="h_tag" href="goMyMarket.go">내 마켓</a>
 				<a id="h_bar" >|</a>
 				<a class="h_tag" href="goMyPage.go">나의 정보</a>
 				<a id="h_bar" >|</a>
+				<span id="count_alarm" class="h_tag">0</span>
 				<a class="h_tag" id="alarm" href="message_box.do?m_id=${member.m_id }">알리미</a>
 				<div id="alarm_in">
 					<div>
