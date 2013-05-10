@@ -18,7 +18,7 @@
 	
 	<bean id="headerDwr" class="everymarket.dwr.HeaderDwr">
 		<property name="daoMsg" ref="MessageDao"/>
-		<dwr:remote javascript="messageDwr"/>
+		<dwr:remote javascript="headerDwr"/>
 	</bean>
 	
 	<bean id="indivMarketDwr" class="everymarket.dwr.IndivMarketDwr">
