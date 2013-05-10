@@ -1,6 +1,5 @@
 package everymarket.dao;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +14,15 @@ public class MessageDao {
 	
 	public void setIbatisTemplate(SqlMapClientTemplate ibatisTemplate){
 		this.ibatisTemplate = ibatisTemplate;
+	}
+	
+	/*Input: m_id / Output: count(Message)*/
+	public int getCount_unCheckedMessage(String m_id){
+		int count_unCheckedMessage = 0;
+		if(ibatisTemplate.queryForObject("getCount_unCheckedMessage", m_id) != null){
+			count_unCheckedMessage = (Integer)ibatisTemplate.queryForObject("getCount_unCheckedMessage", m_id);
+		}
+		return count_unCheckedMessage;
 	}
 	
 	////////////////////구매요청///////////////////////
