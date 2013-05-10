@@ -26,12 +26,7 @@
 				<a class="h_tag" href="goMyPage.go">나의 정보</a>
 				<a id="h_bar" >|</a>
 				<div id="count_alarm" class="h_tag"><span>0</span></div>
-				<a class="h_tag" id="alarm" href="message_box.do?m_id=${member.m_id }">알리미</a>
-				<div id="alarm_in">
-					<div>
-					알림1
-					</div>
-				</div>
+				<a class="h_tag" id="header_message">알리미</a>
 				<a id="h_bar" >|</a>
 				<a class="h_tag" id="header_chargeCash">캐시충전</a>
 				<a id="h_bar" >|</a>
@@ -255,6 +250,7 @@
 		</form>
 	</div>
 	
+	<div id="list_message" class="popUp hidden"></div>
 	<div id="notifier_message" class="popUp hidden">확인하지 않은 메시지가 있습니다!</div>
 	
 </body>
