@@ -72,10 +72,18 @@
 				</tr>
 				<tr>
 					<th class="row">
-						<p>비밀번호</p>
+						<p>바꿀비밀번호</p>
 					</th>
 					<td>
-						<button id="passchange">비밀번호 변경하기</button>
+						<input id="re_password" class="c_input" type="password">
+					</td>
+				</tr>
+				<tr>
+					<th class="row">
+						<p>바꿀비밀번호재확인</p>
+					</th>
+					<td>
+						<input id="re_password" class="c_input" type="password">
 					</td>
 				</tr>
 				<tr>
