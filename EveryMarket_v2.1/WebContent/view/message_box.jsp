@@ -45,7 +45,7 @@
 				</div>
 				<div id="message_btn">
 					<input type="button" class="bt_sellapprove" value="  승 인  " p_id="${listMessage.p_id }"/>&nbsp; &nbsp; &nbsp;
-					<input type="button" class="bt_sellrefuse"  value="  거 절  " p_id="${listMessage.p_id }"/>${listMessage.p_id }
+					<input type="button" class="bt_sellrefuse"  value="  거 절  " p_id="${listMessage.p_id }"/>
 				</div>
 			</div>
 		</c:forEach>
