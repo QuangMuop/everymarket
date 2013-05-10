@@ -16,6 +16,11 @@
 		<dwr:remote javascript="boardReportDwr"/>
 	</bean>
 	
+	<bean id="headerDwr" class="everymarket.dwr.HeaderDwr">
+		<property name="daoMsg" ref="MessageDao"/>
+		<dwr:remote javascript="messageDwr"/>
+	</bean>
+	
 	<bean id="indivMarketDwr" class="everymarket.dwr.IndivMarketDwr">
 		<property name="daoBR" ref="boardReportDao"/>
 		<property name="daoM" ref="memberDao"/>
