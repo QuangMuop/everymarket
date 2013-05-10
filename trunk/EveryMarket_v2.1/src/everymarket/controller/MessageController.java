@@ -3,6 +3,7 @@ package everymarket.controller;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -78,21 +79,26 @@ public class MessageController {
 	}
 	
 
-	/////////////////////구매 요청 확인///////////////////////////
-	@RequestMapping("/message_box.do")
-	public ModelAndView message_box(@RequestParam("m_id") String m_id){
+	/////////////////////메세지 목록 확인///////////////////////////
+	
+	/*getJSON*/
+	@RequestMapping("/getListMessage.do")
+	public ModelAndView message_box(HttpServletRequest request){
+		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
+		Member member = (Member)session.getAttribute("member");
+		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
-		List<Message> listMessage = messageDao.list(m_id);
-		
-		mav.addObject("listMessage", listMessage);
-		
-		mav.setViewName("view/message_box.jsp");
-		
+		List<Message> listMessage = messageDao.list(member.getM_id());
+		resultMap.put("listMessage", listMessage);
+
+		mav.addAllObjects(resultMap);
+		mav.setViewName("jsonView");
 		return mav;
 	}
 	
 	///////////////구매요청 거절///////////////////////
+	
 	@RequestMapping("/sellrefuse.do")
 	public ModelAndView sellrefuse(@RequestParam("p_id") int p_id){
 		ModelAndView mav = new ModelAndView();
