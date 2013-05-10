@@ -26,6 +26,9 @@
 }
 
 /* Çì´õ css */
+#notifier_message{
+	padding: 10px;	
+}
 #h_out_header{
 	background-color: #fbfbfc;
 	border-bottom: 1px solid #dedede;
@@ -49,7 +52,7 @@
 	height: 300px;
 	position: fixed;
 	margin-top:24px;
-	margin-left: 600px;
+	margin-left: 550px;
 	background-color: white;
 }
 #h_bar{

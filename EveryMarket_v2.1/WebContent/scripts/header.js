@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	
+	/*Configurable Options*/
+	checkMessageInterval = 10000;
+	notifier_remaningTime = 1000;
+	
 	$("#header_login").click(popUp_login);
 	$("#header_register").click(popUp_register);
 	$("#header_chargeCash").click(popUp_chargeCash);
@@ -9,6 +14,38 @@ $(document).ready(function(){
 	function popUp_register(){ $("#register").bPopup(); }
 	function popUp_chargeCash(){ $("#chargeCash").bPopup(); }
 	function tryLogout(){ location.href="logout.do"; }
+	
+	if($("#alarm_in").size() > 0){
+		refreshCount_alarm();
+		setInterval(refreshCount_alarm, checkMessageInterval); 
+	};
+	function refreshCount_alarm(){
+		headerDwr.getCount_unCheckedMessage(callback_getCount_unCheckedMessage);
+		function callback_getCount_unCheckedMessage(data){
+			if(data != Number($("#count_alarm span").html())){
+				$("#count_alarm").append(
+					"<span class='hidden'>" + data + "</span>"
+				).find(".hidden").fadeIn(1000).end().find("span:eq(0)").remove();
+				
+				$("#notifier_message").bPopup({
+					easing: 'easeOutBack',
+					fadeSpeed: 'slow',
+					follow: [false, false],
+					modalClose: false,
+					opacity: 0.3,
+					position: [$("#count_alarm").offset().left - 110, 
+					           $("#count_alarm").offset().top + 18],
+		            speed: 1000,
+		            transition: 'slideDown',
+		            onOpen: function(){
+		            	setTimeout(function(){
+		            		$("#notifier_message").bPopup().close();
+		            	}, notifier_remaningTime);
+		            }
+				});
+			}
+		}
+	}
 	
 	$("#m_id").keyup(function (){
 		$.getJSON(
@@ -100,10 +137,9 @@ $(document).ready(function(){
 						$("#reg_confirm").after("<label id='confirm'>"+data.error+"</label>");
 						$("#submit").attr("disabled", "disabled");
 					}
-				});
-				
+				});		
 			});	
-			});
+		});
 	});
 //	개인알리미
 	$("#alarm").hover(function(){
@@ -162,4 +198,5 @@ $(document).ready(function(){
 	$('#h_logo').click(function(){
 		location.href="enter.go";
 	});
+	
 });

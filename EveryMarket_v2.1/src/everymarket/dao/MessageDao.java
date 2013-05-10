@@ -16,13 +16,9 @@ public class MessageDao {
 		this.ibatisTemplate = ibatisTemplate;
 	}
 	
-	/*Input: m_id / Output: count(Message)*/
+	/*Input: m_id / Output: count(*)*/
 	public int getCount_unCheckedMessage(String m_id){
-		int count_unCheckedMessage = 0;
-		if(ibatisTemplate.queryForObject("getCount_unCheckedMessage", m_id) != null){
-			count_unCheckedMessage = (Integer)ibatisTemplate.queryForObject("getCount_unCheckedMessage", m_id);
-		}
-		return count_unCheckedMessage;
+		return (Integer)ibatisTemplate.queryForObject("getCount_unCheckedMessage", m_id);
 	}
 	
 	////////////////////구매요청///////////////////////

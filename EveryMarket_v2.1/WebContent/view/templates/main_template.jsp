@@ -36,6 +36,7 @@
 <script src="<%=request.getContextPath()%>/dwr/interface/boardReportDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/indivMarketDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/listDwr.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/dwr/interface/headerDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/tradeDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/administer.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/footer.js" type="text/javascript"></script>

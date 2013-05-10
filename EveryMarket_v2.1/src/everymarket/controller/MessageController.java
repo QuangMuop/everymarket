@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,9 +39,10 @@ public class MessageController {
 	///////////////////구매요청///////////////////////
 	
 	@RequestMapping("/purchaseProduct.do")
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=(Exception.class))
 	public ModelAndView purchaseProduct(HttpServletRequest request,
 			@RequestParam("waitingTime") int waitingTime,
-			@RequestParam("p_id") int p_id){
+			@RequestParam("p_id") int p_id)throws Exception{
 		ModelAndView mav = new ModelAndView();
 
 	    HttpSession session = request.getSession();
@@ -50,8 +53,7 @@ public class MessageController {
 	    map.put("m_id", m_id);
 	    map.put("p_id", p_id);
 		
-	    HashMap map2 = messageDao.insert(map);
-
+	    HashMap map2 = messageDao.insert(map);	    
 		messageDao.update_nick(m_id);
 		messageDao.update_pname(p_id);
 		
