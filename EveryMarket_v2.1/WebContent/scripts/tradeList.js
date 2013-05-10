@@ -5,6 +5,25 @@ $(document).ready(function() {
 	
 	var t_status = new Array();
 	
+	//삭제 버튼눌렀을때
+	$(".delete_button").click(function(){
+
+	var p_id = $(this).attr("p_id");
+	alert(p_id);
+
+	$("."+p_id+"j").addClass("dis_tr");
+	
+	tradeDwr.deletejjim_tr(p_id);	
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+	
     $("tr[t_ids]").each(function(index){
         
     	 t_ids[index] = $(this).attr("t_ids");
@@ -84,29 +103,8 @@ $(document).on('click',	function() {
 		
 		tradeDwr.update_status(t_id);
 
-	});
+ 	});
 	
-	//수취확인을 눌렀을시에 바꿔주기
-	/*$(".deliver_submit").click(function(){
-		   
-		var t_id = $(this).attr("t_id");
-		
-		 if(confirm("물품결제를 확정하시겠습니까?")){
-		      tradeDwr.trade_ok(t_id);	
-		      tradeDwr.trade_product_status(t_id);
-		      $("#" + t_id).addClass("dis_tr");		      
-			}else{
-			alert("헐");
-		}
-		
-		
-		
-		
-		
-		
-	});*/
-	
-
 });
 
 

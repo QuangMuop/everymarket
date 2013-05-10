@@ -32,6 +32,7 @@ $(document).ready(function(){
 	
 	$(document).on('click', ".b_thumb", goMarket);
 	$(document).on('click', ".grid", popUp_productInfo);
+	$(document).on('click', ".buyj_button", popUp_productInfo);
 	$(document).on('click', "#now_buy", popUp_productInfo);
 	
 	
