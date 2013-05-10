@@ -11,26 +11,29 @@
 
 	<typeAlias alias="Trade" type="everymarket.model.Trade" />
 
-	<!-- 구매요청 시 거래 내역 생성   -->
+	<!-- 구매요청 시 거래 내역 생성 -->
 	<insert id="insertTrade" parameterClass="java.util.HashMap">
 		insert into trade(
-			t_id, t_buyer, p_id, t_status, t_del_number
-		)values(t_id_seq.NEXTVAL, #m_id#, #p_id#, 0, 0)
+		t_id, t_buyer, p_id, t_status, t_del_number
+		)values(t_id_seq.NEXTVAL,
+		#m_id#, #p_id#, 0, 0)
 	</insert>
-	
+
 	<!-- 판매자 아이디 업데이트 -->
 	<update id="update_t_seller" parameterClass="int">
 		update trade set
-			t_seller = (select p.m_id from member m join product p on m.m_id = p.m_id where p.p_id=#p_id#)
+		t_seller = (select p.m_id from member m join product p on m.m_id =
+		p.m_id where p.p_id=#p_id#)
 		where p_id = #p_id#
 	</update>
-	
+
 	<!-- 구매요청 거절시 거래내역 삭제 -->
 	<delete id="deleteTrade" parameterClass="int">
 		delete from trade
-		where p_id = #p_id#
+		where
+		p_id = #p_id#
 	</delete>
-	
+
 	<!-- 구매요청 승인시 승인날짜와 거래상태 1(배송준비중)로 변경 -->
 	<update id="update_approve" parameterClass="int">
 		update trade set
@@ -40,9 +43,10 @@
 
 	<select id="getM_nameByP_id" resultClass="String">
 		select m.m_name
-		from member m
-		  join trade t
-		  on m.m_id = t.t_buyer
+		from
+		member m
+		join trade t
+		on m.m_id = t.t_buyer
 		where t.p_id = #p_id#
 	</select>
 
@@ -70,34 +74,36 @@
 		p.m_id =
 		#m_id# and t.t_status between 1 and 3
 	</select>
-	
+
 	<!-- 거래완료된 판 물품들을 뿌려주기 -->
 	<select id="getSCompleteList" resultClass="Trade">
-	    select t.t_id,
-		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status, t.t_del_number,
+		select t.t_id,
+		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status,
+		t.t_del_number,
 		p.p_name,
 		p.p_price from
 		trade t
-		join product p on t.p_id = p.p_id
+		join product p on t.p_id
+		= p.p_id
 		where
-		p.m_id =
-		#m_id# and t.t_status = 4 and t.t_seller = #m_id#
+		t.t_status = 4 and t_seller = #m_id#
 	</select>
-	
-	<!-- 거래 완료된 산 물건 보여주기  -->
+
+	<!-- 거래 완료된 산 물건 보여주기 -->
 	<select id="getBCompleteList" resultClass="Trade">
-	    select t.t_id,
-		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status, t.t_del_number,
+		select t.t_id,
+		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status,
+		t.t_del_number,
 		p.p_name,
 		p.p_price from
 		trade t
-		join product p on t.p_id = p.p_id
+		join product p on t.p_id
+		= p.p_id
 		where
-		p.m_id =
-		#m_id# and t.t_status = 4 and t.t_buyer = #m_id#
+		t.t_status = 4 and t_buyer = #m_id#
 	</select>
-	
-	
+
+
 
 	<!-- 운송번호입력과 거래상태를 바꿔주는 쿼리문 -->
 	<update id="update_deliver_number">
@@ -108,69 +114,71 @@
 
 	<!-- 배송 완료됐을시 status바꿔주기 -->
 	<update id="update_deliver_ok">
-		update trade set t_status = #t_status# where t_id = #t_id#
+		update trade set t_status = #t_status# where t_id =
+		#t_id#
 	</update>
-	
-	
+
+
 	<select id="db_number_remainday" resultClass="String">
-		select to_char(t_date + 5, 'dd') - to_char(sysdate, 'dd') from trade where t_id = #t_id#
+		select
+		to_char(t_date + 5, 'dd') - to_char(sysdate, 'dd') from trade where
+		t_id = #t_id#
 	</select>
-	
-	
+
+
 	<delete id="trade_delete">
-	    delete from trade where t_id = #t_id#	
+		delete from trade where t_id = #t_id#
 	</delete>
-	
-	
-	
+
+
+
 	<update id="trade_ok">
-	   update trade set t_status = 4 where t_id = #t_id#
-    </update>
-	
+		update trade set t_status = 4 where t_id = #t_id#
+	</update>
+
 	<!-- 포인트 비교해서 거래가능 여부 확인하기 -->
 	<select id="member_point" parameterClass="String" resultClass="Integer">
-		select m_cash 
+		select m_cash
 		from member
-		where m_id=#m_id#		
+		where m_id=#m_id#
 	</select>
-	
+
 	<select id="trade_point" parameterClass="String" resultClass="Integer">
-		select sum(p.p_price) 
-		from trade t join product p on t.p_id=p.p_id 
+		select sum(p.p_price)
+		from trade t join product p on t.p_id=p.p_id
 		where t.t_buyer=#m_id# and t_status &#60;> 4
 	</select>
-	
+
 	<select id="product_price" parameterClass="int" resultClass="Integer">
 		select p_price from product
 		where p_id=#p_id#
 	</select>
-	
 
-	
-	
-<!-- 	<select id="get_p_ids" resultClass="Integer">
-	 
-	   select t_id from trade where t_seller = 'ee' and t_status = 1	
-	
-	</select> -->
-	
+
+
+
+	<!-- <select id="get_p_ids" resultClass="Integer"> select t_id from trade 
+		where t_seller = 'ee' and t_status = 1 </select> -->
+
 
 
 	<select id="getT_instance" resultClass="trade">
 		select t.t_id,
-		t.t_buyer, t.t_seller, t.p_id,  t.t_date, t.t_status, t.t_del_number,
+		t.t_buyer,
+		t.t_seller, t.p_id, t.t_date, t.t_status, t.t_del_number,
 		p.p_name,
 		p.p_price from
 		trade t
 		join product p on t.p_id = p.p_id
 		where
-		t.t_id = #t_id#
+		t.t_id =
+		#t_id#
 	</select>
-	
-	
+
+
 	<!-- 포인트 비교하여 거래 가능 여부 정하기 -->
-	
-	
-	
+
+
+
 
 </sqlMap>

@@ -25,7 +25,7 @@ public class MessageDao {
 		
 		int p_id = (int)map.get("p_id");
 		
-		int msg_id=(Integer)ibatisTemplate.queryForObject("get_msg_id", p_id);
+		int msg_id= (Integer)ibatisTemplate.queryForObject("get_msg_id", p_id);
 		Date msg_date = (Date)ibatisTemplate.queryForObject("get_msg_date", p_id);
 		
 		HashMap map2 = new HashMap<>();

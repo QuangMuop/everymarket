@@ -111,7 +111,7 @@
 	<select id="getProduct_min" resultClass="Product">
 		select * from product
 		where p_price = (select min(p_price) from product
-		where p_status = 'n')
+		where p_status = 'n') and p_status = 'n'
 	</select>
 
 

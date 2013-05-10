@@ -22,12 +22,41 @@ $(document).ready(function(){
 		$("#contents3").fadeIn();
 	});
 	$("#c_ok1").click(function(){
+		
+		var re_pass =  $("#c_inner_pass_input1").val();
+		var ori_pwd = $(this).attr("pass");
+		/*alert(re_pass);*/
+		
+//		if(re_pass == ori_pwd){
+		
 		$("#re_member").fadeIn();
 		$("#c_inner1").fadeOut();
+//		}else{
+//			alert("비밀번호가 일치하지 않습니다.");
+//		}
 	});
 	$("#c_ok2").click(function(){
-		$("#m_cash_detail").fadeIn();
-		$("#c_inner2").fadeOut();
+		var re_pass =  $("#c_inner_pass_input2").val();
+		alert(re_pass);
+		var ori_pwd = $(this).attr("pass");
+		
+		if(re_pass == ori_pwd){
+			$("#m_cash_detail").fadeIn();
+			$("#c_inner2").fadeOut();
+			}else{
+			alert("비밀번호가 일치하지 않습니다.");
+		}   
+		
+		
+	 $("#c_ok_update").on('click',function(){
+		 /*var cc= $("select > option:selected").val();*/
+			 alert("cc");
+
+			 
+			 
+	 });
+		
+		
 	});
 //	mymenu end
 	

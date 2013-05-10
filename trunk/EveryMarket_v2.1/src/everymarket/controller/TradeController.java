@@ -76,14 +76,15 @@ public class TradeController {
 
 		// 거래 완료된 산 물품들
 		List<Trade> completeBList = daoT.getBCompleteList(m_id);
+	
 
 		// 거래 완료된 판 물품들
 		List<Trade> completeSList = daoT.getSCompleteList(m_id);
 
 		mav.addObject("buyingList", buyingList);
 		mav.addObject("sellingList", sellingList);
-		mav.addObject("completeBList", completeBList);
-		mav.addObject("completeBList", completeSList);
+		mav.addObject("completeBList", completeBList);		
+		mav.addObject("completeSList", completeSList);
 
 		mav.setViewName("trade_list");
 
@@ -120,7 +121,7 @@ public class TradeController {
 		 * mav.addObject("error", "거래가 완료되지 못했습니다");
 		 * mav.setViewName("errorPage"); return mav; }
 		 */
-		mav.setViewName("trade_list.do");
+		mav.setViewName("trade_list");
 		return mav;
 	}
 

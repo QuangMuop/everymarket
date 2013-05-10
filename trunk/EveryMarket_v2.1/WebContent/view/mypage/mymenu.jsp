@@ -39,15 +39,15 @@
 			<div id="c_inner_block">
 				<div class="c_inner_input">
 					<img alt="" class="repass_img" id ="repass_id" src="image_mypage/id.png">
-					<a>아이디</a>
+					<a>${member.m_id}</a>
 				</div>
 				<div class="c_inner_input">
 					<img alt="" class="repass_img" src="image_mypage/password.png">
-					<input id="c_inner_pass_input" type="password">
+					<input id="c_inner_pass_input1" type="password">
 					회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.
 				</div>
 			</div>
-				<button class="c_button" id="c_ok1">확인</button>
+				<button class="c_button" id="c_ok1" pass="${member.m_pwd}">확인</button>
 				<button class="c_button" id="c_cencle1">취소</button>
 		</div>
 		<div id="re_member"  class="c_inner_hidden">
@@ -59,7 +59,7 @@
 						<p>이름</p>
 					</th>
 					<td>
-						이름
+						${member.m_name}
 					</td>
 				</tr>
 				<tr>
@@ -67,7 +67,7 @@
 						<p>아이디</p>
 					</th>
 					<td>
-						아이디
+						${member.m_id }
 					</td>
 				</tr>
 				<tr>
@@ -93,7 +93,7 @@
 						<p>휴대폰 번호</p>
 					</th>
 					<td>
-						<select>
+						<select id="select_phone">
 							<option>010</option>
 							<option>011</option>
 							<option>017</option>
@@ -103,7 +103,7 @@
 					</td>
 				</tr>
 			</table>
-				<button class="c_button" id="c_ok">확인</button>
+				<button class="c_button" id="c_ok_update">확인</button>
 				<button class="c_button" id="c_cencle">취소</button>
 		</div>
 	</div>
@@ -119,15 +119,15 @@
 			<div id="c_inner_block">
 				<div class="c_inner_input">
 					<img alt="" class="repass_img" id ="repass_id" src="image_mypage/id.png">
-					<a>아이디</a>
+					<a>${member.m_id}</a>
 				</div>
 				<div class="c_inner_input">
 					<img alt="" class="repass_img" src="image_mypage/password.png">
-					<input id="c_inner_pass_input" type="password">
+					<input id="c_inner_pass_input2" type="password">
 					회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.
 				</div>
 			</div>
-				<button class="c_button" id="c_ok2">확인</button>
+				<button class="c_button" id="c_ok2" pass="${member.m_pwd}">확인</button>
 				<button class="c_button" id="c_cencle2">취소</button>
 		</div>
 		<div id="m_cash_detail"  class="c_inner_hidden">
@@ -142,7 +142,7 @@
 				<div id="my_cash">
 					<div>
 						<a>보유 CASH량은</a>
-						<a id="my_cash_view">0</a>
+						<a id="my_cash_view">${member.m_cash }</a>
 						<a>입니다.</a>
 					</div> 
 				</div>
@@ -173,7 +173,7 @@
 				<div id="my_cash">
 					<div>
 						<a>보유 CASH량은</a>
-						<a id="my_cash_view">0</a>
+						<a id="my_cash_view">${member.m_cash }</a>
 						<a>입니다.</a>
 					</div> 
 				</div>

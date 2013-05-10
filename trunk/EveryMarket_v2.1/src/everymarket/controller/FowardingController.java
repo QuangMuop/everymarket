@@ -59,8 +59,9 @@ public class FowardingController {
 		List<Object4Skitter> listSkitter = getDataForSkitter();
 		List<Product> listProduct = daoP.ListProduct(category, 5, searchtext);
 
+		//최저가 상품 
 		Product product_min = daoP.getProduct_min();
-	   
+	    //그 상품을 가진 멤버
 		Member member_min = daoM.getProduct_min_nick(product_min.getM_id());
 		String member_min_nick = member_min.getM_nick();
 
@@ -70,7 +71,7 @@ public class FowardingController {
 		mav.addObject("listProduct", listProduct);
 		mav.addObject("member_min_nick", member_min_nick);
 
-		// 하고지우자
+		//최저가 상품
 		mav.addObject("product_min", product_min);
 
 		mav.setViewName("main");
@@ -87,6 +88,8 @@ public class FowardingController {
 		return mav;
 	}
 	
+	
+	//마이페이지 수정
 	@RequestMapping("/goMyPage.go")
 	public ModelAndView goMyPage(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -94,6 +97,8 @@ public class FowardingController {
 		Member member = (Member) session.getAttribute("member");
 
 		mav.setViewName("goMyPage");
+		mav.addObject("member", member);
+		
 		return mav;
 	}
 

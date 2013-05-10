@@ -75,7 +75,7 @@ public class JjimController {
 		return mav;
 	}
 
-	@RequestMapping("/JJimbasket.do")
+	/*@RequestMapping("/JJimbasket.do")
 	public ModelAndView JjimList(HttpSession session) {
 
 		ModelAndView mav = new ModelAndView();
@@ -122,5 +122,38 @@ public class JjimController {
 		mav.addObject("size_JRListJJim", size_JRListJJim);
 
 		return mav;
+	}*/
+	
+	
+	@RequestMapping("/JJimbasket.do")
+	public ModelAndView JjimList(HttpSession session) {
+
+		ModelAndView mav = new ModelAndView();
+
+		// 내가 찜한 목록
+		ArrayList<JjimResult> listJJim = new ArrayList<JjimResult>();
+
+	
+		// 내가 찜한 목록
+	/*	listJJim = daoJ.JjimList(member.getM_id());
+		int size_JRListJJim = listJJim.size();*/
+
+		// 추가하기 jjimbasket.jsp파일에서 뿌려줄 것들이에요 jsp파일 구조는 전이랑 똑같습니다
+		// css파일만 저번에 껄로 추가하면 똑같이 나올거같아요
+		
+
+		return mav;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
