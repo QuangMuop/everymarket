@@ -4,13 +4,109 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
 <title>Insert title here</title>
+<style type="text/css">
+body{
+margin: 0px;
+background-image: url(../../image_mypage/ema2.png);
+}
+#r_title{
+background-color: #dc2342;
+height: 45px;
+}
+#r_alert{
+margin:15px;
+font-size: 11px;
+color:#666666;
+padding-left: 15px;
+}
+#r_alert li{
+margin-bottom: 10px;
+}
+#r_insert_table{
+border-top: 2px solid #454545;
+margin: 15px;
+width:650px;
+border-spacing: 0px;
+border-bottom: 1px solid #cccccc;
+}
+#r_insert_table tr{
+height: 35px;
+}
+#r_insert_table th{
+background-color: #f8f8f8;
+text-align: left;
+color:#4d4d4d;
+font-size: 12px;
+padding-left: 10px;
+border-bottom: 1px solid #ececec;
+}
 
+#r_insert_table td{
+padding-left:10px;
+font-size:12px;
+border-bottom: 1px solid #ececec;
+}
+#r_inner_table{
+border-spacing: 0px;
+border-top: 1px solid #58cbba;
+margin-left: 10px;
+}
+#r_inner_table th{
+text-align: center;
+bo
+}
+#r_inner_table tr{
+height: 25px;
+text-align: center;
+}
+#r_inner_table td{
+color:#808080;
+font-size: 11px;
+}
+#respond_num{
+border: 1px solid #e5e5e5;
+font-size: 11px;
+width:180px;
+}
+#r_line{
+color:#4d4d4d;
+}
+#respond_name{
+border: 1px solid #e5e5e5;
+font-size: 11px;
+width:100px;
+}
+#r_request{
+border: 1px solid #f30e09;
+color:#f30e09;
+font-size: 12px;
+background-color: #ffece5;
+height: 30px;
+width:80px;
+border-radius:2px;
+margin-left: 300px;
+cursor: pointer;
+}
+#r_requset_button{
+height: 17px;
+margin: 8px;
+
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#r_request").click(function(){
+		alert("환급신청이 완료되었습니다^^ 관리자 승인 후 환급되겠습니다.");
+	});
+});
+</script>
 </head>
 <body>
 <div id="cash_respond">
 	<div id="r_title">
-		<img alt="" src="image_mypage/respond_title.png">
+		<img alt="" src="../../image_mypage/respond_title.png">
 	</div>
 	<ul id="r_alert">
 		<li>cash인출 시 최소금액은 1회 1000원 이며 최대금액은 1외 200만원입니다.</li>
@@ -78,7 +174,7 @@
 		</table>
 	</div>
 	<div id="r_request">
-		<img alt="" id="r_requset_button" src="image_mypage/respond_request.png">
+		<img alt="" id="r_requset_button" src="../../image_mypage/respond_request.png">
 	</div>
 </div>
 </body>

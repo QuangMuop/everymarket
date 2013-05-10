@@ -2,11 +2,8 @@
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>	
+<body>
+<div id="mypage_body">
 	<div id="side_bar">
 		<div id="b_bottomline">
 		<img alt="" src="image_mypage/mymarket.png">
@@ -185,6 +182,7 @@
 				<button class="c_button" id="c_cencle">취소</button>
 		</div>
 	</div>	
+</div>
 </div>
 </body>
 </html>

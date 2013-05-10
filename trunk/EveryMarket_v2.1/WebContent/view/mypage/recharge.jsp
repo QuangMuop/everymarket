@@ -4,11 +4,195 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
 <title>Insert title here</title>
+<style type="text/css">
+body{
+margin: 0px;
+background-image: url(../../image_mypage/ema2.png);
+
+}
+#cash_buy_title{
+background-color: #dc2342;
+border-bottom: 1px solid #e73654;
+}
+#cash_buy_title img{
+margin-left: 20px;
+}
+#cash_buy_inner{
+margin: 10px;
+border-top: 2px solid #454545;
+width: 680px;
+}
+.c_rows{
+text-align: left;
+background-color: #f8f8f8;
+}
+.c_buy_contents{
+border-spacing:0px;
+}
+#recharge_logic{
+float:left;
+width: 680px;
+height: 130px;
+}
+.recharge_box{
+ background-color: #ffffff;
+ float: left;
+ border: 1px solid #e71919;
+ height: 75px;
+ margin: 20px;
+}
+
+.recharge_box_title{
+background-color: #e71919;
+height: 25px;
+width: 140px;
+margin-bottom: 20px;
+}
+.recharge_box a{
+
+color:#050505;
+font-size: 14px;
+font-weight: bold;
+float: right;
+margin-right: 10px;
+}
+.cash_recharge{
+height: 220px;
+}
+#box_first{
+margin-left: 75px;
+}
+.box_img{
+width:100px;
+height: 15px;
+margin: 5px;
+margin-left: 20px;
+}
+.input_cash{
+width: 100px;
+float: right;
+margin-right: 10px;
+}
+#cash_buy_inner ul li{
+font-size: 11px;
+ color:#666666;
+ list-style-type: square;
+ margin: 5px;
+}
+#c_inner_pass_input{
+border: 1px solid #bbbbbb;
+width:120px;
+text-align: right;
+}
+.c_buy_contents{
+margin: 10px;
+border-top: 2px solid #454545;
+width: 672px;
+border-bottom: 1px solid #cccccc;
+}
+.c_buy_contents th{
+color:#4d4d4d;
+font-size: 13px;
+padding-left: 10px;
+height: 25px;
+}
+.c_buy_contents td{
+color: #666666;
+font-size: 12px;
+padding-left: 10px;
+}
+.c_buy_contents p{
+margin: 0px;
+}
+#c_contents_midbar{
+border-top: 1px solid #ececec;
+}
+.hidden{
+display: none;
+}
+#select_detail1 *{
+padding-left: 5px;
+}
+.c_button{
+width:80px;
+height:35px;
+font-weight: bold; 
+margin-top: 15px;
+cursor: pointer;
+border: 1px solid #f40e09;
+background: linear-gradient(to bottom, #fffdfd 0%,#ffebe4 100%);
+color:#f40e09;
+margin-right: 10px;
+}
+#c_recharge_finish_button{
+margin-left: 240px;
+}
+.select2_button{
+border: 1px solid #a6a6a6;
+font-size: 12px;
+color: #666666;
+background: linear-gradient(to bottom, #fdfdfd 1%,#f6f6f6 100%); 
+margin-right: 10px;
+}
+
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#select1").click(function(){
+		$("#select_detail1").fadeIn();
+		$("#select_detail2").fadeOut();
+		$("#select_detail3").fadeOut();
+		$("#select_detail4").fadeOut();
+	});
+	$("#select2").click(function(){
+		
+		$("#select_detail1").fadeOut();
+		$("#select_detail2").fadeIn();
+		$("#select_detail3").fadeOut();
+		$("#select_detail4").fadeOut();
+	});
+	$("#select3").click(function(){
+		
+		$("#select_detail1").fadeOut();
+		$("#select_detail2").fadeOut();
+		$("#select_detail3").fadeIn();
+		$("#select_detail4").fadeOut();
+	});
+	$("#select4").click(function(){
+		
+		$("#select_detail1").fadeOut();
+		$("#select_detail2").fadeOut();
+		$("#select_detail3").fadeOut();
+		$("#select_detail4").fadeIn();
+	});
+	
+	$("#c_recharge_finish_button").click(function(){
+		window.open("recharge_finish.jsp","bb","width=600,height=500,resizalbe=no");	
+	});
+
+	$("#trensfer").click(function(){
+		window.open("trensfer.jsp","cc","width=380,height=500,resizalbe=no");	
+	});
+	
+	$("#bank_time").click(function(){
+		window.open("bank_time.jsp","dd","width=600,height=500,resizalbe=no");	
+	});
+	
+	$("#phone_buy").click(function(){
+		window.open("phone_buy.jsp","ee","width=550,height=500,location=no");	
+	});
+	
+	$("#card_buy").click(function(){
+		window.open("card_buy.jsp","ee","width=550,height=550,location=no");	
+	});
+});
+</script>
 </head>
 <body>
 	<div id="cash_buy_title">
-		<img alt="" src="buy_title.png">		
+		<img alt="" src="../../image_mypage/buy_title.png">		
 	</div>
 	<div id="cash_buy_inner">
 		<ul>
@@ -21,19 +205,19 @@
 		<div id="recharge_logic">
 					<div class="recharge_box" id="box_first">
 						<div class="recharge_box_title">
-							<img class="box_img" alt="" src="image_mypage/now_cash.png">
+							<img class="box_img" alt="" src="now_cash.png">
 						</div>
 						<a>0</a>
 					</div>
 					<div class="recharge_box">
 						<div class="recharge_box_title">
-							<img class="box_img"  alt="" src="image_mypage/recharge_cash.png">
+							<img class="box_img"  alt="" src="recharge_cash.png">
 						</div>
 						<input type="text" id="c_inner_pass_input" class="input_cash" value="0">
 					</div>
 					<div class="recharge_box">
 						<div class="recharge_box_title">
-							<img class="box_img"  alt="" src="image_mypage/after_cash.png">
+							<img class="box_img"  alt="" src="after_cash.png">
 						</div>
 						<a>0</a>
 					</div>
