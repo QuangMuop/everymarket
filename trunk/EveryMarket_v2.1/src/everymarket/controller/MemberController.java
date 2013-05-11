@@ -21,6 +21,7 @@ import everymarket.dao.DangolDao;
 import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.ReviewDao;
+import everymarket.dao.TradeDao;
 import everymarket.model.BanList;
 import everymarket.model.Blog;
 import everymarket.model.Member;
@@ -35,7 +36,12 @@ public class MemberController {
 	private MemberDao daoM;
 	private ProductDao daoP;
 	private ReviewDao daoR; 
+	private TradeDao daoT;
+	
 
+	public void setDaoT(TradeDao daoT) {
+		this.daoT = daoT;
+	}
 	public void setDaoB(BlogDao daoB) {
 		this.daoB = daoB;
 	}
@@ -83,7 +89,15 @@ public class MemberController {
 				return mav;
 			}
 			session.setAttribute("member", member);
-			mav.setViewName("redirect:enter.go");
+			
+			int member_point = daoT.member_point(m_id);
+			int trade_point = daoT.trade_point(m_id);
+			
+			int rest_point = (member_point)-(trade_point);
+			
+			mav.addObject("rest_point", rest_point);
+			
+			mav.setViewName("forward:enter.go");
 			return mav;
 		}else{
 			mav.addObject("error", "로그인에 실패하였습니다.");
