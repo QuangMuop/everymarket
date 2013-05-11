@@ -9,29 +9,61 @@
 <center>
 
 	<div id="indivMarketWrapper" owner_id="${owner.m_id }">
-
-		<div id="blog_b_main"> <img src="image_blog/${blog.b_main }"> </div>
-		<div id="blog_b_thumb"> <img src="image_blog/${blog.b_thumb }"> </div>
-		<h1>${owner.m_name }님의 가게</h1>
-		
-		<div id="bar_button_indivMarket">
-			<div id="bar_button_indivMarket_left"></div>		
-			<div id="bar_button_indivMarket_right"></div>		
+		<div id="blog_b_main">
+			<img id="b_m_image" src="image_blog/${blog.b_main }">
+			<div id="blog_b_main_side">
+				<div id="bar_button_indivMarket_left"></div>
+				<div id="bar_button_indivMarket_right"></div>
+			</div>
 		</div>
-		
-		<div id="homeInfo">
-			<div id="blog_b_map"> <img src="${blog.b_map }"> </div>
-			<div id="blog_b_content"> ${blog.b_content } </div>
-			<div id="blog_b_hit">조회수: ${blog.b_hit }</div>
-			<div id="count_dangol">단골수: ${count_dangol }</div>
-			<div id="count_review">상품평: ${count_review }</div>
+		<div id="blog_b_thumb">
+			<div id="b_f_line">
+				<div id="b_thumb_wrapper">
+					<img id="b_thumb" src="image_blog/${blog.b_thumb }">
+				</div>
+				<a class="blog_m_name">${owner.m_name }</a>
+				
+				<a id="blog_b_hit">이 가게에 방문한 사람 : ${blog.b_hit }</a>
+			</div>
+			<div id="b_s_line">
+				<p>가게소개</p>
+				<a id="blog_b_content"> ${blog.b_content } </a>
+			</div>
+			<div id="blog_b_map" class="b_s_line_box">
+					<img src="${blog.b_map }">
+			</div>
+			<div class="b_s_line_box">
+				<div id="count_dangol">
+					<a>${count_dangol }</a>
+					<img alt="" id="all_f" src="image_blog_source/all_friends.png">
+				</div>
+			</div>
+			<div class="b_s_line_box">
+				<div id="count_review">
+					<a>${count_review }</a>
+					<img alt="" id="review_count" src="image_blog_source/editprofile.png">
+				</div>
+			</div>
+			<div id="b_t_line">
+				<a id="b_t_line_first">리뷰</a>
+				<a id="b_t_line_center">단골손님</a>
+				<a>가게 위치</a>
+			</div>
 		</div>
-		
+				
+				
+	
 		<div id="productContainer">	
 			<c:forEach var="product" items="${listProduct }">
-				<div class="product" p_id="${product.p_id }">${product.p_name }</div>	<br>
+				<div class="product" p_id="${product.p_id }">
+<%-- 					${product.p_name } --%>
+					<img alt="" class="p_img" src="image_product/${product.p_img }">
+				</div>	<br>
 			</c:forEach>
 		</div>
+
+	
+	
 	
 	</div>
 	

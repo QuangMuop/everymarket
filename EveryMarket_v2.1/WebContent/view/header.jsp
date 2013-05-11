@@ -58,9 +58,8 @@
 	</div>
 	<!--logo-image,search -->
 	<div id="h_mid">
-		<div id="h_logo">
-			
-		</div>
+		<img id="h_logo" src="images/header/logo_everymarket.gif">
+
 		<div id="h_searchbar">
 			<form action="search_result.do" id="h_searchline" method="post">
 						<input id="h_search" class="search-input" name="search_content" 
@@ -173,15 +172,34 @@
 			</ul>
 	</div>
 	
-	<br><br>
 	
 	<!-- Header 팝업창들 -->
 	<div id="login" class="popUp hidden">
-		<form action="login.do" method="post">
-			<input name="m_id" type="text" placeholder="아이디를 입력하세요" size="20"><br><br>
-			<input name="m_pwd" type="password" placeholder="비밀번호를 입력하세요" size="20"><br><br>
-			<input type="submit" value="로그인"><br><br>
-		</form>
+		<div id="login_box">
+			<img id="login_title_img" alt="" src="image_popup/login_title.png">
+			<div id="login_inner_box">
+				<form action="login.do" id="login_form" method="post">
+					<input class="login_input" name="m_id" type="text" placeholder="아이디를 입력하세요" size="20"><br><br>
+					<input class="login_input" name="m_pwd" type="password" placeholder="비밀번호를 입력하세요" size="20"><br><br>
+						<div id="login_button_box">
+							<img id="login_button_img" alt="" src="image_popup/login_button.png">
+							<input id="login_button" type="submit" value="">
+						</div>	
+					
+				</form>
+			</div>
+			<div id="login_inner_box">
+				<button id="join_button" >
+					<img class="login_bottom_button"alt="" src="image_popup/m_join.png">
+				</button>
+				<button id="find_button" >
+					<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
+				</button>
+				<button id="find_button" >
+					<img class="login_bottom_button"alt="" src="image_popup/password_find.png">
+				</button>
+			</div>
+		</div>
 	</div>
 	
 	<div id="register" class="popUp hidden">

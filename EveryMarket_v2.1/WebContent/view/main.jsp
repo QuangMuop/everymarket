@@ -98,9 +98,7 @@
 	
 	<c:if test="${error != null }">	${error } </c:if>
 
-	<div id="container_grid">
-		<div class='all_content'>
-			<div id="wrapper">
+	
 			<div id="item_container" category="${category}"
 				searchtext="${searchtext}">
 				<c:forEach var="product" items="${listProduct}">
@@ -112,9 +110,7 @@
 					</div>
 				</c:forEach>
 			</div>
-			</div>
-		</div>
-	</div>
+		
 	
 
 </body>

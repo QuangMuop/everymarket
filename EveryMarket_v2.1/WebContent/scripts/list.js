@@ -2,7 +2,7 @@ $(document).ready(
 		function() {
 			// 이건 이번프로젝트 dwr을 쓴 scoll처리 부분입니다!!
 			$('#item_container').BlocksIt({
-				numOfCol : 5,
+				numOfCol : 6,
 				offsetX : 8,
 				offsetY : 8
 			});

@@ -1,5 +1,223 @@
 @CHARSET "EUC-KR";
 
+#indivMarketWrapper{
+	width:1020px;
+
+}
+#blog_top_title{
+float: left;
+width:1020px;
+background-color:#cddfff;
+height: 40px;
+padding-top: 10px;
+border-bottom: 1px solid #3b5998;
+z-index: 0px;
+}
+.blog_m_name{
+font-weight: bold;
+color:#3b5998;
+font-size: 25px;
+float: left;
+padding-left: 140px;
+font-family: monospace;
+}
+#b_m_image{
+	float:left;
+	width: 800px;
+	height: 200px;
+	border: 1px solid #c4cde0;
+}
+#b_title{
+	height: 30px;
+	float: left;
+}
+#blog_b_thumb{
+	
+	width:1020px;
+	height: 150px;
+	border: 1px solid #c4cde0;
+	border-radius:2px;
+}
+#blog_b_main{
+	
+	width: 1020px;
+	height: 205px;
+}
+#blog_b_main_side{
+	background-color:#3b5998;
+	float:right;
+	width:210px;
+	height: 190px;
+	border-bottom:1px solid #7d91ba;
+}
+#b_thumb_wrapper{
+	border: 1px solid #a1a4a9;
+	border-radius:2px;
+	padding: 3px;
+	float: left;
+	margin-top: -80px;
+	margin-left: 10px;
+	position:absolute;
+	z-index: 10px;
+	background-color: white;
+}
+#blog_b_content{
+	float: left;
+	font-size: 13px;
+	color: #333333;
+	margin-left: 10px;
+	margin-top: 10px;
+	text-align:left;
+}
+#b_f_line{
+	width:1000px;
+	height:30px;
+}
+#b_s_line{
+	background-color: #f1f3f8;
+	border: 1px solid #e5e7eb;
+	border-radius:2px;
+	width:700px;
+	height:80px;
+	float: left;
+	margin-top: 10px;
+}
+#b_s_line p{
+	text-align:left;
+	font-size:15px;
+	color:#808080;
+	padding-left: 10px;
+}
+#blog_b_map img{
+	width:80px;
+	height: 80px;
+	border-radius:3px;
+}
+#blog_b_map{
+	
+}
+.b_s_line_box{
+	width:80px;
+	height:80px;
+	float: left;
+	margin-top: 10px;
+	border: 1px solid #e5e7eb;
+	margin-left: 17px;
+	border-radius:3px;
+	background-color: #f1f3f8;
+}
+#count_dangol a{
+	font-size: 25px;
+	font-weight: bold;
+	float: left;
+	margin-top: 10px;
+	margin-left: 35px;
+}
+#all_f{
+	margin-left:20px;
+	float:left;	
+	width:40px;
+	height: 40px;	
+}
+#count_review a{
+	font-size: 25px;
+	font-weight: bold;
+	float: left;
+	margin-top: 10px;
+	margin-left: 35px;
+}
+#review_count{
+	margin-left:20px;
+	float:left;	
+	width:40px;
+	height: 35px;	
+}
+#blog_b_hit{
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 12px;
+	color:#808080;
+}
+#b_t_line{
+	width:1000px;
+	float: left;	
+}
+#b_t_line a{
+	float: right;
+	margin-top:5px;
+	font-size: 11px;
+	color: #3b5998
+}
+#b_t_line_first{
+	margin-right: 30px;
+	
+}
+#b_t_line_center{
+	margin-right: 65px;
+	margin-left: 55px;
+}
+#bar_button_indivMarket_left{
+	float: left;
+	margin-left: 10px;
+}
+#button_goMain{
+	float:left;
+}
+#home_go{
+	height: 30px;
+}
+.b_s_button{
+	border: 2px outset #959595;
+	margin-top: 5px;
+	border-radius:3px;
+	cursor: pointer;
+	background-color: #5d76aa;
+	float: left;
+	height: 30px;
+	width:180px;
+}
+#b_m_s_button{
+	height: 28px;
+}
+
+#button_reportMember{
+	height: 28px;
+}
+#police_button{
+	margin-top: 5px;
+	border-radius:3px;
+	cursor: pointer;
+	float: left;
+	border: 2px outset #db1820;
+	border-radius:3px;
+	background-color: #db1820;
+	margin-right: 5px;
+	width:180px;
+}
+#bar_button_indivMarket_right{
+	float: left;
+	margin-left: 10px;
+}
+
+#button_showMyDangol{
+	
+}
+#productContainer{
+	float: left;
+	width: 1031px;
+	position: relative;
+}
+.product{
+	border:1px solid #4b67a0;
+	float: left;
+	position: 
+}
+.p_img{
+	width:183px;
+	
+}
+
 .button_tab{
 	display: inline-block;
 	padding: 5px;
@@ -10,6 +228,7 @@
 }
 
 #button_reportMember{
+	
 	border-radius: 6px;
 	cursor: pointer;
 }
