@@ -52,12 +52,21 @@ public class IndivMarketDwr {
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("member");
 		
-		System.out.println("¿äÃ»µé¾î¿È");
-		
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("rep_writer", member.getM_id());
 		paramMap.put("rep_memberId", m_id);
 		
 		return daoBR.checkAlreadyReported(paramMap);
+	}
+	
+	public int updateEventCash(int eventCash, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		
+		int m_cash = member.getM_cash() + eventCash;
+		member.setM_cash(m_cash);
+
+//		daoM.updateEventCash(member);
+		return m_cash;
 	}
 }

@@ -86,8 +86,12 @@ public class MemberDao {
 		ibatisTemplate.update("updateM_report", m_id);
 	}
 
+	/*Input: Member*/
+	public void updateEventCash(Member member){
+		ibatisTemplate.update("updateEventCash", member);
+	}
+	
 	public Member getProduct_min_nick(String m_id) {
-		// TODO Auto-generated method stub
 	  return (Member) ibatisTemplate.queryForObject("getMemberById", m_id);
 	}
 	

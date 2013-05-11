@@ -99,4 +99,10 @@
 		where m_id = #m_id#
 	</update>
 	
+	<update id="updateEventCash" parameterClass="Member">
+		update member
+		set m_cash = #m_cash#
+		where m_id = #m_id#
+	</update>
+	
 </sqlMap>
