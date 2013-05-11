@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+
 <body>
 
 	<!-- Header -->
@@ -30,7 +32,14 @@
 				<a id="h_bar" >|</a>
 				<a class="h_tag" id="header_chargeCash">캐시충전</a>
 				<a id="h_bar" >|</a>
+
+				
+	
+				<a class="h_tag" id="header_cash">
+
+
 				<a class="h_tag" id="cash">${member.m_cash }
+
 				<img class="coin" alt="" src="images/smarket/coin.png">
 				</a>
 				<div id="cash_in">
