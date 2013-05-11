@@ -201,7 +201,11 @@ $(document).ready(function(){
 
 //	거래가능 포인트
 	$("#cash").hover(function(){
-		$("#cash_in").fadeIn();
+		$.getJSON(
+				contextUrl + "restPoint.do", function(data){
+			$("#cash_in").fadeIn();
+			$("#rest_point").html(data.rest_point);
+		});	
 	},function(){
 		$("#cash_in").fadeOut();
 	});
