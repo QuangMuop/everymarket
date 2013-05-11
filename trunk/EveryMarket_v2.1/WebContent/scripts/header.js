@@ -273,7 +273,7 @@ $(document).ready(function(){
 		$.getJSON(
 			"http://localhost:8081/EveryMarket_v2.1/cashConfirm.do",
 			function(data){
-				alert(data.m_cash);
+				
 				$("#header_cash").append(data.m_cash);
 			});
 	});
