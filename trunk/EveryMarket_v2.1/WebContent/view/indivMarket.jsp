@@ -156,6 +156,10 @@
 		<div id="reviewList"></div>
 	</div>
 	
+	<div id="notice_addEventCash" class="popUp hidden">
+		<p>축하드립니다! 이벤트에 당첨되어 <span id="eventCash_amout"></span>캐쉬를 적립해드렸어요. :-)</p>
+	</div>
+	
 </center>
 </body>
 </html>
