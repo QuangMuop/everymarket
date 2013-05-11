@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+
 	/*Configurable Options*/
 	var contextUrl = "/EveryMarket_v2.1/";
 	var checkMessageInterval = 10000;
@@ -190,6 +190,12 @@ $(document).ready(function(){
 				});		
 			});	
 		});
+	
+	
+	
+	
+	
+	
 	});
 	
 //	개인알리미
@@ -259,7 +265,18 @@ $(document).ready(function(){
 		});
     });
 	$('#h_logo').click(function(){
+	
 		location.href="enter.go";
 	});
 	
+	$(window).on("load", function(){
+		$.getJSON(
+			"http://localhost:8081/EveryMarket_v2.1/cashConfirm.do",
+			function(data){
+				alert(data.m_cash);
+				$("#header_cash").append(data.m_cash);
+			});
+	});
+	
 });
+
