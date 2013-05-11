@@ -99,6 +99,7 @@
 		<property name="daoM" ref="memberDao"/>
 		<property name="daoP" ref="productDao"/>
 		<property name="daoR" ref="reviewDao"/>
+		<property name="daoT" ref="tradeDao"/>
 	</bean>
 
 	<bean id="memberDao" class="everymarket.dao.MemberDao">
@@ -130,7 +131,7 @@
 	<bean id="tradeController" class="everymarket.controller.TradeController">
 		<property name="daoM" ref="memberDao"></property>
 		<property name="daoP" ref="productDao" />
-		<property name="daoT" ref="tradeDao"></property>
+		<property name="daoT" ref="tradeDao"/>
 	</bean>
 
 	<!-- 거래 관련 Dao -->
