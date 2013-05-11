@@ -140,5 +140,25 @@ public class TradeController {
 		mav.setViewName("trade_list");
 		return mav;
 	}
+	
 
+	@RequestMapping("cashConfirm.do")
+	public ModelAndView cashConfirm(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		if(session.getAttribute("m_id")!=null){
+			String m_id = (String) session.getAttribute("m_id");
+			System.out.println(m_id);
+			Member member = daoM.getMemberByM_id(m_id);
+
+			mav.setViewName("jsonView");
+			mav.addObject("m_cash", member.getM_cash());
+	
+		}else{
+			mav.setViewName("redirect:enter.go");
+		}
+		
+		return mav;
+		
+	}
 }

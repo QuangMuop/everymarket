@@ -91,8 +91,12 @@ public class MemberController {
 				return mav;
 			}
 			session.setAttribute("member", member);
-			
-			mav.setViewName("forward:enter.go");
+
+			session.setAttribute("m_id", m_id);
+			mav.setViewName("redirect:enter.go");
+
+
+
 			return mav;
 		}else{
 			mav.addObject("error", "로그인에 실패하였습니다.");

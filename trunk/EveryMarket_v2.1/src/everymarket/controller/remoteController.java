@@ -13,17 +13,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
+import everymarket.model.Member;
 import everymarket.model.Product;
 
 @Controller
 public class remoteController {
 	private ProductDao daoP;
 
+	
 	public void setDaoP(ProductDao daoP) {
 		this.daoP = daoP;
 	}
-	
+
+
+
+
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/remote.do")
 	public ModelAndView RemoteList(HttpServletRequest request, @RequestParam (value = "p_id") int p_id){
@@ -88,4 +94,6 @@ public class remoteController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	
+	
 }
