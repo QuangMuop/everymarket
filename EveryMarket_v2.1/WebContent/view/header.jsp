@@ -30,9 +30,13 @@
 				<a id="h_bar" >|</a>
 				<a class="h_tag" id="header_chargeCash">캐시충전</a>
 				<a id="h_bar" >|</a>
-				<a class="h_tag">${member.m_cash }
+				<a class="h_tag" id="cash">${member.m_cash }
 				<img class="coin" alt="" src="images/smarket/coin.png">
-				</a>
+				</a>e
+				<div id="cash_in">
+					거래가능포인트<br>
+					<div id="rest_point"></div>
+				</div>
 				<c:if test="${member.m_id == 'aa' }">
 					<a id="h_bar" >|</a>
 					<button  class="h_tag"  id="goAdminister">관리자페이지</button>
