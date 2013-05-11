@@ -190,12 +190,6 @@ $(document).ready(function(){
 				});		
 			});	
 		});
-	
-	
-	
-	
-	
-	
 	});
 	
 //	개인알리미
@@ -206,7 +200,7 @@ $(document).ready(function(){
 	});
 
 //	거래가능 포인트
-	$("#cash").hover(function(){
+	$("#header_cash").hover(function(){
 		$.getJSON(
 				contextUrl + "restPoint.do", function(data){
 			$("#cash_in").fadeIn();
@@ -265,7 +259,6 @@ $(document).ready(function(){
 		});
     });
 	$('#h_logo').click(function(){
-	
 		location.href="enter.go";
 	});
 	
@@ -273,10 +266,10 @@ $(document).ready(function(){
 		$.getJSON(
 			"http://localhost:8081/EveryMarket_v2.1/cashConfirm.do",
 			function(data){
-				
-				$("#header_cash").append(data.m_cash);
+				$("#header_cash").append(
+					"<span>" + data.m_cash + "</span>"
+				);
 			});
 	});
-	
 });
 
