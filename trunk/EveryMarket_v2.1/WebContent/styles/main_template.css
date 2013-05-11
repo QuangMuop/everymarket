@@ -1,13 +1,13 @@
 @CHARSET "EUC-KR";
 
-.button{
-	display: inline-block;
-	background: #b0c4de;
-	border: 1px solid black;
-	border-radius: 6px;
-	padding: 6px; 	
-	cursor: pointer;
-}
+/* .button{ */
+/* 	display: inline-block; */
+/* 	background: #b0c4de; */
+/* 	border: 1px solid black; */
+/* 	border-radius: 6px; */
+/* 	padding: 6px; 	 */
+/* 	cursor: pointer; */
+/* } */
 
 .product{
 	display: inline-block;
@@ -16,9 +16,11 @@
 
 /* 팝업창 css */
 .popUp{
-	background: white;
-	border-radius: 10px;
-	padding: 20px;
+	background-image:url(../image_blog_source/login_back.png);
+	border-radius: 2px;
+	padding: 30px;
+	border-bottom: 1px outset #c0c0c0;
+	border-top: 3px outset #616161;
 }
 
 .hidden{
@@ -81,27 +83,29 @@
 }
 #h_mid{
 	width: 960px;
-	height: 150px;
+	height: 95px;
 }
 #h_logo{
 	background-image: url(../images/header/logo_everymarket.gif);
 	background-repeat: no-repeat;
 	float: left;
-	width: 350px;
-	height: 150px;
+	width: 200px;
+	height: 90px;
 	cursor: pointer;
+	margin-left: 100px;
 }
 #h_searchbar{
 	float: right;
+	margin-right:180px;
 	height: 30px;
 	border: 2px solid #e73535;
-	margin-top: 100px;
+	margin-top: 20px;
 }
 #h_searchline{
 	float: left;
 }
 #h_search{
-	width: 210px;
+	width: 350px;
 	height: 25px;
 	background-color: #ffffff;
 }
@@ -131,7 +135,7 @@ ul.h_menu li{
 	height:55px;
 	position:relative;
 	cursor:pointer;
-	background-color: #db1820;
+	background-color: #e32315;
 }
 ul.h_menu li > a{
 	position:absolute;
@@ -167,7 +171,8 @@ ul.h_menu li span.h_wrap{
 }
 ul.h_menu li span.h_active{
 	position:absolute;
-	background:#e81837;
+/* 	background:#e81837; */
+	background:#d81c1c;
 	top:55px;
 	width:170px;
 	height:0px;
@@ -175,7 +180,8 @@ ul.h_menu li span.h_active{
 	z-index:14;
 	-moz-box-shadow:0px 0px 4px #000 inset;
 	-webkit-box-shadow:0px 0px 4px #000 inset;
-	box-shadow:0px 0px 4px #000 inset;
+/* 	box-shadow:0px 0px 4px #000 inset; */
+	box-shadow:0px 0px 4px #7b0f0f inset;
 }
 ul.h_menu li span span.h_link,
 ul.h_menu li span span.h_descr,
@@ -208,19 +214,23 @@ ul.h_menu li div.h_box{
 	top:55px;
 	left:0px;
 	display:none;
-	background:#e83a54;
+/* 	background:#e83a54; */
+/* background: #d81c1c; */
+background: #c81919;
 }
 ul.h_menu li div.h_box a{
 	float:left;
 	clear:both;
 	line-height:30px;
-	color:#ffd800;
+/* 	color:#ffd800; */
+color:white;
 }
 ul.h_menu li div.h_box a:first-child{
 	margin-top:15px;
 }
 ul.h_menu li div.h_box a:hover{
-	color:#fff;
+/* 	color:#fff; */
+	color:#ffff00;
 }
 #h_menu{
 	height: 55px;
@@ -348,4 +358,71 @@ background-position: center;
 #mid_contents{
 	width:1030px;
 	height: 310px;
+}
+
+/* 로그인,회원가입 팝업 css */
+#login_box{
+	background: white;
+	width:350px;
+	height:200px;
+	border: 1px solid #dcdcdc;
+	
+}
+#login_inner_box{
+	padding: 25px;
+}
+.login_input{
+	border: 1px solid #b4b4b4;
+	font-size: 12px;
+	width: 200px;
+	height: 25px;
+	padding-left: 5px;
+	float: left;
+	margin-bottom: 8px;
+}
+#login_button{
+	border: 0px;
+	background: none;
+	width:75px;
+	height: 55px;
+	float: left;
+	margin-top: -40px;
+	cursor: pointer;
+}
+#login_button_box{
+	width:80px;
+	height:60px;
+	border: 1px solid #d12200;
+	background: linear-gradient(to bottom, rgba(253,63,63,1) 0%,rgba(242,21,21,1) 90%,rgba(241,15,15,1) 100%);
+	float: right;	
+	margin-top: -36px;
+	
+}
+#login_button_img{
+	height: 25px;
+	margin-top: 17px;
+	margin-left: 10px;
+	float: left;
+}
+#login_title_img{
+	float: left;
+	margin: 10px;
+	margin-left: 22px;
+}
+.login_bottom_button{
+	height: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+#join_button{
+	border: 1px solid #1b7fd1;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(237,243,248,1) 100%);
+	cursor: pointer;
+}
+#find_button{
+	border: 1px solid #a6a6a6;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(242,242,242,1) 100%);
+	cursor: pointer;
 }

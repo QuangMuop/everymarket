@@ -217,24 +217,24 @@ $(document).ready(function(){
 				+ $("#indivMarketWrapper").attr("owner_id"),
 			function(data){	
 				$("#bar_button_indivMarket_left").append(
-					"<div id='button_goMain' class='button'>메인페이지 가기</div>"
+					"<div id='button_goMain'  class='b_s_button'><img id='b_m_s_button' src='image_blog_source/go_main.png'></div>"
 				);
 				
 				if(data.status > 0){
 					$("#bar_button_indivMarket_left").prepend(
-						"<img id='button_reportMember' src='images/siren.png'>"
+						"<div id='police_button'><img id='button_reportMember' src='image_blog_source/report_button.png'></div>"
 					);
 					$("#bar_button_indivMarket_right").append(
-						"<div id='button_showMyDangol' class='button'>내 단골 놀러가기</div>"
+						"<div id='button_showMyDangol' class='b_s_button'><img id='b_m_s_button' src='image_blog_source/go_r_market.png'></div>"
 					);
 					$("#ajaxForm_registerComments").css("display", "inherit");
 				}
 				
 				if(data.status > 1){
-					$("#bar_button_indivMarket_left > img").remove();
+					$("#bar_button_indivMarket_left #police_button").remove();
 					$("#bar_button_indivMarket_right").prepend(
-						"<div id='button_decoBlog' class='button'>가게 꾸미기</div>" +
-						"<div id='button_registerProduct' class='button'>상품 등록</div>"					);
+						"<div id='button_decoBlog' class='b_s_button'><img id='b_m_s_button' src='image_blog_source/decorate.png'></div>" +
+						"<div id='button_registerProduct' class='b_s_button'><img id='b_m_s_button' src='image_blog_source/goods_register.png'></div>"					);
 				}
 			}
 		);
@@ -624,5 +624,21 @@ $(document).ready(function(){
 	$("#mainImage").find("input[name='uploadFile']").change(function(){
 		var srcAddress = $(this).val();  
 		alert(srcAddress);
+	});
+	
+	//개인마켓 아이템 정렬
+//	var options = {
+//	        autoResize: true, 
+//	        container: $('#productContainer'), 
+//	        offset: 2, 
+//	        itemWidth: 210
+//					};
+//	 var handler = $('.product');
+//	handler.wookmark(options);
+	
+	$('#productContainer').BlocksIt({
+		numOfCol : 5,
+		offsetX : 5,
+		offsetY : 5
 	});
 });

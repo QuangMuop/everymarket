@@ -1,7 +1,7 @@
 
 #wrapper{
 
-	width:820px;
+	width:1020px;
 }
 #wrapper hgroup{
 	text-align:left;
@@ -24,7 +24,7 @@
 
 #item_container{
 	position:relative; /* relative */
-	width : 600px;
+	width : 1020px;
 	height: 1000px;
 	margin:0 auto 25px;
 	padding-bottom: 10px;

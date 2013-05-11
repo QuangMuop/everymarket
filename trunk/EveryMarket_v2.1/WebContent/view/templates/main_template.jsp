@@ -31,6 +31,7 @@
 <!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.skitter.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/scripts/lib/highlight.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/scripts/lib/jquery.wookmark.js" type="text/javascript"></script>
 <!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/dwr/engine.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/boardReportDwr.js" type="text/javascript"></script>
@@ -54,7 +55,12 @@
 <!-- 마이페이지 -->
 <style type="text/css">
 body{
-background-image: url(image_mypage/ema2.png);
+background-image: url(image_mypage/ema5.png);
+}
+#backcolor{
+width:1020px;
+background-color: rgba(255,255,255,0.8); 
+
 }
 </style>
 </head>
@@ -62,8 +68,10 @@ background-image: url(image_mypage/ema2.png);
 <center>
 		
 	<tiles:insertAttribute name="header"/>
-		
+	
+	<div id="backcolor">
 	<tiles:insertAttribute name="body"/>
+	</div>
 	<tiles:insertAttribute name="popup"/>	
 
 	<tiles:insertAttribute name="footer"/>
