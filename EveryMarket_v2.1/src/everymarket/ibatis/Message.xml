@@ -34,6 +34,7 @@
 		  join product p
 		  on msg.p_id = p.p_id
 		where p.m_id = #m_id#
+		  and msg_status = 'n'
 	</select>
 	
 	<select id="get_msg_id" parameterClass="Integer"  resultClass="Integer" >	
