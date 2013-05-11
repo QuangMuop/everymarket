@@ -8,6 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import net.sf.json.spring.web.servlet.view.JsonView;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -90,19 +92,33 @@ public class MemberController {
 			}
 			session.setAttribute("member", member);
 			
-			int member_point = daoT.member_point(m_id);
-			int trade_point = daoT.trade_point(m_id);
-			
-			int rest_point = (member_point)-(trade_point);
-			
-			mav.addObject("rest_point", rest_point);
-			
 			mav.setViewName("forward:enter.go");
 			return mav;
 		}else{
 			mav.addObject("error", "로그인에 실패하였습니다.");
 			return mav;
 		}
+	}
+	
+	@RequestMapping("/restPoint.do")
+	public ModelAndView rest_Point(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		String m_id = member.getM_id();
+		
+		int member_point = daoT.member_point(m_id);
+		int trade_point = daoT.trade_point(m_id);
+
+		int rest_point = (member_point)-(trade_point);
+		
+		HashMap map = new HashMap<>();
+		map.put("rest_point", rest_point);
+		
+		mav.addAllObjects(map);
+		
+		mav.setViewName("jsonView");
+		return mav;
 	}
 	
 	/*getJSON*/
