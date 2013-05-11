@@ -32,14 +32,7 @@
 				<a id="h_bar" >|</a>
 				<a class="h_tag" id="header_chargeCash">캐시충전</a>
 				<a id="h_bar" >|</a>
-
-				
-	
 				<a class="h_tag" id="header_cash">
-
-
-				<a class="h_tag" id="cash">${member.m_cash }
-
 				<img class="coin" alt="" src="images/smarket/coin.png">
 				</a>
 				<div id="cash_in">
