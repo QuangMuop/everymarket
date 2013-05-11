@@ -66,7 +66,7 @@ public class IndivMarketDwr {
 		int m_cash = member.getM_cash() + eventCash;
 		member.setM_cash(m_cash);
 
-//		daoM.updateEventCash(member);
+		daoM.updateEventCash(member);
 		return m_cash;
 	}
 }

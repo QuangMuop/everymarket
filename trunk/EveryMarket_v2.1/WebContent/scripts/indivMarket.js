@@ -1,13 +1,9 @@
 $(document).ready(function(){
 	/*상수 구현부*/
 	var contextUrl = "/EveryMarket_v2.1/";
-	var eventDice = getRandomInt(1, 4); 
 		
 	/*개인마켓페이지 메인버튼 초기화*/
 	refreshButton_indivMarket();
-	
-	/*eventDice에 따른 이벤트요소 생성*/
-	event_generateHorse(eventDice);
 		
 	/*AjaxForm 동기화*/
 	$("#ajaxForm_registerComments").ajaxForm();
@@ -52,9 +48,6 @@ $(document).ready(function(){
 	$(document).on('click', "#button_detail_buyProduct", buyProduct);
 	$(document).on('click', "#button_detail_reportProduct", popUp_reportProduct);
 	$(document).on('click', "#button_detail_closeProductInfo", closePop_productInfo);
-		
-	/*최소값과 최대값으로 무작위 int값 구하기*/
-	function getRandomInt (min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 	
 		/*decoBlog: 탭 구동버튼*/
 		$("#tab_mainImage").click(tab_mainImage);
@@ -81,66 +74,6 @@ $(document).ready(function(){
 			$(this).hide();
 			loadGBrowser();
 		}
-		
-	function event_generateHorse(eventDice){
-		if(0 < eventDice < 5){
-			$("#indivMarketWrapper").append( 
-				"<img id='eventCoin' class='hidden' src=images/smarket/coin.png>" +
-				"<img id='eventHorse' class='hidden' position='top' src='images/aema_top.PNG'>");
-			
-			var top = $("#h_menu").offset().top - $("#eventHorse").width();
-			var left = getRandomInt(
-					$("#h_logo").offset().left + $("#h_logo").outerWidth(),
-					$("#h_search").offset().left - $("#eventHorse").width()); 
-
-			$("#eventCoin").css({ 'left': left+18, 'top': top+18 });
-			$("#eventHorse").css({ 'left': left, 'top': top }).fadeIn(1000).click(event_clickHorse);
-		}
-	}
-	
-	function event_clickHorse(){
-		var coinTop = $(this).offset().top;
-		
-		alert("아얏! 그렇게 세게 누르지 말라구!");
-		
-		$("#eventHorse").fadeOut(1000);
-		$("#eventCoin").fadeIn(1000)
-			.animate({ 'top': coinTop - 30 }, 500, "easeOutQuint")
-			.animate({ 
-				'top': $(".coin").offset().top, 
-				'left': $(".coin").offset().left 
-		}, 500, addEventCash);
-	}
-	
-	/*이벤트 캐쉬 추가 펑션*/
-	function addEventCash(){
-		var eventCash = getRandomInt(100, 200);
-		indivMarketDwr.updateEventCash(eventCash, callback_addEventCash);
-		
-		function callback_addEventCash(m_cash){
-			$("#eventCash_amout").html(eventCash);
-			$("#notice_addEventCash").bPopup({
-				easing: 'easeOutBack',
-				fadeSpeed: 'slow',
-				follow: [false, false],
-				modalClose: false,
-				opacity: 0.3,
-				position: [$("#m_cash").offset().left - 165, 
-				           $("#m_cash").offset().top + 20],
-	            speed: 1000,
-	            transition: 'slideDown',
-	            onOpen: function(){
-	            	setTimeout(function(){
-	            		$("#notice_addEventCash").bPopup().close();
-	            	}, 2500);
-	            }
-			});
-			
-			$("#m_cash").prepend(
-				"<span class='hidden'>" + m_cash + "</span>"
-			).find(".hidden").fadeIn(1000).end().find("span:eq(1)").remove();
-		}
-	}
 		
 	/*구글맵API 구현부*/
 	function loadGBrowser() {

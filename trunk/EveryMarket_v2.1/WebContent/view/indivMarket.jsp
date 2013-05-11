@@ -4,6 +4,7 @@
 <html>
 <head>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAgrj58PbXr2YriiRDqbnL1RSqrCjdkglBijPNIIYrqkVvD1R4QxRl47Yh2D_0C1l5KXQJGrbkSDvXFA" type="text/javascript"></script>
+<script src="./scripts/catchHorse.js" type="text/javascript"></script>
 </head>
 <body>
 <center>
@@ -156,8 +157,9 @@
 		<div id="reviewList"></div>
 	</div>
 	
+	<div id="horseYelling" class="popUp hidden">꽁꽁 숨었는데 어떠케찾았지 ㅜㅜ</div>
 	<div id="notice_addEventCash" class="popUp hidden">
-		<p>축하드립니다! 이벤트에 당첨되어 <span id="eventCash_amout"></span>캐쉬를 적립해드렸어요. :-)</p>
+		<p>축하드립니다! 이벤트에 당첨되어 <span id="eventCash_amount"></span>캐쉬를 적립해드렸어요. :-)</p>
 	</div>
 	
 </center>
