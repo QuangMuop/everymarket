@@ -32,7 +32,7 @@
 				<a id="h_bar" >|</a>
 				<a class="h_tag" id="cash">${member.m_cash }
 				<img class="coin" alt="" src="images/smarket/coin.png">
-				</a>e
+				</a>
 				<div id="cash_in">
 					거래가능포인트<br>
 					<div id="rest_point"></div>
