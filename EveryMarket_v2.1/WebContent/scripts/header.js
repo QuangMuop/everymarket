@@ -1,15 +1,16 @@
 $(document).ready(function(){
 	
 	/*Configurable Options*/
-	var checkMessageInterval = 10000;
 	var contextUrl = "/EveryMarket_v2.1/";
-	var notifier_remaningTime = 1000;
+	var checkMessageInterval = 10000;
+	var notifier_remaningTime = 2000;
 	
-	/*쪽지함 구매요청 승낙 / 거절 펑션*/
+	/*쪽지함 구매요청 승낙 / 거절 / 창닫기 펑션*/
 	$(document).on('click', ".bt_sellapprove", sellApprove);
 	$(document).on('click', ".bt_sellrefuse", sellRefuse);
 	function sellApprove(){ location.href="sellapprove.do?p_id=" + $(this).attr("p_id"); }
 	function sellRefuse(){ location.href="sellrefuse.do?p_id=" + $(this).attr("p_id"); }
+	$("#list_message").click(closePopUp_message);
 	
 	$("#header_login").click(popUp_login);
 	$("#header_register").click(popUp_register);
@@ -29,6 +30,7 @@ $(document).ready(function(){
 		$.getJSON(
 			contextUrl + "getListMessage.do",
 			function(data){
+				var message_count = 0;
 				$.each(data.listMessage, function(index, message){
 					$("#list_message").append(
 						"<div class='message'>" +
@@ -42,7 +44,13 @@ $(document).ready(function(){
 							"</div>" +
 						"</div>"
 					);
+					message_count++;
 				});
+				if(message_count == 0){
+					$("#list_message").append(
+						"<div>확인하지 않은 메세지가 존재하지 않습니다.</div>"
+					);
+				}
 			}
 		);
 		
@@ -56,6 +64,10 @@ $(document).ready(function(){
             speed: 500,
             transition: 'slideDown'
 		});
+	}
+	
+	function closePopUp_message(){
+		$("#list_message").bPopup().close();
 	}
 	
 	/*실시간 알림 펑션: Interval로 구현*/
