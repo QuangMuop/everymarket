@@ -264,7 +264,7 @@ $(document).ready(function(){
 	
 	$(window).on("load", function(){
 		$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.1/cashConfirm.do",
+				contextUrl + "cashConfirm.do",
 			function(data){
 				$("#header_cash").append(
 					"<span>" + data.m_cash + "</span>"
