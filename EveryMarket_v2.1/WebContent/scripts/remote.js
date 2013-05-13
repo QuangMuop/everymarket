@@ -1,7 +1,10 @@
 $(document).ready(function (){
+	
+	var contextUrl = "/EveryMarket_v2.1/";
+	
 		$(document).on("click", '.next', function(){
 			$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.1/remotePage.do?value="+$(".next").attr('value'),		
+					contextUrl + "remotePage.do?value="+$(".next").attr('value'),		
 			function(data){
 				$(".next").html("");
 				$(".pre").html("");
@@ -35,7 +38,7 @@ $(document).ready(function (){
 		
 		$(document).on("click", '.pre', function(){
 			$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.1/remotePage.do?value="+$(".pre").attr('value'),		
+					contextUrl + "remotePage.do?value="+$(".pre").attr('value'),		
 			function(data){
 				$(".next").html("");
 				$(".pre").html("");
@@ -71,7 +74,7 @@ $(document).ready(function (){
 		$(document).on("click", '.grid', function(){
 			
 			$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.1/remote.do?p_id="+$(this).attr('p_id'),	
+					contextUrl + "remote.do?p_id="+$(this).attr('p_id'),	
 			function(data){
 				$(".next").html("");
 				$(".pre").html("");

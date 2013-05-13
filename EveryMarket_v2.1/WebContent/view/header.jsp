@@ -186,10 +186,10 @@
 				<button id="join_button" >
 					<img class="login_bottom_button"alt="" src="image_popup/m_join.png">
 				</button>
-				<button id="find_button" >
+				<button id="find_id_button" >
 					<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
 				</button>
-				<button id="find_button" >
+				<button id="find_pwd_button" >
 					<img class="login_bottom_button"alt="" src="image_popup/password_find.png">
 				</button>
 			</div>
@@ -320,13 +320,7 @@
 						</td>
 					</tr>
 				</table>
-				
-				
-					
-				
-					
-				
-				
+			
 			</div>
 			<div class="box-footer">
 			
@@ -388,6 +382,19 @@
 	
 	<div id="list_message" class="popUp hidden"></div>
 	<div id="notifier_message" class="popUp hidden">확인하지 않은 메시지가 있습니다!</div>
+	
+	<div id="find_ID" class="popUp hidden">
+		<h3>아이디 찾기</h3>		
+		<form id="form_find_ID" action="find_ID.do" method="POST">
+			이름<input type="text" name="m_name" ><br>
+			이메일<input type="text" name="m_email" ><br>
+		</form>
+			<button id="find_ID_result_button" >
+				<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
+			</button>
+		
+		
+	</div>
 	
 </body>
 </html>
