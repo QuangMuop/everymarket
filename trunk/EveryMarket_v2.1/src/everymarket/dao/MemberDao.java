@@ -2,6 +2,7 @@ package everymarket.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
@@ -95,6 +96,9 @@ public class MemberDao {
 	  return (Member) ibatisTemplate.queryForObject("getMemberById", m_id);
 	}
 	
+	public String find_ID(Map<String, Object> map){
+		return (String) ibatisTemplate.queryForObject("find_ID", map);
+	}
 	
 	
 }
