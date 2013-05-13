@@ -8,7 +8,9 @@
 		<img alt="" src="image_mypage/mymarket.png">
 		</div>
 		<div id="my_inf">
-				<a id="m_nickname">{member.m_name}</a>
+
+				<a id="m_nickname">${member.m_name}</a>
+
 				<a id="m_nickplus">님의 등급정보</a>
 				<div id="m_class">
 					<div>
@@ -71,7 +73,7 @@
 				</tr>
 				<tr>
 					<th class="row">
-						<p>바꿀비밀번호</p>
+						<p>새비밀번호</p>
 					</th>
 					<td>
 						<input id="re_password" class="c_input" type="password">
@@ -79,7 +81,7 @@
 				</tr>
 				<tr>
 					<th class="row">
-						<p>바꿀비밀번호재확인</p>
+						<p>새비밀번호재확인</p>
 					</th>
 					<td>
 						<input id="re_password" class="c_input" type="password">

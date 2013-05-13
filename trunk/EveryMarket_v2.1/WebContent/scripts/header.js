@@ -14,9 +14,11 @@ $(document).ready(function(){
 	
 	$("#header_login").click(popUp_login);
 	$("#header_register").click(popUp_register);
+	$("#join_button").click(popUp_register);
 	$("#header_chargeCash").click(popUp_chargeCash);
 	$("#header_message").click(popUp_message);
 	$("#header_logout").click(tryLogout);
+	$("#find_id_button").click(popUp_findID);
 	
 	/*헤더 팝업 펑션*/
 	function popUp_login(){ $("#login").bPopup(); }
@@ -215,6 +217,24 @@ $(document).ready(function(){
 		$("#cash_in").fadeOut();
 	});
 
+//아이디 찾기
+	function popUp_findID(){ 
+		$("#find_ID").bPopup();	
+	}
+	
+	$("#find_ID_result_button").click(function(){
+		var m_name = $("#form_find_ID").find("input[name='m_name']").val();
+		var m_email = $("#form_find_ID").find("input[name='m_email']").val();		
+		$.getJSON(
+			contextUrl + "find_ID.do?m_name=" + m_name + "&m_email=" + m_email,
+			function(data){
+				$("#find_ID").append(
+						"<div id='find_id_result'>내 아이디 : " + data.m_id + "</div>"
+				);
+			}
+		);
+	});
+	
 //네비게이션	
 	$(function() {
         $('#h_menu > li').bind('mouseenter',function(){
@@ -276,5 +296,7 @@ $(document).ready(function(){
 				);
 			});
 	});
+	
+	
 });
 
