@@ -78,27 +78,32 @@ $(document).ready(function(){
 	function refreshCount_alarm(){
 		headerDwr.getCount_unCheckedMessage(callback_getCount_unCheckedMessage);
 		function callback_getCount_unCheckedMessage(data){
-			if(data != Number($("#count_alarm span").html())){
-				$("#count_alarm").append(
-					"<span class='hidden'>" + data + "</span>"
-				).find(".hidden").fadeIn(1000).end().find("span:eq(0)").remove();
-				
-				$("#notifier_message").bPopup({
-					easing: 'easeOutBack',
-					fadeSpeed: 'slow',
-					follow: [false, false],
-					modalClose: false,
-					opacity: 0.3,
-					position: [$("#count_alarm").offset().left - 120, 
-					           $("#count_alarm").offset().top + 20],
-		            speed: 1000,
-		            transition: 'slideDown',
-		            onOpen: function(){
-		            	setTimeout(function(){
-		            		$("#notifier_message").bPopup().close();
-		            	}, notifier_remaningTime);
-		            }
-				});
+			if(data == -1){
+				alert("세션이 만료되어 메인페이지로 이동합니다. 다시 로그인해주세요!");
+				location.href="enter.go";
+			}else{
+				if(data != Number($("#count_alarm span").html())){
+					$("#count_alarm").append(
+						"<span class='hidden'>" + data + "</span>"
+					).find(".hidden").fadeIn(1000).end().find("span:eq(0)").remove();
+					
+					$("#notifier_message").bPopup({
+						easing: 'easeOutBack',
+						fadeSpeed: 'slow',
+						follow: [false, false],
+						modalClose: false,
+						opacity: 0.3,
+						position: [$("#count_alarm").offset().left - 120, 
+						           $("#count_alarm").offset().top + 20],
+			            speed: 1000,
+			            transition: 'slideDown',
+			            onOpen: function(){
+			            	setTimeout(function(){
+			            		$("#notifier_message").bPopup().close();
+			            	}, notifier_remaningTime);
+			            }
+					});
+				}
 			}
 		}
 	}
