@@ -170,7 +170,7 @@ $(document).ready(function(){
 	});
 	
 	$("#m_mailConfirm").click(function(){
-		alert("gkh");
+		
 		$.getJSON(
 				contextUrl + "mailsend.do?m_mail="+$("#m_mail").val(),		
 		function(data){
