@@ -15,10 +15,9 @@
 			#qna_title#,
 			#qna_writer#,
 			#qna_content#,
-			#qna_regdate#,
-			0,
 			null,
-			'n'
+			#qna_regdate#,
+			0
 		)
 	</insert>
 	
@@ -37,6 +36,18 @@
 		set qna_answer = #qna_answer# 
 		where qna_id = #qna_id#
 	</update>
+	
+	<update id="hitBoardQna">
+		update board_qna
+		set qna_hitcount = qna_hitcount + 1
+		where qna_id = #qna_id#
+	</update>
+
+	<select id="getHitCountByQna_id" resultClass="Integer">
+		select qna_hitcount
+		from board_qna
+		where qna_id = #qna_id#
+	</select>
 
 	<select id="getMaxQna_id" resultClass="Integer">
 		select max(Qna_id)

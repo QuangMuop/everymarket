@@ -14,7 +14,7 @@ $(document).ready(function(){
 	}
 	
 	function popUp_modifyQna(){
-		adminDwr.getBoardQnaByQna_id($(this).attr("qna_id"), function(data){
+		boardQnaDwr.getBoardQnaByQna_id($(this).attr("qna_id"), function(data){
 			$("#updateBoardQna").find("input[name='qna_title']").attr("value", data.qna_title);
 		});		
 		$("#updateBoardQna").find("input[name='qna_id']").attr("value", $(this).attr("qna_id"));
@@ -28,8 +28,16 @@ $(document).ready(function(){
 	}
 	
 	function toggleQnaContent(){
-		$(".boardQna").not($(this)).find(".contents").slideUp();
-		$(this).find(".contents").slideDown().end().find(".answer").fadeIn();
+		if($(this).find(".contents").css("display") == 'none'){
+			$boardQna = $(this);
+			boardQnaDwr.hitBoardQna($(this).attr("qna_id"), function(data){
+				$boardQna.find(".qna_hitcount").append(
+					"<span class='hidden'>" + data + "</span>"
+				).find(".hidden").fadeIn(1000).end().find("span:eq(0)").remove();
+			});
+			$(".boardQna").not($(this)).find(".contents").slideUp();
+			$(this).find(".contents").slideDown().end().find(".answer").fadeIn();
+		}
 	}
 	
 //	function refreshBoardQna(){
