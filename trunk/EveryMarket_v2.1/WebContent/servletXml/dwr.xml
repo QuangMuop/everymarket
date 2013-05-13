@@ -9,6 +9,11 @@
        http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
 
 	<!-- Dwr Controller -->
+	<bean id="boardQnaDwr" class="everymarket.dwr.BoardQnaDwr">
+		<property name="daoBQ" ref="boardQnaDao"/>
+		<dwr:remote javascript="boardQnaDwr"/>
+	</bean>
+	
 	<bean id="boardReportDwr" class="everymarket.dwr.BoardReportDwr">
 		<property name="daoBL" ref="banListDao"/>
 		<property name="daoBR" ref="boardReportDao"/>
