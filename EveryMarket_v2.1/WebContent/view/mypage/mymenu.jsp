@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
@@ -9,7 +8,7 @@
 		<img alt="" src="image_mypage/mymarket.png">
 		</div>
 		<div id="my_inf">
-				<a id="m_nickname">ÀÌ½ÂÇõ</a>
+				<a id="m_nickname">{member.m_name}</a>
 				<a id="m_nickplus">´ÔÀÇ µî±ÞÁ¤º¸</a>
 				<div id="m_class">
 					<div>

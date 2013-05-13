@@ -83,7 +83,7 @@ public class BlogController {
 		url += "markers="+ latitude + "," + longitude + "&";
 		url += "path=color:0x0000FF80|weight:5|";
 		url += latitude + "|" + longitude + "&";
-		url += "size=304x304&sensor=false";
+		url += "size=500x500&sensor=false";
 		
 		System.out.println("다음의 주소로 GoogleMap설정 변경 요청: " + url);
 		return url;

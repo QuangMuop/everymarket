@@ -157,6 +157,12 @@
 		<div id="reviewList"></div>
 	</div>
 	
+	<!-- 팝업창 : 구글맵 마우스오버 팝업 -->
+	<div id="googleMap" class="popUp hidden">
+		<img alt="" src="${blog.b_map }">
+	</div>
+	
+	<!-- 팝업창 : 애마를잡아라 이벤트 관련 -->
 	<div id="horseYelling" class="popUp hidden">꽁꽁 숨었는데 어떠케찾았지 ㅜㅜ</div>
 	<div id="notice_addEventCash" class="popUp hidden">
 		<p>축하드립니다! 이벤트에 당첨되어 <span id="eventCash_amount"></span>캐쉬를 적립해드렸어요. :-)</p>
