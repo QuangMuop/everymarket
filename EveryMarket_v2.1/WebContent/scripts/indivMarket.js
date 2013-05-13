@@ -36,7 +36,7 @@ $(document).ready(function(){
 	$(document).on('click', ".buyj_button", popUp_productInfo);
 	$(document).on('click', "#now_buy", popUp_productInfo);
 	
-	$(document).on('click', "#button_reportMember", popUp_reportMember);
+	$(document).on('click', "#police_button", popUp_reportMember);
 	$(document).on('click', "#button_goMain", goMain);
 	
 	$(document).on('click', "#button_decoBlog", popUp_decoBlog);
