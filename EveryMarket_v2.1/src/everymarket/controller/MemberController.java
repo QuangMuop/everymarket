@@ -102,6 +102,26 @@ public class MemberController {
 		}
 	}
 	
+	//아이디 찾기
+	@RequestMapping("find_ID.do")
+	public ModelAndView findID(@RequestParam("m_name") String m_name, @RequestParam("m_email") String m_email){
+		ModelAndView mav = new ModelAndView();
+		System.out.println("ㅇㅇㅇ");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("m_name", m_name);
+		map.put("m_email", m_email);
+		
+		String m_id = daoM.find_ID(map);
+		
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.put("m_id", m_id);
+		
+		mav.addAllObjects(map2);
+		mav.setViewName("jsonView");
+		
+		return mav;
+	}
+	
 	@RequestMapping("/restPoint.do")
 	public ModelAndView rest_Point(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
