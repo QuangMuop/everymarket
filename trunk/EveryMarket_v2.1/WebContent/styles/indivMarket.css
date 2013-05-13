@@ -6,9 +6,11 @@
 
 #googleMap{
 	padding: 10px;
-	width: 60px;
-	height: 60px;
-	overflow: hidden;
+}
+
+#googleMap > img{
+	width: 80px;
+	height: 80px;
 }
 
 #blog_top_title{

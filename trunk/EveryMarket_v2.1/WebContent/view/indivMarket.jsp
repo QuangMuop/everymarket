@@ -31,7 +31,14 @@
 				<a id="blog_b_content"> ${blog.b_content } </a>
 			</div>
 			<div id="blog_b_map" class="b_s_line_box">
-					<img src="${blog.b_map }">
+				<c:choose>
+					<c:when test="${blog.b_map != null }">
+						<img src="${blog.b_map }">	
+					</c:when>
+					<c:otherwise>
+						<img src="image_blog_source/noMap.gif">
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<div class="b_s_line_box">
 				<div id="count_dangol">
@@ -159,7 +166,14 @@
 	
 	<!-- 팝업창 : 구글맵 마우스오버 팝업 -->
 	<div id="googleMap" class="popUp hidden">
-		<img alt="" src="${blog.b_map }">
+		<c:choose>
+			<c:when test="${blog.b_map != null }">
+				<img src="${blog.b_map }">	
+			</c:when>
+			<c:otherwise>
+				<img src="image_blog_source/noMap.gif">
+			</c:otherwise>
+		</c:choose>
 	</div>
 	
 	<!-- 팝업창 : 애마를잡아라 이벤트 관련 -->

@@ -300,16 +300,16 @@ $(document).ready(function(){
 	
 	/*备臂甘 剁快扁*/
 	function popUp_googleMap(){
-		var blog_b_mapLeft = $("#blog_b_map").offset().left;
-		var blog_b_mapTop = $("#blog_b_map").offset().top;
+		var blog_b_mapLeft = $("#blog_b_map").offset().left - 11;
+		var blog_b_mapTop = $("#blog_b_map").offset().top - 11;
 		
 		$("#googleMap").bPopup({
 			follow: [false, false],
 			position: [blog_b_mapLeft, blog_b_mapTop],
 			onClose: function(){
-				$("#googleMap").css({
-					'width': '60px',
-					'height': '60px'
+				$("#googleMap > img").css({
+					'width': '80px',
+					'height': '80px'
 				});
 			}
 		});
@@ -317,10 +317,11 @@ $(document).ready(function(){
 		$("#googleMap").animate({
 			'left': '300px',
 			'top': '50px'
-		}, 500).animate({
+		}, 500);
+		$("#googleMap > img").delay(750).animate({
 			'width': '500px',
 			'height': '500px'
-		});
+		}, 500);
 	}
 	
 	/*付南林牢 窜榜格废 剁快扁*/
