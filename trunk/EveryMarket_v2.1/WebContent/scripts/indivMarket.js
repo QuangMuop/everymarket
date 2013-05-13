@@ -10,6 +10,7 @@ $(document).ready(function(){
 	$("#ajaxForm_registerComments").submit(registerComments);
 	
 	$(".product").click(popUp_productInfo);
+	$("#blog_b_map").click(popUp_googleMap);
 	$("#count_dangol").click(popUp_showOwnerDangol);
 	$("#count_review").click(popUp_showListReview);
 	
@@ -297,6 +298,32 @@ $(document).ready(function(){
 		};
 	}
 	
+	/*구글맵 띄우기*/
+	function popUp_googleMap(){
+		var blog_b_mapLeft = $("#blog_b_map").offset().left;
+		var blog_b_mapTop = $("#blog_b_map").offset().top;
+		
+		$("#googleMap").bPopup({
+			follow: [false, false],
+			position: [blog_b_mapLeft, blog_b_mapTop],
+			onClose: function(){
+				$("#googleMap").css({
+					'width': '60px',
+					'height': '60px'
+				});
+			}
+		});
+		
+		$("#googleMap").animate({
+			'left': '300px',
+			'top': '50px'
+		}, 500).animate({
+			'width': '500px',
+			'height': '500px'
+		});
+	}
+	
+	/*마켓주인 단골목록 띄우기*/
 	function popUp_showOwnerDangol(){
 		$.getJSON(
 			contextUrl + "getOwnerDangolList.do?owner_id=" 
@@ -315,6 +342,7 @@ $(document).ready(function(){
 		$("#dangolList").bPopup();
 	}
 	
+	/*리뷰목록 띄우기*/
 	function popUp_showListReview(){
 		$.getJSON(
 			contextUrl + "getReviewList.do?m_id="
@@ -413,10 +441,7 @@ $(document).ready(function(){
 	}
 	
 	/*상품 상세정보창 띄우기*/
-	function popUp_productInfo(){
-		
-		
-		
+	function popUp_productInfo(){	
 		/*productInfo div요소 최신화*/
 		$.getJSON(
 			contextUrl + "getProductInfo.do?p_id=" 
@@ -502,7 +527,6 @@ $(document).ready(function(){
 				/*최신화 후 팝업창 출력*/
 				$("#productPurchase").bPopup({
 					fadeSpeed: 'slow',
-					follow: [false, false],
 					modalClose: false,
 					position: [274, 50]
 				});
@@ -617,9 +641,7 @@ $(document).ready(function(){
 		$("#productReport").bPopup().close();
 		return false;
 	}
-	
-	
-	
+		
 	$("#mainImage").find("input[name='uploadFile']").change(function(){
 		var srcAddress = $(this).val();  
 		alert(srcAddress);

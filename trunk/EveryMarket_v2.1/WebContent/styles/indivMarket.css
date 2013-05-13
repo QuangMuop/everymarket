@@ -2,8 +2,15 @@
 
 #indivMarketWrapper{
 	width:1020px;
-
 }
+
+#googleMap{
+	padding: 10px;
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+}
+
 #blog_top_title{
 float: left;
 width:1020px;
