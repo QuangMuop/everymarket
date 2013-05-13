@@ -34,6 +34,7 @@
 <script src="<%=request.getContextPath()%>/scripts/lib/jquery.wookmark.js" type="text/javascript"></script>
 <!-- 마켓슬라이드 -->
 <script src="<%=request.getContextPath()%>/dwr/engine.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/dwr/interface/boardQnaDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/boardReportDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/indivMarketDwr.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/dwr/interface/listDwr.js" type="text/javascript"></script>

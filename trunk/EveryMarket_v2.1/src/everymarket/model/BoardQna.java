@@ -7,10 +7,9 @@ public class BoardQna {
 	private String qna_title;
 	private String qna_writer;
 	private String qna_content;
+	private String qna_answer;
 	private Timestamp qna_regdate;
 	private int qna_hitcount;
-	private String qna_answer;
-	private String qna_check;
 	
 	public int getQna_id() {
 		return qna_id;
@@ -53,11 +52,5 @@ public class BoardQna {
 	}
 	public void setQna_answer(String qna_answer) {
 		this.qna_answer = qna_answer;
-	}
-	public String getQna_check() {
-		return qna_check;
-	}
-	public void setQna_check(String qna_check) {
-		this.qna_check = qna_check;
 	}
 }

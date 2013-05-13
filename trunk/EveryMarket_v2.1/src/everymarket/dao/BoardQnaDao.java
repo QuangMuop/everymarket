@@ -37,11 +37,17 @@ public class BoardQnaDao {
 		ibatisTemplate.update("answerQna", boardQna);
 	}
 	
+	/*Input: qna_id / Output: qna_hitcount*/
+	public int getHitCountByQna_id(int qna_id){
+		return (Integer)ibatisTemplate.queryForObject("getHitCountByQna_id", qna_id);
+	}
+	
 	/*Input: qna_id*/
 	public void deleteQna(int qna_id){
 		ibatisTemplate.delete("deleteQna", qna_id);
 	}
 	
+	/*Input: qna_id / Output: BoardQna*/
 	public BoardQna getBoardQnaByQna_id(int qna_id){
 		return (BoardQna)ibatisTemplate.queryForObject("getBoardQnaByQna_id", qna_id);
 	}
@@ -49,5 +55,10 @@ public class BoardQnaDao {
 	/*Output: List<BoardQna>*/
 	public List<BoardQna> getQnaList(){
 		return ibatisTemplate.queryForList("getQnaList");
+	}
+	
+	/*Input: qna_id*/
+	public void hitBoardQna(int qna_id){
+		ibatisTemplate.update("hitBoardQna", qna_id);
 	}
 }

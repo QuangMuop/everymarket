@@ -17,11 +17,11 @@
 			<div class="wide">µÓ∑œ¿œ</div>
 		</div>
 		<c:forEach var="boardQna" items="${listBoardQna }">
-			<div class="boardQna">
+			<div class="boardQna" qna_id="${boardQna.qna_id }">
 				<div class="narrow">${boardQna.qna_id }</div>
 				<div class="widest">${boardQna.qna_title }</div>
 				<div class="narrow">${boardQna.qna_writer }</div>
-				<div class="narrow">${boardQna.qna_hitcount }</div>
+				<div class="narrow qna_hitcount"><span class="data">${boardQna.qna_hitcount }</span></div>
 				<div class="wide">${boardQna.qna_regdate }</div>
 				<div class="contents hidden">
 					${boardQna.qna_content }
