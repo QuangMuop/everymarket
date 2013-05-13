@@ -228,9 +228,17 @@ $(document).ready(function(){
 		$.getJSON(
 			contextUrl + "find_ID.do?m_name=" + m_name + "&m_email=" + m_email,
 			function(data){
-				$("#find_ID").append(
+				if(data.m_id == null){
+					$("#find_id_result").remove();
+					$("#find_ID").append(
+							"<div id='find_id_result'> 해당 아이디가 존재하지 않습니다.</div>"
+					);
+				}else{
+					$("#find_id_result").remove();
+					$("#find_ID").append(
 						"<div id='find_id_result'>내 아이디 : " + data.m_id + "</div>"
-				);
+					);
+				}
 			}
 		);
 	});
