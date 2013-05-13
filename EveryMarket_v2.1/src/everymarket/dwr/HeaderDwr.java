@@ -16,7 +16,11 @@ public class HeaderDwr {
 	public int getCount_unCheckedMessage(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("member");
-		
-		return daoMsg.getCount_unCheckedMessage(member.getM_id());
+
+		if(member == null){
+			return -1;
+		}else{
+			return daoMsg.getCount_unCheckedMessage(member.getM_id());
+		}
 	}
 }
