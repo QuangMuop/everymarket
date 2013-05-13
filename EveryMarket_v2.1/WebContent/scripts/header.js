@@ -241,6 +241,8 @@ $(document).ready(function(){
 				}
 			}
 		);
+		$("#form_find_ID").find("input[name='m_name']").val("");
+		$("#form_find_ID").find("input[name='m_email']").val("");
 	});
 	
 //네비게이션	
