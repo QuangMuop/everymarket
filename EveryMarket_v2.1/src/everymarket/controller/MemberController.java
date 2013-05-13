@@ -265,7 +265,7 @@ public class MemberController {
 	public ModelAndView logout(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
-		
+		session.setAttribute("list", null);
 		session.setAttribute("member", null);
 		List<Blog> listBlog = daoB.getBlogList();
 		
