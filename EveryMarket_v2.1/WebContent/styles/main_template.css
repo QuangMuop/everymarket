@@ -428,3 +428,149 @@ background-position: center;
 	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(242,242,242,1) 100%);
 	cursor: pointer;
 }
+/* 회원가입popup */
+#clause_title_img{
+	height: 20px;
+	margin-left: 15px;
+}
+#clause_content{
+	width:550px;
+	height: 50px;
+	overflow: visible;
+	overflow-x:hidden; 
+	background: white;
+	border: 1px solid #bbb9bb;
+	margin-left: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#clause_box{
+	background: white;
+	border-radius:2px;
+	
+}
+#clause_box p{
+	margin-left: 20px;
+	margin-right:20px;
+	color:#636363;
+	font-weight: bold;
+	margin-top: 10px;
+}
+#join_form_img{
+	height: 35px;
+	margin-right: 250px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+#clause{
+	background: white;
+	border:1px solid #dcdcdc;
+	width:600px;
+	padding: 5px;
+}
+.agree{
+	margin-left: 15px;
+}
+#join_box{
+	margin-top:10px;
+	background: white;
+	border:1px solid #dcdcdc;
+	width:600px;
+	padding: 5px;
+}
+.input_txt{
+	background: white;
+	border:1px solid #d8d8d8;
+	border-radius:1px;
+	height: 10px;
+	padding: 5px;
+	width:150px;
+	float: left;
+}
+#join_title{
+	height: 20px;
+	margin-left: 15px;
+}
+#errorid{
+	margin-left:5px;
+	color:#ee5870;
+}
+.box-center{
+	margin: 10px;
+}
+.box-center table{
+	border: 1px solid #dcdcdc;
+	border-spacing: 0px;
+	width:550px;
+	
+}
+.box-center table th{
+	background: #f9f9f9;
+	color:#8b8b8b;
+	height: 10px;
+	text-align: left;
+	padding: 5px;
+	font-weight: bold;
+	border-right: 1px solid #dcdcdc;
+	border-bottom: 1px solid #dcdcdc;
+}
+.box-center table td{
+	padding:5px;
+	height: 10px;
+	border-bottom: 1px solid #dcdcdc;
+}
+#errorpwd{
+	margin-left:5px;
+	color:#ee5870;
+}
+#errorPwdCon{
+	margin-left:5px;
+	color:#ee5870;
+}
+#m_mailConfirm{
+	margin-left:5px;
+	height:20px;
+	width:80px;
+	padding:2px;
+	color:#d7555c;
+	font-size: 11px;
+	border: 1px solid #f7acb5;
+	border-radius:2px;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(253,246,246,1) 100%);
+}
+#id_eq{
+	margin-left:5px;
+	height:20px;
+	width:60px;
+	padding:2px;
+	color:#d7555c;
+	font-size: 11px;
+	border: 1px solid #f7acb5;
+	border-radius:2px;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(253,246,246,1) 100%);
+}
+#join_btn{
+	
+	font-size: 10px;
+	border:none;
+	background: none;
+	height: 30px;
+	width:120px;
+	float: left;
+	margin-top: -20px;
+}
+.box-footer{
+	background: linear-gradient(to bottom, rgba(229,117,122,1) 1%,rgba(220,72,77,1) 100%);
+	width:120px;
+	height: 25px;
+	padding: 5px;
+	margin-left: 230px;
+
+}
+#join_popup{
+	float:left;
+	height: 20px;
+	margin-left: 15px;
+	margin-top: 3px;
+	cursor: pointer;
+}
