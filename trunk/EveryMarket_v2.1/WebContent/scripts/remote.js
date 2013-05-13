@@ -69,8 +69,9 @@ $(document).ready(function (){
 		});
 		
 		$(document).on("click", '.grid', function(){
+			
 			$.getJSON(
-			"http://localhost:8081/EveryMarket_v2.1/remote.do?p_id="+$(this).attr('id'),	
+			"http://localhost:8081/EveryMarket_v2.1/remote.do?p_id="+$(this).attr('p_id'),	
 			function(data){
 				$(".next").html("");
 				$(".pre").html("");
