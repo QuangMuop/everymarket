@@ -132,9 +132,9 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		
 		if(input.equals("m_id")){		
-			if(value.length()<4 || value.length()>8){
+			if(value.length()<2 || value.length()>8){
 				mav.addObject("errorId", 1);
-				mav.addObject("error_reid", "아이디는 4자 이상 8자 이하");
+				mav.addObject("error_reid", "아이디는 2자 이상 8자 이하");
 			}if(daoM.idConfirm(value) != null){
 				mav.addObject("errorId", 1);
 				mav.addObject("error_reid", "중복된 아이디 입니다");
