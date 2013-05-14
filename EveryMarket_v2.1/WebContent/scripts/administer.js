@@ -4,11 +4,11 @@ $(document).ready(function(){
 
 	callMemberList();
 	
-	$(".button_tab:eq(0)").click(showTab_memberList);
-	$(".button_tab:eq(1)").click(showTab_uncheckedList_report);
-	$(".button_tab:eq(2)").click(showTab_uncheckedList_tradeReport);
-	$(".button_tab:eq(3)").click(showTab_checkedList_report);
-	$(".button_tab:eq(4)").click(showTab_list_bannedMember);
+	$("#admin_m1").click(showTab_memberList);
+	$("#admin_m2").click(showTab_uncheckedList_report);
+	$("#admin_m3").click(showTab_uncheckedList_tradeReport);
+	$("#admin_m4").click(showTab_checkedList_report);
+	$("#admin_m5").click(showTab_list_bannedMember);
 	
 	$(document).on('click', ".boardReport", toggleReportContents);
 	$(document).on('change', ".boardReport select", reportAction);
@@ -19,7 +19,8 @@ $(document).ready(function(){
 		function showTab_memberList(){
 			callMemberList();
 			$(".tabContent").hide();
-			$("#memberList").fadeIn("slow"); }
+			$("#memberList").fadeIn("slow");
+		}
 		function showTab_uncheckedList_report(){
 			callUncheckedList_report();
 			$(".tabContent").hide();
@@ -91,13 +92,13 @@ $(document).ready(function(){
 									boardReport.rep_regdate.minutes; 
 					$("#reportedProductList").append(
 						"<div class='boardReport'>" +
-							"<div class='normal'>" + boardReport.rep_reason + "</div>" +
-							"<div class='normal'>" + boardReport.rep_writer + "</div>" +
-							"<div class='wide'>" + rep_regdate + "</div>" +
-							"<div class='normal'>" + boardReport.rep_productId + 
+							"<div class='r_title_1'>" + boardReport.rep_reason + "</div>" +
+							"<div class='r_title_2'>" + boardReport.rep_writer + "</div>" +
+							"<div class='r_title_3'>" + rep_regdate + "</div>" +
+							"<div class='r_title_4'>" + boardReport.rep_productId + 
 								" (" + boardReport.rep_memberId + ")</div>" +
-							"<div class='contents hidden'>" + boardReport.rep_content + 
-								"<select rep_id='" + boardReport.rep_id +
+							"<div class='contents hidden' id='r_content'><a>" + boardReport.rep_content + 
+								"</a><select class='r_select' rep_id='" + boardReport.rep_id +
 										"' rep_memberId='" + boardReport.rep_memberId + "'>" +
 									"<option selected='selected'>선택</option>" +
 									"<option value='신고기각'>신고기각</option>" +
@@ -117,12 +118,12 @@ $(document).ready(function(){
 									boardReport.rep_regdate.minutes;					
 					$("#reportedMemberList").append(
 						"<div class='boardReport'>" +
-							"<div class='normal'>" + boardReport.rep_reason + "</div>" +
-							"<div class='normal'>" + boardReport.rep_writer + "</div>" +
-							"<div class='wide'>" + rep_regdate + "</div>" +
-							"<div class='normal'>" + boardReport.rep_memberId + "</div>" +
-							"<div class='contents hidden'>" + boardReport.rep_content +
-								"<select rep_id='" + boardReport.rep_id +
+							"<div class='r_title_1'>" + boardReport.rep_reason + "</div>" +
+							"<div class='r_title_2'>" + boardReport.rep_writer + "</div>" +
+							"<div class='r_title_3'>" + rep_regdate + "</div>" +
+							"<div class='r_title_4'>" + boardReport.rep_memberId + "</div>" +
+							"<div class='contents hidden' id='r_content'><a>" + boardReport.rep_content +
+								"</a><select  class='r_select' rep_id='" + boardReport.rep_id +
 										"' rep_memberId='" + boardReport.rep_memberId + "'>" +
 									"<option selected='selected'>선택</option>" +
 									"<option value='신고기각'>신고기각</option>" +
@@ -189,16 +190,149 @@ $(document).ready(function(){
 									bannedMember.releaseTime.minutes;
 					$("#bannedMemberList").append(
 						"<div class='bannedMember'>" +
-							"<div class='normal'>" + bannedMember.m_id + "</div>" +
-							"<div class='normal'>" + bannedMember.m_name + "</div>" +
-							"<div class='wide'>" + bannedMember.rep_reason + "</div>" +
-							"<div class='wide'>" + judgeTime + "</div>" +
-							"<div class='wide'>" + releaseTime + "</div>" +
-							"<div class='normal'>" + bannedMember.m_report + "</div>" +
+							"<div class='r_title_2'>" + bannedMember.m_id + "</div>" +
+							"<div class='r_title_2'>" + bannedMember.m_name + "</div>" +
+							"<div class='r_title_3'>" + bannedMember.rep_reason + "</div>" +
+							"<div class='r_title_3'>" + judgeTime + "</div>" +
+							"<div class='r_title_3'>" + releaseTime + "</div>" +
+							"<div class='r_title_2'>" + bannedMember.m_report + "</div>" +
 						"</div>"
 					);
 				});
 			}
 		);
 	}
+	
+//	admintab
+	$("#admin_tab_bar > span").click(function(e){
+		switch(e.target.id){
+			case "admin_m1":
+				//change status & style menu
+				$("#admin_m1").addClass("actived");
+				$("#admin_m1").html(
+					"<img id='admin_m1' class='admin_bar_img' src='image_board/admin_bar1.png'>"	
+				);
+				$("#admin_m2").removeClass("actived");
+				$("#admin_m2").html(
+					"<img id='admin_m2' class='admin_bar_img' src='image_board/admin_bar2_back.png'>"	
+						);
+				$("#admin_m3").removeClass("actived");
+				$("#admin_m3").html(
+						"<img id='admin_m3' class='admin_bar_img' src='image_board/admin_bar3_back.png'>"
+						);
+				$("#admin_m4").removeClass("actived");
+				$("#admin_m4").html(
+						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"	
+						);
+				$("#admin_m5").removeClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
+						);
+				//display selected division, hide others
+	
+			break;
+			case "admin_m2":
+				//change status & style menu
+				$("#admin_m1").removeClass("actived");
+				$("#admin_m1").html(
+						"<img id='admin_m1' class='admin_bar_img' src='image_board/admin_bar1_back.png'>"
+						);
+				$("#admin_m2").addClass("actived");
+				$("#admin_m2").html(
+						"<img id='admin_m2' class='admin_bar_img' src='image_board/admin_bar2.png'>"
+						);
+				$("#admin_m3").removeClass("actived");
+				$("#admin_m3").html(
+						"<img id='admin_m3' class='admin_bar_img' src='image_board/admin_bar3_back.png'>"
+						);
+				$("#admin_m4").removeClass("actived");
+				$("#admin_m4").html(
+						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"
+						);
+				$("#admin_m5").removeClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"
+						);
+				//display selected division, hide others
+
+			break;
+			case "admin_m3":
+				//change status & style menu
+				$("#admin_m1").removeClass("actived");
+				$("#admin_m1").html(
+						"<img id='admin_m1' class='admin_bar_img' src='image_board/admin_bar1_back.png'>"
+						);
+				$("#admin_m2").removeClass("actived");
+				$("#admin_m2").html(
+						"<img id='admin_m2' class='admin_bar_img' src='image_board/admin_bar2_back.png'>"
+						);
+				$("#admin_m3").addClass("actived");
+				$("#admin_m3").html(
+						"<img id='admin_m3' class='admin_bar_img' src='image_board/admin_bar3.png'>"
+						);
+				$("#admin_m4").removeClass("actived");
+				$("#admin_m4").html(
+						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"	
+						);
+				$("#admin_m5").removeClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
+						);
+
+			break;
+			case "admin_m4":
+				//change status & style menu
+				$("#admin_m1").removeClass("actived");
+				$("#admin_m1").html(
+						"<img id='admin_m1' class='admin_bar_img' src='image_board/admin_bar1_back.png'>"
+						);
+				$("#admin_m2").removeClass("actived");
+				$("#admin_m2").html(
+						"<img id='admin_m2' class='admin_bar_img' src='image_board/admin_bar2_back.png'>"
+						);
+				$("#admin_m3").removeClass("actived");
+				$("#admin_m3").html(
+						"<img id='admin_m3' class='admin_bar_img' src='image_board/admin_bar3_back.png'>"
+						);
+				$("#admin_m4").addClass("actived");
+				$("#admin_m4").html(
+						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4.png'>"
+						);
+				$("#admin_m5").removeClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
+						);
+
+			break;
+			case "admin_m5":
+				//change status & style menu
+				$("#admin_m1").removeClass("actived");
+				$("#admin_m1").html(
+						"<img id='admin_m1' class='admin_bar_img' src='image_board/admin_bar1_back.png'>"
+						);
+				$("#admin_m2").removeClass("actived");
+				$("#admin_m2").html(
+						"<img id='admin_m2' class='admin_bar_img' src='image_board/admin_bar2_back.png'>"
+						);
+				$("#admin_m3").removeClass("actived");
+				$("#admin_m3").html(
+						"<img id='admin_m3' class='admin_bar_img' src='image_board/admin_bar3_back.png'>"
+						);
+				$("#admin_m4").removeClass("actived");
+				$("#admin_m4").html(
+						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"
+						);
+				$("#admin_m5").addClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5.png'>"
+						);
+	
+			break;
+			
+			
+		}
+
+		return false;
+	});
+	
 });

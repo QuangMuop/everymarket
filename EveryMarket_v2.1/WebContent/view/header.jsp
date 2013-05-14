@@ -19,6 +19,8 @@
 			<c:otherwise>
 				<a class="h_tag" id="header_logout">로그아웃</a>
 				<a id="h_bar" >|</a>
+				<button class="h_tag" id="goQnaBoard">QnA게시판</button>
+				<a id="h_bar" >|</a>
 				<a class="h_tag" href="JJimbasket.do">찜바구니</a>
 				<a id="h_bar" >|</a>
 				<a class="h_tag" href="trade_list.do">거래내역</a>
@@ -30,8 +32,6 @@
 				<a id="h_bar" >|</a>
 				<div id="count_alarm" class="h_tag"><span>0</span></div>
 				<a class="h_tag" id="header_message">알리미</a>
-				<a id="h_bar" >|</a>
-				<a class="h_tag" id="header_chargeCash">캐시충전</a>
 				<a id="h_bar" >|</a>
 				<a class="h_tag" id="header_cash">
 				<img class="coin" alt="" src="images/smarket/coin.png">
@@ -320,7 +320,7 @@
 						</td>
 					</tr>
 				</table>
-			
+
 			</div>
 			<div class="box-footer">
 			
@@ -383,6 +383,7 @@
 	<div id="list_message" class="popUp hidden"></div>
 	<div id="notifier_message" class="popUp hidden">확인하지 않은 메시지가 있습니다!</div>
 	
+
 	
 	<div id="find_ID" class="popUp hidden">
 		<h3>아이디 찾기</h3>		

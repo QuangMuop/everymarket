@@ -186,7 +186,7 @@ $(document).ready(function(){
 				$("#listJjimer > img").remove();
 				$.each(data.listB_thumb, function(index, b_thumb){
 					$("#listJjimer").append(
-						"<img class='b_thumb' src='image_blog/" + b_thumb + "'>"
+						"<a>찜했어요! :</a><img class='b_thumb' src='image_blog/" + b_thumb + "'>"
 					);
 				});
 			}
@@ -408,7 +408,7 @@ $(document).ready(function(){
 						"<p><span class='productName'></span> 상품을 구매한 " +
 							"<span class='memberName'></span> 님의 상품평 </p>" +
 						"<p><span>(" + r_score + ")</span>" + review.r_content + "</p>" +
-						"<p>" + r_date + "</p>" +
+						"<p class='r_date'>작성일:" + r_date + "</p>" +
 						"</div>"
 					);
 					

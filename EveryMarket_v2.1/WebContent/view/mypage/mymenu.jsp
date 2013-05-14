@@ -23,7 +23,7 @@
 			<ul id="m_menu_bar">
 				<li id="menu1">회원정보 조회/수정</li>
 				<li id="menu2">cash 충전/환급</li>
-				<li id="menu3">신고/상담 내역</li>
+				<li id="menu3"><a href="trade_list.do">거래내역</a></li>
 			</ul>
 		</div>
 	</div>

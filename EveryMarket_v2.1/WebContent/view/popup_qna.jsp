@@ -7,12 +7,21 @@
 <body>
 	
 	<div id="insertBoardQna" class="hidden">
-		<h2>글쓰기 폼</h2>
+		<div id="qna_insert_inner">
+		<img alt="" id="qna_insert_title" src="image_board/qna_insert_title.png">
 		<form action="insertQna.do" method="post">
+			<div id="insert_title">
 			제목:		<input type="text" name="qna_title"><br>
-			내용:		<textarea name="qna_content" rows="6" cols="30"/></textarea><br>
-			<input type="submit" value="글 작성하기">
+			</div>
+			<div id="insert_q_content">
+			<textarea name="qna_content" id="i_q_c_text" rows="6" cols="30" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 글 작성 시  타인에 대한 배려와 책임을 담아주세요."/></textarea>
+			</div>
+			<div id="q_c_input_btn">
+				<img alt="" id="q_c_img" src="image_board/q_c_input.png">
+				<input type="submit" id="q_c_i_input" value="">
+			</div>
 		</form>
+		</div>
 	</div>
 	
 	<div id="answerBoardQna" class="hidden">
@@ -33,8 +42,6 @@
 			<input type="submit" value="수정하기"/>		
 		</form>
 	</div>
-	
-	<center><div>popup_qna</div></center>
 	
 </body>
 </html>
