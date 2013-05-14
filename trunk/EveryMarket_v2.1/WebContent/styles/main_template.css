@@ -579,3 +579,7 @@ background-position: center;
 	margin-top: 3px;
 	cursor: pointer;
 }
+#goQnaBoard{
+	border: 0px;
+	background: none;
+}

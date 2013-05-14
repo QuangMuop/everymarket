@@ -226,10 +226,10 @@ font-family: monospace;
 	
 }
 
-.button_tab{
-	display: inline-block;
-	padding: 5px;
-}
+/* .button_tab{ */
+/* 	display: inline-block; */
+/* 	padding: 5px; */
+/* } */
 
 #bar_button_indivMarket > div{
 	display: inline-block;
@@ -276,4 +276,71 @@ font-family: monospace;
 
 #notice_addEventCash{
 	padding: 10px;
+}
+#review_content{
+	background: white;
+	border-radius:2px;
+	border:1px solid #c4cde0;
+}
+#r_score{
+	background-color: #F1F3F8;
+    border: 1px solid #E5E7EB;
+    border-radius: 3px 3px 3px 3px;
+    float: left;
+    height: 80px;
+    margin-left: -120px;
+    margin-top: -30px;
+    width: 80px;
+    font-size: 25px;
+}
+#r_score img{
+	width:40px;
+	float: left;
+	margin-left: 16px;
+}
+#r_score a{
+	font-weight:bold;
+	float: left;
+	font-size: 16px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+#r_score_count a{
+	font-weight:bold;
+	float: left;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-left: 2px;
+}
+#r_score_count img{
+	width:40px;
+	float: left;
+	margin-left: 17px;
+}
+#r_score_count{
+	font-size: 25px;
+	background-color: #F1F3F8;
+    border: 1px solid #E5E7EB;
+    border-radius: 3px 3px 3px 3px;
+    float: left;
+    height: 80px;
+    margin-left: -120px;
+    margin-top: 60px;
+    width: 80px;
+}
+.reviewContent{
+	border-bottom: 1px dotted #E5E7EB;
+}
+.productName{
+	color:#444444;
+	font-weight: bold;
+}
+.memberName{
+	color:#444444;
+	font-weight: bold;
+}
+.r_date{
+	text-align: right;
+	font-size: 11px;
+	color:#a8a8a8;
 }

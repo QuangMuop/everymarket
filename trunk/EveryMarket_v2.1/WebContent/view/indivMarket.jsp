@@ -157,11 +157,19 @@
 	
 	<!-- 팝업창 : 구매후기리스트 -->
 	<div id="review" class="popUp hidden">
-		<div id="scoreRating">
-			<p>평점: <span class="data"></span></p>
-			<p>총 평가인원: <span class="data"></span></p>
+		<div id="review_content">
+			<div id="scoreRating">
+				<div id="r_score">
+					<a>평점: <span class="data"></span></a>
+					<img alt="" src="image_blog_source/posted_item.png">
+				</div>
+				<div id="r_score_count">
+					<a>평가인원: <span class="data"></span></a>
+					<img alt="" src="image_blog_source/invite.png">
+				</div>
+			</div>
+			<div id="reviewList"></div>
 		</div>
-		<div id="reviewList"></div>
 	</div>
 	
 	<!-- 팝업창 : 구글맵 마우스오버 팝업 -->

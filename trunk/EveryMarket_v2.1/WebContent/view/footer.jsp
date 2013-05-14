@@ -38,8 +38,5 @@
 				<p id="b3_font">전호:1599-0110|팩스:02-920-1949</p>
 			</div>
 		</div>
-	</div>
-		<button id="goQnaBoard">QnA게시판</button>
-	</div>
 </body>
 </html>
