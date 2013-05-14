@@ -125,9 +125,20 @@
 		select p_id from trade where t_id = #t_id#
 	</select>
 	
+	<!-- 물건 거래 완료 상태 -->
 	<update id="update_product_st">
 	     update product set p_status = 'y' where p_id = #p_id#	
 	</update>
+	
+	<!-- 물건 신고 상태 -->
+    <update id="update_product_report">
+        update product set p_status = 'r' where p_id = #p_id#
+    </update>
+    
+    <update id="update_trade_report">
+        update trade set t_status = 5 where p_id = #p_id#
+    </update>
+	
 
 
 	<!-- <statement id="trade_product_status"> update product set p_status = 

@@ -83,29 +83,63 @@ $(document).ready(function() {
 							location.href = "accept.do?t_id="
 									+ $(this).attr("t_id");
 							
-					//거래 완료에 append로 붙이기 		
-							
-							
-							
-							
+					//거래 완료에 append로 붙이기 			
 							
 						});
-		$(document).on("change","#report_choice",function() {
+			
+			
+       /* $(document).on("change","#report_choice",function() {
 			$("#rep_reason").removeAttr("value").attr("value",
 				$("#report_choice >option:selected").html());
-								});
-
-				$(document).on("click","#report",
-								function() {
-									$("#main_report").bPopup();
-									$("#rep_reason")
-											.attr(
-													"value",
-													$(
-															"#report_choice >option:selected")
-															.html());
+			alert("dd");
+			});*/
+			$(document).on("click","#report",function() {
+				
+			var t_id = $(this).attr("t_id");
+			alert(t_id);
+			tradeDwr.getTrade(t_id, popReport);			
+			
+			
+			function popReport(data){
+						  
+				//alert(data.t_id + "모야!");
+				$("#trade_number").html("거래 번호 : " + data.t_id);
+				$("#trade_name").html("신고 상품명 : " + data.p_name);
+				$("#rep_memberId").attr("value", data.t_seller);	
+				$("#rep_writer").attr("value", data.t_buyer);
+				$("#rep_productId").attr("value", data.p_id);
+				
+				
+			}
+			
+			//alert(cc.t_id);
+			
+			
+			
+			
+			
+			
+			$("#main_report").bPopup();
+            $("#rep_reason").attr("value",$("#report_choice >option:selected").html());
 								});
 			});
+	
+	
+	
+	//신고완료 마무리 영준
+	/*$("#rp_ok").click(function(){
+		
+		
+		//신고사유
+		var rep_reson = $("#report_choice >option:selected").html();
+		//신고 텍스트
+	    var rep_content = $("#rep_content").val();
+	    //product_id 
+	   // var rep_productid = 
+	    
+		
+		
+	});*/
 	
 	
 	
@@ -129,8 +163,6 @@ $(document).on('click',	function() {
 		
 		$("#button").append(html);
 			
-		
-		
 		tradeDwr.update_status(t_id);
 
  	});

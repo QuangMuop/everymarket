@@ -19,7 +19,7 @@
 			#rep_productId#,
 			#rep_memberId#,
 			#rep_check#,
-			null
+			#rep_type#
 		)
 	</insert>
 
