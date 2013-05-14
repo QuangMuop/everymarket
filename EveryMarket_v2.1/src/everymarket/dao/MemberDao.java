@@ -100,5 +100,8 @@ public class MemberDao {
 		return (String) ibatisTemplate.queryForObject("find_ID", map);
 	}
 	
+	public void new_pwd(HashMap map){
+		ibatisTemplate.update("new_pwd", map);
+	}
 	
 }
