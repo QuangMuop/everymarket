@@ -122,6 +122,23 @@ public class MemberController {
 		return mav;
 	}
 	
+	//회원정보 수정
+	@RequestMapping("/memberinfo_change.do")
+	public ModelAndView memberinfo_change(@RequestParam("m_id") String m_id, @RequestParam("re_password") String re_password,
+			@RequestParam("m_email") String m_email, @RequestParam("m_phone") String m_phone){
+		ModelAndView mav = new ModelAndView();
+
+		HashMap map = new HashMap<>();
+		map.put("m_id", m_id);
+		map.put("re_password", re_password);
+		map.put("m_email", m_email);
+		map.put("m_phone", m_phone);
+		
+		daoM.memberinfo_change(map);
+		
+		mav.setViewName("jsonView");
+		return mav;
+	}
 	
 	@RequestMapping("/restPoint.do")
 	public ModelAndView rest_Point(HttpServletRequest request){
@@ -343,4 +360,5 @@ public class MemberController {
 
 		return remainingTime; 
 	}
+
 }
