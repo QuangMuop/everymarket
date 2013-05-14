@@ -19,6 +19,7 @@ $(document).ready(function(){
 	$("#header_message").click(popUp_message);
 	$("#header_logout").click(tryLogout);
 	$("#find_id_button").click(popUp_findID);
+	$("#find_pwd_button").click(popUp_find_pwd);
 	
 	/*헤더 팝업 펑션*/
 	function popUp_login(){ $("#login").bPopup(); }
@@ -198,6 +199,7 @@ $(document).ready(function(){
 			});	
 		});
 	});
+
 	
 //	개인알리미
 	$("#alarm").hover(function(){
@@ -243,6 +245,25 @@ $(document).ready(function(){
 		);
 		$("#form_find_ID").find("input[name='m_name']").val("");
 		$("#form_find_ID").find("input[name='m_email']").val("");
+	});
+	
+	
+//비밀번호 찾기 메일전송
+	function popUp_find_pwd(){ 
+		$("#find_pwd").bPopup();	
+	}
+	
+	$("#find_pwd_email").click(function(){
+		var m_id = $("#form_find_pwd").find("input[name='m_id']").val();
+		var m_name = $("#form_find_pwd").find("input[name='m_name']").val();		
+		var m_email = $("#form_find_pwd").find("input[name='m_email']").val();
+			
+		$.getJSON(
+				contextUrl + "find_pwd.do?m_id="+m_id+"&m_name="+m_name+"&m_email="+m_email,		
+		function(data){
+			alert("새로운 비밀번호가 발송되었습니다. 나의 정보에서 비밀번호를 변경해주세요.");
+			$("#find_pwd").bPopup().close();
+		});
 	});
 	
 //네비게이션	

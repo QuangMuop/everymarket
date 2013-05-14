@@ -8,6 +8,7 @@
 	<!-- 메일 센더 관련 모든 빈들 -->
  	<bean id="MailController" class="everymarket.controller.MailController">
 		<property name="sender" ref="mimeMailSender"></property> 
+		<property name="daoM" ref="memberDao" />
 	 </bean>
 	 
 	 <bean id="javaMailSender" class="everymarket.mailsender.JavaMailAuthenticator">
