@@ -86,13 +86,19 @@ public class TradeController {
 
 		// 거래 완료된 판 물품들
 		List<Trade> completeSList = daoT.getSCompleteList(m_id);
+		
+		
 
 		//찜한 물건들
 		List<Product> jjimList = daoJ.getjjimList(m_id);
 		
-		//찜한 물건 총 가격
-		int jjim_sum = daoJ.getjjim_sum(m_id);
+		int jjim_sum = 0;
 		
+		//찜한 물건 총 가격
+		if(daoJ.getjjim_sum(m_id) != null){
+		
+		 jjim_sum = (Integer)daoJ.getjjim_sum(m_id);
+		}
 		
 		
 		mav.addObject("buyingList", buyingList);
@@ -148,7 +154,6 @@ public class TradeController {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("m_id")!=null){
 			String m_id = (String) session.getAttribute("m_id");
-			System.out.println(m_id);
 			Member member = daoM.getMemberByM_id(m_id);
 
 			mav.setViewName("jsonView");
