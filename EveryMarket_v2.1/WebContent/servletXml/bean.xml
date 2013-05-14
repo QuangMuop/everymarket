@@ -132,6 +132,7 @@
 		<property name="daoM" ref="memberDao"></property>
 		<property name="daoP" ref="productDao" />
 		<property name="daoT" ref="tradeDao"/>
+		<property name="daoJ" ref="jjimDao"></property>
 	</bean>
 
 	<!-- 거래 관련 Dao -->

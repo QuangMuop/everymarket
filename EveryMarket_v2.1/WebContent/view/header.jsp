@@ -115,7 +115,7 @@
 					</div>
 				</li>
 				<li>
-					<a href="list.do?category=전자기기">
+					<a href="list.do?category=디지털가전">
 						<img src="images/header/4.png" alt=""/>
 						<span class="h_active"></span>
 						<span class="h_wrap">

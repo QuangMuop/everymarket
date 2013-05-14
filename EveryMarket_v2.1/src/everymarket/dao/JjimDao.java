@@ -170,17 +170,17 @@ public class JjimDao {
 	 */
 
 	public List<Product> getjjimList(String m_id) {
+
 		return ibatisTemplate.queryForList("get_jjimList", m_id);
 	}
 
 	public void deleteJjim_tr(int p_id) {
-		System.out.println("사사사사2");
 		ibatisTemplate.delete("deleteJjim_tr", p_id);
 	}
 
-	public int getjjim_sum(String m_id) {
-		
-		return (int) ibatisTemplate.queryForObject("getjjim_sum", m_id);
+	public Object getjjim_sum(String m_id) {
+
+		return ibatisTemplate.queryForObject("getjjim_sum", m_id);
 	}
 
 }

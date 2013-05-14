@@ -18,11 +18,7 @@ $(document).ready(function() {
 	});
 	
 	
-	
-	
-	
-	
-	
+		
 	
     $("tr[t_ids]").each(function(index){
         
@@ -78,6 +74,41 @@ $(document).ready(function() {
 	
 	
 	
+	
+	//====================================캐쉬 부분
+	$(document)
+	.ready(
+			function() {$(document).on("click","#accept",
+						function() {
+							location.href = "accept.do?t_id="
+									+ $(this).attr("t_id");
+							
+					//거래 완료에 append로 붙이기 		
+							
+							
+							
+							
+							
+						});
+		$(document).on("change","#report_choice",function() {
+			$("#rep_reason").removeAttr("value").attr("value",
+				$("#report_choice >option:selected").html());
+								});
+
+				$(document).on("click","#report",
+								function() {
+									$("#main_report").bPopup();
+									$("#rep_reason")
+											.attr(
+													"value",
+													$(
+															"#report_choice >option:selected")
+															.html());
+								});
+			});
+	
+	
+	
 
 });
 
@@ -94,8 +125,7 @@ $(document).on('click',	function() {
 		$(".db_trace").addClass("dis_tr");
 		
 		var html = '<input type="button"  id="accept"  t_id='+t_id+' value="수취확인" />	<input id="report" type="button"  t_id='+t_id+'  value="신고하기" /> ';
-		
-		
+				
 		
 		$("#button").append(html);
 			

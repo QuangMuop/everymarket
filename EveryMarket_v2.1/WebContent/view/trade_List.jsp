@@ -7,46 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-
-						$(document).on(
-								"click",
-								"#accept",
-								function() {
-									location.href = "accept.do?t_id="
-											+ $(this).attr("t_id");
-
-								});
-						$(document)
-								.on(
-										"change",
-										"#report_choice",
-										function() {
-											$("#rep_reason")
-													.removeAttr("value")
-													.attr(
-															"value",
-															$(
-																	"#report_choice >option:selected")
-																	.html());
-										});
-
-						$(document)
-								.on(
-										"click",
-										"#report",
-										function() {
-											$("#main_report").bPopup();
-											$("#rep_reason")
-													.attr(
-															"value",
-															$(
-																	"#report_choice >option:selected")
-																	.html());
-										});
-					});
+	
 </script>
 
 

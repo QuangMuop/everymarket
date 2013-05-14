@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>${searchtext}</div>
+
 	<div id='container'>
 		<div class='all_content'>
 
