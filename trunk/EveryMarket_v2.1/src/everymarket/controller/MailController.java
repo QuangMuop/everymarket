@@ -1,5 +1,6 @@
 package everymarket.controller;
 
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.Random;
 
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Appinfo;
 
+import everymarket.dao.MemberDao;
 import everymarket.mailsender.MimeMailSender;
 
 
@@ -28,9 +30,12 @@ import everymarket.mailsender.MimeMailSender;
 @Controller
 public class MailController {
 	MimeMailSender sender;
+	private MemberDao daoM;
 	
-	
-	
+	public void setDaoM(MemberDao daoM) {
+		this.daoM = daoM;
+	}
+
 	public void setSender(MimeMailSender sender) {
 		this.sender = sender;
 	}
@@ -69,6 +74,36 @@ public class MailController {
 		return mav;
 	}
 	
+	//비밀번호 찾기
+	@RequestMapping("/find_pwd.do")
+	public ModelAndView find_pwd(@RequestParam("m_id") String m_id, @RequestParam("m_name") String m_name,
+			@RequestParam("m_email") String m_email ){
+		ModelAndView mav = new ModelAndView();
+		
+
+		Random random = new Random();
+		int num = random.nextInt(999999);
+		String text = "새 비밀번호 : " + num;
+		try{
+			sender.sendMail(m_email, "kpj5427@gmail.com", "[everymarket 비밀번호 찾기]", text);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		HashMap map = new HashMap<>();
+		map.put("m_id", m_id);
+		map.put("m_name", m_name);
+		map.put("m_email", m_email);
+		map.put("num", num);
+		
+		daoM.new_pwd(map);
+		mav.addAllObjects(map);
+		
+		mav.setViewName("jsonView");
+		
+		
+		return mav;
+	}
 	
 	
 }
