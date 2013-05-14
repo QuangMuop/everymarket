@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- 메일 센더 관련 모든 빈들 -->
+ 	<bean id="MailController" class="everymarket.controller.MailController">
+		<property name="sender" ref="mimeMailSender"></property> 
+	 </bean>
+	 
+	 <bean id="javaMailSender" class="everymarket.mailsender.JavaMailAuthenticator">
+		<property name="host" value="smtp.gmail.com"/>
+		<property name="port" value="465"/>
+		<property name="protocol" value="smtps"/>
+		<property name="username" value="kpj5427@gmail.com"/>
+		<property name="password" value="vodebd2911"/>
+	</bean>
+	
+	<bean id="mimeMailSender" class="everymarket.mailsender.MimeMailSender">
+		<property name="sender" ref="javaMailSender"/>
+	</bean>
+</beans>
