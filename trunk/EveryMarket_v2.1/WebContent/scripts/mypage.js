@@ -1,4 +1,7 @@
-$(document).ready(function(){	
+$(document).ready(function(){
+	
+	var contextUrl = "/EveryMarket_v2.1/";
+	
 // mymenu
 	$("#c_recharge_button").click(function(){
 		window.open("view/mypage/recharge.jsp","aa","width=700,height=500,resizalbe=no");	
@@ -51,9 +54,22 @@ $(document).ready(function(){
 	});
 	$("#c_ok_update").on('click',function(){
 		var x = document.getElementById("select_phone");
-		
-		alert(x.options[x.selectedIndex].value);
-		
+		var m_id = $("#memberinfo_m_id").html();
+		var re_password = $("#c_table").find("input[name='re_password']").val();
+		var m_email = $("#c_table").find("input[name='re_email_first']").val() + "@" + 
+					  $("#c_table").find("input[name='re_email_second']").val();
+		var m_phone = x.options[x.selectedIndex].value + $("#c_table").find("input[name='re_phone_first']").val()
+					+ $("#c_table").find("input[name='re_phone_second']").val();
+
+		$.getJSON(
+				contextUrl + "memberinfo_change.do?m_id=" + m_id + "&re_password=" + re_password +
+				"&m_email=" + m_email + "&m_phone=" + m_phone,
+				function(data){
+					alert("회원정보가 변경되었습니다. 다시 로그인 해주세요.");
+					location.href="logout.do";
+				}
+		);
+
 			 
 	 });
 	
@@ -139,4 +155,9 @@ $(document).ready(function(){
 		alert("환급신청이 완료되었습니다^^ 관리자 승인 후 환급되겠습니다.");
 	});
 // repond end
+	
+	
+	$("#c_cencle1").click(function(){
+		$(".c_inner_input").find("input[name='c_inner_pass_input1']").val("");
+	});
 });

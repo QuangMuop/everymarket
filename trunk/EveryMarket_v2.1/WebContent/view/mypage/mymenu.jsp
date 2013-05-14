@@ -28,7 +28,7 @@
 		</div>
 	</div>
 <!-- 	////////////////////////// -->
-<div id="contents">
+<div id="contents">	
 	<div class="out_hidden" id="contents1">
 		<div id="c_top">
 			<img alt="" id="c_inner_img" src="image_mypage/statuschange.png">
@@ -44,13 +44,14 @@
 				</div>
 				<div class="c_inner_input">
 					<img alt="" class="repass_img" src="image_mypage/password.png">
-					<input id="c_inner_pass_input1" type="password">
+					<input id="c_inner_pass_input1" name="c_inner_pass_input1" type="password">
 					회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.
 				</div>
 			</div>
 				<button class="c_button" id="c_ok1" pass="${member.m_pwd}">확인</button>
 				<button class="c_button" id="c_cencle1">취소</button>
 		</div>
+		
 		<div id="re_member"  class="c_inner_hidden">
 			<img alt="" id="c_remember" src="image_mypage/c_title.png">
 			<table id="c_table">
@@ -67,7 +68,7 @@
 					<th class="row">
 						<p>아이디</p>
 					</th>
-					<td>
+					<td id="memberinfo_m_id">
 						${member.m_id }
 					</td>
 				</tr>
@@ -76,7 +77,7 @@
 						<p>새비밀번호</p>
 					</th>
 					<td>
-						<input id="re_password" class="c_input" type="password">
+						<input id="re_password" class="c_input" type="password" name="re_password">
 					</td>
 				</tr>
 				<tr>
@@ -84,7 +85,7 @@
 						<p>새비밀번호재확인</p>
 					</th>
 					<td>
-						<input id="re_password" class="c_input" type="password">
+						<input id="re_password" class="c_input" type="password" name="re_password2">
 					</td>
 				</tr>
 				<tr>
@@ -92,9 +93,9 @@
 						<p>이메일주소</p>
 					</th>
 					<td>
-						<input id="re_email_first" class="c_input" type="text" value="이메일">
+						<input id="re_email_first" class="c_input" type="text" value="이메일" name="re_email_first">
 						@
-						<input id="re_email_second" class="c_input" type="text" value="이메일">
+						<input id="re_email_second" class="c_input" type="text" value="이메일" name="re_email_second">
 					</td>
 				</tr>
 				<tr>
@@ -107,8 +108,8 @@
 							<option>011</option>
 							<option>017</option>
 						</select>
-						<input id="re_phone_first" class="c_input" type="text" value="앞번호">
-						<input id="re_phone_second" class="c_input" type="text" value="뒷번호">
+						<input id="re_phone_first" class="c_input" type="text" value="앞번호" name="re_phone_first">
+						<input id="re_phone_second" class="c_input" type="text" value="뒷번호" name="re_phone_second">
 					</td>
 				</tr>
 			</table>
