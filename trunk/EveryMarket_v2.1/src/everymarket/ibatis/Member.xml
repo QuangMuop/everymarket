@@ -111,4 +111,10 @@
 		where m_name=#m_name# and m_email=#m_email#
 	</select>
 	
+	<update id="new_pwd" parameterClass="java.util.HashMap">
+		update member
+		set m_pwd=#num#
+		where m_id=#m_id#
+	</update>
+	
 </sqlMap>
