@@ -132,5 +132,13 @@ public class ProductDao {
 		ibatisTemplate.update("update_product_st", p_id);		
 	}
 	
+	//신고된 물품 업데이트
+	public void update_product_report(int p_id){
+		ibatisTemplate.update("update_product_report", p_id);
+		ibatisTemplate.update("update_trade_report", p_id);
+	}
+	
+	
+	
 
 }

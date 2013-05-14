@@ -11,6 +11,7 @@ import everymarket.dao.JjimDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.TradeDao;
 import everymarket.model.Member;
+import everymarket.model.Trade;
 
 public class TradeDwr {
 
@@ -85,7 +86,12 @@ public class TradeDwr {
 
 	// jjimlist에서 지우기
 	public void deletejjim_tr(int p_id){
-		System.out.println("사사사사");
 		daoJ.deleteJjim_tr(p_id);
 	}
+
+	public Trade getTrade(int t_id){
+		return daoT.getTrade(t_id);
+	}
+	
+	
 }

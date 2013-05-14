@@ -82,28 +82,25 @@ public class TradeController {
 		List<Trade> sellingList = daoT.getSellingTrade(m_id);
 
 		// 거래 완료된 산 물품들
-		List<Trade> completeBList = daoT.getBCompleteList(m_id);	
+		List<Trade> completeBList = daoT.getBCompleteList(m_id);
 
 		// 거래 완료된 판 물품들
 		List<Trade> completeSList = daoT.getSCompleteList(m_id);
-		
-		
 
-		//찜한 물건들
+		// 찜한 물건들
 		List<Product> jjimList = daoJ.getjjimList(m_id);
-		
+
 		int jjim_sum = 0;
-		
-		//찜한 물건 총 가격
-		if(daoJ.getjjim_sum(m_id) != null){
-		
-		 jjim_sum = (Integer)daoJ.getjjim_sum(m_id);
+
+		// 찜한 물건 총 가격
+		if (daoJ.getjjim_sum(m_id) != null) {
+
+			jjim_sum = (Integer) daoJ.getjjim_sum(m_id);
 		}
-		
-		
+
 		mav.addObject("buyingList", buyingList);
 		mav.addObject("sellingList", sellingList);
-		mav.addObject("completeBList", completeBList);		
+		mav.addObject("completeBList", completeBList);
 		mav.addObject("completeSList", completeSList);
 		mav.addObject("jjimList", jjimList);
 		mav.addObject("jjim_sum", jjim_sum);
@@ -114,7 +111,8 @@ public class TradeController {
 	}
 
 	@RequestMapping("/accept.do")
-	public ModelAndView accept(@RequestParam("t_id") int t_id) {
+	public ModelAndView accept(@RequestParam("t_id") int t_id,
+			HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		Trade trade = daoT.getTrade(t_id);
 
@@ -138,32 +136,70 @@ public class TradeController {
 
 		daoT.update_status(trade.getT_id(), status);
 
+		// 거래 완료 영준
+
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+
+		String m_id = member.getM_id();
+
+		//
+		// 나에 구매중인 물품들
+		List<Trade> buyingList = daoT.getBuyingTrade(m_id);
+
+		// 나에 판매중인 물품들
+		List<Trade> sellingList = daoT.getSellingTrade(m_id);
+
+		// 거래 완료된 산 물품들
+		List<Trade> completeBList = daoT.getBCompleteList(m_id);
+
+		// 거래 완료된 판 물품들
+		List<Trade> completeSList = daoT.getSCompleteList(m_id);
+
+		// 찜한 물건들
+		List<Product> jjimList = daoJ.getjjimList(m_id);
+
+		int jjim_sum = 0;
+
+		// 찜한 물건 총 가격
+		if (daoJ.getjjim_sum(m_id) != null) {
+
+			jjim_sum = (Integer) daoJ.getjjim_sum(m_id);
+		}
+
+		mav.addObject("buyingList", buyingList);
+		mav.addObject("sellingList", sellingList);
+		mav.addObject("completeBList", completeBList);
+		mav.addObject("completeSList", completeSList);
+		mav.addObject("jjimList", jjimList);
+		mav.addObject("jjim_sum", jjim_sum);
+
 		/* }catch (Exception e){ */
 		/*
 		 * mav.addObject("error", "거래가 완료되지 못했습니다");
 		 * mav.setViewName("errorPage"); return mav; }
 		 */
+
 		mav.setViewName("trade_list");
 		return mav;
 	}
-	
 
 	@RequestMapping("cashConfirm.do")
-	public ModelAndView cashConfirm(HttpServletRequest request){
+	public ModelAndView cashConfirm(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
-		if(session.getAttribute("m_id")!=null){
+		if (session.getAttribute("m_id") != null) {
 			String m_id = (String) session.getAttribute("m_id");
 			Member member = daoM.getMemberByM_id(m_id);
 
 			mav.setViewName("jsonView");
 			mav.addObject("m_cash", member.getM_cash());
-	
-		}else{
+
+		} else {
 			mav.setViewName("redirect:enter.go");
 		}
-		
+
 		return mav;
-		
+
 	}
 }

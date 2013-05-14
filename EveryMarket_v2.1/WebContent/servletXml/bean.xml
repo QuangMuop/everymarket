@@ -36,6 +36,7 @@
 	<bean id="boardReportController" class="everymarket.controller.BoardReportController">
 		<property name="daoBR" ref="boardReportDao"/>
 		<property name="daoM" ref="memberDao"/>
+		<property name="daoP" ref="productDao"></property>
 	</bean>
 
 	<bean id="boardReportDao" class="everymarket.dao.BoardReportDao">

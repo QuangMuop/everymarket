@@ -6,9 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<script type="text/javascript">
-	
-</script>
+
 
 
 <title>Insert title here</title>
@@ -89,30 +87,8 @@ table td,th {
 						<td id="db_text">배송완료</td>
 
 
-						<td><input type="button" id="accept" value="수취확인"
-							t_id="${bl.t_id}" /> <input type="button" id="report"
-							value="신고하기" t_id="${bl.t_id}" /></td>
-
-						<div id="main_report" class="popUp hidden">
-							<form action="reportAction.do" method="post">
-								거래 번호 : ${bl.t_id}<br> 신고 상품명 : ${bl.p_name}<br> 신고 사유
-								: <select id="report_choice">
-									<option value="report1">본 제품과 다른 제품</option>
-									<option value="report2">배송 지연</option>
-									<option value="report3">제품 불량</option>
-									<option value="report4">기타 사유</option>
-								</select><br> 신고의 내용
-								<textarea name="rep_content" id="rep_content"></textarea>
-								<br> <input type="hidden" name="rep_memberId"
-									value="${bl.t_seller}"> <input type="hidden"
-									name="rep_reason" id="rep_reason"> <input type="hidden"
-									name="rep_writer" value="${bl.t_buyer}"> <input
-									type="hidden" name="rep_productId" value="${bl.p_id}">
-								<input type="submit" value="신고 완료"> <input type="reset"
-									value="취소">
-							</form>
-						</div>
-
+						<td><input type="button" id="accept" value="수취확인" t_id="${bl.t_id}" /> 
+							<input type="button" id="report" value="신고하기" t_id="${bl.t_id}" /></td>
 					</c:when>
 
 
@@ -121,6 +97,48 @@ table td,th {
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<div id="main_report" class="popUp hidden">
+		<form action="reportAction.do" method="post">
+		<div id="trade_number"></div>
+		<div id="trade_name"></div>
+			<br> 신고 사유
+			:<select id="report_choice" name="rep_reason">
+				<option value="본 제품과 다른 제품">본 제품과 다른 제품</option>
+				<option value="배송지연">배송 지연</option>
+				<option value="제품 불량">제품 불량</option>
+				<option value="기타 사유">기타 사유</option>
+			</select><br> 신고의 내용
+			<textarea name="rep_content" id="rep_content"></textarea>
+			<br> <input type="hidden" id="rep_memberId" name="rep_memberId" value="">
+			 <input type="hidden" id="rep_writer" name="rep_writer" value=""> 
+											 
+			<input type="hidden" id="rep_productId" name="rep_productId" value="">
+			<input type="submit" id="rp_ok" value="신고 완료"> <input
+				type="reset" value="취소">
+		</form>
+	</div>
+	
+	<%-- <div id="main_report" class="popUp hidden">
+		<form action="reportAction.do" method="post">
+		<div id=${bl.t_id }nb></div>
+		<div id=${bl.t_id }re></div>
+			<br> 신고 사유
+			:<select id="report_choice" name="rep_reason">
+				<option value="본 제품과 다른 제품">본 제품과 다른 제품</option>
+				<option value="배송지연">배송 지연</option>
+				<option value="제품 불량">제품 불량</option>
+				<option value="기타 사유">기타 사유</option>
+			</select><br> 신고의 내용
+			<textarea name="rep_content" id="rep_content"></textarea>
+			<br> <input type="hidden" id="${bl.t_id}rep_memberId" name="rep_memberId" value="">
+			 <input type="hidden" id="${bl.t_id}rep_writer" name="rep_writer" value=""> 
+											 
+			<input type="hidden" name="rep_productId" value="${bl.p_id}">
+			<input type="submit" id="rp_ok" value="신고 완료" t_id = ${bl.p_id } > <input
+				type="reset" value="취소">
+		</form>
+	</div> --%>
 
 	<br>
 	<br>
@@ -238,39 +256,38 @@ table td,th {
 			</c:forEach>
 
 		</table>
-		
-		
+
+
 		<h2>찜 리스트</h2>
-		
+
 		<table>
-		 <tr>
-		  <th>상품명/옵션정보</th>
-		  <th>상품금액</th>
-		  <th>판매자</th>
-		  <th>삭제</th>
-		  <th>구입하기</th>		 
-		 </tr>
-		 
-		 <c:forEach var="JP" items="${jjimList}">
-		 <tr class="${JP.p_id}j">
-		 <td>${JP.p_name}<br>
-		 <img alt="" src="image_product/${JP.p_img}">
-		 ${JP.p_detail}
-		 </td>
-		 <td>${JP.p_price}</td>
-		 <td>${JP.m_id}</td>
-		 <td><button class="delete_button" p_id="${JP.p_id}">삭제</button></td>
-		 <td><button class="buyj_button" p_id="${JP.p_id}">구입하기</button></td>
-		 </tr>
-		 </c:forEach>
-		 <tr>
-		 <td colspan="5">총 금액 ${jjim_sum}</td>
-		 </tr>
-		
-		
-		
-		
-		
+			<tr>
+				<th>상품명/옵션정보</th>
+				<th>상품금액</th>
+				<th>판매자</th>
+				<th>삭제</th>
+				<th>구입하기</th>
+			</tr>
+
+			<c:forEach var="JP" items="${jjimList}">
+				<tr class="${JP.p_id}j">
+					<td>${JP.p_name}<br> <img alt=""
+						src="image_product/${JP.p_img}"> ${JP.p_detail}
+					</td>
+					<td>${JP.p_price}</td>
+					<td>${JP.m_id}</td>
+					<td><button class="delete_button" p_id="${JP.p_id}">삭제</button></td>
+					<td><button class="buyj_button" p_id="${JP.p_id}">구입하기</button></td>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td colspan="5">총 금액 ${jjim_sum}</td>
+			</tr>
+
+
+
+
+
 		</table>
 
 	</div>
