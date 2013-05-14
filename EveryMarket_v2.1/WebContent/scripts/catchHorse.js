@@ -159,7 +159,7 @@ $(document).ready(function(){
 	
 	/*이벤트 캐쉬 추가 펑션*/
 	function updateEventCash(){
-		var eventCash = getRandomInt(100, 200);
+		var eventCash = getRandomInt(10, 100);
 		indivMarketDwr.updateEventCash(eventCash, callback_addEventCash);
 		
 		function callback_addEventCash(m_cash){
