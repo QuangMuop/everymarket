@@ -383,6 +383,7 @@
 	<div id="list_message" class="popUp hidden"></div>
 	<div id="notifier_message" class="popUp hidden">확인하지 않은 메시지가 있습니다!</div>
 	
+	
 	<div id="find_ID" class="popUp hidden">
 		<h3>아이디 찾기</h3>		
 		<form id="form_find_ID" action="find_ID.do" method="POST">
@@ -391,9 +392,18 @@
 		</form>
 			<button id="find_ID_result_button" >
 				<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
-			</button>
-		
-		
+			</button>	
+	</div>
+	
+	<div id="find_pwd" class="popUp hidden">
+		<h3>비밀번호 찾기</h3>
+		<form id="form_find_pwd" action="find_pwd.do" method="POST">
+			아이디<input type="text" name="m_id"><br>
+			이름 <input type="text" name="m_name"><br>
+			이메일<input type="text" name="m_email"><br>
+		</form>
+		<button id="find_pwd_email" >
+					<img class="login_bottom_button"alt="" src="image_popup/password_find.png">
 	</div>
 	
 </body>
