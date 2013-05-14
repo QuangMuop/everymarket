@@ -104,4 +104,8 @@ public class MemberDao {
 		ibatisTemplate.update("new_pwd", map);
 	}
 	
+	public void memberinfo_change(HashMap map){
+		ibatisTemplate.update("memberinfo_change", map);
+	}
+	
 }
