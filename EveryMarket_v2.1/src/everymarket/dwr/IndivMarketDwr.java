@@ -7,20 +7,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import everymarket.dao.BoardReportDao;
+import everymarket.dao.DangolDao;
 import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.TradeDao;
 import everymarket.model.BoardReport;
+import everymarket.model.Dangol;
 import everymarket.model.Member;
 
 public class IndivMarketDwr {
 	private BoardReportDao daoBR;
+	private DangolDao daoD;
 	private MemberDao daoM;
 	private ProductDao daoP;
 	private TradeDao daoT;
 
 	public void setDaoBR(BoardReportDao daoBR) {
 		this.daoBR = daoBR;
+	}
+	public void setDaoD(DangolDao daoD) {
+		this.daoD = daoD;
 	}
 	public void setDaoM(MemberDao daoM) {
 		this.daoM = daoM;
@@ -68,5 +74,44 @@ public class IndivMarketDwr {
 
 		daoM.updateEventCash(member);
 		return m_cash;
+	}
+	
+	public int checkDangol(String owner_id, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		
+		Dangol dangol = new Dangol();
+		dangol.setM_id(member.getM_id());
+		dangol.setDg_id(owner_id);
+		
+		int result = 0; 
+		
+		if(daoD.checkDangol(dangol) != null){ result = 1; }
+		if(owner_id.equals(member.getM_id())){ result = -1; }
+
+		return result;
+	}
+	
+	public void registerDangol(String owner_id, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		
+		Dangol dangol = new Dangol();
+		dangol.setD_id(daoD.getMaxD_id() + 1);
+		dangol.setM_id(member.getM_id());
+		dangol.setDg_id(owner_id);
+		
+		daoD.registerDangol(dangol);
+	}
+	
+	public void deleteDangol(String owner_id, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		
+		Dangol dangol = new Dangol();
+		dangol.setM_id(member.getM_id());
+		dangol.setDg_id(owner_id);
+		
+		daoD.deleteDangol(dangol);
 	}
 }

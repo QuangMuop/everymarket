@@ -28,6 +28,7 @@
 	
 	<bean id="indivMarketDwr" class="everymarket.dwr.IndivMarketDwr">
 		<property name="daoBR" ref="boardReportDao"/>
+		<property name="daoD" ref="dangolDao"/>
 		<property name="daoM" ref="memberDao"/>
 		<property name="daoP" ref="productDao"/>
 		<property name="daoT" ref="tradeDao"/>

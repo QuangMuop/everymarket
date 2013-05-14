@@ -8,6 +8,26 @@
 	
 	<typeAlias alias="Dangol" type="everymarket.model.Dangol"/>
 
+	<insert id="registerDangol" parameterClass="Dangol">
+		insert into dangol values(
+			#d_id#,
+			#m_id#,
+			#dg_id#
+		)
+	</insert>
+
+	<select id="getMaxD_id" resultClass="Integer">
+		select max(d_id)
+		from dangol
+	</select>
+
+	<select id="checkDangol" parameterClass="Dangol" resultClass="Dangol">
+		select *
+		from dangol
+		where m_id = #m_id#
+		  and dg_id = #dg_id#
+	</select>
+
 	<select id="countDangolByM_id" resultClass="Integer">
 		select count(*)
 		from dangol
@@ -21,5 +41,12 @@
 		  on b.m_id = d.dg_id
 		where d.m_id = #m_id#
 	</select>
+	
+	<delete id="deleteDangol" parameterClass="Dangol">
+		delete
+		from dangol
+		where m_id = #m_id#
+		  and dg_id = #dg_id#
+	</delete>
 
 </sqlMap>
