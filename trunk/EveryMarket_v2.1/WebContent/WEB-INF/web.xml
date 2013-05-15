@@ -38,7 +38,7 @@
 		<!-- dwr관련 설정 담당 -->
 		/servletXml/dwr.xml
 		<!-- mainSender관련 설정 담당 -->
-		/servletXml/mailSender.xml
+		/servletXml/mainSender.xml
 		<!-- viewResolver관련 설정 담당 -->
 		/servletXml/viewResolver.xml
 		<!-- tiles2관련 설정 담당 -->
