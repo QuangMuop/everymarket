@@ -96,6 +96,7 @@
 	<!-- 팝업창: 회원 신고창 -->
 	<div id="memberReport" class="popUp hidden">
 		<div id="p_r_content">
+		<img alt="" id="main_report_title" src="image_trade/report_title_img.png">
 		<div id="memberInfo_report">
 			<span id="memberM_nick_report"></span>
 				(<span id="memberM_id_report"></span>)

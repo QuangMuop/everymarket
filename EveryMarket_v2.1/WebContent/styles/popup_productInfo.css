@@ -174,13 +174,15 @@
 #productInfo_purchase table{
 margin: 5px;
 float: left;
-width: 210px;
+width: 190px;
 margin-left: 15px;
 border-bottom: 1px solid #e8e8e8;
 }
 .data img{
 	border:1px solid #dedede;
 	float: left;
+	height: 370px;
+	width:220px;
 }
 #productP_name_purchase{
 	float: left;
@@ -253,11 +255,12 @@ border-bottom: 1px solid #e8e8e8;
 #productInfo_report{
 	margin: 5px;
 	border-bottom: 1px dotted #e8e8e8;
+	
 }
 .notice_report{
 	margin: 5px;
 	margin-left: 10px;
-	
+	float: left;
 }
 .notice_report ul li{
 	list-style: none;
@@ -316,4 +319,7 @@ border-bottom: 1px solid #e8e8e8;
 	float: left;
 	width:500px;
 	font-size: 13px;
+}
+#productP_img_purchase{
+	
 }
