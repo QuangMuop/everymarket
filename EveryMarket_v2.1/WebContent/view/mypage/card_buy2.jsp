@@ -230,16 +230,16 @@ $(document).ready(function(){
 				<th>저장위치 선택</th>
 				<td>
 					<div class="select_box">
-						<img alt="" id="pc" src="PC.png">
+						<img alt="" id="pc" src="../../image_mypage/PC.png">
 					</div>
 					<div class="select_box">
-						<img alt="" id="phone" src="phone.png">
+						<img alt="" id="phone" src="../../image_mypage/phone.png">
 					</div>
 					<div class="select_box">
-						<img alt="" id="usb" src="usb.png">
+						<img alt="" id="usb" src="../../image_mypage/usb.png">
 					</div>
 					<div class="select_box">
-						<img alt="" id="iccard" src="ICcard.png">
+						<img alt="" id="iccard" src="../../image_mypage/ICcard.png">
 					</div>
 					<a class="safe_buy_red">휴대폰</a>
 					<a class="safe_buy_normal">에 저장해서 이용하시면 더욱</a>

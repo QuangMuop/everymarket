@@ -242,20 +242,20 @@ $(document).ready(function(){
 		<div id="recharge_logic">
 					<div id="box_first" class="recharge_box">
 						<div class="recharge_box_title">
-							<img class="box_img" alt="" src="now_cash.png">
+							<img class="box_img" alt="" src="../../image_mypage/now_cash.png">
 						</div>
 						<a>0</a>
 					</div>
 					<div id="box_second" class="recharge_box">
 						<div class="recharge_box_title">
-							<img class="box_img"  alt="" src="recharge_cash.png">
+							<img class="box_img"  alt="" src="../../image_mypage/recharge_cash.png">
 						</div>
 						<input type="text" id="c_inner_pass_input" class="input_cash" 
 							value="0" readonly="readonly">
 					</div>
 					<div id="box_third" class="recharge_box">
 						<div class="recharge_box_title">
-							<img class="box_img"  alt="" src="after_cash.png">
+							<img class="box_img"  alt="" src="../../image_mypage/after_cash.png">
 						</div>
 						<a id='remainingCash'>0</a>
 					</div>

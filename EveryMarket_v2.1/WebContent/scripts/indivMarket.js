@@ -62,16 +62,28 @@ $(document).ready(function(){
 		/*decoBlog: mainImage, thunbNail, geoLocation, blogContents ÅÇ ±¸Çö*/	
 		function tab_mainImage(){
 			$("#decoBlog").find(".tab").not("#mainImage").hide();
-			$("#mainImage").fadeIn("slow"); }
+			$("#mainImage").fadeIn("slow");
+			$(".button_tab").removeClass("checked");
+			$("#tab_mainImage").addClass("checked");
+		}
 		function tab_thumbNail(){
 			$("#decoBlog").find(".tab").not("#thumbNail").hide();
-			$("#thumbNail").fadeIn("slow"); }
+			$("#thumbNail").fadeIn("slow"); 
+			$(".button_tab").removeClass("checked");
+			$("#tab_thumbNail").addClass("checked");
+		}
 		function tab_geoLocation(){
 			$("#decoBlog").find(".tab").not("#geoLocation").hide();
-			$("#geoLocation").fadeIn("slow"); }
+			$("#geoLocation").fadeIn("slow"); 
+			$(".button_tab").removeClass("checked");
+			$("#tab_geoLocation").addClass("checked");
+		}
 		function tab_blogContents(){
 			$("#decoBlog").find(".tab").not("#blogContents").hide();
-			$("#blogContents").fadeIn("slow"); }
+			$("#blogContents").fadeIn("slow"); 
+			$(".button_tab").removeClass("checked");
+			$("#tab_blogContents").addClass("checked");
+		}
 		
 		function open_locationPicker(){
 			$("#gMapLocationPicker").slideDown("slow");

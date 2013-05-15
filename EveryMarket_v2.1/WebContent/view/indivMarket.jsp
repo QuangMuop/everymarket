@@ -78,18 +78,22 @@
 	
 	<!-- 팝업창 : 가게 꾸미기 -->
 	<div id="decoBlog" class="popUp hidden">
-		<div id="tab_mainImage" class="button_tab">메인이미지</div>
-		<div id="tab_thumbNail" class="button_tab">썸네일이미지</div>
-		<div id="tab_geoLocation" class="button_tab">구글맵API</div>
-		<div id="tab_blogContents" class="button_tab">마켓소개글</div>
-	
+		
+		<div id="d_b_box">
+		<img alt="" id="deco_title" src="image_blog_source/deco_title.png">
+		<div id="d_b_box_top">
+			<div id="tab_mainImage" class="button_tab checked">메인이미지</div>
+			<div id="tab_thumbNail" class="button_tab">썸네일이미지</div>
+			<div id="tab_geoLocation" class="button_tab">구글맵API</div>
+			<div id="tab_blogContents" class="button_tab">마켓소개글</div>
+		</div>
 		<div id="mainImage" class="tab">
 			<form action="updateBlog.do" method="post" enctype="multipart/form-data">
-				<h4>메인이미지 수정폼</h4>
+				<h4>마켓 메인 이미지를 설정해주세요!</h4>
 				<img src="C:\Users\kosta.Kitchu\Downloads\wallPaper.png">
 				<input type="file" name="uploadFile">
 				<input type="hidden" name="updateKey" value="b_main">
-				<input type="submit" value="변경하기">
+				<input type="submit" class="m_i_change" value="변경하기">
 			</form>
 		</div>
 		<div id="thumbNail" class="tab hidden">
@@ -97,7 +101,7 @@
 				<h4>썸네일이미지 수정폼</h4>
 				<input type="file" name="uploadFile">
 				<input type="hidden" name="updateKey" value="b_thumb">
-				<input type="submit" value="변경하기">
+				<input type="submit" class="m_i_change" value="변경하기">
 			</form>
 		</div>
 		<div id="geoLocation" class="tab hidden">
@@ -106,14 +110,14 @@
 				<form id="submitAddress" onsubmit="showAddress(this.address.value); return false;">
 					<input type="text" size="55" name="address" 
 						placeholder="이곳에 주로 거래 가능한 장소의 주소명을 입력해주세요!" /> 
-					<input type="submit" value="위도와 경도 찾기!" />			
+					<input type="submit" class="m_i_change" value="위도와 경도 찾기!" />			
 				</form>
 				
 				<form action="updateBlog.do" method="post">
 					위도: <input type="text" id="lat" name="latitude" size="10" readonly="readonly">
 					경도: <input type="text" id="lng" name="longitude" size="10" readonly="readonly">		
 					<input type="hidden" name="updateKey" value="b_map">
-					<input type="submit" value="해당 위도와 경도로 구글맵API를 적용합니다.">
+					<input type="submit" id="api_add" value="해당 위도와 경도로 구글맵API를 적용합니다.">
 				</form>
 				
 				<div align="center" id="map" style="width: 600px; height: 400px"></div>
@@ -125,29 +129,40 @@
 				<h4>마켓소개글 수정폼</h4>
 				<textarea rows="5" cols="30" name="b_content"></textarea>
 				<input type="hidden" name="updateKey" value="b_content">
-				<input type="submit" value="변경하기">
+				<input type="submit" class="m_i_change" value="변경하기">
 			</form>
 		</div>
 	</div>
-	
+	</div>
 	<!-- 팝업창 : 상품등록 -->
 	<div id="registerProduct" class="popUp hidden">
-		<h4>새로운 상품 등록폼</h4>
+		<div id="r_p_content">
+		<img alt="" id="reg_good_title" src="image_blog_source/reg_good.png">
 		<form action="registerProduct.do" method="post" enctype="multipart/form-data">
-			품명:		<input type="text" name="p_name" size="10">					<br>
-			가격:		<input type="text" name="p_price" size="10">				<br>
-			분류:		<select name="ct_id"></select>								<br>
-			상품소개:	<textarea rows="5" cols="30" name="p_detail"></textarea>	<br>
-			상품사진:	<input type="file" name="uploadFile" size="10">				<br>
-			<input type="submit" value="상품 등록하기">
-		</form> 
+			<div id="p_name_set">
+			<input type="text" name="p_name" size="10" placeholder="상품명을 입력해주세요">					
+			</div>
+			<div id="p_info_set">			
+			<input type="text" name="p_price" size="10" placeholder="가격 입력">				
+			<select name="ct_id">
+				<option>카테고리를 설정</option>
+			</select>
+			</div>		
+			<div id="p_de_set">					
+				<textarea rows="5" cols="30" name="p_detail" placeholder="상품소개를 써주세요"></textarea>	
+				<input type="file" name="uploadFile" size="26">				
+			
+			</div>	
+		</form>
+			<input type="submit"  class="m_i_change" value="상품 등록하기">
+		</div> 
 	</div>
 	
 	<div id="modifyProduct" class="popUp hidden">
 		<h4>새로운 상품 등록폼</h4>
 		<p>거래의 안전을 위해 상품게시글의 본문만 수정가능해요 ^^</p>
 		<form action="modifyProduct.do" method="post">
-			상품소개:	<textarea rows="5" cols="30" name="p_detail"></textarea>	<br>
+			상품소개:	<textarea rows="5" cols="30" name="p_detail"></textarea>	
 			<input type="hidden" name="p_id" value=""> 
 			<input type="submit" value="상품 수정하기">
 		</form>
