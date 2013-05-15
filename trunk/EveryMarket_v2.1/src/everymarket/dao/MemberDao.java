@@ -91,6 +91,11 @@ public class MemberDao {
 	public void updateM_report(String m_id){
 		ibatisTemplate.update("updateM_report", m_id);
 	}
+	
+	/*Input Member*/
+	public void updateM_cash(Member member){
+		ibatisTemplate.update("updateM_cash", member);
+	}
 
 	/*Input: Member*/
 	public void updateEventCash(Member member){

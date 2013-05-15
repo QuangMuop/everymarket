@@ -21,12 +21,14 @@ import everymarket.dao.BoardReportDao;
 import everymarket.dao.DangolDao;
 import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
+import everymarket.dao.RefundDao;
 import everymarket.dao.ReviewDao;
 import everymarket.dao.TradeDao;
 import everymarket.model.BanList;
 import everymarket.model.Blog;
 import everymarket.model.Member;
 import everymarket.model.Product;
+import everymarket.model.Refund;
 
 @Controller
 public class MemberController {
@@ -36,7 +38,8 @@ public class MemberController {
 	private DangolDao daoD;
 	private MemberDao daoM;
 	private ProductDao daoP;
-	private ReviewDao daoR; 
+	private ReviewDao daoR;
+	private RefundDao daoRef;
 	private TradeDao daoT;
 	
 
@@ -63,6 +66,9 @@ public class MemberController {
 	}
 	public void setDaoR(ReviewDao daoR) {
 		this.daoR = daoR;
+	}
+	public void setDaoRef(RefundDao daoRef) {
+		this.daoRef = daoRef;
 	}
 	
 	@RequestMapping("/login.do")
@@ -93,9 +99,6 @@ public class MemberController {
 
 			session.setAttribute("m_id", m_id);
 			mav.setViewName("redirect:enter.go");
-
-
-
 			return mav;
 		}else{
 			mav.addObject("error", "로그인에 실패하였습니다.");
@@ -274,6 +277,55 @@ public class MemberController {
 		return mav;	
 	}
 	
+	@RequestMapping("/refundCash.do")
+	public ModelAndView refundAmount(HttpServletRequest request,
+			@RequestParam("refundAmount")int refundAmount,
+			@RequestParam("bankName")String bankName,
+			@RequestParam("refundAccount")String refundAccount,
+			@RequestParam("refundName")String refundName){
+		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+
+		Member member = (Member)session.getAttribute("member");
+		member.setM_cash(member.getM_cash() - refundAmount);
+		daoM.updateM_cash(member);
+		
+		int refundFeeRate = 0;
+		
+		switch (refundAmount) {
+		case 1000: refundFeeRate = 10; break;
+		case 5000: refundFeeRate = 8; break;
+		case 10000: refundFeeRate = 6; break;
+		case 50000: refundFeeRate = 5; break;
+		case 100000: refundFeeRate = 4; break;
+		case 500000: refundFeeRate = 3; break;
+		case 1000000: refundFeeRate = 2; break;
+		case 2000000: refundFeeRate = 1; break; }
+
+		int refundFee = refundAmount * refundFeeRate / 100;
+		System.out.println(refundFee);
+		Refund refund = new Refund();
+		refund.setRef_id(daoRef.getMaxRef_id() + 1);
+		refund.setM_id(member.getM_id());
+		refund.setRef_refundAmount(refundAmount - refundFee);
+		refund.setRef_refundFee(refundFee);
+		refund.setRef_bankName(bankName);
+		refund.setRef_account(refundAccount);
+		refund.setRef_accountName(refundName);
+		refund.setRef_refundDate(new Timestamp(System.currentTimeMillis()));
+		refund.setRef_check("n");
+		
+		try{
+			daoRef.registerRefund(refund);
+			mav.setViewName("redirect:enter.go");
+		}catch(Exception e){
+			mav.addObject("error", "문제가 발생하였습니다.");
+			mav.setViewName("errorPage");
+		}
+		
+		return mav;
+	}
+	
 	@RequestMapping("/goMarket.do")
 	public ModelAndView goMarket(HttpServletRequest request, ModelAndView mav, 
 			@RequestParam("m_id")String m_id){
@@ -369,10 +421,14 @@ public class MemberController {
 		Member member = (Member)session.getAttribute("member");
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		resultMap.put("m_cash", daoM.getM_cashByM_id(member.getM_id()));
 		
-		mav.addAllObjects(resultMap);
-		mav.setViewName("jsonView");
+		if(member != null){
+			resultMap.put("m_cash", daoM.getM_cashByM_id(member.getM_id()));
+			
+			mav.addAllObjects(resultMap);
+			mav.setViewName("jsonView");
+		}
+		
 		return mav;
 	}
 
@@ -420,7 +476,7 @@ public class MemberController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
-
+	
 	public int getRemainingTime(String m_id){
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		Timestamp releaseTime = daoBL.getBanListByM_id(m_id).getReleaseTime();
