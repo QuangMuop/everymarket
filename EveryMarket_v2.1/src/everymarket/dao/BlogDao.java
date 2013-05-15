@@ -1,5 +1,6 @@
 package everymarket.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
@@ -11,6 +12,15 @@ public class BlogDao {
 
 	public void setIbatisTemplate(SqlMapClientTemplate ibatisTemplate) {
 		this.ibatisTemplate = ibatisTemplate;
+	}
+	
+	//blog b_id max값 구하기
+	public int getMaxb_id(){
+		return (Integer)ibatisTemplate.queryForObject("getMaxb_id");
+	}
+	
+	public void registerBlog(HashMap map){
+		ibatisTemplate.insert("registerBlog", map);
 	}
 	
 	/*Input: m_id / Output: List<Blog>*/
