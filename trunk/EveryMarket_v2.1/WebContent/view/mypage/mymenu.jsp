@@ -33,7 +33,7 @@
 	</div>
 <!-- 	////////////////////////// -->
 <div id="contents">	
-	<div class="out_hidden" id="contents1">
+	<div id="contents1">
 		<div id="c_top">
 			<img alt="" id="c_inner_img" src="image_mypage/statuschange.png">
 			<a class="c_font">|</a>
