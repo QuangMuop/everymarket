@@ -23,7 +23,6 @@
 					<img id="b_thumb" src="image_blog/${blog.b_thumb }">
 				</div>
 				<a class="blog_m_name">${owner.m_name }</a>
-				
 				<a id="blog_b_hit">이 가게에 방문한 사람 : ${blog.b_hit }</a>
 			</div>
 			<div id="b_s_line">
@@ -81,70 +80,66 @@
 				</div>
 			</c:forEach>
 		</div>
-
-	
-	
-	
 	</div>
 	
 	<!-- 팝업창 : 가게 꾸미기 -->
 	<div id="decoBlog" class="popUp hidden">
-		
 		<div id="d_b_box">
 		<img alt="" id="deco_title" src="image_blog_source/deco_title.png">
-		<div id="d_b_box_top">
-			<div id="tab_mainImage" class="button_tab checked">메인이미지</div>
-			<div id="tab_thumbNail" class="button_tab">썸네일이미지</div>
-			<div id="tab_geoLocation" class="button_tab">구글맵API</div>
-			<div id="tab_blogContents" class="button_tab">마켓소개글</div>
-		</div>
-		<div id="mainImage" class="tab">
-			<form action="updateBlog.do" method="post" enctype="multipart/form-data">
-				<h4>마켓 메인 이미지를 설정해주세요!</h4>
-				<img src="C:\Users\kosta.Kitchu\Downloads\wallPaper.png">
-				<input type="file" name="uploadFile">
-				<input type="hidden" name="updateKey" value="b_main">
-				<input type="submit" class="m_i_change" value="변경하기">
-			</form>
-		</div>
-		<div id="thumbNail" class="tab hidden">
-			<form action="updateBlog.do" method="post" enctype="multipart/form-data">
-				<h4>썸네일이미지 수정폼</h4>
-				<input type="file" name="uploadFile">
-				<input type="hidden" name="updateKey" value="b_thumb">
-				<input type="submit" class="m_i_change" value="변경하기">
-			</form>
-		</div>
-		<div id="geoLocation" class="tab hidden">
-			<h4>구글맵API 적용폼</h4>
-			<div id="gMapLocationPicker" class="hidden">
-				<form id="submitAddress" onsubmit="showAddress(this.address.value); return false;">
-					<input type="text" size="55" name="address" 
-						placeholder="이곳에 주로 거래 가능한 장소의 주소명을 입력해주세요!" /> 
-					<input type="submit" class="m_i_change" value="위도와 경도 찾기!" />			
-				</form>
-				
-				<form action="updateBlog.do" method="post">
-					위도: <input type="text" id="lat" name="latitude" size="10" readonly="readonly">
-					경도: <input type="text" id="lng" name="longitude" size="10" readonly="readonly">		
-					<input type="hidden" name="updateKey" value="b_map">
-					<input type="submit" id="api_add" value="해당 위도와 경도로 구글맵API를 적용합니다.">
-				</form>
-				
-				<div align="center" id="map" style="width: 600px; height: 400px"></div>
+			<div id="d_b_box_top">
+				<div id="tab_mainImage" class="button_tab checked">메인이미지</div>
+				<div id="tab_thumbNail" class="button_tab">썸네일이미지</div>
+				<div id="tab_geoLocation" class="button_tab">구글맵API</div>
+				<div id="tab_blogContents" class="button_tab">마켓소개글</div>
 			</div>
-			<div id="opener_locationPicker">위도와 경도를 설정하려면 클릭해주세요!</div>
-		</div>
-		<div id="blogContents" class="tab hidden">
-			<form action="updateBlog.do" method="post">
-				<h4>마켓소개글 수정폼</h4>
-				<textarea rows="5" cols="30" name="b_content"></textarea>
-				<input type="hidden" name="updateKey" value="b_content">
-				<input type="submit" class="m_i_change" value="변경하기">
-			</form>
+			<div id="mainImage" class="tab">
+				<form action="updateBlog.do" method="post" enctype="multipart/form-data">
+					<h4>마켓 메인 이미지를 설정해주세요!</h4>
+					<img src="C:\Users\kosta.Kitchu\Downloads\wallPaper.png">
+					<input type="file" name="uploadFile">
+					<input type="hidden" name="updateKey" value="b_main">
+					<input type="submit" class="m_i_change" value="변경하기">
+				</form>
+			</div>
+			<div id="thumbNail" class="tab hidden">
+				<form action="updateBlog.do" method="post" enctype="multipart/form-data">
+					<h4>썸네일이미지 수정폼</h4>
+					<input type="file" name="uploadFile">
+					<input type="hidden" name="updateKey" value="b_thumb">
+					<input type="submit" class="m_i_change" value="변경하기">
+				</form>
+			</div>
+			<div id="geoLocation" class="tab hidden">
+				<h4>구글맵API 적용폼</h4>
+				<div id="gMapLocationPicker" class="hidden">
+					<form id="submitAddress" onsubmit="showAddress(this.address.value); return false;">
+						<input type="text" size="55" name="address" 
+							placeholder="이곳에 주로 거래 가능한 장소의 주소명을 입력해주세요!" /> 
+						<input type="submit" class="m_i_change" value="위도와 경도 찾기!" />			
+					</form>
+					
+					<form action="updateBlog.do" method="post">
+						위도: <input type="text" id="lat" name="latitude" size="10" readonly="readonly">
+						경도: <input type="text" id="lng" name="longitude" size="10" readonly="readonly">		
+						<input type="hidden" name="updateKey" value="b_map">
+						<input type="submit" id="api_add" value="해당 위도와 경도로 구글맵API를 적용합니다.">
+					</form>
+					
+					<div align="center" id="map" style="width: 600px; height: 400px"></div>
+				</div>
+				<div id="opener_locationPicker">위도와 경도를 설정하려면 클릭해주세요!</div>
+			</div>
+			<div id="blogContents" class="tab hidden">
+				<form action="updateBlog.do" method="post">
+					<h4>마켓소개글 수정폼</h4>
+					<textarea rows="5" cols="30" name="b_content"></textarea>
+					<input type="hidden" name="updateKey" value="b_content">
+					<input type="submit" class="m_i_change" value="변경하기">
+				</form>
+			</div>
 		</div>
 	</div>
-	</div>
+	
 	<!-- 팝업창 : 상품등록 -->
 	<div id="registerProduct" class="popUp hidden">
 		<div id="r_p_content">
@@ -162,7 +157,6 @@
 			<div id="p_de_set">					
 				<textarea rows="5" cols="30" name="p_detail" placeholder="상품소개를 써주세요"></textarea>	
 				<input type="file" name="uploadFile" size="26">				
-			
 			</div>	
 		</form>
 			<input type="submit"  class="m_i_change" value="상품 등록하기">

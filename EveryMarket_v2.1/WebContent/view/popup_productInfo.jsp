@@ -29,10 +29,10 @@
 					</div>
 					<div id="productP_detail"></div>
 					<div id="jjim_box">
-						<div id="listJjimer"></div>
+						<div id="listJjimer">
+							<a>찜했어요! : </a>
+						</div>
 					</div>
-					
-					
 				</div>
 				<div id="productComments">
 					<form id="ajaxForm_registerComments" action="registerComments.do" method="post">
@@ -42,9 +42,9 @@
 					</form>
 				</div>
 			</div>
-		
+		</div>
 	</div>
-	</div>
+	
 	<!-- 팝업창 : 상품 구매신청창 -->
 	<div id="productPurchase" class="popUp hidden">
 		<div id="productInfo_purchase">
@@ -70,27 +70,23 @@
 				<tr>
 					<th>구매대기기간</th>
 					<td>
-						
-							<select name="waitingTime" id="w_select">
+						<select name="waitingTime" id="w_select">
 							<option value="3">3일</option>
 							<option value="5">5일</option>
 							<option value="7">7일</option>
 							<option value="10">10일</option>
 							<option value="14">14일</option>
-							</select>
-						
+						</select>
 					</td>
 				</tr>
-			</table>
-			
-			
+			</table>	
+					
 			<input type="hidden" value="" name="p_id">
 			<input type="submit" id="buy_submit" value="구매신청하기">
 			<button id="buy_close">창닫기</button>
+			
 			</form>
 		</div>
-		
-		
 	</div>
 	
 	<!-- 팝업창: 회원 신고창 -->
@@ -116,19 +112,23 @@
 			<form id="form_reportMember" action="reportMember.do" method="post">
 				<input type="hidden" name="rep_memberId">
 				<div id="r_reason_box">
-				신고사유: 	<select name="rep_reason">	
-							<option value="광고성 글 게시">광고성 글 게시</option>
-							<option value="무의미한 도배">무의미한 도배</option>
-							<option value="거래사기">거래사기</option>
-						</select><br>
+					신고사유: 
+					<select name="rep_reason">	
+						<option value="광고성 글 게시">광고성 글 게시</option>
+						<option value="무의미한 도배">무의미한 도배</option>
+						<option value="거래사기">거래사기</option>
+					</select><br>
 				</div>
+				
 				<textarea rows="5" cols="50" name="rep_content" placeholder="무성의한 신고내용이나, 타당하지 않은 내용을 작성할 경우 관리자 판단하에 제재가 가해질 수 있습니다."></textarea>
 				<input type="submit" id="r_reason_btn" value="신고하기">
 				<button id="r_reason_cencle">취소하기</button>
-			</form>
+					
+				</form>
+			</div>
 		</div>
 	</div>
-	</div>
+	
 	<!-- 팝업창: 상품 신고창 -->
 	<div id="productReport" class="popUp hidden">
 		<div id="p_r_content">
@@ -152,11 +152,12 @@
 				<input type="hidden" name="rep_productId">
 				<input type="hidden" name="rep_memberId">
 				<div id="r_reason_box">
-				신고사유: 	<select name="rep_reason">	
-							<option value="부적절한 상품">부적절한 상품</option>
-							<option value="음란물">음란물</option>
-							<option value="사행성 조장">사행성 조장물품</option>
-						</select><br>
+					신고사유: 	
+					<select name="rep_reason">	
+						<option value="부적절한 상품">부적절한 상품</option>
+						<option value="음란물">음란물</option>
+						<option value="사행성 조장">사행성 조장물품</option>
+					</select><br>
 				</div>
 				<textarea rows="5" cols="50" name="rep_content" placeholder="무성의한 신고내용이나, 타당하지 않은 내용을 작성할 경우 관리자 판단하에 제재가 가해질 수 있습니다."></textarea>
 				<input type="submit" id="r_reason_btn" value="신고하기">
