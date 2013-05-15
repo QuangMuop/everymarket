@@ -1,13 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<script type="text/javascript">
-
-</script>
+<title>: 계좌이체 페이지 :</title>
 <style type="text/css">
 body{
 margin: 0px;
@@ -209,6 +205,23 @@ border-bottom: 1px solid #c6ced6;
 margin-top: 5px;
 }
 </style>
+<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var rechargeAmount = opener.document.getElementById("c_inner_pass_input").value;
+		$("#rechargeAmount").attr("value", rechargeAmount);
+		
+		$("#t_bottom_button_charge").click(function(){
+			opener.parent.opener.parent.location.href="../../chargeCash.do?m_cash=" + rechargeAmount;
+			opener.close();
+			window.close();
+		});
+		
+		$("#t_bottom_button_cancle").click(function(){
+			window.close();
+		});
+	});
+</script>
 </head>
 <body>
 	<div id="t_contents">
@@ -235,7 +248,7 @@ margin-top: 5px;
 				<tr>
 					<th>금  액</th>
 					<td>
-					<input type="text" class="t_input" value="10000원">
+					<input type="text" class="t_input" id="rechargeAmount" readonly="readonly">
 					</td>
 					<td><button class="t_button">은행상태확인</button></td>
 				</tr>
@@ -323,8 +336,8 @@ margin-top: 5px;
 				</div>
 				<div id="t_bottom_buttons">
 					<button class="t_bottom_button" id="t_bottom_button_first">개인정보처리 방침</button>
-					<button class="t_bottom_button">취소</button>
-					<button class="t_bottom_button">결제</button>
+					<button class="t_bottom_button" id="t_bottom_button_cancle">취소</button>
+					<button class="t_bottom_button" id="t_bottom_button_charge">결제</button>
 				</div>
 				<a class="normal" id="last_line">결제관련문의:금융결제원 고객센터 1577-5500(단축번호/:61)</a>
 			</div>

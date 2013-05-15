@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <script src="jquery-1.9.1.min.js" type="text/javascript"></script>
-<title>Insert title here</title>
+<title>: 휴대폰결제 페이지 :</title>
 <style type="text/css">
 body{
 margin: 0px;
@@ -146,16 +145,43 @@ font-size: 11px;
 color:#656565;
 }
 </style>
+<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	var rechargeAmount = opener.document.getElementById("c_inner_pass_input").value;
+	$("#rechargeAmount").html(rechargeAmount);
+	
+	$.getJSON(
+		"/EveryMarket_v2.1/getChargeDate.do",
+		function(data){
+			$("#chargeDate").html(
+				(data.chargeDate.year + 1900) + "년 " +
+				(data.chargeDate.month + 1) + "월 " +
+				data.chargeDate.date + "일"
+			);
+		}
+	);
+	
 	$(".agency").click(function(){
 		$(".agency").css("background", "linear-gradient(to bottom, rgba(213,220,227,1) 2%,rgba(163,170,177,1) 100%)");
 		$(this).css("background", "linear-gradient(to bottom, rgba(87,134,224,1) 0%,rgba(51,104,198,1) 100%)");
 		
 	});
+	
 	$("#p_confirm").click(function(){
-		alert("인증번호가 전송되었습니다");
-		location.href="phone_confirm.jsp";
+		$.getJSON(
+			"/EveryMarket_v2.1/getRandomKey.do",
+			function(data){
+				location.href="phone_confirm.jsp" +
+					"?randomKey=" + data.randomKey +
+					"&rechargeAmount=" + $("#rechargeAmount").html();;
+				alert("인증번호가 전송되었습니다.");
+			}
+		);
+	});
+	
+	$("#p_cencle").click(function(){
+		close();
 	});
 });
 </script>
@@ -176,11 +202,13 @@ $(document).ready(function(){
 					</colgroup>
 					<tr>
 						<th>결제금액</th>
-						<td>10000원</td>
+						<td>
+							<span id="rechargeAmount"></span>원
+						</td>
 					</tr>
 					<tr>
 						<th>결제일시</th>
-						<td>2013-05-08</td>
+						<td id="chargeDate"></td>
 					</tr>
 				</table>
 				
