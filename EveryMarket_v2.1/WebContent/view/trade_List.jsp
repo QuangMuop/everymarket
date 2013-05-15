@@ -119,26 +119,6 @@ table td,th {
 		</form>
 	</div>
 	
-	<%-- <div id="main_report" class="popUp hidden">
-		<form action="reportAction.do" method="post">
-		<div id=${bl.t_id }nb></div>
-		<div id=${bl.t_id }re></div>
-			<br> 신고 사유
-			:<select id="report_choice" name="rep_reason">
-				<option value="본 제품과 다른 제품">본 제품과 다른 제품</option>
-				<option value="배송지연">배송 지연</option>
-				<option value="제품 불량">제품 불량</option>
-				<option value="기타 사유">기타 사유</option>
-			</select><br> 신고의 내용
-			<textarea name="rep_content" id="rep_content"></textarea>
-			<br> <input type="hidden" id="${bl.t_id}rep_memberId" name="rep_memberId" value="">
-			 <input type="hidden" id="${bl.t_id}rep_writer" name="rep_writer" value=""> 
-											 
-			<input type="hidden" name="rep_productId" value="${bl.p_id}">
-			<input type="submit" id="rp_ok" value="신고 완료" t_id = ${bl.p_id } > <input
-				type="reset" value="취소">
-		</form>
-	</div> --%>
 
 	<br>
 	<br>
@@ -221,7 +201,7 @@ table td,th {
 				<th>주문번호</th>
 				<th>상품명</th>
 				<th>총 결제금액</th>
-				<th>진행상태</th>
+				<th colspan="2">진행상태</th>
 			</tr>
 
 			<c:forEach var="cb" items="${completeBList}">
@@ -230,6 +210,7 @@ table td,th {
 					<td>${cb.p_name}</td>
 					<td>${cb.p_price }</td>
 					<td>구매완료</td>
+					<td><button value="리뷰쓰기">리뷰쓰기</button></td>
 				</tr>
 			</c:forEach>
 
