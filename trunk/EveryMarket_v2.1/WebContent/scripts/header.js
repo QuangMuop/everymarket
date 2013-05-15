@@ -249,7 +249,7 @@ $(document).ready(function(){
 				}else{
 					$("#find_id_result").remove();
 					$("#find_ID").append(
-						"<div id='find_id_result'>내 아이디 : " + data.m_id + "</div>"
+						"<div id='find_id_result'>찾은 아이디 : " + data.m_id + "</div>"
 					);
 				}
 			}
