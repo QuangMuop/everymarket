@@ -153,7 +153,7 @@ background: linear-gradient(to bottom, rgba(95,95,95,1) 0%,rgba(76,76,76,1) 100%
 border: 2px outset #343434;
 }
 </style>
-<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="../../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	var rechargeAmount = opener.document.getElementById("rechargeAmount").innerHTML;
