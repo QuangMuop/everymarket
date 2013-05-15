@@ -124,6 +124,7 @@ public class BoardReportController {
 		boardReport.setRep_regdate(new Timestamp(System.currentTimeMillis()));
 		boardReport.setRep_check("n");
 		boardReport.setRep_type("t");
+		boardReport.setRep_checkTime(null);
        
 		
 		

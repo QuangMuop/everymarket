@@ -112,7 +112,7 @@ $(document).ready(function() {
 			
 			$(document).on("click","#review_in_btn",function(){
 				
-				alert("dd");
+			
 				var p_id = $(this).attr("value");
 				$("#rp_id").attr("value",p_id);
 				
@@ -130,8 +130,7 @@ $(document).ready(function() {
 				
 			});	
 			
-			
-			
+				
 			
 			
 			
