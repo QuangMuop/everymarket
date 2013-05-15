@@ -314,7 +314,7 @@
 					<tr>
 						<th>메일</th>
 						<td>
-							<input type="text" name="m_mail" id="m_mail">
+							<input type="text" name="m_email" id="m_email">
 							<input type="button" id="m_mailConfirm" value="인증메일발송">
 							<input type="text" name="reg_confirm" id="reg_confirm">						
 						</td>
