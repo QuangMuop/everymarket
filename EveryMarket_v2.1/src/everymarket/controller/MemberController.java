@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -106,7 +107,6 @@ public class MemberController {
 	@RequestMapping("/find_ID.do")
 	public ModelAndView findID(@RequestParam("m_name") String m_name, @RequestParam("m_email") String m_email){
 		ModelAndView mav = new ModelAndView();
-
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("m_name", m_name);
 		map.put("m_email", m_email);
@@ -256,7 +256,7 @@ public class MemberController {
 		
 		try{
 			daoM.chargeCash(cash_map);
-			mav.setViewName("main");
+			mav.setViewName("redirect:enter.go");
 		}catch(Exception e){
 			mav.addObject("error", "문제가 발생하였습니다.");
 			mav.setViewName("errorPage");
@@ -351,7 +351,52 @@ public class MemberController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+
+	/*getJSON*/
+	@RequestMapping("getChargeDate.do")
+	public ModelAndView getChargeDate(){
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		Timestamp chargeDate = new Timestamp(System.currentTimeMillis());
+		resultMap.put("chargeDate", chargeDate);
+		
+		mav.addAllObjects(resultMap);
+		mav.setViewName("jsonView");
+		return mav;
+	}
 	
+	/*getJSON*/
+	@RequestMapping("getExpirationDate.do")
+	public ModelAndView getExpirationDate(){
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		Timestamp expirationDate = new Timestamp(System.currentTimeMillis() + 432000000);
+		resultMap.put("expirationDate", expirationDate);
+		
+		mav.addAllObjects(resultMap);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	/*getJSON*/
+	@RequestMapping("getRandomKey.do")
+	public ModelAndView getRandomKey(){
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		Random random = new Random();
+		int randomKey = random.nextInt(999999);
+		resultMap.put("randomKey", randomKey);
+		
+		System.out.println("발송된 인증번호: " + randomKey);
+		
+		mav.addAllObjects(resultMap);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+
 	public int getRemainingTime(String m_id){
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		Timestamp releaseTime = daoBL.getBanListByM_id(m_id).getReleaseTime();
@@ -360,5 +405,4 @@ public class MemberController {
 
 		return remainingTime; 
 	}
-
 }
