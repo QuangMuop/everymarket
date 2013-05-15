@@ -63,10 +63,9 @@ public class ReviewController {
 		review.setR_date(new Timestamp(System.currentTimeMillis()));
 		
 		
-		daoR.Insert_review(review);	
+	/*	daoR.Insert_review(review);	*/
 	    daoT.update_status_review(review.getP_id());
 
-	
 			
 		
 

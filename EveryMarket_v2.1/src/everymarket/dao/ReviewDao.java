@@ -1,7 +1,9 @@
 package everymarket.dao;
 
+import java.sql.Timestamp;
 import java.util.List;
 
+import org.springframework.dao.support.DaoSupport;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
 import sun.reflect.generics.visitor.Reifier;
@@ -39,10 +41,24 @@ public class ReviewDao {
 		return (Integer) ibatisTemplate.queryForObject("get_Review_MaxID");
 	}
 	
-	public void Insert_review(Review review){
+	
+	
+	/*public void Insert_review(Review review){
+		ibatisTemplate.insert("insert_Review", review);
+	}*/
+	
+	public void Insert_review(String r_content,int r_score,int p_id){
+		Review review = new Review();
+		
+		review.setR_content(r_content);
+		review.setR_score(r_score);
+		review.setP_id(p_id);
+		review.setR_id(get_Review_MaxID() + 1);
+		review.setR_date(new Timestamp(System.currentTimeMillis()));
+				
+		
 		ibatisTemplate.insert("insert_Review", review);
 	}
-	
-	
+
 	
 }

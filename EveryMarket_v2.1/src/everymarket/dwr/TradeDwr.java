@@ -9,17 +9,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import everymarket.dao.JjimDao;
 import everymarket.dao.ProductDao;
+import everymarket.dao.ReviewDao;
 import everymarket.dao.TradeDao;
 import everymarket.model.Member;
 import everymarket.model.Product;
+import everymarket.model.Review;
 import everymarket.model.Trade;
 
 public class TradeDwr {
 
 	private TradeDao daoT;
 	private ProductDao daoP;
-	
-	
+	private ReviewDao daoR;
+
+	public void setDaoR(ReviewDao daoR) {
+		this.daoR = daoR;
+	}
+
 	public void setDaoP(ProductDao daoP) {
 		this.daoP = daoP;
 	}
@@ -102,10 +108,16 @@ public class TradeDwr {
 
 	// 물건 아이디로 물건 정보 가져오기
 	public String getP_name(int p_id) {
+
+		return daoP.getP_nameByP_id(p_id);
+	}
+
+	// 리뷰 insert
+	public void insert_Review(String r_content,int r_score,int p_id) {
+       		  
+		daoT.update_status_review(p_id);
+		daoR.Insert_review(r_content, r_score, p_id);	
 		
-		
-	    return daoP.getP_nameByP_id(p_id);
-	
 	}
 
 }
