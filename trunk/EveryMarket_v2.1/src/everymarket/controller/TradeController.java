@@ -105,7 +105,7 @@ public class TradeController {
 		mav.addObject("jjimList", jjimList);
 		mav.addObject("jjim_sum", jjim_sum);
 
-		mav.setViewName("trade_list");
+		mav.setViewName("goMyPage");
 
 		return mav;
 	}
@@ -180,7 +180,7 @@ public class TradeController {
 		 * mav.setViewName("errorPage"); return mav; }
 		 */
 
-		mav.setViewName("trade_list");
+		mav.setViewName("goMyPage");
 		return mav;
 	}
 
