@@ -29,14 +29,21 @@
 		<div class="content search_item">
 			<section id="wrapper">
 				<div id="container7">
-					<c:forEach var="product" items="${searchProduct}">
-						<div class="grid" p_id="${product.p_id }">
-							<div class="imgholder">
-								<img src="image_product/${product.p_img}"/>
-							</div>
-							<div>${product.p_price }</div>
-						</div>
-					</c:forEach>
+					<%-- <c:choose>
+						<c:when test="${searchProduct == 0 }">
+							<div>ddddddddddddddddd</div>
+						</c:when>
+						<c:otherwise> --%>
+							<c:forEach var="product" items="${searchProduct}">
+								<div class="grid" p_id="${product.p_id }">
+									<div class="imgholder">
+										<img src="image_product/${product.p_img}"/>
+									</div>
+									<div>${product.p_price }</div>
+								</div>
+							</c:forEach>
+						<%-- </c:otherwise>
+					</c:choose> --%>
 				</div>
 			</section>
 		</div>

@@ -352,6 +352,13 @@ div.widest{
 .boardReport{
 	margin-left: 60px;
 }
+.refund div{
+	float: left;
+	border-bottom:  1px dotted #efefef;
+}
+.refund{
+	margin-left: 60px;
+}
 .r_title_1{
 	width:300px;
 }

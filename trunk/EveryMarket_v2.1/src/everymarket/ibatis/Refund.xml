@@ -22,9 +22,33 @@
 		)
 	</insert>
 
+	<select id="getUncheckedRefundList" resultClass="Refund">
+		select *
+		from refund
+		where ref_refundDate is null
+	</select>
+
+	<select id="getCheckedRefundList" resultClass="Refund">
+		select *
+		from refund
+		where ref_refundDate is not null
+	</select>
+	
+	<select id="getTotalFee" resultClass="Integer">
+		select sum(ref_refundFee)
+		from refund
+		where ref_refundDate is not null
+	</select>
+
 	<select id="getMaxRef_id" resultClass="Integer">
 		select max(ref_id)
 		from refund
 	</select>
+	
+	<update id="confirmRefund">
+		update refund
+		set ref_refundDate = sysdate
+		where ref_id = #ref_id#
+	</update>
 
 </sqlMap>

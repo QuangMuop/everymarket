@@ -82,6 +82,26 @@ public class BoardReportController {
 		return mav;
 	}
 
+	// 거래 후 리폿하기
+	@RequestMapping(value = "/reportAction.do", method = RequestMethod.POST)
+	public ModelAndView report(HttpServletRequest request, BoardReport boardReport) {
+		ModelAndView mav = new ModelAndView();
+				
+		boardReport.setRep_id(daoBR.getMaxRep_id() + 1);
+		boardReport.setRep_regdate(new Timestamp(System.currentTimeMillis()));
+		boardReport.setRep_check("n");
+		boardReport.setRep_type("t");
+		boardReport.setRep_checkTime(null);
+		
+		daoBR.registerReport(boardReport);
+
+		//물건과 트레이드 업데이트
+		daoP.update_product_report(boardReport.getRep_productId());
+
+		mav.setViewName("trade_list.do");
+		return mav;
+	}
+
 	/* getJSON */
 	@RequestMapping("/callReportedList.do")
 	public ModelAndView callReportedProductList() {
@@ -109,34 +129,6 @@ public class BoardReportController {
 
 		mav.addAllObjects(resultMap);
 		mav.setViewName("jsonView");
-		return mav;
-	}
-
-	// 거래 후 리폿하기
-	@RequestMapping(value = "/reportAction.do", method = RequestMethod.POST)
-	public ModelAndView report(HttpServletRequest request,
-			BoardReport boardReport) {
-
-		ModelAndView mav = new ModelAndView();
-				
-		boardReport.setRep_id(daoBR.getMaxRep_id() + 1);
-
-		boardReport.setRep_regdate(new Timestamp(System.currentTimeMillis()));
-		boardReport.setRep_check("n");
-		boardReport.setRep_type("t");
-		boardReport.setRep_checkTime(null);
-       
-		
-		
-		daoBR.registerReport(boardReport);
-
-		//물건과 트레이드 업데이트
-		daoP.update_product_report(boardReport.getRep_productId());
-
-		
-		
-
-		mav.setViewName("trade_list.do");
 		return mav;
 	}
 }

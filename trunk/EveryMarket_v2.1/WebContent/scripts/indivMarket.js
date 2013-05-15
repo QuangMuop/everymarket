@@ -303,10 +303,6 @@ $(document).ready(function(){
 				}else{
 					$("#ajaxForm_registerComments").css("display", "none");
 				}
-				
-				$("#bar_button_detail").append(
-					"<div id='button_detail_closeProductInfo' class='button_detail'>Ã¢´Ý±â</div>"
-				);
 			}
 		);
 	}	
@@ -536,7 +532,6 @@ $(document).ready(function(){
 		$("#productInfo").bPopup({
 			fadeSpeed: 'slow',
 			follow: [false, false],
-			modalClose: false,
 			position: [274, 50]
 		});
 	};
