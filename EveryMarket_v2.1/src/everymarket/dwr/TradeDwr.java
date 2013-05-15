@@ -103,7 +103,7 @@ public class TradeDwr {
 	// 물건 아이디로 물건 정보 가져오기
 	public String getP_name(int p_id) {
 		
-		System.out.println(daoP.getP_nameByP_id(p_id)+ "고고");
+		
 	    return daoP.getP_nameByP_id(p_id);
 	
 	}

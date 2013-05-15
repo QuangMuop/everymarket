@@ -110,8 +110,9 @@ $(document).ready(function() {
 				});		
 			
 			
-			$(document).on("click","#review_bt",function(){
+			$(document).on("click","#review_in_btn",function(){
 				
+				alert("dd");
 				var p_id = $(this).attr("value");
 				$("#rp_id").attr("value",p_id);
 				
@@ -143,26 +144,27 @@ $(document).ready(function() {
 
 });
 
-$(document).on('click',	function() {
+$(document).on('click',	'.db_trace', function() {
 	
-	$(".db_trace").on('click',function() {
+	
+		
 		var t_id = $(this).attr("t_id");
 		window.open("view/popup_deliver.jsp", "배송조회",
 		"width=700,height=700,resizalbe=no");
 
-		$("#" + t_id + "1").text("배송완료");
+	//	$("#" + t_id + "1").text("배송완료");
+		
 		$("#" + t_id + "3").text("배송완료");	
 		
-		$(".db_trace").addClass("none");
+		$(".db_trace[t_id="+t_id+"]").addClass("none");
 		
-		var html = '<input type="button"  id="accept"  t_id='+t_id+' value="수취확인" />	<input id="report" type="button"  t_id='+t_id+'  value="신고하기" /> ';
-				
-		
-		$("#button").append(html);
+		var html = '<input type="button" id="accept"  t_id='+t_id+' value="수취확인" />	<input id="report" type="button"  t_id='+t_id+'  value="신고하기" /> ';
+			
+		$(".bl[t_id='"+t_id+"'] .td_db_trace").append(html);
 			
 		tradeDwr.update_status(t_id);
 
- 	});
+ 	
 	
 });
 

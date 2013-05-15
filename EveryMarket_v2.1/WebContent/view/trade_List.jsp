@@ -195,17 +195,14 @@
 		<div id="traded">
 			<table id="buy" class="trade_table_box">
 				<tr>
-<<<<<<< .mine
-					<td>${cb.t_del_number }</td>
+				<%-- 	<td>${cb.t_del_number }</td>
 					<td>${cb.p_name}</td>
-					<td>${cb.p_price }</td>
-					<td>구매완료<button id="review_in_btn" value="리뷰쓰기">리뷰쓰기</button></td>
-=======
+					<td>${cb.p_price }</td> 
+					<td>구매완료<button id="review_in_btn" value="${cb.p_id }">리뷰쓰기</button></td> --%>
 					<th>주문번호</th>
 					<th>상품명</th>
 					<th>총 결제금액</th>
 					<th colspan="2">진행상태</th>
->>>>>>> .r269
 				</tr>
 
 				<c:forEach var="cb" items="${completeBList}">
@@ -317,7 +314,6 @@
 		</form>
 	</div>
 
-	
 
 
 
