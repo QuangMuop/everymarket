@@ -107,8 +107,9 @@ a{
 /* 	전체배경 */
 	background-color:#8c8c8c;
 	top: -1px;
-	border-bottom: 0;
+	
 	border: 0.5px solid #d0ccc9;
+	border-bottom: 0px;
 }
 #container ul.menu li.active .tab-btn1{
 /* 	글자배경 */
@@ -119,14 +120,14 @@ a{
 #container ul.menu li.active .tab-btn2{ 
 /* 	숫자배경 */
 	background-color: #8c8c8c;
-	color: white;
+	color: #ea4e71;
 	
 }
 
 /******* /MENU *******/
 /******* CONTENT *******/
 .content{
-/* 	float:left; */
+	float:left;
 	margin: 0px;
 	/* background: #f3f3f3; */
 /* 	border: 1px solid #d0ccc9; */
@@ -202,7 +203,7 @@ a{
 #menubar{
 border: 0.5px solid #dadada;
 width: 0px auto;
-height: 34px;
+height: 38px;
 background-color: white;
 margin-top: 2px;
 border-bottom: 3px solid #8c8c8c;

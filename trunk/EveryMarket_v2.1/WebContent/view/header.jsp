@@ -328,26 +328,37 @@
 	<div id="notifier_message" class="popUp hidden">확인하지 않은 메시지가 있습니다!</div>
 	
 	<div id="find_ID" class="popUp hidden">
-		<h3>아이디 찾기</h3>		
+		<div id="id_find_box">
+		<img alt="" class="find_title_img" src="images/id_find_title.png">
 		<form id="form_find_ID" action="find_ID.do" method="POST">
-			이름<input type="text" name="m_name" ><br>
-			이메일<input type="text" name="m_email" ><br>
+			<input type="text" class="find_input" name="m_name" placeholder="아이디를 입력해주세요."><br>
+			<input type="text" class="find_input" name="m_email" placeholder="이메일을 입력해주세요." ><br>
 		</form>
+<<<<<<< .mine
+			<button id="find_ID_result_button" class="find_btn">
+				<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
+			</button>
+		</div>	
+=======
 		<button id="find_ID_result_button" >
 			<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
 		</button>	
+>>>>>>> .r305
 	</div>
 	
 	<div id="find_pwd" class="popUp hidden">
-		<h3>비밀번호 찾기</h3>
+		<div id="pwd_find_box">
+		<img alt="" class="find_title_img" src="images/pwd_find_title.png">
 		<form id="form_find_pwd" action="find_pwd.do" method="POST">
-			아이디<input type="text" name="m_id"><br>
-			이름 <input type="text" name="m_name"><br>
-			이메일<input type="text" name="m_email"><br>
+			<input type="text" class="find_input" name="m_id" placeholder="아이디를 입력해주세요."><br>
+			<input type="text" class="find_input" name="m_name" placeholder="이름을 입력해주세요."><br>
+			<input type="text" class="find_input" name="m_email" placeholder="메일주소를 입력해주세요."><br>
 		</form>
-		<button id="find_pwd_email" >
+		<button id="find_pwd_email" class="find_btn">
 			<img class="login_bottom_button"alt="" src="image_popup/password_find.png">
 		</button>
+		</button>
+		</div>
 	</div>
 	
 </body>
