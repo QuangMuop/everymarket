@@ -47,7 +47,7 @@
 	height: 63px;
 }
 .trade_table_box{
-	width:900px;
+	width:800px;
 	margin-bottom: 100px;
 	border-top: 2px solid #7bc949;
 	border-spacing: 0px;
@@ -57,12 +57,14 @@
 	border-bottom: 1px solid #dbdbdb;
 	color : #6b6b6b;
 	height: 30px;	
+	text-align: center;
 }
 .trade_table_box td{
 	color:#666666;
 	border-bottom: 1px solid #dbdbdb;
 	text-align: center;
 	height: 30px;
+	text-align: center;
 }
 #accept{
 	width:80px;
@@ -136,11 +138,40 @@
 #main_report_inner{
 	height: 200px;
 }
-#r_submit_btn{
+#review_in_btn{
+	width:80px;
+	height: 20px;
+	color:#666666;
+	border-radius:3px;
+	border:1px solid #c2c2c2;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(240,240,240,1) 38%,rgba(233,233,233,1) 84%);
 	
+<<<<<<< .mine
+}
+#jjim_list_img{
+	width:70px;
+	height: 70px;
+}
+.delete_button{
+	width:80px;
+	height: 20px;
+	color:#666666;
+	border-radius:3px;
+	border:1px solid #c2c2c2;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(240,240,240,1) 38%,rgba(233,233,233,1) 84%);
+}
+.buyj_button{
+	width:80px;
+	height: 20px;
+	color:#666666;
+	border-radius:3px;
+	border:1px solid #c2c2c2;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(240,240,240,1) 38%,rgba(233,233,233,1) 84%);
+=======
 }
 
 .none{
 	display: none;
 	
+>>>>>>> .r269
 }

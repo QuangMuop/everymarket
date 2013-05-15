@@ -195,10 +195,17 @@
 		<div id="traded">
 			<table id="buy" class="trade_table_box">
 				<tr>
+<<<<<<< .mine
+					<td>${cb.t_del_number }</td>
+					<td>${cb.p_name}</td>
+					<td>${cb.p_price }</td>
+					<td>구매완료<button id="review_in_btn" value="리뷰쓰기">리뷰쓰기</button></td>
+=======
 					<th>주문번호</th>
 					<th>상품명</th>
 					<th>총 결제금액</th>
 					<th colspan="2">진행상태</th>
+>>>>>>> .r269
 				</tr>
 
 				<c:forEach var="cb" items="${completeBList}">
@@ -249,23 +256,33 @@
 	<div id="trade_tab_inner4" class="trade_tab_hidden">
 
 		<table class="trade_table_box">
+			<colgroup>
+				<col width="15%">
+				<col width="15%">
+				<col width="25%">
+				<col width="15%">
+				<col width="15%">
+				<col width="15%">
+			</colgroup>
 			<tr>
-				<th>상품명/옵션정보</th>
+				<th>상품이미지</th>
+				<th>상품명</th>
+				<th>상세설명</th>
 				<th>상품금액</th>
 				<th>판매자</th>
-				<th>삭제</th>
-				<th>구입하기</th>
+				<th>선택</th>
 			</tr>
 
 			<c:forEach var="JP" items="${jjimList}">
 				<tr class="${JP.p_id}j">
-					<td>${JP.p_name}<br> <img alt=""
-						src="image_product/${JP.p_img}"> ${JP.p_detail}
-					</td>
+					<td><img id="jjim_list_img" src="image_product/${JP.p_img}"></td>
+					<td>${JP.p_name}</td>
+					<td>${JP.p_detail}</td>
 					<td>${JP.p_price}</td>
 					<td>${JP.m_id}</td>
-					<td><button class="delete_button" p_id="${JP.p_id}">삭제</button></td>
-					<td><button class="buyj_button" p_id="${JP.p_id}">구입하기</button></td>
+					<td><button class="delete_button" p_id="${JP.p_id}">삭제</button>
+						<button class="buyj_button" p_id="${JP.p_id}">구입하기</button>
+					</td>
 				</tr>
 			</c:forEach>
 
