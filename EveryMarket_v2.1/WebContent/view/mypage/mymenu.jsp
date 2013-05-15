@@ -97,9 +97,9 @@
 						<p>이메일주소</p>
 					</th>
 					<td>
-						<input id="re_email_first" class="c_input" type="text" value="이메일" name="re_email_first">
+						<input id="re_email_first" class="c_input" type="text" placeholder="이메일" name="re_email_first">
 						@
-						<input id="re_email_second" class="c_input" type="text" value="이메일" name="re_email_second">
+						<input id="re_email_second" class="c_input" type="text" placeholder="이메일" name="re_email_second">
 					</td>
 				</tr>
 				<tr>
@@ -112,8 +112,8 @@
 							<option>011</option>
 							<option>017</option>
 						</select>
-						<input id="re_phone_first" class="c_input" type="text" value="앞번호" name="re_phone_first">
-						<input id="re_phone_second" class="c_input" type="text" value="뒷번호" name="re_phone_second">
+						<input id="re_phone_first" class="c_input" type="text" placeholder="앞번호" name="re_phone_first">
+						<input id="re_phone_second" class="c_input" type="text" placeholder="뒷번호" name="re_phone_second">
 					</td>
 				</tr>
 			</table>
@@ -137,7 +137,7 @@
 				</div>
 				<div class="c_inner_input">
 					<img alt="" class="repass_img" src="image_mypage/password.png">
-					<input id="c_inner_pass_input2" type="password">
+					<input id="c_inner_pass_input2" type="password" name="c_inner_pass_input2">
 					회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.
 				</div>
 			</div>
