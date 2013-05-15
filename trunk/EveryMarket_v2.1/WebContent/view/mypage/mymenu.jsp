@@ -370,7 +370,7 @@
 										<td>${cb.t_del_number }</td>
 										<td>${cb.p_name}</td>
 										<td>${cb.p_price }</td>
-										<td><c:choose>
+										<td id="tr" p_id=${cb.p_id }><c:choose>
 												<c:when test="${cb.t_status == 4}">
 													<button id="review_in_btn" value="${cb.p_id}">리뷰쓰기</button>
 												</c:when>
@@ -448,7 +448,7 @@
 
 	<!-- 리뷰쓰기 팝업  -->
 	<div id="review_pop" class="popUp hidden">
-		<form>
+		<!-- <form> -->
 			<div id="rp_name"></div>
 			<input type="hidden" id="rp_id" name="p_id" value=""> <br>
 			평점 :<select id="r_score" name="r_score">
@@ -460,10 +460,10 @@
 			</select><br> 리뷰내용
 			<textarea name="r_content" id="r_content"></textarea>
 			<br> <!-- <input type="submit" id="rp_ok1" value="작성 완료"> -->
-			<button id="rp_ok1">작성 완료</button>
+			<button id="rp_ok1" value="">작성 완료</button>
 			 <input
 				type="reset" value="취소">
-		</form>
+	<!-- 	</form> -->
 	</div>
 </body>
 </html>
