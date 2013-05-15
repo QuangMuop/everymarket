@@ -181,9 +181,9 @@ $(document).ready(function(){
 	            }
 			});
 			
-			$("#header_cash").append(
+			$("#header_cash").prepend(
 				"<span class='hidden'>" + m_cash + "</span>"
-			).find(".hidden").fadeIn(1000).end().find("span:eq(0)").remove();
+			).find(".hidden").fadeIn(1000).end().find("span:eq(1)").remove();
 		}
 	}
 });

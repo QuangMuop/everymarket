@@ -78,8 +78,8 @@ $(document).ready(function(){
 		contextUrl + "getM_cash.do",
 		function(data){
 			$("#header_cash").html(
-				"<img class='coin' alt='' src='images/smarket/coin.png'" +
-				"<span>" + data.m_cash + "</span>"
+				"<span>" + data.m_cash + "</span>" +
+				"<img class='coin' alt='' src='images/smarket/coin.png'>"
 			);
 		}
 	);
