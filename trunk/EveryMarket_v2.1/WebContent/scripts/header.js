@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+	
 	/*Configurable Options*/
 	var contextUrl = "/EveryMarket_v2.1/";
 	var checkMessageInterval = 10000;
