@@ -160,4 +160,12 @@ $(document).ready(function(){
 	$("#c_cencle1").click(function(){
 		$(".c_inner_input").find("input[name='c_inner_pass_input1']").val("");
 	});
+	
+	$("#c_cencle2").click(function(){
+		$(".c_inner_input").find("input[name='c_inner_pass_input2']").val("");
+	});
+	
+	$("#c_cencle").click(function(){
+		location.href="goMyPage.go";
+	});
 });
