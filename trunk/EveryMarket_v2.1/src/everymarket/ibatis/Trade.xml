@@ -12,9 +12,11 @@
 	<!-- 구매요청 시 거래 내역 생성 -->
 	<insert id="insertTrade" parameterClass="java.util.HashMap">
 		insert into trade(
-		t_id, t_buyer, p_id, t_status, t_del_number
+		t_id,
+		t_buyer, p_id, t_status, t_del_number
 		)values(t_id_seq.NEXTVAL,
-		#m_id#, #p_id#, 0, 0)
+		#m_id#,
+		#p_id#, 0, 0)
 	</insert>
 
 	<!-- 판매자 아이디 업데이트 -->
@@ -75,6 +77,10 @@
 
 	<!-- 거래완료된 판 물품들을 뿌려주기 -->
 	<select id="getSCompleteList" resultClass="Trade">
+		<!-- select t.t_id, t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status, 
+			t.t_del_number, p.p_name, p.p_price from trade t join product p on t.p_id 
+			= p.p_id where t.t_status = 4 or t.t_status = 6 and t_seller = #m_id# -->
+
 		select t.t_id,
 		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status,
 		t.t_del_number,
@@ -83,8 +89,9 @@
 		trade t
 		join product p on t.p_id
 		= p.p_id
-		where
-		t.t_status = 4 or t.t_status = 6 and t_seller = #m_id#
+		where t.t_seller in (select t.t_seller from trade t
+		where t.t_status = 4 or t.t_status = 6)
+		and t.t_seller = #m_id#
 	</select>
 
 	<!-- 거래 완료된 산 물건 보여주기 -->

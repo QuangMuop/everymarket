@@ -239,7 +239,7 @@
 						<td>${cs.t_del_number }</td>
 						<td>${cs.p_name}</td>
 						<td>${cs.p_price }</td>
-						<td>구매완료</td>
+						<td>판매완료</td>
 					</tr>
 				</c:forEach>
 
@@ -300,7 +300,7 @@
 		</form>
 	</div>
 
-	-->
+	
 
 
 
