@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	/*상수 구현부*/
-	var eventDice = /*12*/getRandomInt(1, 12); 
+	var eventDice = getRandomInt(1, 12); 
 	
 	/*eventDice에 따른 이벤트요소 생성*/
 	event_generateHorse(eventDice);
@@ -17,101 +17,83 @@ $(document).ready(function(){
 		var top, left;
 		
 		if(eventDice == 1){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_top.PNG'>"
-			);
+			appendingHorse("top");
 			
 			top = $("#h_menu").offset().top - 50;
 			left = getRandomInt(
 					$("#h_logo").offset().left - 125,
 					$("#h_logo").offset().left - 55);
 		}else if(eventDice == 2){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_top.PNG'>"
-			);
+			appendingHorse("top");
 			
 			top = $("#h_menu").offset().top - 50;
 			left = $("#h_logo").offset().left + $("#h_logo").outerWidth() + 20;
 		}else if(eventDice == 3){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_top.PNG'>"
-			);
+			appendingHorse("top");
 			
 			top = $("#h_menu").offset().top - 50;
 			left = getRandomInt(
 					$("#h_searchbar").offset().left + $("#h_searchbar").outerWidth(),
 					$("#h_searchbar").offset().left + $("#h_searchbar").outerWidth() + 150);
 		}else if(eventDice == 4){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_top.PNG'>"
-			);
+			appendingHorse("top");
 			
 			top = $("#blog_b_thumb").offset().top + $("#blog_b_thumb").height() - 50;
 			left = getRandomInt(
 					$("#b_s_line").offset().left + 15,
 					$("#b_s_line").offset().left + $("#b_s_line").width() -65);
 		}else if(eventDice == 5){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_left.png'>"
-			);
+			appendingHorse("left");
 			
 			top = getRandomInt(
 					$("#h_menu").offset().top + 15,
 					$("#blog_b_thumb").offset().top + $("#blog_b_thumb").height() - 65);
 			left = $("#blog_b_thumb").offset().left - 50;
 		}else if(eventDice == 6){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_right.png'>"
-			);
+			appendingHorse("right");
 			
 			top = getRandomInt(
 					$("#h_menu").offset().top + 15,
 					$("#blog_b_thumb").offset().top + $("#blog_b_thumb").height() - 65);
 			left = $("#blog_b_thumb").offset().left + $("#blog_b_thumb").width() + 2;
 		}else if(eventDice == 7){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_left.png'>"
-			);
+			appendingHorse("left");
+			
 			top = getRandomInt(
 					$("#productContainer").offset().top + 15,
 					$("#b_banner1 > img").offset().top - 250);
 			left = $("#productContainer").offset().left - 50;
 		}else if(eventDice == 8){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_right.png'>"
-			);
+			appendingHorse("right");
+			
 			top = getRandomInt(
 					$("#productContainer").offset().top + 15,
 					$("#b_banner1 > img").offset().top - 250);
 			left = $("#productContainer").offset().left + $("#productContainer").width() - 10;
 		}else if(eventDice == 9){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_top.PNG'>"
-			);
+			appendingHorse("top");
+			
 			top = $("#b_banner1 > img").offset().top - 45;
 			left = getRandomInt(
 				$("#b_banner1 > img").offset().left + 15,
 				$("#b_banner1 > img").offset().left + 520);
 		}else if(eventDice == 10){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_top.PNG'>"
-			);
+			appendingHorse("top");
+			
 			top = $("#b_banner1 > img").offset().top - 40;
 			left = getRandomInt(
 				$("#b_banner1 > img").offset().left + 600,
 				$("#b_banner1 > img").offset().left + 900);
 		}else if(eventDice == 11){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_bottom.png'>"
-			);
+			appendingHorse("bottom");
+			
 			top = $("#b_banner2").offset().top + $("#b_banner2").outerHeight();
 			left = getRandomInt(
 				$("#b_banner2").offset().left + 100,
 				$("#b_banner2").offset().left + 450);
 		}else if(eventDice == 12){
-			$("#indivMarketWrapper").append(
-				"<img id='eventHorse' class='hidden' src='images/aema_bottom.png'>"
-			);
+			appendingHorse("bottom");
+			
 			top = $("#b_banner2").offset().top + $("#b_banner2").outerHeight();
 			left = getRandomInt(
 				$("#b_banner2").offset().left + 625,
@@ -185,5 +167,44 @@ $(document).ready(function(){
 				"<span class='hidden'>" + m_cash + "</span>"
 			).find(".hidden").fadeIn(1000).end().find("span:eq(1)").remove();
 		}
+	}
+	
+	/*부가 펑션:*/
+	
+	/*캐릭터 이미지 요소 추가 펑션*/
+	function appendingHorse(direction){
+		var image = "";
+		var imageNum = getRandomInt(1, 3);
+		
+		switch (direction) {
+		case "top":
+			switch (imageNum){
+			case 1:	image = "aema_top_spy.png"; break;
+			case 2:	image = "aema_top_wink.png"; break;
+			case 3:	image = "aema_top.png"; break; }
+			break;
+		case "right":
+			switch (imageNum){
+			case 1:	image = "aema_right_spy.png"; break;
+			case 2:	image = "aema_right_wink.png"; break;
+			case 3:	image = "aema_right.png"; break; }
+			break;
+		case "bottom":
+			switch (imageNum){
+			case 1:	image = "aema_bottom_spy.png"; break;
+			case 2:	image = "aema_bottom_wink.png"; break;
+			case 3:	image = "aema_bottom.png"; break; }
+			break;
+		case "left":
+			switch (imageNum){
+			case 1:	image = "aema_left_spy.png"; break;
+			case 2:	image = "aema_left_wink.png"; break;
+			case 3:	image = "aema_left.png"; break; }
+			break;
+		}
+		
+		$("#indivMarketWrapper").append(
+			"<img id='eventHorse' class='hidden' src='images/catchHorse/" + image + "'>"
+		);
 	}
 });
