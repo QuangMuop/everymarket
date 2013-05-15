@@ -116,8 +116,7 @@ public class TradeDwr {
 	public void insert_Review(String r_content,int r_score,int p_id) {
        		  
 		daoT.update_status_review(p_id);
-		daoR.Insert_review(r_content, r_score, p_id);	
-		
+		daoR.Insert_review(r_content, r_score, p_id);			
 	}
 
 }
