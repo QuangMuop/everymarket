@@ -62,6 +62,11 @@ public class MemberDao {
 		return (String)ibatisTemplate.queryForObject("getM_nameByP_id", p_id);
 	}
 	
+	/*Input: m_id / Output: m_cash*/
+	public int getM_cashByM_id(String m_id){
+		return (Integer)ibatisTemplate.queryForObject("getM_cashByM_id", m_id);
+	}
+	
 	/*Input: m_id / Output: Member*/
 	public Member getMemberByM_id(String m_id){
 		return (Member)ibatisTemplate.queryForObject("getMemberById", m_id);
