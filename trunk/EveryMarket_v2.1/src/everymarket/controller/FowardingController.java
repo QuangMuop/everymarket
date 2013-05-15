@@ -12,12 +12,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import everymarket.dao.BlogDao;
 import everymarket.dao.BoardQnaDao;
+import everymarket.dao.JjimDao;
 import everymarket.dao.MemberDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.ReviewDao;
+import everymarket.dao.TradeDao;
 import everymarket.model.BoardQna;
 import everymarket.model.Member;
 import everymarket.model.Product;
+import everymarket.model.Trade;
 import everymarket.object4output.BlogProduct;
 import everymarket.object4output.Object4Skitter;
 
@@ -28,6 +31,16 @@ public class FowardingController {
 	private MemberDao daoM;
 	private ProductDao daoP;
 	private ReviewDao daoR;
+	private TradeDao daoT;
+	private JjimDao daoJ;
+	
+	public void setDaoT(TradeDao daoT) {
+		this.daoT = daoT;
+	}
+
+	public void setDaoJ(JjimDao daoJ) {
+		this.daoJ = daoJ;
+	}
 
 	public void setDaoB(BlogDao daoB) {
 		this.daoB = daoB;
@@ -95,9 +108,46 @@ public class FowardingController {
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
 		Member member = (Member) session.getAttribute("member");
-
+		
 		mav.setViewName("goMyPage");
 		mav.addObject("member", member);
+		
+		////////////////////////////////////
+		
+		
+
+		String m_id = member.getM_id();
+
+		// 나에 구매중인 물품들
+		List<Trade> buyingList = daoT.getBuyingTrade(m_id);
+
+		// 나에 판매중인 물품들
+		List<Trade> sellingList = daoT.getSellingTrade(m_id);
+
+		// 거래 완료된 산 물품들
+		List<Trade> completeBList = daoT.getBCompleteList(m_id);
+
+		// 거래 완료된 판 물품들
+		List<Trade> completeSList = daoT.getSCompleteList(m_id);
+
+		// 찜한 물건들
+		List<Product> jjimList = daoJ.getjjimList(m_id);
+
+		int jjim_sum = 0;
+
+		// 찜한 물건 총 가격
+		if (daoJ.getjjim_sum(m_id) != null) {
+
+			jjim_sum = (Integer) daoJ.getjjim_sum(m_id);
+		}
+
+		mav.addObject("buyingList", buyingList);
+		mav.addObject("sellingList", sellingList);
+		mav.addObject("completeBList", completeBList);
+		mav.addObject("completeSList", completeSList);
+		mav.addObject("jjimList", jjimList);
+		mav.addObject("jjim_sum", jjim_sum);
+		
 		
 		return mav;
 	}
