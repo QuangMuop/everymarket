@@ -39,17 +39,16 @@ public class MailController {
 	public void setSender(MimeMailSender sender) {
 		this.sender = sender;
 	}
-
-
-
+	
 	@RequestMapping("/mailsend.do")
-	public ModelAndView mailsend(@RequestParam ("m_email") String m_email ) {
+	public ModelAndView mailsend(
+			@RequestParam ("m_email") String m_email ) {
 		ModelAndView mav = new ModelAndView();
 		Random random = new Random();
 		int num = random.nextInt(999999);
 		String text = num+"";
 		try{
-			sender.sendMail(m_email, "kpj5427@gmail.com", "[everymarket 인증메일]", text);
+			sender.sendMail(m_email, "kitchu@everymarket.co.kr", "[everymarket 인증메일]", text);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -60,26 +59,26 @@ public class MailController {
 	}
 	
 	@RequestMapping("/regConfirm.do")
-	public ModelAndView regConfirm(@RequestParam ("connum1") String connum1, @RequestParam ("connum2") String connum2){
+	public ModelAndView regConfirm(
+			@RequestParam ("connum1") String connum1, 
+			@RequestParam ("connum2") String connum2){
 		ModelAndView mav = new ModelAndView();
-		System.out.println(connum1);
-		System.out.println(connum2);
 		if(connum1.equals(connum2)){
 			mav.addObject("ConfirmOk", "인증번호 일치");
-			mav.setViewName("jsonView");
 		}else{
 			mav.addObject("error", "인증번호 불일치");
-			mav.setViewName("jsonView");
 		}
+		mav.setViewName("jsonView");
 		return mav;
 	}
 	
 	//비밀번호 찾기
 	@RequestMapping("/find_pwd.do")
-	public ModelAndView find_pwd(@RequestParam("m_id") String m_id, @RequestParam("m_name") String m_name,
+	public ModelAndView find_pwd(
+			@RequestParam("m_id") String m_id, 
+			@RequestParam("m_name") String m_name,
 			@RequestParam("m_email") String m_email ){
 		ModelAndView mav = new ModelAndView();
-		
 
 		Random random = new Random();
 		int num = random.nextInt(999999);
