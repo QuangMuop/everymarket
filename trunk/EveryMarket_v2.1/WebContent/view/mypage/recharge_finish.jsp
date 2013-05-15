@@ -92,7 +92,7 @@ margin-left: 10px;
 margin-right: 120px;
 }
 </style>
-<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="../../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		var rechargeAmount = opener.document.getElementById("c_inner_pass_input").value;
@@ -110,6 +110,8 @@ margin-right: 120px;
 		);
 		
 		$(".confirm").click(function(){
+			alert(rechargeAmount + "원에 대한 결제를 요청합니다.");
+			
 			opener.parent.opener.parent.location.href="../../chargeCash.do?m_cash=" + rechargeAmount;
 			opener.close();
 			window.close();		

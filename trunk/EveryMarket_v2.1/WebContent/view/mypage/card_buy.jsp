@@ -172,7 +172,7 @@ float: right;
 margin-top: 10px;
 }
 </style>
-<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="../../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	var rechargeAmount = opener.document.getElementById("c_inner_pass_input").value;

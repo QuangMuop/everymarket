@@ -144,7 +144,7 @@ font-size: 11px;
 color:#656565;
 }
 </style>
-<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="../../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$.getJSON(
