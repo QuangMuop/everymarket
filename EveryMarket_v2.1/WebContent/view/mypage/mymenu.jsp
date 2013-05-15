@@ -229,8 +229,9 @@
 					</c:when>
 					<c:when test="${bl.t_status == 2 }">
 						<td id="${bl.t_id}3">배송중</td>
-						<td id="button"><input class="db_trace" type="button"
-							value="배송추적" t_id="${bl.t_id}" /></td>
+						<td id="button">
+						<button class="db_trace" id="trace_page" t_id="${bl.t_id}" >배송추적</button>
+						</td>
 					</c:when>
 					<c:when test="${bl.t_status == 3}">
 						<td id="db_text">배송완료</td>
@@ -309,8 +310,8 @@
 						<c:choose>
 							<c:when test="${sl.t_status == 1}">
 								<form>
-									<td id="${sl.t_id}1s">송장번호입력: <input class="${sl.t_id}5"
-										type="text"> <!-- 거래번호 or 프로덕트 아이디 -->
+									<td id="${sl.t_id}1s"><input class="${sl.t_id}5"
+										type="text" id="s_num_input" placeholder="송장번호를 입력해주세요(8자리)"> <!-- 거래번호 or 프로덕트 아이디 -->
 									</td>
 									<td id="${sl.t_id}2"><input class="dn_bt" type="button"
 										value="확인" t_id="${sl.t_id}" name="${sl.t_status}"></td>
