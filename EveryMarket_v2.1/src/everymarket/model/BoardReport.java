@@ -12,8 +12,15 @@ public class BoardReport {
 	private String rep_memberId;
 	private String rep_check;
 	private String rep_type;
+	private Timestamp rep_checkTime;
 
-	/* private Timestamp rep_checkTime; */
+	public Timestamp getRep_checkTime() {
+		return rep_checkTime;
+	}
+
+	public void setRep_checkTime(Timestamp rep_checkTime) {
+		this.rep_checkTime = rep_checkTime;
+	}
 
 	public String getRep_type() {
 		return rep_type;

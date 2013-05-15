@@ -447,7 +447,7 @@
 
 	<!-- 리뷰쓰기 팝업  -->
 	<div id="review_pop" class="popUp hidden">
-		<form action="reviewAction.do" method="post">
+		<form>
 			<div id="rp_name"></div>
 			<input type="hidden" id="rp_id" name="p_id" value=""> <br>
 			평점 :<select id="r_score" name="r_score">
@@ -456,9 +456,11 @@
 				<option value="0">0</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
-			</select><br> 신고의 내용
+			</select><br> 리뷰내용
 			<textarea name="r_content" id="r_content"></textarea>
-			<br> <input type="submit" id="rp_ok1" value="작성 완료"> <input
+			<br> <!-- <input type="submit" id="rp_ok1" value="작성 완료"> -->
+			<button id="rp_ok1">작성 완료</button>
+			 <input
 				type="reset" value="취소">
 		</form>
 	</div>

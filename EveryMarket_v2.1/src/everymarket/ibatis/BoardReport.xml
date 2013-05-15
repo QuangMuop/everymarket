@@ -19,7 +19,8 @@
 			#rep_productId#,
 			#rep_memberId#,
 			#rep_check#,
-			#rep_type#
+			#rep_type#,
+			#rep_checkTime#
 		)
 	</insert>
 
