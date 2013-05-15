@@ -122,6 +122,7 @@
 	<!-- 리뷰(상품평) 관련 업무 수행 컨트롤러 -->
 	<bean id="reviewController" class="everymarket.controller.ReviewController">
 		<property name="daoR" ref="reviewDao"/>
+		<property name="daoT" ref="tradeDao"/>
 	</bean>
 	
 	<bean id="reviewDao" class="everymarket.dao.ReviewDao">
