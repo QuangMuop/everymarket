@@ -66,7 +66,8 @@
 				<div class="product" p_id="${product.p_id }">
 <%-- 					${product.p_name } --%>
 					<img alt="" class="p_img" src="image_product/${product.p_img }">
-				</div>	<br>
+					<div>${product.p_price }</div>
+				</div> <br>
 			</c:forEach>
 		</div>
 
