@@ -5,40 +5,64 @@
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="Review">
-	
-	<typeAlias alias="Review" type="everymarket.model.Review"/>
- 
- 	<select id="getScoreSumByM_id" resultClass="Integer">
- 		select sum(r_score)
+
+	<typeAlias alias="Review" type="everymarket.model.Review" />
+
+	<select id="getScoreSumByM_id" resultClass="Integer">
+		select sum(r_score)
 		from review r
-		  join product p
-		  on r.p_id = p.p_id
+		join product p
+		on r.p_id = p.p_id
 		where p.m_id = #m_id#
- 	</select>
- 
- 	<select id="countReviewByM_id" resultClass="Integer">
- 		select count(*)
+	</select>
+
+	<select id="countReviewByM_id" resultClass="Integer">
+		select count(*)
+		from
+		review r
+		join product p
+		on r.p_id = p.p_id
+		where p.m_id = #m_id#
+	</select>
+
+	<select id="getReviewListByM_id" resultClass="Review">
+		select *
+		from review
+		r
+		join product p
+		on r.p_id = p.p_id
+		where p.m_id = #m_id#
+		order by
+		r.r_date asc
+	</select>
+
+	<select id="getRecentReviewByM_id" resultClass="Review">
+		select
+		r.r_content, r.r_date
 		from review r
-		  join product p
-		  on r.p_id = p.p_id
+		join product p
+		on r.p_id = p.p_id
 		where p.m_id = #m_id#
- 	</select>
- 	
- 	<select id="getReviewListByM_id" resultClass="Review">
- 		select *
- 		from review r
- 		  join product p
- 		  on r.p_id = p.p_id
- 		where p.m_id = #m_id#
- 		order by r.r_date asc
- 	</select>
- 	
- 	<select id="getRecentReviewByM_id" resultClass="Review">
- 		select r.r_content, r.r_date
-		from review r
-		  join product p
-		  on r.p_id = p.p_id
-		where p.m_id = #m_id#
- 	</select>
+	</select>
+
+	<select id="get_Review_MaxID" resultClass="Integer">
+		select
+		decode(max(r_id), null,0, max(r_id))
+		as "max(r_id)"
+		from review
+	</select>
+
+
+	<insert id="insert_Review" parameterClass="Review">
+		insert into board_report
+		values(
+		#r_id#,
+		#r_content#,
+		#r_score#,
+		#r_date#,
+		#p_id#
+		)
+	</insert>
+
 
 </sqlMap>

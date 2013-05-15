@@ -48,6 +48,7 @@
 	<bean id="tradeDwr" class="everymarket.dwr.TradeDwr">
 	    <property name="daoT" ref="tradeDao"/>
 	    <property name="daoJ" ref="jjimDao"/>
+	    <property name="daoP" ref="productDao"></property>
 	    <dwr:remote javascript="tradeDwr"/>	
 	</bean>	
 	

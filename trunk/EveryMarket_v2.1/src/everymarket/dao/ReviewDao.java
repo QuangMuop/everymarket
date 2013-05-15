@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
+import sun.reflect.generics.visitor.Reifier;
+
 import everymarket.model.Review;
 
 public class ReviewDao {
@@ -32,4 +34,15 @@ public class ReviewDao {
 	public List<Review> getRecentReviewByM_id(String m_id){
 		return ibatisTemplate.queryForList("getRecentReviewByM_id", m_id);
 	}
+	
+	public Integer get_Review_MaxID(){
+		return (Integer) ibatisTemplate.queryForObject("get_Review_MaxID");
+	}
+	
+	public void Insert_review(Review review){
+		ibatisTemplate.insert("insert_Review", review);
+	}
+	
+	
+	
 }

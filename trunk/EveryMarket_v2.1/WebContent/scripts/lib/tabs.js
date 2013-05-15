@@ -38,8 +38,10 @@ $(document).ready(function() {
 	});
 
 	
+	
 	// tradelist의 탭  : 영준
 	$(".trade_menu > li ").click(function(e) {
+
 		switch (e.target.id) {
 		case "trade_tab1":
 			// change status & style menu
