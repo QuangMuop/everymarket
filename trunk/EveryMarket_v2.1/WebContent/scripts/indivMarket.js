@@ -16,11 +16,6 @@ $(document).ready(function(){
 	$("#count_dangol").click(popUp_showOwnerDangol);
 	$("#count_review").click(popUp_showListReview);
 	
-	$("#ajaxForm_productPurchase").submit(function(){
-		if(confirm("해당 상품에 구매신청하시겠습니까?")){
-			getElementById("ajaxForm_productPurchase").submit();
-		}
-		return false; });
 	$("#productPurchase button").click(closePop_productPurchase);
 	
 	$("#form_reportMember").submit(confirmAndCheck_reportMember);
@@ -586,10 +581,14 @@ $(document).ready(function(){
 	
 	/*상품구매 후 실행되는 로직*/
 	function buyProduct(){
-		alert("구매요청이 정상적으로 처리되었습니다!");
-		
-		$("#productPurchase").bPopup().close();
-		$("#productInfo").bPopup().close();
+		if(confirm("해당 상품에 구매신청하시겠습니까?")){
+			alert("구매요청이 정상적으로 처리되었습니다!");
+			
+			getElementById("ajaxForm_productPurchase").submit();
+			
+			$("#productPurchase").bPopup().close();
+			$("#productInfo").bPopup().close();
+		}
 	}
 
 	/*회원 신고창 띄우기*/
