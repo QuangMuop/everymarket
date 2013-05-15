@@ -43,13 +43,13 @@ public class MailController {
 
 
 	@RequestMapping("/mailsend.do")
-	public ModelAndView mailsend(@RequestParam ("m_mail") String m_mail ) {
+	public ModelAndView mailsend(@RequestParam ("m_email") String m_email ) {
 		ModelAndView mav = new ModelAndView();
 		Random random = new Random();
 		int num = random.nextInt(999999);
 		String text = num+"";
 		try{
-			sender.sendMail(m_mail, "kpj5427@gmail.com", "[everymarket 인증메일]", text);
+			sender.sendMail(m_email, "kpj5427@gmail.com", "[everymarket 인증메일]", text);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
