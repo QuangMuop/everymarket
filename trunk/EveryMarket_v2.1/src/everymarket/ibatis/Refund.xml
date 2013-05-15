@@ -17,8 +17,8 @@
 			#ref_bankName#,
 			#ref_account#,
 			#ref_accountName#,
-			#ref_refundDate#,
-			#ref_check#
+			#ref_requestDate#,
+			null
 		)
 	</insert>
 

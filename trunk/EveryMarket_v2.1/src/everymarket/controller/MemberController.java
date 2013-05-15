@@ -312,8 +312,7 @@ public class MemberController {
 		refund.setRef_bankName(bankName);
 		refund.setRef_account(refundAccount);
 		refund.setRef_accountName(refundName);
-		refund.setRef_refundDate(new Timestamp(System.currentTimeMillis()));
-		refund.setRef_check("n");
+		refund.setRef_requestDate(new Timestamp(System.currentTimeMillis()));
 		
 		try{
 			daoRef.registerRefund(refund);

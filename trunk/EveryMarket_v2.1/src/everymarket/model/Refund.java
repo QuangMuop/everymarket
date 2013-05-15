@@ -10,8 +10,8 @@ public class Refund {
 	private String ref_bankName;
 	private String ref_account;
 	private String ref_accountName;
+	private Timestamp ref_requestDate;
 	private Timestamp ref_refundDate;
-	private String ref_check;
 	
 	public int getRef_id() {
 		return ref_id;
@@ -55,16 +55,16 @@ public class Refund {
 	public void setRef_accountName(String ref_accountName) {
 		this.ref_accountName = ref_accountName;
 	}
+	public Timestamp getRef_requestDate() {
+		return ref_requestDate;
+	}
+	public void setRef_requestDate(Timestamp ref_requestDate) {
+		this.ref_requestDate = ref_requestDate;
+	}
 	public Timestamp getRef_refundDate() {
 		return ref_refundDate;
 	}
 	public void setRef_refundDate(Timestamp ref_refundDate) {
 		this.ref_refundDate = ref_refundDate;
 	}
-	public String getRef_check() {
-		return ref_check;
-	}
-	public void setRef_check(String ref_check) {
-		this.ref_check = ref_check;
-	}	
 }
