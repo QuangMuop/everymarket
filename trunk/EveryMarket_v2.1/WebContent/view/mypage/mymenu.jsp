@@ -139,6 +139,7 @@
 					</div>
 					<button class="c_button" id="c_ok2" pass="${member.m_pwd}">확인</button>
 					<button class="c_button" id="c_cencle2">취소</button>
+					</div>
 				
 					<div id="m_cash_detail" class="c_inner_hidden">
 						<div id="c_inner_box">
@@ -172,14 +173,14 @@
 						<button class="c_button" id="c_respond_button">환급하기</button>
 					</div>
 				</div>
-				<<<<<<< .mine
+				<!-- <<<<<<< .mine -->
 				<!-- 	////////////////////////////////////거래내역 -->
-				<center>
-				<!-- 	<div class="out_hidden" id="contents3">
+				<%-- <center> --%>
+				 <!-- 	<div class="out_hidden" id="contents3">
 						=======
 						<button class="c_button" id="c_respond_button">환급하기</button>
-					</div> -->
-			</div>
+					</div>  -->
+			<!-- </div> -->
 			<!-- 	////////////////////////////////////거래내역 -->
 			<center>
 				<div id="contents3">
