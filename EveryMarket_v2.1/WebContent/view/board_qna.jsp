@@ -72,7 +72,7 @@
 		</c:forEach>
 	</div>
 	
-	<c:if test="${member != null }">
+	<c:if test="${member != null && member.m_id != 'aa'}">
 		<div>
 			<button id="button_popupInsert">
 				<img alt="" id="q_i_btn" src="image_board/qna_insert_btn.png">
