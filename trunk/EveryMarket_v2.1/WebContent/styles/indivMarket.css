@@ -226,6 +226,34 @@ font-family: monospace;
 	
 }
 
+/* Sold-Out, On-Trade이미지 디스플레이 */
+.notOnSale span {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.notOnSale .notOnSale-bg {
+	background: none repeat scroll 0 0 #000000;
+	opacity: 0.4;
+}
+.notOnSale .notOnSale-image {
+	overflow: hidden;
+    text-indent: -9999em;
+}
+#notOnSale_soldOut{
+	background: url("../images/soldOut.png") 
+				no-repeat scroll 
+				center 40% transparent;
+}
+#notOnSale_onTrade{
+	background: url("../images/onTrade.png") 
+				no-repeat scroll 
+				center 40% transparent;
+}
+
 /* .button_tab{ */
 /* 	display: inline-block; */
 /* 	padding: 5px; */

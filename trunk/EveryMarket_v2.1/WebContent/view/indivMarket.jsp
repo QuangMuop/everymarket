@@ -58,16 +58,27 @@
 				<a>가게 위치</a>
 			</div>
 		</div>
-				
-				
 	
 		<div id="productContainer">	
 			<c:forEach var="product" items="${listProduct }">
 				<div class="product" p_id="${product.p_id }">
-<%-- 					${product.p_name } --%>
 					<img alt="" class="p_img" src="image_product/${product.p_img }">
-					<div>${product.p_price }</div>
-				</div> <br>
+					<c:if test="${product.p_status == 'y' }">
+						<span class="notOnSale">
+							<span class="notOnSale-bg"></span>
+							<span id="notOnSale_soldOut" class="notOnSale-image"></span>
+						</span>
+					</c:if>
+					<c:if test="${product.p_status == 'w' }">
+						<span class="notOnSale">
+							<span class="notOnSale-bg"></span>
+							<span id="notOnSale_onTrade" class="notOnSale-image"></span>
+						</span>
+					</c:if>
+					<div>
+						<p>${product.p_price }</p>
+					</div>
+				</div>
 			</c:forEach>
 		</div>
 
