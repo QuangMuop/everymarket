@@ -8,6 +8,8 @@ $(document).ready(function(){
 	/*AjaxForm 동기화*/
 	$("#ajaxForm_registerComments").ajaxForm();
 	$("#ajaxForm_registerComments").submit(registerComments);
+	$("#ajaxForm_productPurchase").ajaxForm();
+	$("#ajaxForm_productPurchase").submit(buyProduct);
 	
 	$(".product").click(popUp_productInfo);
 	$("#blog_b_map").click(popUp_googleMap);
@@ -49,7 +51,7 @@ $(document).ready(function(){
 	$(document).on('click', "#button_detail_deleteJjim", deleteJjim);
 	$(document).on('click', "#button_detail_registerJjim", registerJjim);
 	$(document).on('click', "#button_detail_modifyProduct", modifyProduct);
-	$(document).on('click', "#button_detail_buyProduct", buyProduct);
+	$(document).on('click', "#button_detail_buyProduct", popUp_buyProduct);
 	$(document).on('click', "#button_detail_reportProduct", popUp_reportProduct);
 	$(document).on('click', "#button_detail_closeProductInfo", closePop_productInfo);
 	
@@ -537,53 +539,57 @@ $(document).ready(function(){
 	};
 	
 	/*상품 구매신청창 띄우기*/
-	function buyProduct(){
+	function popUp_buyProduct(){
 		var p_id = $("#productInfo").attr("p_id");
-		
 		tradeDwr.getsession(get_mid);
 		
 		function get_mid(data){
-
 			tradeDwr.compare_point(p_id, data, get_point);
-			
+		
 			function get_point(point){
-			
 				if(point >= 0){
-
-				/*productPurchase div요소 최신화*/		
-				$.getJSON(
-					contextUrl + "getProductByP_id.do?p_id="
-						+ $("#productInfo").attr("p_id"),
-					function(data){
-						$("#productPurchase").find(".data").remove();
-						$("#productP_img_purchase").append(
-							"<span class='data'>" +
-							"<img src='image_product/" + data.product.p_img + "'>" +
-							"</span>"
-						);
-						$("#productP_name_purchase").append(
-							"<span class='data'>" + data.product.p_name + "</span>"
-						);
-						$("#productP_price_purchase").append(
-								"<span class='data'>" + data.product.p_price + "</span>"
-						);
-						$("#ajaxForm_productPurchase").find("input[name='p_id']")
-							.val($("#productInfo").attr("p_id"));
-					}
-				);			
-			
-				/*최신화 후 팝업창 출력*/
-				$("#productPurchase").bPopup({
-					fadeSpeed: 'slow',
-					modalClose: false,
-					position: [274, 50]
-				});
+					/*productPurchase div요소 최신화*/		
+					$.getJSON(
+						contextUrl + "getProductByP_id.do?p_id="
+							+ $("#productInfo").attr("p_id"),
+						function(data){
+							$("#productPurchase").find(".data").remove();
+							$("#productP_img_purchase").append(
+								"<span class='data'>" +
+								"<img src='image_product/" + data.product.p_img + "'>" +
+								"</span>"
+							);
+							$("#productP_name_purchase").append(
+								"<span class='data'>" + data.product.p_name + "</span>"
+							);
+							$("#productP_price_purchase").append(
+									"<span class='data'>" + data.product.p_price + "</span>"
+							);
+							$("#ajaxForm_productPurchase").find("input[name='p_id']")
+								.val($("#productInfo").attr("p_id"));
+						}
+					);			
+				
+					/*최신화 후 팝업창 출력*/
+					$("#productPurchase").bPopup({
+						fadeSpeed: 'slow',
+						modalClose: false,
+						position: [274, 50]
+					});
 				}else{
 					alert("거래 가능 포인트가 부족합니다");
 					closePop_productInfo();
 				}
 			}
 		}
+	}
+	
+	/*상품구매 후 실행되는 로직*/
+	function buyProduct(){
+		alert("구매요청이 정상적으로 처리되었습니다!");
+		
+		$("#productPurchase").bPopup().close();
+		$("#productInfo").bPopup().close();
 	}
 
 	/*회원 신고창 띄우기*/
