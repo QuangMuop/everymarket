@@ -101,7 +101,6 @@
 		<property name="daoD" ref="dangolDao"/>
 		<property name="daoM" ref="memberDao"/>
 		<property name="daoP" ref="productDao"/>
-		<property name="daoRef" ref="refundDao"/>
 		<property name="daoR" ref="reviewDao"/>
 		<property name="daoT" ref="tradeDao"/>
 	</bean>
@@ -123,6 +122,11 @@
 	</bean>
 	
 	<!-- 환급 관련 업무 수행 Dao -->
+	<bean id="refundController" class="everymarket.controller.RefundController">
+		<property name="daoM" ref="memberDao"/>
+		<property name="daoRef" ref="refundDao"/>
+	</bean>
+	
 	<bean id="refundDao" class="everymarket.dao.RefundDao">
 		<property name="ibatisTemplate" ref="ibatisTemplate"/>
 	</bean>

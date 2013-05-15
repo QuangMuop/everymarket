@@ -25,7 +25,10 @@
 			<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>
 		</span>
 		<span id="admin_m5">
-			<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5_back.png'>
+			<img id="admin_m5" class="admin_bar_img" src=''>환급신청 목록보기
+		</span>
+		<span id="admin_m6">
+			<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>
 		</span>
 	</div>
 	
@@ -85,6 +88,38 @@
 				<div class="normal">제재대상 아이디</div>
 				<div class="wide">제재내용</div>
 			</div>	
+		</div>
+	</div>
+	
+	<div id="list_refund" class="tabContent hidden">
+		<div id="totalFee">
+			총 누적 환급수수료 수익: 
+			<span class="data"></span>
+		</div>
+	
+		<!-- 미결환급 목록 -->
+		<div id="uncheckedRefundList" class="list">
+			<div id="uncheckedRefundList_head" class="admin_list_head">
+				<div class="r_title_5">환급신청자</div>
+				<div class="r_title_5">환급신청액</div>
+				<div class="r_title_5">예상수수료</div>
+				<div class="r_title_5">입금은행</div>
+				<div class="r_title_5">계좌번호</div>
+				<div class="r_title_5">예금주</div>
+				<div class="r_title_5">신청일자</div>
+			</div>
+		</div>
+		<!-- 환급 목록 -->
+		<div id="checkedRefundList" class="list">			
+			<div id="checkedRefundList_head" class="admin_list_head">
+				<div class="r_title_5">환급신청자</div>
+				<div class="r_title_5">환급액</div>
+				<div class="r_title_5">수수료</div>
+				<div class="r_title_5">입금은행</div>
+				<div class="r_title_5">계좌번호</div>
+				<div class="r_title_5">예금주</div>
+				<div class="r_title_5">환급일자</div>
+			</div>
 		</div>
 	</div>
 	

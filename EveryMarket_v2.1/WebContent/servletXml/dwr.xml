@@ -18,6 +18,7 @@
 		<property name="daoBL" ref="banListDao"/>
 		<property name="daoBR" ref="boardReportDao"/>
 		<property name="daoM" ref="memberDao"/>
+		<property name="daoRef" ref="refundDao"/>
 		<dwr:remote javascript="boardReportDwr"/>
 	</bean>
 	

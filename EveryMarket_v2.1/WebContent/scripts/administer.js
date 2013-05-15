@@ -8,12 +8,12 @@ $(document).ready(function(){
 	$("#admin_m2").click(showTab_uncheckedList_report);
 	$("#admin_m3").click(showTab_uncheckedList_tradeReport);
 	$("#admin_m4").click(showTab_checkedList_report);
-	$("#admin_m5").click(showTab_list_bannedMember);
+	$("#admin_m5").click(showTab_List_refund);
+	$("#admin_m6").click(showTab_list_bannedMember);
 	
 	$(document).on('click', ".boardReport", toggleReportContents);
 	$(document).on('change', ".boardReport select", reportAction);
-	
-	$("#callMemberList").click(function(){ alert("뭐임마"); });
+	$(document).on('click', ".refund", confirmRefund);
 	
 		/*memberList, boardReport 탭 구현*/	
 		function showTab_memberList(){
@@ -33,6 +33,10 @@ $(document).ready(function(){
 			callCheckedList_report();
 			$(".tabContent").hide();
 			$("#checkedList_report").fadeIn("slow"); }
+		function showTab_List_refund(){
+			callList_refund();
+			$(".tabContent").hide();
+			$("#list_refund").fadeIn("slow"); }
 		function showTab_list_bannedMember(){
 			callList_bannedMember();
 			$(".tabContent").hide();
@@ -54,6 +58,14 @@ $(document).ready(function(){
 				alert("처리되었습니다.");
 				callUncheckedList_report();
 			}
+		}
+	}
+	
+	function confirmRefund(){
+		if(confirm("해당 환급건을 진행하시겠습니까?")){
+			boardReportDwr.confirmRefund($(this).attr("ref_id"), function(){
+				callList_refund();
+			});
 		}
 	}
 	
@@ -172,6 +184,52 @@ $(document).ready(function(){
 		);
 	}
 	
+	function callList_refund(){
+		$("#list_refund .list .refund").remove();
+		$.getJSON(
+			contextUrl + "callListRefund.do",
+			function(data){
+				$("#totalFee .data").html(data.totalFee);
+				
+				$.each(data.uncheckedRefundList, function(index, refund){
+					var requestDate = (refund.ref_requestDate.year + 1900) + "년 " +
+										(refund.ref_requestDate.month + 1) + "월 " +
+										refund.ref_requestDate.date + "일 ";
+					$("#uncheckedRefundList").append(
+						"<div class='refund' ref_id='" + refund.ref_id + "'>" +
+							"<div class='r_title_5'>" + refund.m_id + "</div>" +
+							"<div class='r_title_5'>" + 
+								(refund.ref_refundAmount + refund.ref_refundFee) + 
+							"</div>" +
+							"<div class='r_title_5'>" + refund.ref_refundFee + "</div>" +
+							"<div class='r_title_5'>" + refund.ref_bankName + "</div>" +
+							"<div class='r_title_5'>" + refund.ref_account + "</div>" +
+							"<div class='r_title_5'>" + refund.ref_accountName + "</div>" +
+							"<div class='r_title_5'>" + requestDate + "</div>" +
+						"</div>"
+					);
+				});
+				
+				$.each(data.checkedRefundList, function(index, refund){
+					var refundDate = (refund.ref_refundDate.year + 1900) + "년 " +
+										(refund.ref_refundDate.month + 1) + "월 " +
+										refund.ref_refundDate.date + "일 ";
+					$("#checkedRefundList").append(
+						"<div class='refund'>" +
+							"<div class='r_title_5'>" + refund.m_id + "</div>" +
+							"<div class='r_title_5'>" + refund.ref_refundAmount + "</div>" +
+							"<div class='r_title_5'>" + refund.ref_refundFee + "</div>" +
+							"<div class='r_title_5'>" + refund.ref_bankName + "</div>" +
+							"<div class='r_title_5'>" + refund.ref_account + "</div>" +
+							"<div class='r_title_5'>" + refund.ref_accountName + "</div>" +
+							"<div class='r_title_5'>" + refundDate + "</div>" +
+						"</div>"
+					);
+				});
+			}
+		);
+	}
+	
 	function callList_bannedMember(){
 		$("#list_bannedMember .list .bannedMember").remove();
 		$.getJSON(
@@ -224,9 +282,9 @@ $(document).ready(function(){
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"	
 						);
-				$("#admin_m5").removeClass("actived");
-				$("#admin_m5").html(
-						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
+				$("#admin_m6").removeClass("actived");
+				$("#admin_m6").html(
+						"<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
 						);
 				//display selected division, hide others
 	
@@ -249,9 +307,9 @@ $(document).ready(function(){
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"
 						);
-				$("#admin_m5").removeClass("actived");
-				$("#admin_m5").html(
-						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"
+				$("#admin_m6").removeClass("actived");
+				$("#admin_m6").html(
+						"<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"
 						);
 				//display selected division, hide others
 
@@ -274,9 +332,9 @@ $(document).ready(function(){
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"	
 						);
-				$("#admin_m5").removeClass("actived");
-				$("#admin_m5").html(
-						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
+				$("#admin_m6").removeClass("actived");
+				$("#admin_m6").html(
+						"<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
 						);
 
 			break;
@@ -298,13 +356,13 @@ $(document).ready(function(){
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4.png'>"
 						);
-				$("#admin_m5").removeClass("actived");
-				$("#admin_m5").html(
-						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
+				$("#admin_m6").removeClass("actived");
+				$("#admin_m6").html(
+						"<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
 						);
 
 			break;
-			case "admin_m5":
+			case "admin_m6":
 				//change status & style menu
 				$("#admin_m1").removeClass("actived");
 				$("#admin_m1").html(
@@ -322,9 +380,9 @@ $(document).ready(function(){
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"
 						);
-				$("#admin_m5").addClass("actived");
-				$("#admin_m5").html(
-						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar5.png'>"
+				$("#admin_m6").addClass("actived");
+				$("#admin_m6").html(
+						"<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5.png'>"
 						);
 	
 			break;
