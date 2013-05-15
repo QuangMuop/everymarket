@@ -184,14 +184,14 @@ $(document).ready(function(){
 		$("#m_phone").attr("value", m_phone);
 	});
 	
-	$("#m_mail").focus(function(){
+	$("#m_email").focus(function(){
 		$("#submit").attr("disabled", "disabled");
 	});
 	
 	$("#m_mailConfirm").click(function(){
 		
 		$.getJSON(
-				contextUrl + "mailsend.do?m_mail="+$("#m_mail").val(),		
+				contextUrl + "mailsend.do?m_email="+$("#m_email").val(),		
 		function(data){
 			alert("인증메일 발송이 완료되었습니다   메일 확인 후 인증번호를 적어주세요");
 			$("#reg_confirm").keyup(function(){
