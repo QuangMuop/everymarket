@@ -27,6 +27,39 @@ $(document).ready(function(){
 	function popUp_chargeCash(){ $("#chargeCash").bPopup(); }
 	function tryLogout(){ location.href="logout.do"; }
 	
+	/*회원가입 validation*/
+	$("#form_registerMember").submit(function(){
+		if($("#agree_rule").is(":checked") == false){ 
+			alert("EveryMarket 회원약관에 동의해주세요.");
+			return false; }
+		if($("#agree_eft").is(":checked") == false){
+			alert("전자금융거래 이용약관에 동의해주세요.");
+			return false; }
+		if($("#m_id").val().length == 0){
+			alert("사용하고자 하는 아이디를 입력해주세요.");
+			return false; }
+		if($("#nickname").val().length == 0){
+			alert("사용하고자 하는 별명을 입력해주세요.");
+			return false; }
+		if($("#m_name").val().length == 0){
+			alert("사용하고자 하는 이름을 입력해주세요.");
+			return false; }
+		if($("#m_pwd").val().length == 0){
+			alert("사용하고자 하는 비밀번호를 입력해주세요.");
+			return false; }
+		if($("#m_pwdConfirm").val().length == 0){
+			alert("비밀번호를 한번 더 입력해주세요.");
+			return false; }
+		if($("#m_phone").val().length == 0){
+			alert("연락가능한 번호를 입력해주세요.");
+			return false; }
+		if($("#reg_confirm").val().length == 0){
+			alert("E-mail 인증번호를 입력해주세요.");
+			return false; }
+		
+		alert("회원가입에 성공했습니다. 메인페이지로 이동합니다.");
+	});
+	
 	/*쪽지함 팝업 펑션*/
 	function popUp_message(){
 		$("#list_message .message").remove();
@@ -123,93 +156,88 @@ $(document).ready(function(){
 	
 	$("#m_id").keyup(function (){
 		$.getJSON(
-				contextUrl + "tryRegister.do?input="+$(this).attr('id')+"&value="+$(this).val(),
-				function(data){
+			contextUrl + "tryRegister.do?input="
+				+$(this).attr('id')+"&value="+$(this).val(),
+			function(data){
 				$("#errorid").remove();
-					if(data.errorId != null){
-						
-						$("#m_id").after("<label id='errorid'>"+data.error_reid+"</label>");
-						$("#submit").attr("disabled", "disabled");
-					}else if(data.errorId == null){
-						$("#errorid").remove();
-					
-					}
-				});				
-	});
-	
-	$("#m_nick").blur(function(){
-		$.getJSON(
-				contextUrl + "tryRegister.do?input="+$(this).attr('id')+"&value="+$(this).val(),	
-			function(data){
-				$("#errornick").remove();
-			if(data.errorNick != null){
-				$("#m_nick").after("<label id='errornick'>"+data.error_renick+"</label>");
-				$("#submit").attr("disabled", "disabled");
+				if(data.errorId != null){
+					$("#m_id").after("<label id='errorid'>"+data.error_reid+"</label>");
+					$("#join_btn").attr("disabled", "disabled");
+				}else{
+					$("#errorid").remove();
+					$("#join_btn").removeAttr("disabled");
+				}
 			}
-		});
+		);				
 	});
-	
-	$("#m_pwd").blur(function(){
+		
+	$("#m_pwd").keyup(function(){
 		$.getJSON(
-				contextUrl + "tryRegister.do?input="+$(this).attr('id')+"&value="+$(this).val(),	
+			contextUrl + "tryRegister.do?input="
+				+$(this).attr('id')+"&value="+$(this).val(),	
 			function(data){
-					$("#errorpwd").remove();
-					
+				$("#errorpwd").remove();	
 				if(data.errorPwd != null){
 					$("#m_pwd").after("<label id='errorpwd'>"+data.error_repwd+"</label>");
-					$("#submit").attr("disabled", "disabled");
+					$("#join_btn").attr("disabled", "disabled");
+				}else{
+					$("#errorpwd").remove();
+					$("#join_btn").removeAttr("disabled");
 				}
-			});
+			}
+		);
 	});
 	
 	$("#m_pwdConfirm").blur(function(){
 		$.getJSON(
-				contextUrl + "confirmPwd.do?input="+$(this).attr('id')+"&value="+$(this).val()+"&con_value="+$("#m_pwd").val(),	
+			contextUrl + "confirmPwd.do?input="
+				+$(this).attr('id')+"&value="+$(this).val()+"&con_value="+$("#m_pwd").val(),	
 			function(data){
 				$("#errorPwdCon").remove();
-				
 				if(data.errorConPwd != null){
 					$("#m_pwdConfirm").after("<label id='errorPwdCon'>"+data.error_reconpwd+"</label>");
-					$("#submit").attr("disabled", "disabled");
+					$("#join_btn").attr("disabled", "disabled");
+				}else{
+					$("#errorPwdcon").remove();
+					$("#join_btn").removeAttr("disabled");
 				}
-			});
+			}
+		);
 	});
 	
 	$("#m_phone_3").keyup(function(){
-		$("#submit").attr("disabled", "disabled");
-		var m_phone = $("#phone_choice >option:selected").val();
+		var m_phone = $("#phone_choice > option:selected").val();
 		m_phone += $("#m_phone_2").val();
 		m_phone += $("#m_phone_3").val();
 		$("#m_phone").attr("value", m_phone);
 	});
-	
-	$("#m_email").focus(function(){
-		$("#submit").attr("disabled", "disabled");
-	});
-	
-	$("#m_mailConfirm").click(function(){
 		
-		$.getJSON(
-				contextUrl + "mailsend.do?m_email="+$("#m_email").val(),		
-		function(data){
-			alert("인증메일 발송이 완료되었습니다   메일 확인 후 인증번호를 적어주세요");
-			$("#reg_confirm").keyup(function(){
-				$.getJSON(
-						contextUrl + "regConfirm.do?connum1="+data.text+"&connum2="+$("#reg_confirm").val(),
-				function(data){
-					$("#confirm").remove();
-					if(data.error == null){
-						$("#reg_confirm").after("<label id='confirm'>"+data.ConfirmOk+"</label>");
-						$("#submit").removeAttr("disabled");
-					}if(data.ConfirmOk == null){
-						$("#reg_confirm").after("<label id='confirm'>"+data.error+"</label>");
-						$("#submit").attr("disabled", "disabled");
-					}
-				});		
-			});	
-		});
+	$("#m_mailConfirm").click(function(){
+		if($("#m_email").val().length == 0){
+			alert("인증메일을 확인하기 위해서 이메일주소를 입력해주세요.");
+		}else{
+			$.getJSON(
+			contextUrl + "mailsend.do?m_email="+$("#m_email").val(),		
+			function(data){
+				alert("인증메일 발송이 완료되었습니다   메일 확인 후 인증번호를 적어주세요");
+				$("#reg_confirm").keyup(function(){
+					$.getJSON(
+					contextUrl + "regConfirm.do?connum1="
+						+data.text+"&connum2="+$("#reg_confirm").val(),
+					function(data){
+						$("#confirm").remove();
+						if(data.error == null){
+							$("#reg_confirm").after("<label id='confirm'>"+data.ConfirmOk+"</label>");
+							$("#join_btn").removeAttr("disabled");							
+						}if(data.ConfirmOk == null){
+							$("#reg_confirm").after("<label id='confirm'>"+data.error+"</label>");
+							$("#join_btn").attr("disabled", "disabled");
+						}
+					});		
+				});	
+			});
+		}
 	});
-
 	
 //	개인알리미
 	$("#alarm").hover(function(){
@@ -229,7 +257,7 @@ $(document).ready(function(){
 		$("#cash_in").fadeOut();
 	});
 
-//아이디 찾기
+//	아이디 찾기
 	function popUp_findID(){ 
 		$("#find_ID").bPopup();	
 	}
@@ -258,7 +286,7 @@ $(document).ready(function(){
 	});
 	
 	
-//비밀번호 찾기 메일전송
+//	비밀번호 찾기 메일전송
 	function popUp_find_pwd(){ 
 		$("#find_pwd").bPopup();	
 	}
@@ -276,7 +304,7 @@ $(document).ready(function(){
 		});
 	});
 	
-//네비게이션	
+//	네비게이션	
 	$(function() {
         $('#h_menu > li').bind('mouseenter',function(){
 			var $elem = $(this);
@@ -327,7 +355,4 @@ $(document).ready(function(){
 	$('#h_logo').click(function(){
 		location.href="enter.go";
 	});
-	
-	
 });
-
