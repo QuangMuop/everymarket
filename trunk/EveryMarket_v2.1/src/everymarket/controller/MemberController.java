@@ -230,6 +230,15 @@ public class MemberController {
 		
 		try{
 			daoM.registerMember(member);
+			int b_id = daoB.getMaxb_id() + 1;
+			String m_id = member.getM_id();
+			
+			HashMap map = new HashMap<>();
+			map.put("b_id", b_id);
+			map.put("m_id", m_id);
+			
+			daoB.registerBlog(map);
+			
 			session.setAttribute("member", member);
 			mav.setViewName("redirect:enter.go");
 			
