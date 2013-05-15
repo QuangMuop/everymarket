@@ -3,12 +3,18 @@ $(document).ready(function(){
 	var contextUrl = "/EveryMarket_v2.1/";
 	
 // mymenu
-	$("#c_recharge_button").click(function(){
-		window.open("view/mypage/recharge.jsp","aa","width=700,height=500,resizalbe=no");	
+	memberDwr.getM_cashByM_id(function(data){
+		$("#my_cash_view").html(data);
 	});
+	
+	$("#c_recharge_button").click(function(){
+		window.open("view/mypage/recharge.jsp","aa","width=700,height=500,resizalbe=no");
+	});
+	
 	$("#c_respond_button").click(function(){
 		window.open("view/mypage/respond.jsp","aa","width=700,height=500,resizalbe=no");	
 	});
+	
 	$("#menu1").click(function(){
 		$("#contents2").fadeOut();
 		$("#contents3").fadeOut();
@@ -40,7 +46,6 @@ $(document).ready(function(){
 	});
 	$("#c_ok2").on('click',function(){
 		var re_pass =  $("#c_inner_pass_input2").val();
-		alert(re_pass);
 		var ori_pwd = $(this).attr("pass");
 		
 		if(re_pass == ori_pwd){
@@ -60,7 +65,6 @@ $(document).ready(function(){
 					  $("#c_table").find("input[name='re_email_second']").val();
 		var m_phone = x.options[x.selectedIndex].value + $("#c_table").find("input[name='re_phone_first']").val()
 					+ $("#c_table").find("input[name='re_phone_second']").val();
-
 		$.getJSON(
 				contextUrl + "memberinfo_change.do?m_id=" + m_id + "&re_password=" + re_password +
 				"&m_email=" + m_email + "&m_phone=" + m_phone,
@@ -69,11 +73,7 @@ $(document).ready(function(){
 					location.href="logout.do";
 				}
 		);
-
-			 
 	 });
-	
-
 // mymenu end
 	
 // recharge
