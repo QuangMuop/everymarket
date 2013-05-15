@@ -56,6 +56,12 @@
 		order by dbms_random.value 
 	</select>
 	
+	<select id="getM_cashByM_id" resultClass="Integer">
+		select m_cash
+		from member
+		where m_id = #m_id#
+	</select>
+	
 	<select id="getMemberList" resultClass="Member">
 		select * 
 		from member
