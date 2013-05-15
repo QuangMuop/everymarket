@@ -73,6 +73,17 @@ $(document).ready(function(){
 		$("#list_message").bPopup().close();
 	}
 	
+	/*화면 로딩시 회원 캐쉬 로드*/
+	$.getJSON(	
+		contextUrl + "getM_cash.do",
+		function(data){
+			$("#header_cash").html(
+				"<img class='coin' alt='' src='images/smarket/coin.png'" +
+				"<span>" + data.m_cash + "</span>"
+			);
+		}
+	);
+	
 	/*실시간 알림 펑션: Interval로 구현*/
 	if($("#count_alarm").size() > 0){
 		refreshCount_alarm();
@@ -317,17 +328,5 @@ $(document).ready(function(){
 	$('#h_logo').click(function(){
 		location.href="enter.go";
 	});
-	
-	$(window).on("load", function(){
-		$.getJSON(
-				contextUrl + "cashConfirm.do",
-			function(data){
-				$("#header_cash").append(
-					"<span>" + data.m_cash + "</span>"
-				);
-			});
-	});
-	
-	
 });
 
