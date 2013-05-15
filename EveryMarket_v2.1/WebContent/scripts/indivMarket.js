@@ -215,7 +215,7 @@ $(document).ready(function(){
 	}
 	
 	function refreshButton_indivMarket(){
-		if($("#indivMarketWrapper").attr("owner_id") != null){
+		if(document.getElementById("indivMarketWrapper")){
 			$.getJSON(
 				contextUrl + "checkSession.do?owner_id=" 
 					+ $("#indivMarketWrapper").attr("owner_id"),
@@ -246,7 +246,6 @@ $(document).ready(function(){
 						$("#bar_button_indivMarket_right").append( 
 							"<div id='button_showMyDangol' class='b_s_button'><img id='b_m_s_button' src='image_blog_source/go_r_market.png'></div>"
 						);
-						$("#ajaxForm_registerComments").css("display", "inherit");
 					}
 					
 					/*세션값과 마켓페이지 아이디가 일치할 때*/
@@ -291,6 +290,8 @@ $(document).ready(function(){
 							"<div id='button_detail_reportProduct' class='button_detail'>상품신고하기</div>"
 						);
 					}
+				}else{
+					$("#ajaxForm_registerComments").css("display", "none");
 				}
 				
 				$("#bar_button_detail").append(
