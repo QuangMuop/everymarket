@@ -233,12 +233,12 @@ $(document).ready(function(){
 						indivMarketDwr.checkDangol($("#indivMarketWrapper").attr("owner_id"), function(dangol){
 							if(dangol == 1){
 								$("#bar_button_indivMarket_right").prepend(
-									"<div id='button_deleteDangol' class='notOwnMarket'>단골취소</div>"
+									"<div id='button_deleteDangol' class='notOwnMarket b_s_button'><img id='b_m_s_button' src='image_blog_source/r_reg_btn.png'></div>"
 //										"<div id='button_deleteDangol' class='b_s_button'><img id='b_m_s_button' src='image_blog_source/go_r_market.png'></div>"
 								);							
 							}else if(dangol == 0){
 								$("#bar_button_indivMarket_right").prepend(
-									"<div id='button_registerDangol' class='notOwnMarket'>단골등록</div>"
+									"<div id='button_registerDangol' class='notOwnMarket b_s_button'><img id='b_m_s_button' src='image_blog_source/r_rev_btn.png'></div>"
 //										"<div id='button_registerDangol' class='b_s_button'><img id='b_m_s_button' src='image_blog_source/go_r_market.png'></div>"
 								);
 							}
@@ -312,7 +312,7 @@ $(document).ready(function(){
 		alert("단골 추가되었습니다! 언제든지 단골목록에서 확인가능해요. :)");
 		$("#button_registerDangol").remove();
 		$("#bar_button_indivMarket_right").prepend(
-			"<div id='button_deleteDangol'>단골취소</div>"
+			"<div id='button_deleteDangol'  class='b_s_button'><img id='b_m_s_button' src='image_blog_source/r_rev_btn.png'></div>"
 //			"<div id='button_deleteDangol' class='b_s_button'><img id='b_m_s_button' src='image_blog_source/go_r_market.png'></div>"
 		);
 	}
@@ -323,7 +323,7 @@ $(document).ready(function(){
 		alert("단골이 삭제되었습니다. :(");
 		$("#button_deleteDangol").remove();
 		$("#bar_button_indivMarket_right").prepend(
-			"<div id='button_registerDangol'>단골등록</div>"
+			"<div id='button_registerDangol'  class='b_s_button'><img id='b_m_s_button' src='image_blog_source/r_reg_btn.png'></div>"
 //			"<div id='button_registerDangol' class='b_s_button'><img id='b_m_s_button' src='image_blog_source/go_r_market.png'></div>"
 		);
 	}
