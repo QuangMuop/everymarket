@@ -114,8 +114,6 @@ public class FowardingController {
 		
 		////////////////////////////////////
 		
-		
-
 		String m_id = member.getM_id();
 
 		// 나에 구매중인 물품들

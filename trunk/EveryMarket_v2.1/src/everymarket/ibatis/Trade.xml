@@ -81,31 +81,35 @@
 			t.t_del_number, p.p_name, p.p_price from trade t join product p on t.p_id 
 			= p.p_id where t.t_status = 4 or t.t_status = 6 and t_seller = #m_id# -->
 
-select t.t_id,
-		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status,
-		t.t_del_number,
-		p.p_name,
-		p.p_price from
-		trade t
-		join product p on t.p_id
-		= p.p_id
-		where t.t_seller in (select t.t_seller from trade t
-		where t.t_status = 4 or t.t_status = 6)
-		and t.t_seller = #m_id#
+		select temp.t_id, temp.t_buyer, temp.t_seller, temp.p_id,
+		temp.t_date, temp.t_status, temp.t_del_number,
+		p.p_name, p.p_price
+		from(
+		select *
+		from trade
+		where t_status = 4 or t_status = 6
+		)temp join product p
+		on temp.p_id = p.p_id
+		where temp.t_seller = #m_id#
+
 	</select>
 
 	<!-- 거래 완료된 산 물건 보여주기 -->
 	<select id="getBCompleteList" resultClass="Trade">
-		select t.t_id,
-		t.t_buyer, t.t_seller, t.p_id, t.t_date, t.t_status,
-		t.t_del_number,
-		p.p_name,
-		p.p_price from
-		trade t
-		join product p on t.p_id
-		= p.p_id
+		select temp.t_id,
+		temp.t_buyer, temp.t_seller, temp.p_id,
+		temp.t_date, temp.t_status,
+		temp.t_del_number,
+		p.p_name, p.p_price
+		from(
+		select *
+		from trade
 		where
-		t.t_status = 4 or t.t_status = 6 and t_buyer = #m_id#
+		t_status = 4 or t_status = 6
+		)temp join product p
+		on temp.p_id = p.p_id
+		where temp.t_buyer = #m_id#
+
 	</select>
 
 
