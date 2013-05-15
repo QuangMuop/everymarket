@@ -33,7 +33,7 @@
 	</div>
 <!-- 	////////////////////////// -->
 <div id="contents">	
-	<div id="contents1">
+	<div class="out_hidden" id="contents1">
 		<div id="c_top">
 			<img alt="" id="c_inner_img" src="image_mypage/statuschange.png">
 			<a class="c_font">|</a>
@@ -174,7 +174,7 @@
 	</div>	
 <!-- 	////////////////////////////////////거래내역 -->
 <center>
-	<div class="out_hidden" id="contents3">
+	<div id="contents3">
 
 	<div id="trade_menubar">
 		<ul class="trade_menu">

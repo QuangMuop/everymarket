@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script src="../../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
 <title>Insert title here</title>
 <style type="text/css">
 body{
@@ -109,7 +110,11 @@ border: 2px outset #343434;
 }
 </style>
 <script type="text/javascript">
-
+$(document).ready(function(){
+	$("#s_b_cencle").click(function(){
+		close();
+	});
+});
 </script>
 </head>
 <body>

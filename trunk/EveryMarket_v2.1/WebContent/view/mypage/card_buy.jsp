@@ -151,6 +151,7 @@ color:white;
 border: 0px;
 font-weight: bold;
 margin-top: 200px;
+margin-left: 50px;
 }
 #c_f_cencle{
 background-color: #afb0b2;

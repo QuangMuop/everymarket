@@ -347,3 +347,149 @@ font-family: monospace;
 .button_tab{
 	float: left;
 }
+#d_b_box{
+	float:left;
+	width:293px;
+	height: 170px;
+	background: white;
+	border-radius:2px;
+	border: 1px solid #c4cde0;
+	padding: 5px;
+}
+#d_b_box_top{
+	float: left;
+	width:290px;
+	background-color: #5a5a5a;
+	border-radius:3px 3px 0 0;
+	border: 1px solid  #c4cde0;
+	border-bottom: 0px;
+}
+.button_tab{
+	margin-top:3px;
+	margin-left:1px;
+	padding-top:1px;
+	color:#c7ff4a;
+	background-color: #787879;
+	border-radius:3px 3px 0 0;
+	
+}
+.checked{
+	color:#30ab32;
+	background-color: white;
+	border-radius:3px 3px 0 0;
+	border: 1px solid #464748;
+	border-bottom: 0px;
+	font-weight: bold;
+}
+#mainImage p{
+	color:#5a5a5a;
+	font-size: 15px;
+	
+}
+#mainImage{
+	height:83px;
+	width:290px;
+	border-radius:2px;
+	
+}
+.m_i_change{
+	margin:2px;
+	float:right;
+	border: 1px solid #5a5a5a;
+	background: white;
+	color:#5a5a5a;
+}
+#blogContents textarea{
+	float:left;
+	font-size: 13px;
+	color:#5a5a5a;
+	width:290px;
+}
+#deco_title{
+	float:left;
+	height: 25px;
+}
+#deco_title{
+	margin: 5px;
+	margin-right: 240px;
+}
+#gMapLocationPicker{
+	float: left;
+	widows: 600px;
+	background: white;
+}
+#api_add{
+border: 1px solid #5a5a5a;
+	background: white;
+	color:#5a5a5a;
+	margin:2px;	
+}
+#r_p_content{
+	float:left;
+	width:300px;
+	height: 270px;
+	background: white;
+	border-radius:2px;
+	border: 1px solid #c4cde0;
+	padding: 5px;
+}
+#reg_good_title{
+	float: left;
+	height: 25px;
+	margin: 3px;
+	margin-right: 300px;
+}
+#p_name_set{
+	border-top: 2px solid #7bc949;
+	float: left;
+	width:300px;
+	border-bottom: 1px dotted #e8e9e9;
+	height: 25px;
+	padding-top: 5px;
+}
+#p_name_set input{
+	float:left;
+	border: 1px solid #c4cde0;
+	width:280px;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+#p_info_set{
+	float: left;
+	width:300px;
+	border-bottom: 1px dotted #e8e9e9;
+	height: 25px;
+	padding-top: 5px;
+}
+#p_info_set input{
+float:left;
+	border: 1px solid #c4cde0;
+	width:100px;
+	margin-left: 5px;
+	margin-top: 2px;
+	margin-right: 20px;
+	
+}
+#p_info_set select{
+border: 1px solid #c4cde0;
+margin-top: 2px;
+}
+#p_de_set{
+	float: left;
+	width:300px;
+	border-bottom: 1px dotted #e8e9e9;
+	padding-top: 5px;
+}
+#p_de_set textarea{
+	font-size: 13px;
+	color:#757575;
+	float: left;
+	margin-left: 5px;
+	width:280px;
+	height: 120px;
+}
+#p_de_set input{
+	float: left;
+	margin-left: 5px;
+	width:250px;
+}
