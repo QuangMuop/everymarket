@@ -351,6 +351,21 @@ public class MemberController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	
+	/*getJSON*/
+	@RequestMapping("getM_cash.do")
+	public ModelAndView getM_cash(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		ModelAndView mav = new ModelAndView();
+		Member member = (Member)session.getAttribute("member");
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("m_cash", daoM.getM_cashByM_id(member.getM_id()));
+		
+		mav.addAllObjects(resultMap);
+		mav.setViewName("jsonView");
+		return mav;
+	}
 
 	/*getJSON*/
 	@RequestMapping("getChargeDate.do")
