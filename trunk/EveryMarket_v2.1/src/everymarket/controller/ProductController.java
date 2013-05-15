@@ -70,9 +70,7 @@ public class ProductController {
 			E.printStackTrace();
 		}
 
-		List<Product> listProduct = daoP.getProductListById(member.getM_id());
-		mav.addObject("listProduct", listProduct);
-		mav.setViewName("indivMarket");
+		mav.setViewName("redirect: goMarket.do?m_id=" + member.getM_id());
 		return mav;
 	}
 	
