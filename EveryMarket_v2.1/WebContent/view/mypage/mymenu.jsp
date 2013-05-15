@@ -451,11 +451,11 @@
 			<div id="rp_name"></div>
 			<input type="hidden" id="rp_id" name="p_id" value=""> <br>
 			평점 :<select id="r_score" name="r_score">
+				<option value="-2">-2</option>
+				<option value="-1">-1</option>
+				<option value="0">0</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="4">5</option>
 			</select><br> 신고의 내용
 			<textarea name="r_content" id="r_content"></textarea>
 			<br> <input type="submit" id="rp_ok1" value="작성 완료"> <input
