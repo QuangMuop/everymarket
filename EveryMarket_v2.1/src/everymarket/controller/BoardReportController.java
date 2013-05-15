@@ -118,9 +118,7 @@ public class BoardReportController {
 			BoardReport boardReport) {
 
 		ModelAndView mav = new ModelAndView();
-		
-		System.out.println(boardReport.getRep_productId() + "гого");
-
+				
 		boardReport.setRep_id(daoBR.getMaxRep_id() + 1);
 
 		boardReport.setRep_regdate(new Timestamp(System.currentTimeMillis()));

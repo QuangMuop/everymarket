@@ -72,13 +72,26 @@
 					</c:when>
 					<c:when test="${bl.t_status == 3}">
 						<td id="db_text">배송완료</td>
+<<<<<<< .mine
+
+
+						<td><input type="button" id="accept" value="수취확인"
+							t_id="${bl.t_id}" /> <input type="button" id="report"
+							value="신고하기" t_id="${bl.t_id}" /></td>
+=======
 						<td><button id="accept" value="수취확인" t_id="${bl.t_id}" >수취확인</button> 
 							<button id="report" value="신고하기" t_id="${bl.t_id}" >신고하기</button></td>
+>>>>>>> .r258
 					</c:when>
 				</c:choose>
 			</tr>
 		</c:forEach>
 	</table>
+<<<<<<< .mine
+
+
+
+=======
 	
 	
 	
@@ -116,6 +129,7 @@
 		</div>
 	</div>
 </div>
+>>>>>>> .r258
 
 <div id="trade_tab_inner2" class="trade_tab_hidden">
 	<table id="selling" class="trade_table_box">
@@ -200,7 +214,7 @@
 					<td>${cb.p_name}</td>
 					<td>${cb.p_price }</td>
 					<td>구매완료</td>
-					<td><button value="리뷰쓰기">리뷰쓰기</button></td>
+					<td><button id="review_bt" value="${cb.p_id}">리뷰쓰기</button></td>
 				</tr>
 			</c:forEach>
 
@@ -250,8 +264,60 @@
 					<td><button class="buyj_button" p_id="${JP.p_id}">구입하기</button></td>
 				</tr>
 			</c:forEach>
+
+			<tr>
+				<td colspan="5">총 금액 ${jjim_sum}</td>
+			</tr>
+
 		</table>
+
 	</div>
+
+
+	<!-- 신고하기 팝업 -->
+	<div id="main_report" class="popUp hidden">
+		<form action="reportAction.do" method="post">
+			<div id="trade_number"></div>
+			<div id="trade_name"></div>
+			<br> 신고 사유 :<select id="report_choice" name="rep_reason">
+				<option value="본 제품과 다른 제품">본 제품과 다른 제품</option>
+				<option value="배송지연">배송 지연</option>
+				<option value="제품 불량">제품 불량</option>
+				<option value="기타 사유">기타 사유</option>
+			</select><br> 신고의 내용
+			<textarea name="rep_content" id="rep_content"></textarea>
+			<br> <input type="hidden" id="rep_memberId" name="rep_memberId"
+				value=""> <input type="hidden" id="rep_writer"
+				name="rep_writer" value=""> <input type="hidden"
+				id="rep_productId" name="rep_productId" value="">
+			<!-- <input type="submit" id="rp_ok" value="신고 완료">   -->
+			<button type="submit">신고완료</button>
+			<button type="reset">취소</button>
+		</form>
+	</div>
+
+
+
+
+
+	<!-- 리뷰쓰기 팝업  -->
+	<div id="review_pop" class="popUp hidden">
+		<form action="reviewAction.do" method="post">
+			<div id="rp_name"></div>
+			<input type="hidden" id="rp_id" name="p_id" value="">
+			<br> 평점 :<select id="r_score" name="r_score">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="4">5</option>
+			</select><br> 신고의 내용
+			<textarea name="r_content" id="r_content"></textarea>
+			<br> <input type="submit" id="rp_ok1" value="작성 완료"> <input
+				type="reset" value="취소">
+		</form>
+	</div>
+
 
 </body>
 </html>

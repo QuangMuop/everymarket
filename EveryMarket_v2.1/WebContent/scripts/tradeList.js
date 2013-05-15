@@ -77,31 +77,25 @@ $(document).ready(function() {
 	
 	//====================================캐쉬 부분
 	$(document)
-	.ready(
-			function() {$(document).on("click","#accept",
+	.ready(function() {
+	/*	$(document).on("click","#accept",
 						function() {
 							location.href = "accept.do?t_id="
-									+ $(this).attr("t_id");
+									+ $(this).attr("t_id");					
+					//거래 완료에 append로 붙이기 	
 							
-					//거래 완료에 append로 붙이기 			
-							
-						});
+						});*/
 			
-			
-       /* $(document).on("change","#report_choice",function() {
-			$("#rep_reason").removeAttr("value").attr("value",
-				$("#report_choice >option:selected").html());
-			alert("dd");
-			});*/
+		
 			$(document).on("click","#report",function() {
-				
+
 			var t_id = $(this).attr("t_id");
+
 			tradeDwr.getTrade(t_id, popReport);			
 			
 			
 			function popReport(data){
 						  
-				//alert(data.t_id + "모야!");
 				$("#trade_number").html("거래 번호 : " + data.t_id);
 				$("#trade_name").html("신고 상품명 : " + data.p_name);
 				$("#rep_memberId").attr("value", data.t_seller);	
@@ -111,37 +105,43 @@ $(document).ready(function() {
 				
 			}
 			
-			//alert(cc.t_id);
-			
-			
-			
-			
-			
-			
+				
+			//신고하기 팝업
 			$("#main_report").bPopup();
-            $("#rep_reason").attr("value",$("#report_choice >option:selected").html());
-								});
+            /*$("#rep_reason").attr("value",$("#report_choice >option:selected").html()); */
+				});		
+			
+			
+			$(document).on("click","#review_bt",function(){
+				
+				var p_id = $(this).attr("value");
+				$("#rp_id").attr("value",p_id);
+				
+				tradeDwr.getP_name(p_id, reviewShow);
+				
+				function reviewShow(data){
+					
+					$("#rp_name").html("물품명: "+ data);
+					
+				}			
+				
+				
+				$("#review_pop").bPopup();
+				
+				
+			});	
+			
+			
+			
+			
+			
+			
 			});
 	
 	
 	
-	//신고완료 마무리 영준
-	/*$("#rp_ok").click(function(){
-		
-		
-		//신고사유
-		var rep_reson = $("#report_choice >option:selected").html();
-		//신고 텍스트
-	    var rep_content = $("#rep_content").val();
-	    //product_id 
-	   // var rep_productid = 
-	    
-		
-		
-	});*/
 	
-	
-	
+		
 
 });
 

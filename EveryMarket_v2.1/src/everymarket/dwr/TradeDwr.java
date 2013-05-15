@@ -11,12 +11,19 @@ import everymarket.dao.JjimDao;
 import everymarket.dao.ProductDao;
 import everymarket.dao.TradeDao;
 import everymarket.model.Member;
+import everymarket.model.Product;
 import everymarket.model.Trade;
 
 public class TradeDwr {
 
 	private TradeDao daoT;
 	private ProductDao daoP;
+	
+	
+	public void setDaoP(ProductDao daoP) {
+		this.daoP = daoP;
+	}
+
 	private JjimDao daoJ;
 
 	public void setDaoJ(JjimDao daoJ) {
@@ -85,13 +92,20 @@ public class TradeDwr {
 	}
 
 	// jjimlist에서 지우기
-	public void deletejjim_tr(int p_id){
+	public void deletejjim_tr(int p_id) {
 		daoJ.deleteJjim_tr(p_id);
 	}
 
-	public Trade getTrade(int t_id){
+	public Trade getTrade(int t_id) {
 		return daoT.getTrade(t_id);
 	}
+
+	// 물건 아이디로 물건 정보 가져오기
+	public String getP_name(int p_id) {
+		
+		System.out.println(daoP.getP_nameByP_id(p_id)+ "고고");
+	    return daoP.getP_nameByP_id(p_id);
 	
-	
+	}
+
 }
