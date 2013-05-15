@@ -33,7 +33,7 @@
 
 #container7{
 	position:relative;
-	width:960px;
+	float:left;
 	height: 1000px;
 	margin:0 auto 25px;
 	padding-bottom: 10px;
