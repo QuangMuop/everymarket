@@ -51,10 +51,10 @@
 		as "max(r_id)"
 		from review
 	</select>
-
-
+	
+	
 	<insert id="insert_Review" parameterClass="Review">
-		insert into board_report
+		insert into review
 		values(
 		#r_id#,
 		#r_content#,
@@ -63,6 +63,10 @@
 		#p_id#
 		)
 	</insert>
+	
+	<update id="review_update">
+	   update trade set t_status = 6 where p_id = #p_id#	
+	</update>
 
 
 </sqlMap>

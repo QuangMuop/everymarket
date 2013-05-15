@@ -132,6 +132,11 @@ public class TradeDao {
 		return (Integer)ibatisTemplate.queryForObject("product_price", p_id);
 	}
 	
+	//∏Æ∫‰æ≤∏È t_status πŸ≤„¡÷±‚
+	public int update_status_review(int p_id){
+		return ibatisTemplate.update("review_update", p_id);
+	}
+	
 	
 	
 

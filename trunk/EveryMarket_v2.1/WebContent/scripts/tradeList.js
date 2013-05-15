@@ -78,13 +78,12 @@ $(document).ready(function() {
 	//====================================캐쉬 부분
 	$(document)
 	.ready(function() {
-	/*	$(document).on("click","#accept",
+		$(document).on("click","#accept",
 						function() {
 							location.href = "accept.do?t_id="
 									+ $(this).attr("t_id");					
-					//거래 완료에 append로 붙이기 	
-							
-						});*/
+					//거래 완료에 append로 붙이기 								
+						});
 			
 		
 			$(document).on("click","#report",function() {
@@ -155,7 +154,7 @@ $(document).on('click',	function() {
 		$("#" + t_id + "1").text("배송완료");
 		$("#" + t_id + "3").text("배송완료");	
 		
-		$(".db_trace").addClass("dis_tr");
+		$(".db_trace").addClass("none");
 		
 		var html = '<input type="button"  id="accept"  t_id='+t_id+' value="수취확인" />	<input id="report" type="button"  t_id='+t_id+'  value="신고하기" /> ';
 				
