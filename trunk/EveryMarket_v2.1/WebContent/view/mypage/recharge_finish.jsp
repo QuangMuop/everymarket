@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+<title>: 무통장입금 페이지</title>
 <style type="text/css">
 body{
 margin: 0px;
@@ -94,8 +92,29 @@ margin-left: 10px;
 margin-right: 120px;
 }
 </style>
+<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function(){
+		var rechargeAmount = opener.document.getElementById("c_inner_pass_input").value;
+		$("#rechargeAmount").html(rechargeAmount + "원");
+		
+		$.getJSON(
+			"/EveryMarket_v2.1/getExpirationDate.do",
+			function(data){
+				$("#expirationDate").html(
+					(data.expirationDate.year + 1900) + "년 " +
+					(data.expirationDate.month + 1) + "월 " +
+					data.expirationDate.date + "일"
+				);
+			}
+		);
+		
+		$(".confirm").click(function(){
+			opener.parent.opener.parent.location.href="../../chargeCash.do?m_cash=" + rechargeAmount;
+			opener.close();
+			window.close();		
+		});
+	});
 </script>
 </head>
 <body>
@@ -128,13 +147,13 @@ margin-right: 120px;
 					<th>예금주</th>
 					<td>EVERY(주)</td>
 					<th>입금 금액</th>
-					<td class="t_rightbar">10000원</td>
+					<td class="t_rightbar" id="rechargeAmount"></td>
 				</tr>
 				<tr>
 					<th>입금할 계좌번호</th>
 					<td>03281364888529</td>
 					<th>입금기한</th>
-					<td class="t_rightbar">2013년 05월 14일까지</td>
+					<td class="t_rightbar" id="expirationDate"></td>
 				</tr>
 			</table>
 			<a id="alert">기한일까지 입금이 되지 않을 경우 충전은 자동 취소됩니다.</a>

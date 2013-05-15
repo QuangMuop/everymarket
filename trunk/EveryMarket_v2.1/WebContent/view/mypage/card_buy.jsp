@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
-<title>Insert title here</title>
+<title>: 신용카드결제 페이지 :</title>
 <style type="text/css">
 body{
 margin: 0px;
@@ -174,10 +172,18 @@ float: right;
 margin-top: 10px;
 }
 </style>
+<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	var rechargeAmount = opener.document.getElementById("c_inner_pass_input").value;
+	$("#rechargeAmount").html(rechargeAmount);
+	
 	$("#c_f_next").click(function(){
 		window.open("card_buy2.jsp","ff","width=480,height=500,location=no");	
+	});
+	
+	$("#c_f_cencle").click(function(){
+		close();
 	});
 });
 </script>
@@ -217,11 +223,13 @@ $(document).ready(function(){
 				</colgroup>
 				<tr>
 					<th id="c_f_c_inner_table_top1">상품명</th>
-					<td id="c_f_c_inner_table_top2">몰라</td>
+					<td id="c_f_c_inner_table_top2">EveryMarket CyberCash</td>
 				</tr>
 				<tr>
 					<th>상품금액</th>
-					<td id="c_in_table_pay">몰라</td>
+					<td id="c_in_table_pay">
+						<span id="rechargeAmount"></span>원
+					</td>
 				</tr>
 			</table>
 			<table id="c_f_c_inner_select">
@@ -297,10 +305,12 @@ $(document).ready(function(){
 					</td>
 				</tr>
 			</table>
-			<button class="c_f_button" id="c_f_cencle">취소</button>
+			
 			<button class="c_f_button" id="c_f_next">다음</button>
-			<div id="c_f_c_bottom_line">
-			</div>
+			<button class="c_f_button" id="c_f_cencle">취소</button>			
+
+			<div id="c_f_c_bottom_line"></div>
+
 			<img alt="" id="c_f_c_bottom" src="../../image_mypage/c_f_c_bottom.png">
 		</div>
 	</div>

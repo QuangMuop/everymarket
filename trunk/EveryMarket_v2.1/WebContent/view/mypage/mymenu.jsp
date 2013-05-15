@@ -152,7 +152,7 @@
 				<div id="my_cash">
 					<div>
 						<a>보유 CASH량은</a>
-						<a id="my_cash_view">${member.m_cash }</a>
+						<a id="my_cash_view"></a>
 						<a>입니다.</a>
 					</div> 
 				</div>

@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
-<title>Insert title here</title>
+<title>: 신용카드결제 페이지 : </title>
 <style type="text/css">
 body{
 margin: 0px;
@@ -155,14 +153,32 @@ background: linear-gradient(to bottom, rgba(95,95,95,1) 0%,rgba(76,76,76,1) 100%
 border: 2px outset #343434;
 }
 </style>
+<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	var rechargeAmount = opener.document.getElementById("rechargeAmount").innerHTML;
+	$("#rechargeAmount").html(rechargeAmount);
+	
 	$("#safe_card_add").click(function(){
 		window.open("card_add.jsp","gg","width=400,height=356,location=no");
 	});
 	
 	$("#safe_card_passupdate").click(function(){
 		window.open("card_passupdate.jsp","gg","width=400,height=300,location=no");
+	});
+	
+	$("#s_b_confirm").click(function(){
+		alert($("#rechargeAmount").html() + "원에 대한 결제를 요청합니다.");
+		
+		opener.parent.opener.parent.opener.parent
+			.location.href="../../chargeCash.do?m_cash=" + rechargeAmount;
+		opener.parent.opener.close();
+		opener.close();
+		window.close();		
+	});
+	
+	$("#s_b_cencle").click(function(){
+		close();
 	});
 });
 </script>
@@ -188,7 +204,9 @@ $(document).ready(function(){
 			</colgroup>
 			<tr>
 				<th>충전금액</th>
-				<td>10000 WON</td>
+				<td>
+					<span id="rechargeAmount"></span>원
+				</td>
 				<th>할부기간</th>
 				<td>
 					<select>
