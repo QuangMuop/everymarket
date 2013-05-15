@@ -60,7 +60,6 @@ $(document).ready(function(){
 		$("#list_message").bPopup({
 			easing: 'easeOutBack',
 			follow: [false, false],
-			modalClose: false,
 			opacity: 0,
 			position: [$("#count_alarm").offset().left - $("#list_message").width() / 2 - 20,
 			           $("#count_alarm").offset().top + 20],
