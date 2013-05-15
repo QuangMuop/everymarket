@@ -13,6 +13,7 @@
 <link href="<%=request.getContextPath()%>/styles/css_youngjun/style.css" rel="stylesheet" type="text/css"/>
 <link href="<%=request.getContextPath()%>/styles/css_sujeong/shopstyle.css" rel="stylesheet" type="text/css"/>
 <link href="<%=request.getContextPath()%>/styles/css_sujeong/general.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/styles/trade.css" rel="stylesheet" type="text/css"/>
 <!-- 마이페이지 -->
 <link href="<%=request.getContextPath()%>/styles/css_mypage/mypage.css" rel="stylesheet" type="text/css"/>
 <!-- 마이페이지 -->

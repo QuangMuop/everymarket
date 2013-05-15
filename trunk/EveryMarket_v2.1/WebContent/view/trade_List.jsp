@@ -10,48 +10,39 @@
 
 
 <title>Insert title here</title>
-<style type="text/css">
-table {
-	border: 1px solid;
-	width: 1000px;
-}
-
-table td,th {
-	border: 1px solid;
-}
-
-/* tr안보이게 하기 */
-.dis_tr {
-	display: none;
-}
-</style>
 </head>
 <body>
 
 
 	<div id="trade_menubar">
 		<ul class="trade_menu">
-			<li id="buying_trade" class="active"><a class="tab-btn1"
-				id="search_item">구매 진행목록</a></li>
-
-			<li id="selling_trade"><a class="tab-btn1" id="search_blog">판매
-					진행목록</a></li>
-
-			<li id="All_traded"><a class="tab-btn1" id="search_blog">거래
-					완료목록</a></li>
+			<li id="trade_tab1" class="nonselect selected">
+				<img id="trade_tab1" src="image_trade/buy_info_tab.png">
+			</li>
+			<li id="trade_tab2" class="nonselect">
+				<img id="trade_tab2" class="t_tab_img" src="image_trade/sell_info_tab_back.png">
+			</li>
+			<li id="trade_tab3" class="nonselect">
+				<img id="trade_tab3" class="t_tab_img" src="image_trade/trade_info_tab_back.png">
+			</li>
+			<li id="trade_tab4" class="nonselect">
+				<img id="trade_tab4" class="t_tab_img" src="image_trade/jjim_info_tab_back.png">
+			</li>
 		</ul>
 	</div>
 
-
-
-
-	<h1>사는물건</h1>
-	<table id="buying">
-
+<div id="trade_tab_inner1">
+	<table id="buying" class="trade_table_box">
+		<colgroup>
+			<col width="15%">
+			<col width="45%">
+			<col width="20%">
+			<col width="20%">
+		</colgroup>
 		<tr>
 			<th>주문번호</th>
 			<th>상품명</th>
-			<th>총 결제금액</th>
+			<th>사용포인트</th>
 			<th colspan="2">진행상태</th>
 		</tr>
 
@@ -68,11 +59,8 @@ table td,th {
 					</c:otherwise>
 
 				</c:choose>
-
-
 				<td>${bl.p_name }</td>
-				<td>${bl.p_price }</td>
-
+				<td><img class="coin" alt="" src="images/smarket/coin.png">${bl.p_price }</td>
 				<c:choose>
 					<c:when test="${bl.t_status == 1}">
 						<td colspan="2">배송준비중</td>
@@ -82,48 +70,55 @@ table td,th {
 						<td id="button"><input class="db_trace" type="button"
 							value="배송추적" t_id="${bl.t_id}" /></td>
 					</c:when>
-
 					<c:when test="${bl.t_status == 3}">
 						<td id="db_text">배송완료</td>
-
-
-						<td><input type="button" id="accept" value="수취확인" t_id="${bl.t_id}" /> 
-							<input type="button" id="report" value="신고하기" t_id="${bl.t_id}" /></td>
+						<td><button id="accept" value="수취확인" t_id="${bl.t_id}" >수취확인</button> 
+							<button id="report" value="신고하기" t_id="${bl.t_id}" >신고하기</button></td>
 					</c:when>
-
-
 				</c:choose>
-
 			</tr>
 		</c:forEach>
 	</table>
 	
+	
+	
 	<div id="main_report" class="popUp hidden">
+		<div id="main_report_inner">
+		<img alt="" id="main_report_title" src="image_trade/report_title_img.png">
+		<div class="notice_report">
+			<p>신고시 꼭 확인해주세요!</p>
+			<ul>
+				<li>해당 회원을 신고할 경우 관리자가 사실여부 판단 뒤 조치를 취합니다.</li>			
+				<li>신고사유가 적절하지 않을 경우 해당 신고는 기각될 수 있습니다.</li>			
+				<li>무의미한 신고행위의 반복은 신고자의 제재사유가 될 수 있습니다.</li>			
+			</ul>		
+		</div>
 		<form action="reportAction.do" method="post">
-		<div id="trade_number"></div>
-		<div id="trade_name"></div>
-			<br> 신고 사유
-			:<select id="report_choice" name="rep_reason">
-				<option value="본 제품과 다른 제품">본 제품과 다른 제품</option>
-				<option value="배송지연">배송 지연</option>
-				<option value="제품 불량">제품 불량</option>
-				<option value="기타 사유">기타 사유</option>
-			</select><br> 신고의 내용
-			<textarea name="rep_content" id="rep_content"></textarea>
-			<br> <input type="hidden" id="rep_memberId" name="rep_memberId" value="">
+			<div id="r_box_top">
+				<a id="trade_number"></a>
+				<a id="trade_name"></a>
+				<select id="report_choice" name="rep_reason">
+<!-- 					<option>사유 선택</option> -->
+					<option value="본 제품과 다른 제품">본 제품과 다른 제품</option>
+					<option value="배송지연">배송 지연</option>
+					<option value="제품 불량">제품 불량</option>
+					<option value="기타 사유">기타 사유</option>
+				</select>
+				<textarea name="rep_content" id="rep_content"></textarea>
+			</div>
+				<input type="hidden" id="rep_memberId" name="rep_memberId" value="">
 			 <input type="hidden" id="rep_writer" name="rep_writer" value=""> 
 											 
 			<input type="hidden" id="rep_productId" name="rep_productId" value="">
-			<input type="submit" id="rp_ok" value="신고 완료"> <input
-				type="reset" value="취소">
-		</form>
-	</div>
-	
+			<input type="submit" id="rp_ok" value="신고 완료"> 
 
-	<br>
-	<br>
-	<h2>팔고있는 물건</h2>
-	<table id="selling">
+		</form>
+		</div>
+	</div>
+</div>
+
+<div id="trade_tab_inner2" class="trade_tab_hidden">
+	<table id="selling" class="trade_table_box">
 		<tr>
 			<th>주문번호</th>
 			<th>상품명</th>
@@ -186,17 +181,12 @@ table td,th {
 
 		</c:forEach>
 	</table>
+</div>
 
 
-
-
-	<h2>거래된 물건</h2>
-
-
-	<h2>산 물건</h2>
-
+<div id="trade_tab_inner3" class="trade_tab_hidden">
 	<div id="traded">
-		<table id="buy">
+		<table id="buy" class="trade_table_box">
 			<tr>
 				<th>주문번호</th>
 				<th>상품명</th>
@@ -217,8 +207,7 @@ table td,th {
 		</table>
 
 
-		<h2>판 물건</h2>
-		<table id="sell">
+		<table id="sell" class="trade_table_box">
 			<tr>
 				<th>주문번호</th>
 				<th>상품명</th>
@@ -237,11 +226,11 @@ table td,th {
 			</c:forEach>
 
 		</table>
+</div>
+</div>
+<div id="trade_tab_inner4" class="trade_tab_hidden">
 
-
-		<h2>찜 리스트</h2>
-
-		<table>
+		<table class="trade_table_box">
 			<tr>
 				<th>상품명/옵션정보</th>
 				<th>상품금액</th>
@@ -261,21 +250,8 @@ table td,th {
 					<td><button class="buyj_button" p_id="${JP.p_id}">구입하기</button></td>
 				</tr>
 			</c:forEach>
-			<tr>
-				<td colspan="5">총 금액 ${jjim_sum}</td>
-			</tr>
-
-
-
-
-
 		</table>
-
 	</div>
-
-
-
-
 
 </body>
 </html>

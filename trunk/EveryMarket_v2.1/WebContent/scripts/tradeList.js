@@ -96,7 +96,6 @@ $(document).ready(function() {
 			$(document).on("click","#report",function() {
 				
 			var t_id = $(this).attr("t_id");
-			alert(t_id);
 			tradeDwr.getTrade(t_id, popReport);			
 			
 			
