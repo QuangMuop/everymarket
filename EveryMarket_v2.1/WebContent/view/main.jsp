@@ -85,15 +85,8 @@
 
 
 	</div>
-	<!--                    	마켓 광고                                       -->
-	<form action="goMarket.do" method="post">
-		<input type="text" name="m_id" size="10"> <input type="submit"
-			value="마켓이동">
-	</form>
 	
-	<!--  리모트 부분 -->
-	<div id="remote"></div>
-	<!--  끝 -->
+
 	
 	
 	<c:if test="${error != null }">	${error } </c:if>
