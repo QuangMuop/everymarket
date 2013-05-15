@@ -10,12 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import everymarket.dao.BanListDao;
 import everymarket.dao.BoardReportDao;
 import everymarket.dao.MemberDao;
+import everymarket.dao.RefundDao;
 import everymarket.model.BanList;
 
 public class BoardReportDwr {
 	private BanListDao daoBL;
 	private BoardReportDao daoBR;
 	private MemberDao daoM;
+	private RefundDao daoRef;
 
 	public void setDaoBL(BanListDao daoBL) {
 		this.daoBL = daoBL;
@@ -25,6 +27,9 @@ public class BoardReportDwr {
 	}
 	public void setDaoM(MemberDao daoM) {
 		this.daoM = daoM;
+	}
+	public void setDaoRef(RefundDao daoRef) {
+		this.daoRef = daoRef;
 	}
 	
 	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=(Exception.class))
@@ -74,5 +79,9 @@ public class BoardReportDwr {
 		paramMap.put("actionCode", actionCode);
 		paramMap.put("rep_checkTime", new Timestamp(System.currentTimeMillis()));
 		daoBR.checkReportStatus(paramMap);
+	}
+	
+	public void confirmRefund(int ref_id){
+		daoRef.confirmRefund(ref_id);
 	}
 }
