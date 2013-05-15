@@ -128,36 +128,58 @@ $(document).ready(function() {
 				$("#review_pop").bPopup();
 				
 				
-				$("#rp_ok1").click(function(){
+				/*$("#rp_ok1").click(function(){
 					
 					var r_content= $("#r_content").val();
 					var r_score = $("#r_score").val();
 					var p_id = $("#rp_id").attr("value");
-					alert(p_id + "È÷È÷");
+					
 					
 					tradeDwr.insert_Review(r_content,r_score,p_id);
 					
-					$("#review_in_btn[value="+p_id+"]").addClass("none");
+					
+					alert(p_id + "À¹");
+					$("#review_in_btn[class="+p_id+"]").addClass("none");
+					
 					var html = "<div>¸®ºäÀÛ¼º¿Ï·á</div>";
-					$("#tr[p_id="+p_id+"]").append(html);
+					
+					
+					$("#R_td[class="+p_id+"]").append(html);
 					
 					$("#review_pop").bPopup().close();
 					
 					
 					
-				});
+				});*/
 				
 				
 			});	
-			
-				});
+			$("#rp_ok1").click(function(){
+				
+				var r_content= $("#r_content").val();
+				var r_score = $("#r_score").val();
+				var p_id = $("#rp_id").attr("value");
+				
+				
+				tradeDwr.insert_Review(r_content,r_score,p_id);
+				
+				
+				$("#review_in_btn[class='"+p_id+"']").addClass("none");
+				
+				var html = "<div>¸®ºäÀÛ¼º¿Ï·á</div>";
+				
+				
+				$("#R_td[class='"+p_id+"']").append(html);
+				
+				$("#review_pop").bPopup().close();
+				
+				
+				
+			   			});
+				
+			});
 	
-	
-	
-	
-		
-
-});
+	});
 
 $(document).on('click',	'.db_trace', function() {
 	
