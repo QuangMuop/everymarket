@@ -79,6 +79,8 @@
 		<property name="daoM" ref="memberDao"/>
 		<property name="daoP" ref="productDao"/>
 		<property name="daoR" ref="reviewDao"/>
+		<property name="daoT" ref="tradeDao"/>
+		<property name="daoJ" ref="jjimDao"/>
 	</bean>
 
 	<!-- 찜 관련 업무 수행 컨트롤러 -->

@@ -21,10 +21,6 @@
 				<a id="h_bar" >|</a>
 				<button class="h_tag" id="goQnaBoard">QnA게시판</button>
 				<a id="h_bar" >|</a>
-				<a class="h_tag" href="JJimbasket.do">찜바구니</a>
-				<a id="h_bar" >|</a>
-				<a class="h_tag" href="trade_list.do">거래내역</a>
-				<a id="h_bar" >|</a>
 				<!-- IndivMarket --> 
 				<a class="h_tag" href="goMyMarket.go">내 마켓</a>
 				<a id="h_bar" >|</a>
