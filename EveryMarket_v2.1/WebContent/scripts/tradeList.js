@@ -110,31 +110,47 @@ $(document).ready(function() {
 				});		
 			
 			
-			$(document).on("click","#review_in_btn",function(){
-				
+			//리뷰부분
+			$(document).on("click","#review_in_btn",function(){				
 			
 				var p_id = $(this).attr("value");
+				alert(p_id);
 				$("#rp_id").attr("value",p_id);
+				$("#rp_ok1").attr("value", p_id);
 				
 				tradeDwr.getP_name(p_id, reviewShow);
 				
 				function reviewShow(data){
 					
-					$("#rp_name").html("물품명: "+ data);
-					
-				}			
-				
+					$("#rp_name").html("물품명: "+ data);					
+				}					
 				
 				$("#review_pop").bPopup();
 				
 				
+				$("#rp_ok1").click(function(){
+					
+					var r_content= $("#r_content").val();
+					var r_score = $("#r_score").val();
+					var p_id = $("#rp_id").attr("value");
+					alert(p_id + "히히");
+					
+					tradeDwr.insert_Review(r_content,r_score,p_id);
+					
+					$("#review_in_btn[value="+p_id+"]").addClass("none");
+					var html = "<div>리뷰작성완료</div>";
+					$("#tr[p_id="+p_id+"]").append(html);
+					
+					$("#review_pop").bPopup().close();
+					
+					
+					
+				});
+				
+				
 			});	
 			
-				
-			
-			
-			
-			});
+				});
 	
 	
 	
