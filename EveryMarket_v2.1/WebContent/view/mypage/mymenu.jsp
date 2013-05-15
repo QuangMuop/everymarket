@@ -370,9 +370,9 @@
 										<td>${cb.t_del_number }</td>
 										<td>${cb.p_name}</td>
 										<td>${cb.p_price }</td>
-										<td id="tr" p_id=${cb.p_id }><c:choose>
+										<td id="R_td" class=${cb.p_id }><c:choose>
 												<c:when test="${cb.t_status == 4}">
-													<button id="review_in_btn" value="${cb.p_id}">∏Æ∫‰æ≤±‚</button>
+													<button id="review_in_btn" class="${cb.p_id }"  value="${cb.p_id}">∏Æ∫‰æ≤±‚</button>
 												</c:when>
 												<c:when test="${cb.t_status == 6 }">
 							   ∏Æ∫‰¿€º∫øœ∑·
