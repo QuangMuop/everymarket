@@ -328,5 +328,7 @@ $(document).ready(function(){
 	$('#h_logo').click(function(){
 		location.href="enter.go";
 	});
+	
+	
 });
 

@@ -126,11 +126,10 @@ a{
 /******* /MENU *******/
 /******* CONTENT *******/
 .content{
-	float:left;
+/* 	float:left; */
 	margin: 0px;
 	/* background: #f3f3f3; */
 /* 	border: 1px solid #d0ccc9; */
-	text-align: left;
 /* 	padding: 10px; */
 /* 	padding-bottom: 20px; */
 	font-size: 11px;
@@ -186,7 +185,6 @@ a{
 	color:#333333;
 	font-size: 20px;
 }
-
 
 
 /******* /NEWS *******/
