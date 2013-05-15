@@ -9,9 +9,8 @@ $(document).ready(function() {
 	$(".delete_button").click(function(){
 
 	var p_id = $(this).attr("p_id");
-	alert(p_id);
-
-	$("."+p_id+"j").addClass("dis_tr");
+	
+	$("."+p_id+"j").addClass("none");
 	
 	tradeDwr.deletejjim_tr(p_id);	
 		
