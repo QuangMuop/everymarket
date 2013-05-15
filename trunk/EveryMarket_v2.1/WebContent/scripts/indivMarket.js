@@ -198,7 +198,7 @@ $(document).ready(function(){
 				$("#listJjimer > img").remove();
 				$.each(data.listB_thumb, function(index, b_thumb){
 					$("#listJjimer").append(
-						"<a>ÂòÇß¾î¿ä! :</a><img class='b_thumb' src='image_blog/" + b_thumb + "'>"
+						"<img class='b_thumb' src='image_blog/" + b_thumb + "'>"
 					);
 				});
 			}
