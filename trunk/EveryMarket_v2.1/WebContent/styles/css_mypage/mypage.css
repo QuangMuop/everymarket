@@ -1584,3 +1584,7 @@ margin: 8px;
 #contents3{
 	width:800px;
 }
+#s_num_input{
+	border:1px solid #dce5d8;
+	width:80px;
+}

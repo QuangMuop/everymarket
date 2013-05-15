@@ -16,18 +16,18 @@ $(document).ready(function(){
 	});
 	
 	$("#menu1").click(function(){
-		$("#contents2").fadeOut();
-		$("#contents3").fadeOut();
+		$("#contents2").css("display", "none");
+		$("#contents3").css("display", "none");
 		$("#contents1").fadeIn();
 	});
 	$("#menu2").click(function(){
-		$("#contents1").fadeOut();
-		$("#contents3").fadeOut();
+		$("#contents1").css("display", "none");
+		$("#contents3").css("display", "none");
 		$("#contents2").fadeIn();
 	});
 	$("#menu3").click(function(){
-		$("#contents1").fadeOut();
-		$("#contents2").fadeOut();
+		$("#contents1").css("display", "none");
+		$("#contents2").css("display", "none");
 		$("#contents3").fadeIn();
 	});
 	$("#c_ok1").click(function(){

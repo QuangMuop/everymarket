@@ -145,8 +145,15 @@
 	border-radius:3px;
 	border:1px solid #c2c2c2;
 	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(240,240,240,1) 38%,rgba(233,233,233,1) 84%);
+}
+#trace_page{
+	width:80px;
+	height: 20px;
+	color:#666666;
+	border-radius:3px;
+	border:1px solid #c2c2c2;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(240,240,240,1) 38%,rgba(233,233,233,1) 84%);
 	
-<<<<<<< .mine
 }
 #jjim_list_img{
 	width:70px;
@@ -167,11 +174,9 @@
 	border-radius:3px;
 	border:1px solid #c2c2c2;
 	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(240,240,240,1) 38%,rgba(233,233,233,1) 84%);
-=======
+
 }
 
 .none{
 	display: none;
-	
->>>>>>> .r269
 }
