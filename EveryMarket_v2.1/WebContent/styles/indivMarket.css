@@ -344,3 +344,6 @@ font-family: monospace;
 	font-size: 11px;
 	color:#a8a8a8;
 }
+.button_tab{
+	float: left;
+}
