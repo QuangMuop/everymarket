@@ -73,4 +73,17 @@
 		order by dbms_random.value
 	</select>
 
+	<select id="getMaxb_id" resultClass="int">
+		select decode(max(b_id), null, 0, max(b_id)) 
+  		as "max(b_id)" 
+ 		from blog
+	</select>
+	
+	<insert id="registerBlog" parameterClass="java.util.HashMap">
+		insert into blog(
+			b_id, m_id
+		)values(
+			#b_id#, #m_id#
+		)
+	</insert>
 </sqlMap>
