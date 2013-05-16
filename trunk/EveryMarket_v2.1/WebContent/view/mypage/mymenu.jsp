@@ -357,6 +357,7 @@
 
 					<div id="trade_tab_inner3" class="trade_tab_hidden">
 						<div id="traded">
+						<img alt="" class="trade_inner_title_img" src="image_trade/buy_com_title.png">
 							<table id="buy" class="trade_table_box">
 								<tr>
 									<th>주문번호</th>
@@ -384,7 +385,7 @@
 
 							</table>
 
-
+							<img alt="" class="trade_inner_title_img" src="image_trade/sell_com_title.png">
 							<table id="sell" class="trade_table_box">
 								<tr>
 									<th>주문번호</th>
@@ -449,20 +450,20 @@
 	<!-- 리뷰쓰기 팝업  -->
 	<div id="review_pop" class="popUp hidden">
 		<!-- <form> -->
+		<div id="r_t_box">
 			<div id="rp_name"></div>
 			<input type="hidden" id="rp_id" name="p_id" value=""> <br>
-			평점 :<select id="r_score" name="r_score">
+			<select class="t_r_score"  id="r_score" name="r_score">
 				<option value="-2">-2</option>
 				<option value="-1">-1</option>
 				<option value="0">0</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
-			</select><br> 리뷰내용
+			</select>
 			<textarea name="r_content" id="r_content"></textarea>
 			<br> <!-- <input type="submit" id="rp_ok1" value="작성 완료"> -->
 			<button id="rp_ok1" value="">작성 완료</button>
-			 <input
-				type="reset" value="취소">
+		</div>
 	<!-- 	</form> -->
 	</div>
 </body>
