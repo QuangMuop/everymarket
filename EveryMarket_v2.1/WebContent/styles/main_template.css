@@ -691,3 +691,8 @@ background-position: center;
 	width:385px;
 	margin-bottom: 3px;
 }
+#m_dangollist{
+	float: left;
+	width:380px;
+	padding-left: 5px;
+}
