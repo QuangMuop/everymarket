@@ -682,3 +682,12 @@ background-position: center;
 	font-weight: bold;
 	color:#4b4b4b;
 }
+.dangol_image{
+	width:30px;
+	height: 30px;
+}
+.reviews{
+	float: left;
+	width:385px;
+	margin-bottom: 3px;
+}

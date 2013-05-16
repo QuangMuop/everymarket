@@ -18,29 +18,35 @@
 			</div>
 			<div id="q_c_input_btn">
 				<img alt="" id="q_c_img" src="image_board/q_c_input.png">
-				<input type="submit" id="q_c_i_input" value="">
+				<input type="submit" class="q_a_input" value="">
 			</div>
 		</form>
 		</div>
 	</div>
 	
 	<div id="answerBoardQna" class="hidden">
-		<h2>답변 폼</h2>
+	<div id="qna_insert_inner">
+		<img alt=""  id="answer_btn_img" src="image_board/answer_btn.png">
 		<form action="answerQna.do" method="post">
-			내용:		<textarea name="qna_answer" rows="6" cols="30"></textarea><br>
+			<textarea name="qna_answer" rows="6" cols="30" class="q_a_text" placeholder="답변을 달아주세요"></textarea><br>
 			<input type="hidden" name="qna_id" value="">
-			<input type="submit" value="답변하기">		
-		</form>
+			<input type="submit" class="q_a_input" value="답변하기">		
+		</form> 
+	</div>
 	</div>
 	
 	<div id="updateBoardQna" class="hidden">
-		<h2>글 수정 폼</h2>
+	<div id="qna_insert_inner">
+		<img alt="" id="update_btn_img" src="image_board/update_btn.png">
 		<form action="updateQna.do" method="post">
-			제목:		<input type="text" name="qna_title" readonly="readonly"><br>
-			내용:		<textarea name="qna_content" rows="6" cols="30"></textarea><br>
+			<div id="insert_title">
+			제목:		<input type="text" name="qna_title" readonly="readonly">
+			</div>
+			<textarea name="qna_content" rows="6" cols="30" class="q_a_text" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 글 작성 시  타인에 대한 배려와 책임을 담아주세요."></textarea><br>
 			<input type="hidden" name="qna_id" value="">
-			<input type="submit" value="수정하기"/>		
+			<input type="submit"class="q_a_input"  value="수정하기"/>		
 		</form>
+	</div>
 	</div>
 	
 </body>
