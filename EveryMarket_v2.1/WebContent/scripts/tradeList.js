@@ -127,6 +127,13 @@ $(document).ready(function() {
 											
 				
 			});	
+			
+			$("#rp_ok").click(function(){
+			alert("신고가 접수되었습니다.");
+			});
+			
+			
+			
 			$("#rp_ok1").click(function(){
 				
 				var r_content= $("#r_content").val();
