@@ -408,3 +408,16 @@ div.widest{
 	padding-right: 830px;
 	border-bottom: 1px dotted #efefef;
 }
+.q_a_input{
+	border:1px solid #cecece;
+	color:#b6b6b6;
+}
+.q_a_text{
+	font-size: 13px;
+}
+#qna_insert_inner{
+	padding: 10px;
+}
+#updateBoardQna{
+	padding: 10px;
+}

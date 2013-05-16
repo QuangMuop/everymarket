@@ -136,7 +136,7 @@
 #recent_dangol{
 	float:left;
 	font-size: 15px;
-	
+	padding-right: 325px;
 }
 #m_dangollist{
 	float: right;	
@@ -144,6 +144,7 @@
 #recent_review{
 	font-size: 15px;
 	float: left;
+	padding-right: 270px;
 }
 .count_font{
 	font-weight: bold;
