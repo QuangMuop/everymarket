@@ -18,9 +18,9 @@
 				<h1 class="top_text">
 					<c:choose>
 						<c:when test="${catelist.size() > 1}">
-							<span>${catelist.get(1).ct_large}</span>
+							<a id="large_c">${catelist.get(1).ct_large}</a>
 							<c:forEach var="Category" items="${catelist}">
-								<span class="items"><a href="list.do?category=${Category.ct_small }">
+								<span class="items"><a class="c_list" href="list.do?category=${Category.ct_small }">
 									${Category.ct_small}</a></span>
 							</c:forEach>
 						</c:when>
@@ -37,7 +37,7 @@
 			<div class='search_container'>
 				<form action="list.do" method="post">
 					<div class="search_menu">
-						<span class="all_view"><a
+						<span class="all_view"><a id="c_all_view"
 							href="list.do?category=${catelist.get(0).ct_large}">전체보기</a></span> <label>카테고리
 							내 검색</label> 
 							<input class='searchtext' type="text" name='searchtext' placeholder='아이템을 입력하세요'> <input type="hidden"
