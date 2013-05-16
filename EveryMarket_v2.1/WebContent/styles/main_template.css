@@ -637,3 +637,21 @@ background-position: center;
 	height: 25px;
 	margin: 5px;
 }
+#large_c{
+	padding: 3px;
+	color: gray;
+	font-size: 25px;
+	font-weight: bold;
+/* 	text-shadow: 1px 1px 1px gray; */
+}
+.c_list{
+	font-size: 20px;
+	color: red;
+	padding: 3px;
+}
+#c_all_view{
+	font-size: 15px;
+}
+.top_container *{
+	float: left;
+}
