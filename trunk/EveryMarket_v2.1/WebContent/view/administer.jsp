@@ -79,7 +79,14 @@
 	</div>
 	
 	<div id="uncheckedList_tradeReport" class="tabContent hidden">
-	
+		<div id="uncheckedReportList" class="list">
+			<div id="uncheckedReportList_head"  class="admin_list_head">
+				<div class="r_title_1">신고사유</div>
+				<div class="r_title_2">신고자 아이디</div>
+				<div class="r_title_3">신고일자</div>
+				<div class="r_title_4">신고대상 회원</div>
+			</div>	
+		</div>
 	</div>
 	
 	<div id="checkedList_report" class="tabContent hidden">

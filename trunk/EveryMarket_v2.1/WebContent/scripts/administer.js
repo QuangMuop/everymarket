@@ -26,7 +26,7 @@ $(document).ready(function(){
 			$(".tabContent").hide();
 			$("#uncheckedList_report").fadeIn("slow"); }
 		function showTab_uncheckedList_tradeReport(){
-//			callUncheckedList_tradeReport();
+			callUncheckedList_tradeReport();
 			$(".tabContent").hide();
 			$("#uncheckedList_tradeReport").fadeIn("slow"); }
 		function showTab_checkedList_report(){
@@ -153,9 +153,33 @@ $(document).ready(function(){
 	
 	function callUncheckedList_tradeReport(){
 		$.getJSON(
-			contextUrl + "",
+			contextUrl + "callUncheckedTradeReportList.do",
 			function(data){
-				
+				$.each(data.listTradeReport, function(index, boardReport){
+					var rep_regdate = (boardReport.rep_regdate.year + 1900) + "년 " +
+									(boardReport.rep_regdate.month + 1) + "월 " +
+									boardReport.rep_regdate.date + "일 " + 
+									boardReport.rep_regdate.hours + ":" +
+									boardReport.rep_regdate.minutes;					
+					$("#uncheckedReportList").append(
+						"<div class='boardReport'>" +
+							"<div class='r_title_1'>" + boardReport.rep_reason + "</div>" +
+							"<div class='r_title_2'>" + boardReport.rep_writer + "</div>" +
+							"<div class='r_title_3'>" + rep_regdate + "</div>" +
+							"<div class='r_title_4'>" + boardReport.rep_memberId + "</div>" +
+							"<div class='contents hidden' id='r_content'><a>" + boardReport.rep_content +
+								"</a><select  class='r_select' rep_id='" + boardReport.rep_id +
+										"' rep_memberId='" + boardReport.rep_memberId + "'>" +
+									"<option selected='selected'>선택</option>" +
+									"<option value='신고기각'>신고기각</option>" +
+									"<option value='테스트용 : 20초'>테스트용 : 20초</option>" +
+									"<option value='1일 사이트 접근 불허'>1일 사이트 접근 불허</option>" +
+									"<option value='3일 사이트 접근 불허'>3일 사이트 접근 불허</option>" +
+									"<option value='5일 사이트 접근 불허'>5일 사이트 접근 불허</option>" +
+								"</select>"	+
+							"</div>" +
+						"</div>");
+				});
 			}
 		);
 	}

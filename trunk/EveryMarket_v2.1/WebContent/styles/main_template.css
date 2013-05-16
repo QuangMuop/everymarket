@@ -683,8 +683,8 @@ background-position: center;
 	color:#4b4b4b;
 }
 .dangol_image{
-	width:30px;
-	height: 30px;
+	width:20px;
+	height: 20px;
 }
 .reviews{
 	float: left;
@@ -700,4 +700,11 @@ background-position: center;
 	float: left;
 	padding-right: 2px;
 	padding-left: 2px;
+}
+#checkedReportList{
+	margin-bottom: 20px;
+}
+#find_id_result{
+	float: left;
+	width:120px;
 }

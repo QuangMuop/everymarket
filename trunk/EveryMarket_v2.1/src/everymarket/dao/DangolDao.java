@@ -15,7 +15,11 @@ public class DangolDao {
 	
 	/*Output: max(d_id)*/
 	public int getMaxD_id(){
-		return (Integer)ibatisTemplate.queryForObject("getMaxD_id");
+		int maxD_id = -1;
+		if(ibatisTemplate.queryForObject("getMaxD_id") != null){
+			maxD_id = (Integer)ibatisTemplate.queryForObject("getMaxD_id");
+		}
+		return maxD_id;
 	}
 	
 	/*Input: Dangol / Output: Dangol*/

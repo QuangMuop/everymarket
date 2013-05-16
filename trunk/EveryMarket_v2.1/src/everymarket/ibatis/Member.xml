@@ -53,6 +53,7 @@
 		  join blog b
 		  on m.m_id = b.m_id
 		where rownum &#60;= #numberOfSkitter#
+		  and b.b_main is not null
 		order by dbms_random.value 
 	</select>
 	

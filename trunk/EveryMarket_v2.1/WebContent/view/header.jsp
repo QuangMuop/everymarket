@@ -37,7 +37,7 @@
 						거래가능포인트<br>
 						<div id="rest_point"></div>
 					</div>
-					<c:if test="${member.m_id == 'aa' }">
+					<c:if test="${member.m_id == 'admin' }">
 						<a id="h_bar" >|</a>
 						<button  class="h_tag"  id="goAdminister">관리자페이지</button>
 					</c:if>
@@ -331,16 +331,13 @@
 		<div id="id_find_box">
 		<img alt="" class="find_title_img" src="images/id_find_title.png">
 		<form id="form_find_ID" action="find_ID.do" method="POST">
-			<input type="text" class="find_input" name="m_name" placeholder="아이디를 입력해주세요."><br>
+			<input type="text" class="find_input" name="m_name" placeholder="이름를 입력해주세요."><br>
 			<input type="text" class="find_input" name="m_email" placeholder="이메일을 입력해주세요." ><br>
 		</form>
 			<button id="find_ID_result_button" class="find_btn">
 				<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
 			</button>
 		</div>	
-		<button id="find_ID_result_button" >
-			<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
-		</button>	
 	</div>
 	
 	<div id="find_pwd" class="popUp hidden">

@@ -609,7 +609,6 @@ float: left;
 .bold{
 font-weight: bold;
 font-size: 12px;
-float: left;
 }
 .normal{
 font-size: 12px;
@@ -1587,4 +1586,8 @@ margin: 8px;
 #s_num_input{
 	border:1px solid #dce5d8;
 	width:200px;
+}
+#r_content{
+	font-size: 13px;
+	color:#4b4b4b;
 }

@@ -53,6 +53,7 @@ public class BoardReportController {
 		boardReport.setRep_regdate(new Timestamp(System.currentTimeMillis()));
 		boardReport.setRep_productId(-1);
 		boardReport.setRep_check("n");
+		boardReport.setRep_type("m");
 
 		daoBR.registerReport(boardReport);
 
@@ -74,6 +75,7 @@ public class BoardReportController {
 		boardReport.setRep_memberId(daoM.getM_idByP_id(boardReport
 				.getRep_productId()));
 		boardReport.setRep_check("n");
+		boardReport.setRep_type("p");
 
 		daoBR.registerReport(boardReport);
 
@@ -112,6 +114,20 @@ public class BoardReportController {
 		List<BoardReport> listReportedMember = daoBR.getReportedMember();
 		map.put("listReportedProduct", listReportedProduct);
 		map.put("listReportedMember", listReportedMember);
+
+		mav.addAllObjects(map);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	/* getJSON */
+	@RequestMapping("/callUncheckedTradeReportList.do")
+	public ModelAndView callUncheckedTradeReportList() {
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		List<BoardReport> listTradeReport = daoBR.callUncheckedTradeReportList();
+		map.put("listTradeReport", listTradeReport);
 
 		mav.addAllObjects(map);
 		mav.setViewName("jsonView");

@@ -460,7 +460,7 @@
 				<option value="1">1</option>
 				<option value="2">2</option>
 			</select>
-			<textarea name="r_content" id="r_content"></textarea>
+			<textarea name="r_content" id="r_content" placeholder="리뷰를 작성해주세요!"></textarea>
 			<br> <!-- <input type="submit" id="rp_ok1" value="작성 완료"> -->
 			<button id="rp_ok1" value="">작성 완료</button>
 		</div>

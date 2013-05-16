@@ -49,7 +49,7 @@
 							</button>
 							</div>
 						</c:if>
-						<c:if test="${member.m_id == 'aa' }">
+						<c:if test="${member.m_id == 'admin' }">
 						<div>
 							<button class="answer_boardQna"  id="answer_btn" qna_id="${boardQna.qna_id }">
 								<img alt=""  id="answer_btn_img" src="image_board/answer_btn.png">
@@ -72,7 +72,7 @@
 		</c:forEach>
 	</div>
 	
-	<c:if test="${member != null && member.m_id != 'aa'}">
+	<c:if test="${member != null && member.m_id != 'admin'}">
 		<div>
 			<button id="button_popupInsert">
 				<img alt="" id="q_i_btn" src="image_board/qna_insert_btn.png">
