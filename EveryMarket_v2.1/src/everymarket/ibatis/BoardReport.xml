@@ -46,14 +46,14 @@
 	<select id="getReportedProduct" resultClass="BoardReport">
 		select *
 		from board_report
-		where rep_check = 'n' and not rep_productid = -1
+		where rep_check = 'n' and rep_type='p'
 		order by rep_regdate desc
 	</select>
 	
 	<select id="getReportedMember" resultClass="BoardReport">
 		select *
 		from board_report
-		where rep_check = 'n' and rep_productid = -1 
+		where rep_check = 'n' and rep_type='m' 
 		order by rep_regdate desc
 	</select>
 
@@ -68,6 +68,13 @@
 		from board_report
 		where not rep_check = 'n'
 		order by rep_checkTime desc
+	</select>
+	
+	<select id="callUncheckedTradeReportList" resultClass="BoardReport">
+		select *
+		from board_report
+		where rep_check = 'n' and rep_type = 't'
+		order by rep_regdate desc
 	</select>
 	
 	<select id="checkAlreadyReported" resultClass="BoardReport">

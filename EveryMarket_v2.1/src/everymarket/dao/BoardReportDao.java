@@ -49,6 +49,11 @@ public class BoardReportDao {
 		return ibatisTemplate.queryForList("getUncheckedReportList");
 	}
 	
+	/*Oubput: List<BoardReport>(rep_type == "t")*/
+	public List<BoardReport> callUncheckedTradeReportList(){
+		return ibatisTemplate.queryForList("callUncheckedTradeReportList");
+	}
+	
 	/*Output: List<BoardReport>(r_check != 'n')*/
 	public List<BoardReport> getCheckedReportList(){
 		return ibatisTemplate.queryForList("getCheckedReportList");

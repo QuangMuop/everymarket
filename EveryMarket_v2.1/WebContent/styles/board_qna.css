@@ -421,3 +421,9 @@ div.widest{
 #updateBoardQna{
 	padding: 10px;
 }
+.bannedMember{
+/* 	margin-left: 50px; */
+}
+.bannedMember div{
+	float: left;
+}
