@@ -334,16 +334,13 @@
 			<input type="text" class="find_input" name="m_name" placeholder="아이디를 입력해주세요."><br>
 			<input type="text" class="find_input" name="m_email" placeholder="이메일을 입력해주세요." ><br>
 		</form>
-<<<<<<< .mine
 			<button id="find_ID_result_button" class="find_btn">
 				<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
 			</button>
 		</div>	
-=======
 		<button id="find_ID_result_button" >
 			<img class="login_bottom_button"alt="" src="image_popup/id_find.png">
 		</button>	
->>>>>>> .r305
 	</div>
 	
 	<div id="find_pwd" class="popUp hidden">

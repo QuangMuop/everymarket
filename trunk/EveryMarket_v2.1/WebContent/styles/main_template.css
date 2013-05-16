@@ -658,3 +658,27 @@ background-position: center;
 #cate_next{
 	height: 20px;
 }
+.message{
+	background: white;
+	border:1px solid #d2d2d2;
+	border-radius:2px;
+	padding: 5px;
+	color:#4b4b4b;
+}
+.bt_sellapprove{
+	background: linear-gradient(to bottom, #FFFFFF 0%, #F2F2F2 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #A6A6A6;
+    cursor: pointer;
+    color:#4b4b4b;
+}
+.bt_sellrefuse{
+	
+	background: linear-gradient(to bottom, #FFFFFF 0%, #F2F2F2 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #A6A6A6;
+    cursor: pointer;
+    color:#4b4b4b;
+}
+#m_id_submit{
+	font-weight: bold;
+	color:#4b4b4b;
+}

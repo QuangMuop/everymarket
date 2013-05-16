@@ -71,7 +71,7 @@ $(document).ready(function(){
 					$("#list_message").append(
 						"<div class='message'>" +
 							"<div class='messageContent'>" +
-								message.m_nick + "(" + message.m_id + ") 님이 " + message.p_name +
+								"<a id='m_id_submit'>"+message.m_nick+"</a>" + "(" + message.m_id + ") 님이 " + message.p_name +
 								" 을(를) 구매 요쳥하셨습니다. <br>" + message.msg_due + " 까지 결정해주세요." +
 							"</div>" +
 							"<div class='messageButton'>" +
