@@ -157,7 +157,7 @@ $(document).on('click',	'.db_trace', function() {
 			
 		var t_id = $(this).attr("t_id");
 		window.open("view/popup_deliver.jsp", "배송조회",
-		"width=700,height=500,resizalbe=no");
+		"width=800,height=400,resizalbe=no");
 
 		
 		$("#" + t_id + "3").text("배송완료");	
