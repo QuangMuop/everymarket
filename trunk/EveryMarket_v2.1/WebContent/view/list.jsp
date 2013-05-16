@@ -19,8 +19,11 @@
 					<c:choose>
 						<c:when test="${catelist.size() > 1}">
 							<a id="large_c">${catelist.get(1).ct_large}</a>
+							<img id="cate_next" src="images/cate.png">
 							<c:forEach var="Category" items="${catelist}">
-								<span class="items"><a class="c_list" href="list.do?category=${Category.ct_small }">
+								<span class="items">
+								
+								<a class="c_list" href="list.do?category=${Category.ct_small }">
 									${Category.ct_small}</a></span>
 							</c:forEach>
 						</c:when>

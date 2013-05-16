@@ -639,14 +639,14 @@ background-position: center;
 }
 #large_c{
 	padding: 3px;
-	color: gray;
+	color: #e32020;
 	font-size: 25px;
 	font-weight: bold;
 /* 	text-shadow: 1px 1px 1px gray; */
 }
 .c_list{
 	font-size: 20px;
-	color: red;
+	color: #8f1212;
 	padding: 3px;
 }
 #c_all_view{
@@ -654,4 +654,7 @@ background-position: center;
 }
 .top_container *{
 	float: left;
+}
+#cate_next{
+	height: 20px;
 }
