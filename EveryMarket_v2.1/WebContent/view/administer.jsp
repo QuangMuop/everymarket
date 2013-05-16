@@ -25,7 +25,7 @@
 			<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>
 		</span>
 		<span id="admin_m5">
-			<img id="admin_m5" class="admin_bar_img" src=''>환급신청 목록보기
+			<img id="admin_m5" class="admin_bar_img" src='image_board/admin_bar6_back.png'>
 		</span>
 		<span id="admin_m6">
 			<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>
@@ -59,6 +59,7 @@
 	
 	<div id="uncheckedList_report" class="tabContent hidden">
 		<div id="reportedProductList" class="list">
+		<img alt="" class="admin_inner_title_img" src="image_board/good_report.png">
 			<div id="reportedProductList_head" class="admin_list_head">
 				<div class="r_title_1">신고사유</div>
 				<div class="r_title_2">신고자 아이디</div>
@@ -67,6 +68,7 @@
 			</div>
 		</div>
 		<div id="reportedMemberList" class="list">
+		<img alt="" class="admin_inner_title_img" src="image_board/member_report.png">
 			<div id="reportedMemberList_head" class="admin_list_head">
 				<div class="r_title_1">신고사유</div>
 				<div class="r_title_2">신고자 아이디</div>
@@ -99,6 +101,7 @@
 	
 		<!-- 미결환급 목록 -->
 		<div id="uncheckedRefundList" class="list">
+		<img alt="" class="admin_inner_title_img" src="image_board/repond_wait_title.png">
 			<div id="uncheckedRefundList_head" class="admin_list_head">
 				<div class="r_title_5">환급신청자</div>
 				<div class="r_title_5">환급신청액</div>
@@ -110,7 +113,8 @@
 			</div>
 		</div>
 		<!-- 환급 목록 -->
-		<div id="checkedRefundList" class="list">			
+		<div id="checkedRefundList" class="list">	
+		<img alt="" class="admin_inner_title_img" src="image_board/repond_comp_title.png">		
 			<div id="checkedRefundList_head" class="admin_list_head">
 				<div class="r_title_5">환급신청자</div>
 				<div class="r_title_5">환급액</div>

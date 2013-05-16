@@ -388,3 +388,23 @@ div.widest{
 	float:right;
 	margin-right: 20px;
 }
+#totalFee{
+	font-weight: bold;
+	font-size: 16px;
+	margin: 5px;
+	color:#f23030;
+	text-shadow: 0.5px 0.5px 0.5px #979797;
+	float: left;
+	margin-left: 58px;
+	margin-top: 10px;
+	margin-right: 750px;
+}
+.admin_inner_title_img{
+	float: left;
+	margin: 3px;
+	height: 24px;
+	margin-left: 58px;
+	margin-top: 10px;
+	padding-right: 830px;
+	border-bottom: 1px dotted #efefef;
+}

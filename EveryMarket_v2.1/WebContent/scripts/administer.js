@@ -282,6 +282,10 @@ $(document).ready(function(){
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"	
 						);
+				$("#admin_m5").removeClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar6_back.png'>"	
+						);	
 				$("#admin_m6").removeClass("actived");
 				$("#admin_m6").html(
 						"<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
@@ -306,6 +310,10 @@ $(document).ready(function(){
 				$("#admin_m4").removeClass("actived");
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"
+						);
+				$("#admin_m5").removeClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar6_back.png'>"	
 						);
 				$("#admin_m6").removeClass("actived");
 				$("#admin_m6").html(
@@ -332,6 +340,10 @@ $(document).ready(function(){
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"	
 						);
+				$("#admin_m5").removeClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar6_back.png'>"	
+						);
 				$("#admin_m6").removeClass("actived");
 				$("#admin_m6").html(
 						"<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
@@ -356,6 +368,38 @@ $(document).ready(function(){
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4.png'>"
 						);
+				$("#admin_m5").removeClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar6_back.png'>"	
+						);
+				$("#admin_m6").removeClass("actived");
+				$("#admin_m6").html(
+						"<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
+						);
+
+			break;
+			case "admin_m5":
+				//change status & style menu
+				$("#admin_m1").removeClass("actived");
+				$("#admin_m1").html(
+						"<img id='admin_m1' class='admin_bar_img' src='image_board/admin_bar1_back.png'>"
+						);
+				$("#admin_m2").removeClass("actived");
+				$("#admin_m2").html(
+						"<img id='admin_m2' class='admin_bar_img' src='image_board/admin_bar2_back.png'>"
+						);
+				$("#admin_m3").removeClass("actived");
+				$("#admin_m3").html(
+						"<img id='admin_m3' class='admin_bar_img' src='image_board/admin_bar3_back.png'>"
+						);
+				$("#admin_m4").removeClass("actived");
+				$("#admin_m4").html(
+						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"
+						);
+				$("#admin_m5").addClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar6.png'>"	
+						);
 				$("#admin_m6").removeClass("actived");
 				$("#admin_m6").html(
 						"<img id='admin_m6' class='admin_bar_img' src='image_board/admin_bar5_back.png'>"	
@@ -379,6 +423,10 @@ $(document).ready(function(){
 				$("#admin_m4").removeClass("actived");
 				$("#admin_m4").html(
 						"<img id='admin_m4' class='admin_bar_img' src='image_board/admin_bar4_back.png'>"
+						);
+				$("#admin_m5").removeClass("actived");
+				$("#admin_m5").html(
+						"<img id='admin_m5' class='admin_bar_img' src='image_board/admin_bar6_back.png'>"	
 						);
 				$("#admin_m6").addClass("actived");
 				$("#admin_m6").html(
