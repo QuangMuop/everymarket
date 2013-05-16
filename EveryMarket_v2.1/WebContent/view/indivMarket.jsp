@@ -158,8 +158,9 @@
 				<textarea rows="5" cols="30" name="p_detail" placeholder="상품소개를 써주세요"></textarea>	
 				<input type="file" name="uploadFile" size="26">				
 			</div>	
-		</form>
 			<input type="submit"  class="m_i_change" value="상품 등록하기">
+		</form>
+			
 		</div> 
 	</div>
 	

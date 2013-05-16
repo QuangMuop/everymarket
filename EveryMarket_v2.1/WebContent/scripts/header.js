@@ -81,7 +81,7 @@ $(document).ready(function(){
 						"</div>"
 					);
 					message_count++;
-				});
+				});	
 				if(message_count == 0){
 					$("#list_message").append(
 						"<div class='message'>확인하지 않은 메세지가 존재하지 않습니다.</div>"
