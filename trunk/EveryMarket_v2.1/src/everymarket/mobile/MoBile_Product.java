@@ -20,11 +20,11 @@ public class MoBile_Product {
 		this.daoP = daoP;
 	}
 	
-	/*@RequestMapping("/m_getProductList.do")
+	@RequestMapping("/m_getProductList.do")
 	public void testAndroidd(HttpServletResponse response){
 		System.out.println("[system] ¿äÃ»µé¾î¿È");
 		
-		List<Product> listProduct = daoP.testAndroid("aa");
+		List<Product> listProduct = daoP.getProductListById("aa");
 				
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("listProduct", listProduct);
@@ -36,5 +36,5 @@ public class MoBile_Product {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-	}*/ 	
+	}
 }
