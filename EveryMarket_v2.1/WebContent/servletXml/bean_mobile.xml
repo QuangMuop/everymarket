@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="mobile_Jjim" class="everymarket.mobile.Mobile_Jjim">
+		<property name="daoJ" ref="jjimDao"/>
+	</bean>
+	
+	<bean id="mobile_Member" class="everymarket.mobile.Mobile_Member">
+		<property name="daoM" ref="memberDao"/>
+	</bean>
+	
+	<bean id="mobile_Product" class="everymarket.mobile.MoBile_Product">
+		<property name="daoP" ref="productDao"/>
+	</bean>
+	
+	<bean id="mobile_Trade" class="everymarket.mobile.Mobile_Trade">
+		<property name="daoT" ref="tradeDao"/>
+	</bean>
+
+</beans>
