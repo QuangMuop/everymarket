@@ -31,6 +31,8 @@
       <param-value>
 		<!-- aop관련 설정 담당 -->
 		/servletXml/aop.xml
+		<!-- 모바일bean객체 생성 담당 -->
+		/servletXml/bean_mobile.xml		
 		<!-- bean객체 생성 담당 -->
 		/servletXml/bean.xml		
 		<!-- dateBase관련 설정 담당 -->
