@@ -1,5 +1,6 @@
 package everymarket.mobile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +9,7 @@ import net.sf.json.JSONObject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import everymarket.dao.ProductDao;
 import everymarket.model.Product;
@@ -39,10 +41,22 @@ public class MoBile_Product {
 	}*/
 	
 	@RequestMapping("/Main_ProductList.do")
-	public void Main_ProductList(HttpServletResponse response){
+	public void Main_ProductList(@RequestParam(value="searchtext",required=false)String searchtext, HttpServletResponse response){
+		ArrayList<Product> listProduct = new ArrayList<>();
+		
 		System.out.println("main gogo");
 		
-		List<Product> listProduct = daoP.M_Main_List();
+		System.out.println(searchtext);
+		
+		if(!searchtext.equals("")){
+			
+			listProduct = (ArrayList<Product>)daoP.M_Main_search(searchtext);		
+			System.out.println(listProduct.get(0).getM_id() + "¶ó¶ó");
+			
+		}else{	
+		
+			listProduct = (ArrayList<Product>)daoP.M_Main_List();
+		}
 		
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("MainList", listProduct);
