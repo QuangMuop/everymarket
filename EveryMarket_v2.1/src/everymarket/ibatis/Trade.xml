@@ -187,7 +187,21 @@
 
 	<!-- 포인트 비교하여 거래 가능 여부 정하기 -->
 
+	<!-- 모바일용 -->
+	<select id="m_getBuyingTrade" resultClass="Trade">
+		select p.p_name, p.p_price, t.t_status
+		from trade t
+		join product p 
+		on t.p_id = p.p_id
+		where t.t_buyer = #m_id#
+	</select>
 
-
+	<select id="m_getSellingTrade" resultClass="Trade">
+		select p.p_name, p.p_price, t.t_status
+		from trade t
+		join product p 
+		on t.p_id = p.p_id
+		where t.t_seller = #m_id#
+	</select>
 
 </sqlMap>

@@ -24,14 +24,13 @@ public class Mobile_Trade {
 	
 	@RequestMapping("/m_getBuyList.do")
 	public void m_getBuyList(
-			HttpServletResponse response,
-			@RequestParam("m_id") String m_id){
-		System.out.println("[system] ¿äÃ»µé¾î¿È");
+			HttpServletResponse response){
+		System.out.println("[system] BuyingList¿äÃ»µé¾î¿È");
 		
-		List<Trade> listBuy = daoT.getBuyingTrade(m_id);
+		List<Trade> listBuy = daoT.m_getBuyingTrade("aa");
 				
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("listTrade", listBuy);
+		jsonObject.put("listBuy", listBuy);
 		
 		try{
 			response.setContentType("application/json");
@@ -44,14 +43,13 @@ public class Mobile_Trade {
 	
 	@RequestMapping("/m_getSellList.do")
 	public void m_getSellList(
-			HttpServletResponse response,
-			@RequestParam("m_id") String m_id){
-		System.out.println("[system] ¿äÃ»µé¾î¿È");
+			HttpServletResponse response){
+		System.out.println("[system] SellingList¿äÃ»µé¾î¿È");
 		
-		List<Trade> listSell = daoT.getSellingTrade(m_id);
+		List<Trade> listSell = daoT.getSellingTrade("aa");
 		
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("listTrade", listSell);
+		jsonObject.put("listSell", listSell);
 		
 		try{
 			response.setContentType("application/json");

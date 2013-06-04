@@ -137,7 +137,13 @@ public class TradeDao {
 		return ibatisTemplate.update("review_update", p_id);
 	}
 	
+	/*모바일용*/
+	public List<Trade> m_getBuyingTrade(String m_id){
+		return ibatisTemplate.queryForList("m_getBuyingTrade", m_id);
+	}
 	
-	
+	public List<Trade> m_getSellingTrade(String m_id){
+		return ibatisTemplate.queryForList("m_getSellingTrade", m_id);
+	}
 
 }
