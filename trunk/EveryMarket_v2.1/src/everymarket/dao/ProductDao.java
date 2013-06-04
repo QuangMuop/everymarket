@@ -138,6 +138,12 @@ public class ProductDao {
 		ibatisTemplate.update("update_trade_report", p_id);
 	}
 	
+
+	//Mobile ∏ﬁ¿Œ product list
+	public List M_Main_List(){
+		return ibatisTemplate.queryForList("listProduct_main", 10);		
+	}
+	
 	
 	
 

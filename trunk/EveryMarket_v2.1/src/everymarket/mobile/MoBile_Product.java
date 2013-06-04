@@ -20,7 +20,7 @@ public class MoBile_Product {
 		this.daoP = daoP;
 	}
 	
-	@RequestMapping("/m_getProductList.do")
+	/*@RequestMapping("/m_getProductList.do")
 	public void testAndroidd(HttpServletResponse response){
 		System.out.println("[system] ¿äÃ»µé¾î¿È");
 		
@@ -36,5 +36,26 @@ public class MoBile_Product {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}*/
+	
+	@RequestMapping("/Main_ProductList.do")
+	public void Main_ProductList(HttpServletResponse response){
+		System.out.println("main gogo");
+		
+		List<Product> listProduct = daoP.M_Main_List();
+		
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("MainList", listProduct);
+		
+		try {
+			response.setContentType("application/json");
+			response.setCharacterEncoding("EUC-KR");
+			response.getWriter().write(jsonObject.toString());			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		
+		
+		
 	}
 }
