@@ -88,6 +88,7 @@ public class FowardingController {
 		mav.addObject("product_min", product_min);
 
 		mav.setViewName("main");
+		
 		return mav;
 	}
 
