@@ -143,20 +143,24 @@ public class ProductDao {
 	public List<Product> M_Main_List(){
 		HashMap<String, Integer> map = new HashMap<>();	
 		
-		map.put("startPage", 5);
-		map.put("endPage", 12);
+		map.put("startPage", 1);
+		map.put("endPage", 10);
 		
 		return ibatisTemplate.queryForList("listProduct_main", map);	
 	}
 	
-	//검색어가 있을때
-	public List<Product> M_Main_search(String searchtext){
-		
-		
-		return ibatisTemplate.queryForList("searchProduct", searchtext);		
+	//검색어가 있을경우 Mobile 메인 product list
+	public List<Product> M_Main_search(String search_content){
+				
+		return ibatisTemplate.queryForList("M_list_search_Product", search_content);		
 		
 	}
-	
+	//카테고리가 있을경우 Mobile 메인 product list
+	public List<Product> M_Main_category(String category){
+		
+		return ibatisTemplate.queryForList("M_listProduct", category);
+				
+	}
 	
 	
 

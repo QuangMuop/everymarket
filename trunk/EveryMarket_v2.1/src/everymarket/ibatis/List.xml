@@ -62,4 +62,33 @@
 		select * from category
 		where ct_large = #category# or ct_small = #category#
 	</select>
+	
+	
+	
+	<select id="M_listProduct" resultClass="Product">
+		select * 
+		from (
+			select p.p_id, p.p_name, p.p_price, p.p_img, p.p_detail, 
+					p.p_date, p.m_id, p.ct_id, p.p_status, ROWNUM RS
+			from (
+				select *
+				from category
+				where
+				ct_small = #category# or ct_large = #category#
+			) ct
+			  join product p
+			  on p.ct_id = ct.ct_id
+		)
+		where RS BETWEEN 1 AND 10
+	</select>
+	
+	<select id="M_list_search_Product" parameterClass="String" resultClass="Product">
+		select *
+		from product
+		where p_name like '%'||#search_content#||'%'
+		or
+		p_detail like
+		'%'||#seasrch_content#||'%'
+	</select>
+	
 </sqlMap>
