@@ -46,49 +46,41 @@ public class MoBile_Product {
 			HttpServletResponse response) {
 		List<Product> listProduct = null;
 
-		System.out.println(eventname + "라라");		
 		
-		if(eventname.equals("category")){
+
+		if (eventname.equals("category")) {
+			if (category.equals("All")) {
 			
-			
-			
-		}
-		
-		
-		if (category.equals("All") && (searchtext.equals(""))) {
-			if (searchtext.equals("")) {
-				System.out.println("all이면서 검색어없을때");
 				listProduct = (ArrayList<Product>) daoP.M_Main_List();
-				System.out.println(listProduct.get(0).getP_name() + "요기");
+			} else {
+			
+				if (category.equals("Clothes")) {
+					category = "의류";
+				} else if (category.equals("Sundries")) {
+					category = "잡화";
+				} else if (category.equals("Leisure")) {
+					category = "레저";
+				} else if (category.equals("Electronicequipment")) {
+					category = "디지털가전";
+				} else if (category.equals("Book/Music")) {
+					category = "도서음반";
+				} else if (category.equals("Furniture")) {
+					category = "가구";
+				}
+				listProduct = (ArrayList<Product>) daoP
+						.M_Main_category(category);
+
 			}
 
-		} if (searchtext.equals("")) {
-
-			System.out.println(searchtext);
-			listProduct = daoP.M_Main_search("니트");
-			System.out.println("구구");
-
 		}
-
-		else {
-			System.out.println("사사");
-			if (category.equals("Clothes")) {
-				category = "의류";
-			} else if (category.equals("Sundries")) {
-				category = "잡화";
-			} else if (category.equals("Leisure")) {
-				category = "레저";
-			} else if (category.equals("Electronic equipment")) {
-				category = "디지털가전";
-			} else if (category.equals("Book/Music")) {
-				category = "도서음반";
-			} else if (category.equals("Furniture")) {
-				category = "가구";
+		if (eventname.equals("search")) {
+			if (searchtext.equals("pants")) {
+				listProduct = daoP.M_Main_search("바지");
+			} else if (searchtext.equals("neat")) {
+				listProduct = daoP.M_Main_search("니트");
 			}
 
-			listProduct = (ArrayList<Product>) daoP.M_Main_category(category);
 		}
-
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("MainList", listProduct);
 
