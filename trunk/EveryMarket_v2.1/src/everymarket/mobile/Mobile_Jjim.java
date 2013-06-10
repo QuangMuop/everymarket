@@ -2,9 +2,7 @@ package everymarket.mobile;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import everymarket.dao.JjimDao;
 import everymarket.model.Jjim;
-import everymarket.model.Member;
 import everymarket.model.Product;
 
 @Controller
