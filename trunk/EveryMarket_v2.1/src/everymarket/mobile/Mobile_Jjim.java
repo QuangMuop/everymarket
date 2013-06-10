@@ -2,16 +2,20 @@ package everymarket.mobile;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import everymarket.dao.JjimDao;
+import everymarket.model.Jjim;
+import everymarket.model.Member;
 import everymarket.model.Product;
-import everymarket.object4output.JjimResult;
 
 @Controller
 public class Mobile_Jjim {
@@ -26,9 +30,35 @@ public class Mobile_Jjim {
 		System.out.println("[system] Âò¸ñ·Ï ¿äÃ»µé¾î¿È");
 		
 		List<Product> listJjim = daoJ.getjjimList("aa");
-				
+		
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("listJjim", listJjim);
+		
+		try{
+			response.setContentType("application/json");
+			response.setCharacterEncoding("EUC-KR");
+			response.getWriter().write(jsonObject.toString());
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping("/m_registerJjim.do")
+	public void registerJjim(HttpServletResponse response,
+			@RequestParam("m_id") String m_id,
+			@RequestParam("p_id") int p_id) {
+		System.out.println("[system] m_id = " + m_id 
+				+ ", p_id = " + p_id + " Âò¿äÃ» µé¾î¿È");		
+		
+		Jjim jjim = new Jjim();
+		jjim.setJ_id(daoJ.getMaxJ_id() + 1);
+		jjim.setM_id(m_id);
+		jjim.setP_id(p_id);
+		
+		daoJ.registerJjim(jjim);
+		
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("result", "ok");
 		
 		try{
 			response.setContentType("application/json");
