@@ -117,5 +117,7 @@ public class MemberDao {
 	public void memberinfo_change(HashMap map){
 		ibatisTemplate.update("memberinfo_change", map);
 	}
-	
+	public Member getMember(String id){
+		return (Member)ibatisTemplate.queryForObject("mobile_login",id);
+	}
 }

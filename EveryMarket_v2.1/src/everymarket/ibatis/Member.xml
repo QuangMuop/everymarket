@@ -136,4 +136,9 @@
 		set m_pwd=#re_password#, m_email=#m_email#, m_phone=#m_phone#
 		where m_id=#m_id#
 	</update>
+	<select id="mobile_login" resultClass="Member">
+		select * 
+		from member 
+		where m_id = #id#
+	</select>
 </sqlMap>
