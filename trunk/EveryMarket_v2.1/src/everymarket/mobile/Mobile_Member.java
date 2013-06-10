@@ -21,9 +21,7 @@ public class Mobile_Member {
 	
 	@RequestMapping("/Member_login.do")
 	public void find_member(HttpServletResponse response,@RequestParam("id") String id,@RequestParam("pwd") String pwd){
-		
 		Member member = daoM.getMember(id);
-		String blank = null;
 		if(member!=null){
 			if(member.getM_pwd().equals(pwd)){
 				JSONObject jsonObject = new JSONObject();

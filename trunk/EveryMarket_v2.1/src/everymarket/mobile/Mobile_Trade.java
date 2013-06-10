@@ -8,10 +8,8 @@ import net.sf.json.JSONObject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import everymarket.dao.TradeDao;
-import everymarket.model.Product;
 import everymarket.model.Trade;
 
 @Controller
